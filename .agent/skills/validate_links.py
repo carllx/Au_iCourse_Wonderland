@@ -1,0 +1,88 @@
+import os
+import re
+
+def parse_definitions(file_path, id_pattern):
+    """Parses a markdown file to extract IDs based on a header pattern."""
+    ids = set()
+    if not os.path.exists(file_path):
+        print(f"Warning: Definition file not found: {file_path}")
+        return ids
+    
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            match = id_pattern.match(line)
+            if match:
+                ids.add(match.group(1))
+    return ids
+
+def validate_scripts(scripts_dir, valid_slides, valid_actions):
+    """Scans scripts for tags and validates them against known IDs."""
+    
+    # Patterns to match tags in scripts
+    # Matches [REF: Sxx_...], [SLIDE: Sxx_...], [ACTION: ACT_xx_...]
+    # We allow "Slide_ID" or just "ID" inside the tag, assuming the ID itself contains the prefix
+    tag_pattern = re.compile(r'\[(REF|SLIDE|ACTION):\s*([a-zA-Z0-9_]+)\]')
+    
+    errors = []
+    
+    if not os.path.exists(scripts_dir):
+        print(f"Error: Scripts directory not found: {scripts_dir}")
+        return
+        
+    for filename in os.listdir(scripts_dir):
+        if not filename.endswith(".md"):
+            continue
+            
+        file_path = os.path.join(scripts_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            
+        for i, line in enumerate(lines, 1):
+            matches = tag_pattern.findall(line)
+            for tag_type, tag_id in matches:
+                if tag_type in ['REF', 'SLIDE']:
+                    if tag_id not in valid_slides:
+                        # Fallback check: sometimes IDs might be referenced loosely? 
+                        # But strictly they should match.
+                        errors.append(f"{filename}:{i} - Invalid Slide Reference: '{tag_id}' (Tag: [{tag_type}: {tag_id}])")
+                elif tag_type == 'ACTION':
+                    if tag_id not in valid_actions:
+                        errors.append(f"{filename}:{i} - Invalid Action Reference: '{tag_id}' (Tag: [{tag_type}: {tag_id}])")
+
+    if errors:
+        print(f"Found {len(errors)} broken links:")
+        for e in errors:
+            print(f"  [X] {e}")
+        exit(1) # Return error code 1 for CI/CD
+    else:
+        print("✅ Link Validation Passed: All references point to valid definitions.")
+
+if __name__ == "__main__":
+    # 1. Setup Paths (Relative to where script is run, usually project root)
+    # The script is in .agent/skills/validate_links.py
+    # So __file__ is /path/to/.agent/skills/validate_links.py
+    # dirname -> skills
+    # dirname -> .agent
+    # dirname -> root
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+    
+    slide_db_path = os.path.join(base_dir, "02_Visuals", "Slide_Database.md")
+    action_map_path = os.path.join(base_dir, "03_MVP_Demo", "Action_Map.md")
+    scripts_dir = os.path.join(base_dir, "01_Scripts")
+    
+    print(f"Validating project at: {base_dir}")
+    
+    # 2. Parse Definitions
+    # Slides: ## S01_Title (Supports S02b)
+    slide_id_pattern = re.compile(r'^##\s+(S[a-zA-Z0-9]+_[a-zA-Z0-9_]+)')
+    valid_slides = parse_definitions(slide_db_path, slide_id_pattern)
+    print(f"Loaded {len(valid_slides)} Visual Slides.")
+    
+    # Actions: ## ACT_00_Play_Bad_Audio (Supports ACT_00b)
+    # Note: action map starts with ## ACT_...
+    action_id_pattern = re.compile(r'^##\s+(ACT_[a-zA-Z0-9]+_[a-zA-Z0-9_]+)') 
+    valid_actions = parse_definitions(action_map_path, action_id_pattern)
+    print(f"Loaded {len(valid_actions)} MVP Actions.")
+    
+    # 3. Validate
+    validate_scripts(scripts_dir, valid_slides, valid_actions)

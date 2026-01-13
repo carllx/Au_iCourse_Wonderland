@@ -1,0 +1,30 @@
+name: Verify Courseware Quality
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  validate-scripts:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Validate Cross-References (Links)
+      run: |
+        # Ensure the script is executable or run with python
+        python3 .agent/skills/validate_links.py
+      continue-on-error: false
+
+    - name: Check Script Duration & Word Count
+      run: |
+        python3 .agent/skills/validate_script_length.py
+      continue-on-error: false
