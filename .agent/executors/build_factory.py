@@ -15,7 +15,9 @@ DEMO_DIR = os.path.join(BASE_DIR, "03_MVP_Demo")
 def read_file(path):
     """Reads a file and returns its content. Returns error string if not found."""
     if not os.path.exists(path):
-        return f"[ERROR: File not found: {path}]"
+        # [Security Fix] V-02: Prevent silent failure
+        print(f"[FATAL ERROR] Critical component missing: {path}")
+        sys.exit(1)
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
@@ -34,31 +36,35 @@ def build_writer_prompt(section):
     # and ask LLM to focus on the specific section.
     
     # 3. Assemble
+    # 3. Assemble
     prompt = f"""
-# SYSTEM PROMPT: COURSEWARE WRITER AGENT
+# SYSTEM PROMPT: COURSEWARE WRITER AGENT (课件写作 Agent)
 
-## 1. IDENTITY & STYLE (The "Who")
+## 1. IDENTITY & STYLE (身份与风格)
 {persona}
 
-## 2. THE MISSION (The "What")
-You are tasked to write the transcript for **{section}**.
-Your instructions are defined in the Skill below:
+## 2. THE MISSION (任务目标)
+你现在的任务是为 **{section}** 章节编写逐字稿。
+你的指令定义在以下的技能文档中：
 
 {skill}
 
-## 3. CONTEXT & KNOWLEDGE (The "Brain")
-### A. Course Structure (The Master Plan)
+## 3. CONTEXT & KNOWLEDGE (上下文与知识库)
+### A. Course Structure (课程结构与教学逻辑)
 {structure}
 
-### B. Action Dictionary (The Moves)
+### B. Action Dictionary (演示动作映射表)
 {actions}
 
-### C. Textbook Index (The Truth)
+### C. Textbook Index (教材知识库 - 唯一真理源)
 {knowledge_index}
 
-## 4. IMMEDIATE EXECUTION TRIGGER
-> Please write the full verbatim transcript for module: **{section}**.
-> Adhere strictly to the "Style" and "Deep Listening" rules defined above.
+## 4. IMMEDIATE EXECUTION TRIGGER (立即执行指令)
+> 请为章节 **{section}** 编写完整的、逐字的讲稿。
+> **关键约束**：
+> 1. **语言**：必须严格使用 **简体中文**。
+> 2. **风格**：严格遵循 "LinXin_Voice" (林昕) 的导演口吻。
+> 3. **留白**：必须包含 "Deep Listening" (深听) 环节。
 """
     return prompt
 
@@ -73,19 +79,20 @@ def build_auditor_prompt(target_file):
     
     # 3. Assemble
     prompt = f"""
-# SYSTEM PROMPT: PEDAGOGY AUDITOR AGENT
+# SYSTEM PROMPT: PEDAGOGY AUDITOR AGENT (教学审查 Agent)
 
-## 1. THE MISSION
-You are the Quality Control Auditor. Your job is to verify the following transcript against strict educational standards.
+## 1. THE MISSION (任务目标)
+你是质量控制审计员。你的工作是根据严格的教育标准审查以下逐字稿。
 
-## 2. AUDIT CRITERIA (The Rules)
+## 2. AUDIT CRITERIA (审查标准)
 {skill}
 
-## 3. DOCUMENT TO AUDIT
+## 3. DOCUMENT TO AUDIT (待审查文档)
 {target_content}
 
-## 4. IMMEDIATE EXECUTION TRIGGER
-> Please output the "Audit Report" as defined in the rules above.
+## 4. IMMEDIATE EXECUTION TRIGGER (立即执行指令)
+> 请根据上述规则输出 "审计报告 (Audit Report)"。
+> **语言要求**：所有评价和建议必须使用 **简体中文**。
 """
     return prompt
 

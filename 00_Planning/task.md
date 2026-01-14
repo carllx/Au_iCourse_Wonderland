@@ -26,3 +26,7 @@
 
 ### 5. 📜 Governance (The Law)
 - [x] **Create Protocol**: Define `.agent/rules/workflow_protocol.md` to trigger factory usage. <!-- id: 11 -->
+
+### 6. 🔒 Security & Protocol Audit
+- [x] **Vulnerability Scan**: Identify risks in agent activation (Language Protocol, Silent Failures). <!-- id: 12 -->
+- [x] **Hardening**: Patch `build_factory.py` to strict Chinese Output and Fatal Error handling. <!-- id: 13 -->

@@ -109,6 +109,7 @@ Project_Root/
 *   **Writer Agent (执行)**:
     *   *Trigger*: `python3 .agent/executors/build_factory.py --task writer`
     *   *Mechanism*: 自动装配 `LinXin_Voice` + `Textbook_Index` + `Action_Map`。
+    *   *Protocol*: **[Strict Chinese]** 强制输出简体中文 Prompt，杜绝英文污染；**[Fail Fast]** 核心组件缺失时立即通过 `sys.exit(1)` 阻断执行。
     *   *Output*: 包含 "Deep Listening" 留白的严格脚本。
 
 *   **Auditor Agent (审查)**:
