@@ -102,23 +102,31 @@ Project_Root/
 
 **优势**：AI 可以编写脚本来自动验证完整性（例如：检查脚本里引用的 PPT 是否真的存在）。
 
-### 3. AI 智能体介入流程 (Agent Workflows)
+### 3. AI 智能体介入流程 (Active Agent Architecture)
 
-在 IDE 中，我们可以定义以下“虚拟角色”辅助您：
+> **核心变更**: 从“文档驱动”转变为“代码驱动”。
 
-*   **备课执行 (Writer Agent)**:
-    *   *Input*: `Content_Strategy.md` + `Reference_Manual`
-    *   *Task*: 生成 `S0x_xxx.md`
-    *   *Constraint*: 必须遵循 `LinXin_Voice.md`。
-*   **教学审查 (Pedagogy Auditor)**:
-    *   *Trigger*: 当 `S0x` 文件更新时。
-    *   *Check*: 每一段 Demo 前是否有“导演决策”？是否有“声音立场”的引导？
-*   **灵感启发 (Creative Muse)**:
-    *   *Task*: 扫描 `S0x` 文本，寻找抽象概念，在 `Slide_Database.md` 中建议“电影隐喻”（如扫描到“回声”，建议“爱丽丝掉进兔子洞”）。
+*   **Writer Agent (执行)**:
+    *   *Trigger*: `python3 .agent/executors/build_factory.py --task writer`
+    *   *Mechanism*: 自动装配 `LinXin_Voice` + `Textbook_Index` + `Action_Map`。
+    *   *Output*: 包含 "Deep Listening" 留白的严格脚本。
+
+*   **Auditor Agent (审查)**:
+    *   *Trigger*: `python3 .agent/executors/build_factory.py --task auditor`
+    *   *Check*: 检查“导演思维”与“深听留白”。
+
+*   **Muse Agent (灵感)**:
+    *   *Constraint*: 仅在 `00_Structure_Map` 阶段通过 `rules/creative_muse.md` 介入。
 
 ---
 
 ## 课程内容策略 (Content Strategy)
+
+### 1. 核心策略：Deep Listening (深听)
+针对时长不足的问题，我们**放弃水时长**，转为**增加听觉体验**。
+在 S02, S04, S05 环节中，强制植入 **3-5分钟的“深听/导听”环节**。
+*   *形式*: 播放音频 -> 留白(Silence) -> 引导学生闭眼感受 -> 揭晓答案。
+*   *价值*: 将“技术操作”转化为“听觉审美”。
 
 ### 1. 课程结构设计 (1小时 / 60分钟)
 

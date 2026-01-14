@@ -80,9 +80,36 @@ if __name__ == "__main__":
     
     # Actions: ## ACT_00_Play_Bad_Audio (Supports ACT_00b)
     # Note: action map starts with ## ACT_...
-    action_id_pattern = re.compile(r'^##\s+(ACT_[a-zA-Z0-9]+_[a-zA-Z0-9_]+)') 
+    action_id_pattern = re.compile(r'^##\s+(ACT_\S+)') 
     valid_actions = parse_definitions(action_map_path, action_id_pattern)
     print(f"Loaded {len(valid_actions)} MVP Actions.")
     
     # 3. Validate
+    # We now also check if the DEFINITIONS themselves point to real files
+    # But for now, let's at least check valid_scripts -> valid_slides/actions logic
+    # AND verify that the defined Actions point to real assets if mentioned.
+    
     validate_scripts(scripts_dir, valid_slides, valid_actions)
+    
+    # 4. Physical Asset Validation (New Feature)
+    print("\n🔍 Validating Physical Assets...")
+    missing_assets = []
+    
+    # Scan Action Map for "assets/..." references
+    with open(action_map_path, 'r', encoding='utf-8') as f:
+        for line_num, line in enumerate(f, 1):
+            # Look for: * **File**: `assets/filename.wav` or just assets/filename.wav
+            match = re.search(r'(assets/[a-zA-Z0-9_]+\.\w+)', line)
+            if match:
+                relative_path = match.group(1)
+                full_path = os.path.join(base_dir, "03_MVP_Demo", relative_path)
+                if not os.path.exists(full_path):
+                    missing_assets.append(f"Action_Map.md:{line_num} - Missing Asset: {relative_path}")
+    
+    if missing_assets:
+        print(f"❌ Found {len(missing_assets)} missing physical assets:")
+        for m in missing_assets:
+            print(f"  [X] {m}")
+        exit(1)
+    else:
+        print("✅ Asset Validation Passed: All referenced audio files exist.")

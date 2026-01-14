@@ -59,3 +59,21 @@
 *   **Param**:
     *   `Stereo Expand`: **150%** (Artificial Wide).
 *   **Center Channel**: Keep `Center Pan` at 0.
+
+## ACT_Listen_Silence (深听：真空黑洞)
+*   **Action**: Mute all tracks. Close eyes.
+*   **Duration**: 30s.
+*   **Goal**: Feel the "pressure" of absolute silence vs. room tone.
+*   **Director's Call**: "Do you feel uncomfortable? Good. That's the void."
+
+## ACT_Listen_Tail (深听：混响尾音)
+*   **Action**: Play a short burst ("Hello?").
+*   **Duration**: 45s.
+*   **Goal**: Count the seconds until the sound completely vanishes.
+*   **Director's Call**: "1... 2... 3... It's still there. That's the Reverb Tail."
+
+## ACT_Listen_Width (深听：声场边缘)
+*   **Action**: Use headphones. Toggle Stereo Expander On/Off.
+*   **Duration**: 40s.
+*   **Goal**: Use fingers to point to where the sound comes from.
+*   **Director's Call**: "First it's between your eyes. Now... it's behind your ears."

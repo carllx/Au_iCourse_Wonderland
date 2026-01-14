@@ -17,8 +17,27 @@
 *   `01_Scripts/`: 课程逐字稿 (Markdown)
 *   `02_Visuals/`: PPT 视觉数据库
 *   `03_MVP_Demo/`: 演示操作映射表
-*   `.agent/skills/`: 自动化校验工具脚本
+*   `.agent/`: **[核心] 智能体工程**
+    *   `executors/`: 提示词装配工厂 (`build_factory.py`)
+    *   `rules/`: 行为准则 (`workflow_protocol.md`)
+    *   `skills/`: 技能定义与校验脚本
+
+## 🤖 智能体工作流 (Active Agent Workflow)
+
+本项目强制采用 **“工厂模式” (Prompt Factory)** 进行内容生成。
+
+1.  **生成脚本 (Writer Mode)**:
+    ```bash
+    python3 .agent/executors/build_factory.py --task writer --section S02
+    ```
+2.  **审查质量 (Auditor Mode)**:
+    ```bash
+    python3 .agent/executors/build_factory.py --task auditor --file 01_Scripts/S02.md
+    ```
+
+> **Note**: 严禁 AI 凭空生成内容。必须执行上述指令获取 Context。
 
 ## 当前状态
-*   ✅ S01-S05 脚本技术深度修正完成
-*   ⚠️ 课程时长估算不足 (需扩充内容)
+*   ✅ **工程升级**: 完成 "Active Agent" 架构改造。
+*   ✅ **策略升级**: 引入 "Deep Listening" (深听) 策略，填补时长缺口。
+*   🔄 **执行中**: S02-S05 脚本重构中。

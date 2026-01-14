@@ -27,53 +27,53 @@
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
 | :--- | :--- | :--- | :--- | :--- |
-| **5-8'** | Theory (N) | 采样降噪原理：抓通缉犯(Sample) -> 全城搜捕(Process)。解释“信噪比”。 | `[SLIDE: S05_Visual_Matrix]` (采样原理图示意) | N/A |
-| **8-10'** | **Director's Choice** | **决策时刻**：我们要“死寂的真空”(Matrix白空间) 还是 “真实的房间”(带底噪)？<br>*决定：为了做梦境，选真空。* | `[SLIDE: S05_Visual_Matrix]` (黑客帝国白色空间静帧) | N/A |
-| **10-15'** | Workshop | 执行降噪。重点演示：Capture Noise Print -> Reduce Noise。**故意演示过度降噪的水下音(Artifacts)**。 | `[SLIDE: S05_Visual_Matrix]` (操作步骤概览) | `[ACTION: ACT_01_Capture_Print]`<br>`[ACTION: ACT_02_Reduce_Noise]` |
+| **05-08'** | Theory (N) | 采样降噪原理：抓通缉犯(Sample) -> 全城搜捕(Process)。解释“信噪比”。 | `[SLIDE: S05_Visual_Matrix]` (采样原理图示意) | N/A |
+| **08-11'** | **Guided Listening** | **深听时刻**：播放绝对静音 vs 真实底噪。闭眼感受“真空的压迫感”。(留白 3min) | `[SLIDE: S05_Visual_Matrix]` (黑客帝国白色空间) | `[ACTION: ACT_Listen_Silence]` |
+| **11-13'** | **Director's Choice** | **决策时刻**：我们要“死寂的真空”(Matrix白空间) 还是 “真实的房间”(带底噪)？<br>*决定：为了做梦境，选真空。* | `[SLIDE: S05_Visual_Matrix]` | N/A |
+| **13-18'** | Workshop | 执行降噪。重点演示：Capture Noise Print -> Reduce Noise。**故意演示过度降噪的水下音(Artifacts)**。 | `[SLIDE: S05_Visual_Matrix]` (操作步骤概览) | `[ACTION: ACT_01_Capture_Print]`<br>`[ACTION: ACT_02_Reduce_Noise]` |
 
 ---
 
 ## 模块三：塑形 (S03_Phase2_Sculpt)
-*   **Time**: 15:00 - 30:00
+*   **Time**: 18:00 - 33:00
 *   **Theme**: 创造角色性格
 *   **Tech**: 6.8 人声增强 (Vocal Enhancer) / 6.10 变调 (Pitch Shifter)
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
 | :--- | :--- | :--- | :--- | :--- |
-| **15-20'** | Theory (C/E) | 声音的“易容术”。变调(Pitch)改变骨相，增强(Enhance)改变皮相。 | `[SLIDE: S08_Visual_Alice_Drink]` (共振峰示意图) | N/A |
-| **20-22'** | **Director's Choice** | **决策时刻**：爱丽丝是“变大了”(巨人/低沉) 还是 “变小了”(花栗鼠/尖细)？<br>*决定：变小了，但在听觉上，我们要把环境变大，所以人声要显得渺小（高频多一点）或为了反差显得巨大（低频多一点）？此处选择：**巨人视角（低沉）以体现梦境的怪诞**。* | `[SLIDE: S08_Visual_Alice_Drink]` (爱丽丝喝药水变身静帧) | N/A |
-| **22-30'** | Workshop | 1. 一键美颜(Vocal Enhancer Male/Female)。2. 手动整容(Pitch Shifter)。演示 Semitones 的微调。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[ACTION: ACT_03_Vocal_Enhancer]`<br>`[ACTION: ACT_04_Pitch_Shift]` |
+| **18-23'** | Theory (C/E) | 声音的“易容术”。变调(Pitch)改变骨相，增强(Enhance)改变皮相。 | `[SLIDE: S08_Visual_Alice_Drink]` (共振峰示意图) | N/A |
+| **23-25'** | **Director's Choice** | **决策时刻**：爱丽丝是“变大了”(巨人/低沉) 还是 “变小了”(花栗鼠/尖细)？<br>*决定：变小了...* | `[SLIDE: S08_Visual_Alice_Drink]` (爱丽丝喝药水变身静帧) | N/A |
+| **25-33'** | Workshop | 1. 一键美颜(Vocal Enhancer)。2. 手动整容(Pitch Shifter)。<br>**导听**：闭眼辨别 +3 semitones 与 +5 semitones 的区别 (精灵 vs 老鼠)。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[ACTION: ACT_03_Vocal_Enhancer]`<br>`[ACTION: ACT_04_Pitch_Shift]` |
 
 ---
 
 ## 模块四：置景 (S04_Phase3_Space)
-*   **Time**: 30:00 - 45:00
+*   **Time**: 33:00 - 48:00
 *   **Theme**: 构建虚拟空间
 *   **Tech**: 6.7 卷积混响 (Convolution Reverb)
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
 | :--- | :--- | :--- | :--- | :--- |
-| **30-35'** | Theory (B) | 混响不是回声。它是空间的指纹。卷积混响 = 空间的“克隆技术”。 | `[SLIDE: S11_Visual_RabbitHole]` (脉冲响应示意) | N/A |
-| **35-37'** | **Director's Choice** | **决策时刻**：她在窄小的兔子洞，还是掉进了无底深渊？<br>*决定：无底深渊。听众悬浮在空中。* | `[SLIDE: S11_Visual_RabbitHole]` (爱丽丝掉进洞静帧) | N/A |
-| **37-45'** | Workshop | 加载 IR (Impulse Response)。调整 Wet/Dry。**对比：100% Wet (幽灵模式) vs 50% Wet (在场模式)。** | `[SLIDE: S11_Visual_RabbitHole]` | `[ACTION: ACT_05_Convolution_Load]`<br>`[ACTION: ACT_06_Mix_WetDry]` |
+| **33-38'** | Theory (B) | 混响不是回声。它是空间的指纹。卷积混响 = 空间的“克隆技术”。 | `[SLIDE: S11_Visual_RabbitHole]` (脉冲响应示意) | N/A |
+| **38-41'** | **Guided Listening** | **深听时刻**：加载 "Cathedral" 脉冲。数秒尾音消失的时间。(留白 3min) | `[SLIDE: S11_Visual_RabbitHole]` | `[ACTION: ACT_Listen_Tail]` |
+| **41-48'** | Workshop | 加载 IR (Impulse Response)。调整 Wet/Dry。**对比：100% Wet (幽灵模式) vs 50% Wet (在场模式)。** | `[SLIDE: S11_Visual_RabbitHole]` | `[ACTION: ACT_05_Convolution_Load]`<br>`[ACTION: ACT_06_Mix_WetDry]` |
 
 ---
 
 ## 模块五：定位 (S05_Phase4_Position)
-*   **Time**: 45:00 - 55:00
+*   **Time**: 48:00 - 58:00
 *   **Theme**: 导演舞台调度
 *   **Tech**: 6.9 立体声扩展 (Stereo Expander)
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
 | :--- | :--- | :--- | :--- | :--- |
-| **45-48'** | Theory (O) | 立体声宽度(Width)与声像(Pan)。不仅是左右，更是“包围感”。 | `[SLIDE: S14_Visual_Inception]` (声场扇形图) | N/A |
-| **48-50'** | **Director's Choice** | **决策时刻**：这是回忆（老电影/窄）还是现实冲击（IMAX/宽）？<br>*决定：梦境的崩塌，极宽的声场，让声音从四面八方压过来。* | `[SLIDE: S14_Visual_Inception]` (盗梦空间折叠城市静帧) | N/A |
-| **50-55'** | Workshop | 扩展 Width > 150%。注意相位抵消警告（变红）。人声保持 Center，BGM 拉宽。 | `[SLIDE: S14_Visual_Inception]` | `[ACTION: ACT_07_Stereo_Expand]` |
+| **48-51'** | Theory (O) | 立体声宽度(Width)与声像(Pan)。不仅是左右，更是“包围感”。 | `[SLIDE: S14_Visual_Inception]` (声场扇形图) | N/A |
+| **51-54'** | **Guided Listening** | **深听时刻**：戴耳机。感受声音从脑中跑到脑后的过程。判断 Width 的极限。(留白 3min) | `[SLIDE: S14_Visual_Inception]` | `[ACTION: ACT_Listen_Width]` |
+| **54-58'** | Workshop | 扩展 Width > 150%。注意相位抵消警告（变红）。 | `[SLIDE: S14_Visual_Inception]` | `[ACTION: ACT_07_Stereo_Expand]` |
 
 ---
 
 ## 模块六：总结 (S06_Summary)
-*   **Time**: 55:00 - 60:00
+*   **Time**: 58:00 - 63:00
 *   **Theme**: 剧场谢幕
-*   **Content**: 完整回放 "Alice Sequence"。复盘 N-B-C-O-E。布置作业：找一段话，做两个版本（现实版 vs 梦境版）。
 *   **Visual**: `[SLIDE: S16_Summary_Loop]` (净化-塑形-置景-定位 闭环图)
