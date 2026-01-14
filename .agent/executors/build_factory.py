@@ -21,6 +21,46 @@ def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
+def extract_section(content, section_id):
+    """
+    [Fix V-03/V-05] Context Slicing
+    Extracts only the relevant section from the markdown content (plus global header).
+    """
+    lines = content.split('\n')
+    header_lines = []
+    section_lines = []
+    
+    # 1. Capture Global Header (Metadata before first H2)
+    for line in lines:
+        if line.startswith('## '):
+            break
+        header_lines.append(line)
+        
+    # 2. Capture Target Section
+    capturing = False
+    found = False
+    
+    for line in lines:
+        # Start capturing when we find the Section ID in an H2 header
+        if line.startswith('## ') and section_id in line:
+            capturing = True
+            found = True
+            section_lines.append(line)
+            continue
+            
+        # Stop capturing when we hit the next H2 header
+        if capturing and line.startswith('## '):
+            break
+            
+        if capturing:
+            section_lines.append(line)
+            
+    if not found:
+        # Fallback for safety, though V-02 enforces file existence, this handles missing ID
+        return f"[WARNING] Section '{section_id}' not found. Returning full content.\n\n" + content
+        
+    return '\n'.join(header_lines + ["\n"] + section_lines)
+
 def build_writer_prompt(section):
     """Assembles the prompt for the Writer Agent."""
     
@@ -31,11 +71,10 @@ def build_writer_prompt(section):
     structure = read_file(os.path.join(SCRIPTS_DIR, "00_Structure_Map.md"))
     actions = read_file(os.path.join(DEMO_DIR, "Action_Map.md"))
     
-    # 2. Extract Specific Section from Structure (Naive text search for demo)
-    # real impl might parse markdown properly, but here we dump the whole structure 
-    # and ask LLM to focus on the specific section.
+    # 2. [Safe Slice] Extract Specific Section
+    # Fix V-03: Only inject the relevant section of the structure map
+    sliced_structure = extract_section(structure, section)
     
-    # 3. Assemble
     # 3. Assemble
     prompt = f"""
 # SYSTEM PROMPT: COURSEWARE WRITER AGENT (课件写作 Agent)
@@ -50,8 +89,8 @@ def build_writer_prompt(section):
 {skill}
 
 ## 3. CONTEXT & KNOWLEDGE (上下文与知识库)
-### A. Course Structure (课程结构与教学逻辑)
-{structure}
+### A. Course Structure (课程结构与教学逻辑 - Current Slice)
+{sliced_structure}
 
 ### B. Action Dictionary (演示动作映射表)
 {actions}

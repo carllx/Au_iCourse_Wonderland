@@ -43,7 +43,8 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **18-23'** | Theory (C/E) | 声音的“易容术”。变调(Pitch)改变骨相，增强(Enhance)改变皮相。 | `[SLIDE: S08_Visual_Alice_Drink]` (共振峰示意图) | N/A |
 | **23-25'** | **Director's Choice** | **决策时刻**：爱丽丝是“变大了”(巨人/低沉) 还是 “变小了”(花栗鼠/尖细)？<br>*决定：变小了...* | `[SLIDE: S08_Visual_Alice_Drink]` (爱丽丝喝药水变身静帧) | N/A |
-| **25-33'** | Workshop | 1. 一键美颜(Vocal Enhancer)。2. 手动整容(Pitch Shifter)。<br>**导听**：闭眼辨别 +3 semitones 与 +5 semitones 的区别 (精灵 vs 老鼠)。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[ACTION: ACT_03_Vocal_Enhancer]`<br>`[ACTION: ACT_04_Pitch_Shift]` |
+| **25-28'** | **Guided Listening** | **深听时刻**：闭眼辨别 **+3 semitones (人)** 与 **+5 semitones (卡通)** 的重量区别。 | `[SLIDE: S08_Visual_Alice_Drink]` | N/A |
+| **28-33'** | Workshop | 1. 手动整容(Pitch Shifter)：定调 +3。 <br>2. 一键美颜(Vocal Enhancer)：增加 Formant 厚度。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[ACTION: ACT_04_Pitch_Shift]`<br>`[ACTION: ACT_03_Vocal_Enhancer]` |
 
 ---
 

@@ -30,3 +30,14 @@
 ### 6. 🔒 Security & Protocol Audit
 - [x] **Vulnerability Scan**: Identify risks in agent activation (Language Protocol, Silent Failures). <!-- id: 12 -->
 - [x] **Hardening**: Patch `build_factory.py` to strict Chinese Output and Fatal Error handling. <!-- id: 13 -->
+
+## Phase 2: Vulnerability Mitigation & Content Generation (The Plan)
+### 1. 🛡️ Mitigation (Fixing V-Report)
+- [x] **Fix V-03/V-05 (Context Pollution)**: Implement Markdown slicing in `build_factory.py` to only inject relevant `00_Structure_Map` sections. <!-- id: 14 -->
+- [ ] **Fix V-04 (Path Hardcoding)**: [Low Priority] Refactor paths if necessary, or document requirements. <!-- id: 15 -->
+
+### 2. 📝 Content Generation & Audit
+- [x] **Regenerate/Audit S03**: Verify content against new Context Slicing logic. <!-- id: 16 -->
+- [x] **Regenerate/Audit S04**: Verify content against new Context Slicing logic. <!-- id: 17 -->
+- [x] **Regenerate/Audit S05**: Verify content against new Context Slicing logic. <!-- id: 18 -->
+- [x] **Regenerate/Audit S06**: Verify content against new Context Slicing logic. <!-- id: 19 -->

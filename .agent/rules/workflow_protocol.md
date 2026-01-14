@@ -23,3 +23,9 @@
 ## 2. 异常处理 (Exception Handling)
 *   如果 `build_factory.py` 报错 (如缺少文件)，**立即停止**任务。
 *   报告错误给用户，而不是尝试“盲写”。
+
+## 3. 进化协议 (Evolution Protocol)
+*   **当用户指出内容错误时 (When Feedback Occurs)**:
+    1.  **禁止仅修标 (No Just Fix)**: 不要只修改目标文件。
+    2.  **追根溯源 (Root Cause)**: 思考 "为什么 Prompt 没能阻止这个错误？" 或 "哪条 Rule 缺失了？"
+    3.  **更新规则 (Update Rules)**: 修改 `.agent/styles/` 或 `.agent/rules/`，确保下次生成不会重犯。
