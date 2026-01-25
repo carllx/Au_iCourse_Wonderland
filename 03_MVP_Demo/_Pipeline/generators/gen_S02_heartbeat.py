@@ -94,7 +94,8 @@ def generate_colored_noise(length, color='pink'):
         S = np.sqrt(np.arange(len(X)) + 1.)
         X = X / S
         samples = np.fft.irfft(X)
-        if uneven: samples = samples[:-1]
+        if uneven: 
+            samples = samples[:-1]
         
     # Normalize
     if np.max(np.abs(samples)) > 0:
@@ -117,7 +118,6 @@ def generate_dynamic_atmosphere(duration_sec, sample_rate=44100):
     # Slow drift between 0.2Hz and 0.5Hz
     t = np.linspace(0, duration_sec, length)
     lfo1 = np.sin(2 * np.pi * 0.2 * t) * 0.5 + 0.5 # 0 to 1
-    lfo2 = np.sin(2 * np.pi * 0.13 * t + 2) * 0.5 + 0.5
     
     # Brown noise is often steady, pink noise fluctuates
     modulated_pink = pink * (0.7 + 0.3 * lfo1) # Fluctuate by 30%

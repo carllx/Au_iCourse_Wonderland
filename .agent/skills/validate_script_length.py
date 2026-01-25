@@ -127,9 +127,6 @@ def main():
     print(f"TOTAL COURSE TIME    : {format_time(grand_total_sec)}")
     print("-" * 30)
     
-    TARGET_MIN = 55
-    TARGET_MAX = 65
-    
     grand_total_mins = grand_total_sec / 60
     
     # Define thresholds

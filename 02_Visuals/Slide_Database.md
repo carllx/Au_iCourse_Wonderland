@@ -34,6 +34,12 @@
 *   **Ref Image**: *The Matrix* Construct Scene (Neo in white space).
 *   **Caption**: "降噪不仅是修复，更是为声音创造纯白画布。"
 
+## S05b_Spectrum (Visual Aid)
+*   **Concept**: 听见真空 (Visualizing Silence)
+*   **Visual**: A Frequency Spectrum Analyzer (Dynamic).
+*   **Overlay**: A 45s Countdown Timer in the center.
+*   **Motion**: The spectrum should be flat (showing silence) or showing specific noise frequencies, keeping user attention during the listening blackout.
+
 ## S08_Visual_Alice_Drink (Metaphor)
 *   **Concept**: 塑形与变形 (Sculpt)
 *   **Ref Image**: *Alice in Wonderland* (1951 or 2010), Alice drinking the potion / Giant Alice.
@@ -44,10 +50,17 @@
 *   **Ref Image**: Alice falling down the deep rabbit hole.
 *   **Caption**: "混响定义了‘无底深渊’的深度。"
 
+## S11b_Tail_Timer (Visual Aid)
+*   **Concept**: 捕捉尾音 (Catching the Tail)
+*   **Visual**: A high-contrast "Stopwatch" or Digital Counter.
+*   **Action**: Counts up from 0s to 5s... then fades out as the sound disappears.
+*   **Goal**: Visualize the decay time for the audience.
+
 ## S14_Visual_Inception (Metaphor)
 *   **Concept**: 空间折叠/定位 (Position)
 *   **Ref Image**: *Inception* (City folding up).
 *   **Caption**: "立体声扩展 (Stereo Expand) 让现实扭曲，创造包裹感。"
+*   **Overlay**: Animated headphone icon + Radial Spectrum extending left/right.
 
 ## S16_Summary_Loop
 *   **Diagram**: Circle Flow
