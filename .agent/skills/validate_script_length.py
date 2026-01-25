@@ -109,12 +109,45 @@ def main():
     
     grand_total_mins = grand_total_sec / 60
     
-    if grand_total_mins < TARGET_MIN:
-        print(f"STATUS: SHORT. Add approx {int(TARGET_MIN - grand_total_mins)} mins of content.")
-    elif grand_total_mins > TARGET_MAX:
-        print(f"STATUS: LONG. Cut approx {int(grand_total_mins - TARGET_MAX)} mins of content.")
+    # Define thresholds
+    MIN_PASS = 55
+    MAX_PASS = 65
+    
+    MIN_WARN = 45
+    MAX_WARN = 75
+    
+    if grand_total_mins < MIN_WARN:
+        # Severe Under (< 45 min)
+        # Using ::error:: for red visibility, but exiting 0 to not block.
+        print(f"::error title=Course Duration Critical::Severe Shortage! Total: {format_time(grand_total_sec)}. Target: 60m.")
+        print(f"STATUS: CRITICAL SHORT. Add {int(MIN_PASS - grand_total_mins)} mins immediately.")
+    
+    elif grand_total_mins > MAX_WARN:
+        # Severe Over (> 75 min)
+        print(f"::error title=Course Duration Critical::Severe Any! Total: {format_time(grand_total_sec)}. Target: 60m.")
+        print(f"STATUS: CRITICAL LONG. Cut {int(grand_total_mins - MAX_PASS)} mins immediately.")
+
+    elif grand_total_mins < MIN_PASS:
+        # Warning Under (45-55 min)
+        print(f"::warning title=Course Duration Warning::Slightly Short. Total: {format_time(grand_total_sec)}.")
+        print(f"STATUS: SHORT (Yellow). Consider adding {int(MIN_PASS - grand_total_mins)} mins.")
+
+    elif grand_total_mins > MAX_PASS:
+        # Warning Over (65-75 min)
+        print(f"::warning title=Course Duration Warning::Slightly Long. Total: {format_time(grand_total_sec)}.")
+        print(f"STATUS: LONG (Yellow). Consider cutting {int(grand_total_mins - MAX_PASS)} mins.")
+
     else:
-        print("STATUS: PERFECT. Within 60min standard (+/- 5min).")
+        # Green (55-65 min)
+        print(f"::notice title=Course Duration Passed::Perfect! Total: {format_time(grand_total_sec)}.")
+        print("STATUS: PERFECT (Green). Within 60min standard.")
+
+    # Always exit 0 to not block CI unless specifically desired, 
+    # but the ::error annotations will mark the run as "check failed" in some views 
+    # while letting the pipeline continue if 'continue-on-error' is set or if exit code is 0 (annotations don't stop build unless exit code != 0).
+    # Wait, actually ::error:: annotation does NOT automatically fail the build if return code is 0. 
+    # It just shows a red failure annotation. This is exactly what user wants.
+    exit(0)
 
     print("\n(Params: CN Speed=240cpm, EN Speed=130wpm, Action=15s, Playback=20s)")
 
