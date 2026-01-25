@@ -4,6 +4,10 @@
 
 This project operates in two distinct modes. **You must determine your current mode based on the User's Request.**
 
+## 🛡️ Global Protocols (Always Active)
+*   `.agent/rules/workflow_protocol.md`: **[PRIME DIRECTIVE]** No naked generation. Factory pattern required.
+*   `.agent/rules/meta_learning.md`: **[EVOLUTION]** Update documentation when you learn/fix something.
+
 ---
 
 ## 🏗️ Mode A: Engineer (Default)
