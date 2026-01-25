@@ -17,14 +17,44 @@ def analyze_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Pre-cleaning
+    # 1. Count "Time Sinks" (Actions & Playback) BEFORE cleaning
+    # Matches lines starting with (操作 or [ACTION or (播放
+    action_counts = len(re.findall(r'\(操作:|\[ACTION:', content))
+    playback_counts = len(re.findall(r'\(播放', content))
+
+    # 2. Clean Text for Speech Counting
+    # 2. Clean Text for Speech Counting
+    # STRATEGY: Structure over Content
+    
+    # Remove Metadata (lines starting with >)
+    content_clean = re.sub(r'^>.*$', '', content, flags=re.MULTILINE)
+    
+    # Remove Headers (lines starting with #)
+    content_clean = re.sub(r'^#+.*$', '', content_clean, flags=re.MULTILINE)
+    
+    # Remove Stage Directions (Strict Structural Rule)
+    # Rule: Any line that looks like **(...)** is a stage direction.
+    # Regex: Start of line, optional whitespace, **, (, anything, ), **, optional whitespace, End of line.
+    content_clean = re.sub(r'^\s*\*\*\(.*?\)\*\*\s*$', '', content_clean, flags=re.MULTILINE)
+    
+    # Remove Standalone Tags [ACTION:...]
+    content_clean = re.sub(r'\[(ACTION|SLIDE|REF).*?\]', '', content_clean, flags=re.IGNORECASE)
+    
+    # Remove explicit visual cues if they slipped into text (fallback)
+    # Still keep this but make it less aggressive? 
+    # Actually, user wants to rely on rules. Let's stick to the Structural Rule mostly.
+    # But for backward compatibility with existing files (S01, S02), 
+    # we might need to support the old (操作:...) format until they are refactored.
+    # However, to be "Robust", we should encourage updating the files.
+    # For now, I will keep the explicit parenthesis removal for safety, but make it work inline too.
+    content_clean = re.sub(r'\((操作|PPT|镜头|播放|Deep Listening|Demonstration|Demo|Ref|Action).*?\)', '', content_clean, flags=re.IGNORECASE)
+    
     # Remove image links completely: ![alt](url)
-    content_no_imgs = re.sub(r'!\[.*?\]\(.*?\)', '', content)
+    content_clean = re.sub(r'!\[.*?\]\(.*?\)', '', content_clean)
     # Replace links with text: [text](url) -> text
-    content_clean = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', content_no_imgs)
-    # Remove headers markers
-    content_clean = re.sub(r'#{1,6}\s', '', content_clean)
-    # Remove bold/italic markers
+    content_clean = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', content_clean)
+    
+    # Remove formatting markers (*, _)
     content_clean = content_clean.replace('*', '').replace('_', '')
 
     # 1. Count Text
@@ -34,14 +64,7 @@ def analyze_file(file_path):
     english_words = re.findall(r'[a-zA-Z0-9]+', content_clean)
     num_english = len(english_words)
 
-    # 2. Count "Time Sinks" (Actions & Playback)
-    # Looking for patterns like (操作: ...), (播放...), [ACTION: ...]
-    # We'll use a regex to capture these directive lines.
-    
-    # Matches lines starting with (操作 or [ACTION or (播放
-    # Or embedded markers.
-    action_counts = len(re.findall(r'\(操作:|\[ACTION:', content))
-    playback_counts = len(re.findall(r'\(播放', content))
+    # (Action counts moved to top)
 
     return {
         "cn": num_chinese,
