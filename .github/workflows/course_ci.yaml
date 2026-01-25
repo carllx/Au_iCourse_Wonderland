@@ -7,32 +7,49 @@ on:
     branches: [ "main", "master" ]
 
 jobs:
-  validate:
+  quality-gate:
+    name: 🛡️ Quality Gate
     runs-on: ubuntu-latest
     permissions:
       contents: read
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
         python-version: "3.10"
 
-    - name: Install Dependencies
+    - name: Install Python Tools
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        # If skills have specific deps, add them here. 
-        # Currently standard lib or lightweight.
-        # numpy/scipy needed for some asset generation but not for VALIDATION scripts usually,
-        # unless validation imports them. 
-        # Check: validate_links (os, re) - Safe.
-        # Check: validate_script_length (os, re) - Safe.
+        pip install ruff numpy scipy matplotlib
 
-    - name: 1. Validate Links & Assets
+    # ------------------------------------------------------------------
+    # 1. Code Intelligence (Linter)
+    # ------------------------------------------------------------------
+    - name: 🐍 Lint Python (Ruff)
+      run: |
+        # E=Error, F=Pyflakes, W=Warning. 
+        # We start gentle.
+        ruff check . --select=E,F,W --ignore=E501
+
+    # ------------------------------------------------------------------
+    # 2. Project Logic (Custom Validators)
+    # ------------------------------------------------------------------
+    - name: 🔗 Validate Links & Assets
       run: python .agent/skills/validate_links.py
 
-    - name: 2. Check Course Duration
+    - name: ⏱️ Check Course Duration
       run: python .agent/skills/validate_script_length.py
+
+    # ------------------------------------------------------------------
+    # 3. Text Intelligence (Spell Check)
+    # ------------------------------------------------------------------
+    - name: 📝 Check Spelling (Typos)
+      uses: crate-ci/typos@master
+      with:
+        # Ignore specific file types or folders if needed
+        files: .
+        # Default config usually works well, can be tuned with typos.toml
