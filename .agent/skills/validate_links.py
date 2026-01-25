@@ -98,8 +98,9 @@ if __name__ == "__main__":
     # Scan Action Map for "assets/..." references
     with open(action_map_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
-            # Look for: * **File**: `assets/filename.wav` or just assets/filename.wav
-            match = re.search(r'(assets/[a-zA-Z0-9_]+\.\w+)', line)
+            # Look for: `_Library/...` references
+            # Regex captures: _Library/S02_Purify/asset_name.wav
+            match = re.search(r'(_Library/[a-zA-Z0-9_/-]+\.\w+)', line)
             if match:
                 relative_path = match.group(1)
                 full_path = os.path.join(base_dir, "03_MVP_Demo", relative_path)

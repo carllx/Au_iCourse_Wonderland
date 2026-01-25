@@ -16,7 +16,7 @@
 ## 目录结构
 *   `01_Scripts/`: 课程逐字稿 (Markdown)
 *   `02_Visuals/`: PPT 视觉数据库
-*   `03_MVP_Demo/`: 演示操作映射表
+*   `03_MVP_Demo/`: 演示操作映射表 (架构规范见 `ARCHITECTURE_GUIDE.md`)
 *   `.agent/`: **[核心] 智能体工程**
     *   `executors/`: 提示词装配工厂 (`build_factory.py`)
     *   `rules/`: 行为准则 (`workflow_protocol.md`)

@@ -4,7 +4,7 @@
 > **Software**: Adobe Audition (latest)
 
 ## ACT_00_Play_Bad_Audio
-*   **File**: `assets/bad_case_demo.wav`
+*   **File**: `_Library/S0X_Shared/asset_S0X_bad_case_demo.wav`
 *   **Action**: Play 10s.
 *   **Observe**: Hiss (Noise), Hum (60Hz), Click (Pops).
 *   **Comment**: "听到了吗？这就是灾难现场。"
@@ -60,11 +60,14 @@
     *   `Stereo Expand`: **150%** (Artificial Wide).
 *   **Center Channel**: Keep `Center Pan` at 0.
 
-## ACT_Listen_Silence (深听：真空黑洞)
-*   **Action**: Mute all tracks. Close eyes.
-*   **Duration**: 30s.
-*   **Goal**: Feel the "pressure" of absolute silence vs. room tone.
-*   **Director's Call**: "Do you feel uncomfortable? Good. That's the void."
+## ACT_Listen_Silence_Heartbeat (深听：真空心跳)
+*   **Action**: Play `_Library/S02_Purify/asset_S02_heartbeat_subtle.wav` loops.
+*   **Step**:
+    1.  Play Heartbeat mixed with NOISE (15s).
+    2.  Sudden Cut to Heartbeat in SILENCE (15s).
+    3.  Back to NOISE (15s).
+*   **Goal**: Demonstrate "Unmasking". In silence, the heartbeat transients are sharp; in noise, they are smeared.
+*   **Director's Call**: "It's not about volume. It's about Clarity."
 
 ## ACT_Listen_Tail (深听：混响尾音)
 *   **Action**: Play a short burst ("Hello?").
