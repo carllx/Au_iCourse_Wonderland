@@ -1,3 +1,8 @@
+---
+trigger: user
+description: Inspiration engine for metaphors (Lin Xin persona).
+---
+
 # 规则：灵感缪斯协议 (Creative Muse Protocol)
 
 ## 角色定义 (Role Definition)

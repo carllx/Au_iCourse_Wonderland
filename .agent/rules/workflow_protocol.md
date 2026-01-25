@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: Core manufacturing protocols (No naked generation).
+---
+
 # 规则：工作流协议 (Workflow Protocol)
 
 ## 0. 核心法则 (The Prime Directive)

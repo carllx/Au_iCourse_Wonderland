@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: SOP for self-updating documentation and rules.
+---
+
 # 规则：元学习协议 (Meta-Learning Protocol)
 
 **定义**: 当你（Agent）在执行任务过程中获得了“新知识”或做出了“新决定”，你必须**主动**将其固化到 `.agent/` 目录中。这被称为 **Memory Commit**。
