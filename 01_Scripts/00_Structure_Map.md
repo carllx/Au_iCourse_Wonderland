@@ -9,7 +9,7 @@
 
 ## 模块一：导入 (S01_Intro)
 *   **Time**: 00:00 - 05:00
-*   **Theme**: 声音导演的觉醒
+*   **Theme**: 无形(声音)空间秩序的导演的觉醒
 *   **Goal**: 建立“技术服务于表达”的观念，修补知识盲区，引出 MVP 任务。
 
 | Timeline | Topic | Key Content/Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
@@ -22,7 +22,7 @@
 
 ## 模块二：净化 (S02_Phase1_Purify)
 *   **Time**: 05:00 - 11:00
-*   **Theme**: 还原纯净画布
+*   **Theme**: 驱逐现实的尘埃
 *   **Tech**: 6.6 降噪 (Noise Reduction Process)
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
@@ -35,16 +35,18 @@
 ---
 
 ## 模块三：塑形 (S03_Phase2_Sculpt)
-| **15-20'** | Theory (C/E) | 声音的“易容术”。变调(Pitch)改变骨相，增强(Enhance)改变皮相。 | `[SLIDE: S08_Visual_Alice_Drink]` (共振峰示意图) | N/A |
+*   **Time**: 15:00 - 30:00
+*   **Theme**: 身份的重量与脆弱
+*   **Tech**: 6.10 变调器 + 6.8 人声增强
 | **20-22'** | **Director's Choice** | **决策时刻**：爱丽丝是“变大了”(巨人/低沉) 还是 “变小了”(花栗鼠/尖细)？<br>*决定：变小了...* | `[SLIDE: S08_Visual_Alice_Drink]` (爱丽丝喝药水变身静帧) | N/A |
 | **22-24'** | **Guided Listening** | **深听时刻 (45s)**：闭眼辨别 **+3 semitones (人)** 与 **+5 semitones (卡通)** 的重量区别。 | `[SLIDE: S08_Visual_Alice_Drink]` | N/A |
-| **24-29'** | Workshop | 1. 手动整容(Pitch Shifter)：定调 +3。 <br>2. 一键美颜(Vocal Enhancer)：增加 Formant 厚度。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[ACTION: ACT_04_Pitch_Shift]`<br>`[ACTION: ACT_03_Vocal_Enhancer]` |
+| **24-29'** | Workshop | 1. 手动整容(Pitch Shifter)：定调 +3。 <br>2. 一键美颜(Vocal Enhancer)：增加 Format 厚度。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[ACTION: ACT_04_Pitch_Shift]`<br>`[ACTION: ACT_03_Vocal_Enhancer]` |
 
 ---
 
 ## 模块四：置景 (S04_Phase3_Space)
 *   **Time**: 29:00 - 43:00
-*   **Theme**: 构建虚拟空间
+*   **Theme**: 时间的遗物 (深渊)
 *   **Tech**: 6.7 卷积混响 (Convolution Reverb)
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |
@@ -57,7 +59,7 @@
 
 ## 模块五：定位 (S05_Phase4_Position)
 *   **Time**: 43:00 - 53:00
-*   **Theme**: 导演舞台调度
+*   **Theme**: 孤独的相对论 (150% vs 0%)
 *   **Tech**: 6.9 立体声扩展 (Stereo Expander)
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Demo) |

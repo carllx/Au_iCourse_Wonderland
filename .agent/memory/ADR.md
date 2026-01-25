@@ -29,3 +29,15 @@ This document records the "Why" behind critical technical decisions. Future Agen
 *   **Context**: For the "Mist/Fog" metaphor in S02, Log scale compressed high-frequency noise into a thin line.
 *   **Decision**: For `render_S02_spectrum.py` specifically, we MUST use **Linear Frequency Scale** (0-16kHz) to make the noise visually fill the screen.
 *   **Constraint**: Regular audio analysis usually needs Log scale. This is an artistic exception for the "Fog" metaphor.
+
+---
+
+## ADR-004: Adoption of Smart Appreciation Course Mode (Smart Course)
+*   **Status**: Accepted (2026-01-25)
+*   **Context**: The original plan included student "lab submissions". However, the user clarified that this is a "Smart Course" where students focus on *experience* and *decisions*, not file exports.
+*   **Decision**: 
+    1.  **No Homework**: All requirements for student submissions (e.g., MP3 exports) are removed from the syllabus.
+    2.  **Anderson Narrative**: All technical parameters MUST be justified by narrative metaphors ("Soul Mapping"). Purely technical explanations (e.g., "to remove noise") are banned; they must be framed as narrative actions (e.g., "to expel reality").
+*   **Consequences**: 
+    *   (+) Higher engagement, less friction for students.
+    *   (-) Validation scripts (like `validate_submission.py`) are now obsolete and should be ignored or removed.

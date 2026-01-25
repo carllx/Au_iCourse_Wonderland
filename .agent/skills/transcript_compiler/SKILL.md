@@ -1,3 +1,10 @@
+---
+name: Transcript Compiler
+id: transcript-compiler
+description: 编译课程逐字稿，将大纲转化为自然语言讲课稿
+trigger: /compile, 生成逐字稿, 编译脚本
+---
+
 # 技能：编译课程逐字稿 (Compile Course Transcript)
 
 ## 描述 (Description)
@@ -11,7 +18,7 @@
 
 ## 执行指令 (Instructions for Agent)
 1.  **Step 0: 注入上下文 (Inject Context)**
-    *   **必须读取**: `.agent/styles/LinXin_Voice.md` (加载“声音导演”人格).
+    *   **必须读取**: `.agent/styles/LinXin_Voice.md` (加载“无形造境者”人格).
     *   **必须读取**: `00_Planning/architecture_audit.md` (了解“深听”策略).
     *   **必须读取**: `.agent/knowledge/Textbook_Index.md` (加载原始教材索引).
 
@@ -35,7 +42,8 @@
     *   生成 `S0x_Transcript.md` 中文内容。
     
 ## 质量检查 (Quality Check)
-- [ ] 是否在开头/结尾明确体现了“声音导演”的身份？
+- [ ] 是否在开头/结尾明确体现了“无形造境者”的身份？
+- [ ] 是否从“构建空间”的角度进行教学（而非单纯的技术讲解）？
 - [ ] 技术参数是否与 `Action_Map` 和原始教材完全一致？
 - [ ] 是否包含了 **(留白)** 标记以支持 Deep Listening？
 - [ ] 所有的 PPT 引用 `[REF:...]` 是否保留？

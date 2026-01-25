@@ -1,0 +1,23 @@
+{
+    "version": "1.0",
+    "skills": [
+        {
+            "id": "audition-automation",
+            "name": "Audition Automation",
+            "path": "skills/lab-factory",
+            "description": "Adobe Audition 通用自动化工具包及实验构建器。"
+        },
+        {
+            "id": "validation-suite",
+            "name": "Validation Suite",
+            "path": "skills/validation-suite",
+            "description": "项目健康检查、链接验证及教学法审计。"
+        },
+        {
+            "id": "transcript-compiler",
+            "name": "Transcript Compiler",
+            "path": "skills/transcript_compiler",
+            "description": "编译课程逐字稿，将大纲转化为自然语言讲课稿。"
+        }
+    ]
+}

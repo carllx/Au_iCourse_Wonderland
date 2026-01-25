@@ -6,8 +6,8 @@
 ## ACT_00_Play_Bad_Audio
 *   **File**: `_Library/S0X_Shared/asset_S0X_bad_case_demo.wav`
 *   **Action**: Play 10s.
-*   **Observe**: Hiss (Noise), Hum (60Hz), Click (Pops).
-*   **Comment**: "听到了吗？这就是灾难现场。"
+*   **Observe**: **Alice's Voice** buried in Hiss (Noise) and occasional Clicks.
+*   **Comment**: "听到了吗？爱丽丝被困在杂音的监狱里。我们需要把她救出来。"
 
 ## ACT_00b_Toolbox_Showcase
 *   **Action**: Rapidly toggle pre-set effects.
@@ -30,12 +30,12 @@
     *   `Noise Reduction`: **80%** (Aggressive for Void effect)
     *   `Reduce by`: **20dB**
 *   **Critical Check**: Toggle `Output Noise Only`. If you hear voice, lower the threshold.
-*   **Director's Call**: "For normal podcast, 50% is enough. But for Alice's dream, we want 80% absolute silence."
+*   **Director's Call**: "Noise Reduction is not just cleaning. It is **Expelling Reality's Dust** (驱逐现实尘埃). Every decibel of noise is reality clinging to us. We need a vacuum for the dream to breathe."
 
 ## ACT_03_Vocal_Enhancer (人声增强)
 *   **Menu**: `Effects` > `Special` > `Vocal Enhancer`
-*   **Preset**: `Male` (if source is low) or `Music` (for background).
-*   **Action**: Toggle `Male` mode to add "Broadcast Quality" bottom end.
+*   **Preset**: **Music** (Customized for Fiction).
+*   **Action**: Switch to **Music Mode** to adjust "Formant" independently. We are sculpting a character, not fixing a broadcast host.
 
 ## ACT_04_Pitch_Shift (变调器)
 *   **Menu**: `Effects` > `Time and Pitch` > `Pitch Shifter`
@@ -46,8 +46,8 @@
 
 ## ACT_05_Convolution_Load (卷积混响加载)
 *   **Menu**: `Effects` > `Reverb` > `Convolution Reverb`
-*   **Preset**: `Hall` > `Cathedral` OR `Weird` > `Drainpipe`.
-*   **Director's Call**: "Let's try 'Cathedral' first... too realistic. Let's try 'Drainpipe'... Yes, that's the Rabbit Hole!"
+*   **File**: Click `Load...` -> Select `_Library/S04_Space/ir_hall_large.wav`
+*   **Director's Call**: "Decay Time isn't just room size. It is **Time's Relic** (时间的遗物). It's the sound of a lost bird trying to find the wall in the dark. 2.5s is not a length, it's the distance from home."
 
 ## ACT_06_Mix_WetDry (干湿比调整)
 *   **Param**:
@@ -79,4 +79,9 @@
 *   **Action**: Use headphones. Toggle Stereo Expander On/Off.
 *   **Duration**: 40s.
 *   **Goal**: Use fingers to point to where the sound comes from.
-*   **Director's Call**: "First it's between your eyes. Now... it's behind your ears."
+*   **Director's Call**: "150% is the **Hostile Vastness** (带着敌意的辽阔). But this is only half the story. We need the contrast."
+
+## ACT_08_Contrast_Solitude (孤独的相对论)
+*   **Action**: Play the **150% Width** Reverb Tail against the **0% Width** Heartbeat.
+*   **Visual**: Show the meters. Background is everywhere; Heartbeat is a thin line in the center.
+*   **Director's Call**: "The world is infinite (150%), but you are just a rusty nail in the center (0%). This tear between the two IS the sound of Solitude."

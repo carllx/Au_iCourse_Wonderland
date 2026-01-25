@@ -9,9 +9,10 @@
 ## 审查标准 (Audit Criteria)
 
 ### 1. 导演思维审查 (The "Director" Check)
-*   **规则**: 每一段技术演示 (Demo) 之前，必须有一个 **“导演决策问题 (Director's Question)”**。
-*   **Pass**: "在调整混响前，我们先问自己：听众是在山洞还是浴室？"
-*   **Fail**: "接下来我们把 Reverb Time 设为 3000ms。" (缺乏思维引导)
+*   **规则**: 每一段技术演示 (Demo) 之前，必须有一个 **“导演决策问题 (Director's Question)”** 或 **“安徒生灵魂映射 (Anderson's Soul Mapping)”**。
+    *   **必须回答**: "为什么是这个数值？" (e.g. 为什么是 +3 不是 +5?)
+*   **Pass**: "为了让爱丽丝保留作为人类的脆弱感，我们只能加 +3。如果加到 +5，她就变成了卡通老鼠。"
+*   **Fail**: "接下来我们把 Reverb Time 设为 3000ms。" (缺乏思维引导，只有操作指令)
 
 ### 2. 深听留白审查 (The "Deep Listening" Check)
 *   **规则**: 依据 `architecture_audit.md`，每个模块必须至少包含一次 **30秒以上的留白 (Silence Gap)** 用于引导倾听。
