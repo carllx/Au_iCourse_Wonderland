@@ -27,3 +27,24 @@
 
 *   **DON'T**: 只在 Chat 中道歉 ("对不起我下次注意")。Agent 没有长时记忆，Chat 关闭后你就忘了。**文档是唯一的记忆。**
 *   **DON'T**: 创建过于琐碎的规则 ("在第5行必须加空格")。只记录原则性、架构性的知识。
+
+## 4. 规则文件标准 (Rule Standards)
+
+所有新建的 Rule 文件 (`.agent/rules/*.md`) 必须包含符合 Antigravity 标准的 Frontmatter：
+
+```yaml
+---
+trigger: [glob | user | always_on]
+description: A short summary of what this rule does.
+globs: [path/to/files/*.ext] # Only required if trigger is glob
+---
+```
+
+**Correct Example**:
+```yaml
+---
+trigger: glob
+description: Enforces syntax for script files.
+globs: 01_Scripts/*.md
+---
+```

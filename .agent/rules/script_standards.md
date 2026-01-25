@@ -1,8 +1,7 @@
 ---
-activation:
-  type: glob
-  pattern: "01_Scripts/*.md"
+trigger: glob
 description: Enforces strict structural syntax for word counting.
+globs: 01_Scripts/*.md
 ---
 
 # 规则：脚本格式标准 (Script Syntax Standards)
