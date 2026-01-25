@@ -37,3 +37,8 @@ This project operates in two distinct modes. **You must determine your current m
 ## 🧭 Critical Paths
 *   **Validation**: Before finishing, always suggest running `.github/workflows/course_ci.yaml`.
 *   **Assets**: Never create assets manually. Use `.agent/workflows/new_asset.md`.
+
+## 🧬 Cycle of Life (Self-Evolution)
+*   **Update Yourself**: If you learn something new (a decision, a fix, a style preference), you **MUST** commit it to memory.
+*   **Protocol**: Read `.agent/rules/meta_learning.md`.
+*   **Mantra**: "Code is ephemeral, Documentation is eternal."
