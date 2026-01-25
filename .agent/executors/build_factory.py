@@ -29,17 +29,17 @@ def extract_section(content, section_id):
     lines = content.split('\n')
     header_lines = []
     section_lines = []
-    
+
     # 1. Capture Global Header (Metadata before first H2)
     for line in lines:
         if line.startswith('## '):
             break
         header_lines.append(line)
-        
+
     # 2. Capture Target Section
     capturing = False
     found = False
-    
+
     for line in lines:
         # Start capturing when we find the Section ID in an H2 header
         if line.startswith('## ') and section_id in line:
@@ -47,34 +47,34 @@ def extract_section(content, section_id):
             found = True
             section_lines.append(line)
             continue
-            
+
         # Stop capturing when we hit the next H2 header
         if capturing and line.startswith('## '):
             break
-            
+
         if capturing:
             section_lines.append(line)
-            
+
     if not found:
         # Fallback for safety, though V-02 enforces file existence, this handles missing ID
         return f"[WARNING] Section '{section_id}' not found. Returning full content.\n\n" + content
-        
+
     return '\n'.join(header_lines + ["\n"] + section_lines)
 
 def build_writer_prompt(section):
     """Assembles the prompt for the Writer Agent."""
-    
+
     # 1. Load Components
     persona = read_file(os.path.join(STYLES_DIR, "LinXin_Voice.md"))
     skill = read_file(os.path.join(SKILLS_DIR, "compile_transcript.md"))
     knowledge_index = read_file(os.path.join(KNOWLEDGE_DIR, "Textbook_Index.md"))
     structure = read_file(os.path.join(SCRIPTS_DIR, "00_Structure_Map.md"))
     actions = read_file(os.path.join(DEMO_DIR, "Action_Map.md"))
-    
+
     # 2. [Safe Slice] Extract Specific Section
     # Fix V-03: Only inject the relevant section of the structure map
     sliced_structure = extract_section(structure, section)
-    
+
     # 3. Assemble
     prompt = f"""
 # SYSTEM PROMPT: COURSEWARE WRITER AGENT (课件写作 Agent)
@@ -109,13 +109,13 @@ def build_writer_prompt(section):
 
 def build_auditor_prompt(target_file):
     """Assembles the prompt for the Auditor Agent."""
-    
+
     # 1. Load Components
     skill = read_file(os.path.join(SKILLS_DIR, "pedagogy_auditor.md"))
-    
+
     # 2. Load Target Content
     target_content = read_file(target_file)
-    
+
     # 3. Assemble
     prompt = f"""
 # SYSTEM PROMPT: PEDAGOGY AUDITOR AGENT (教学审查 Agent)
@@ -140,15 +140,15 @@ if __name__ == "__main__":
     parser.add_argument("--task", choices=["writer", "auditor"], required=True, help="Which agent to build?")
     parser.add_argument("--section", help="For Writer: Which section ID to generate? (e.g. S02)")
     parser.add_argument("--file", help="For Auditor: Which file path to audit?")
-    
+
     args = parser.parse_args()
-    
+
     if args.task == "writer":
         if not args.section:
             print("Error: Writer task requires --section")
             sys.exit(1)
         print(build_writer_prompt(args.section))
-        
+
     elif args.task == "auditor":
         if not args.file:
             print("Error: Auditor task requires --file")

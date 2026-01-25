@@ -7,7 +7,7 @@ def parse_definitions(file_path, id_pattern):
     if not os.path.exists(file_path):
         print(f"Warning: Definition file not found: {file_path}")
         return ids
-    
+
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
             match = id_pattern.match(line)
@@ -17,32 +17,32 @@ def parse_definitions(file_path, id_pattern):
 
 def validate_scripts(scripts_dir, valid_slides, valid_actions):
     """Scans scripts for tags and validates them against known IDs."""
-    
+
     # Patterns to match tags in scripts
     # Matches [REF: Sxx_...], [SLIDE: Sxx_...], [ACTION: ACT_xx_...]
     # We allow "Slide_ID" or just "ID" inside the tag, assuming the ID itself contains the prefix
     tag_pattern = re.compile(r'\[(REF|SLIDE|ACTION):\s*([a-zA-Z0-9_]+)\]')
-    
+
     errors = []
-    
+
     if not os.path.exists(scripts_dir):
         print(f"Error: Scripts directory not found: {scripts_dir}")
         return
-        
+
     for filename in os.listdir(scripts_dir):
         if not filename.endswith(".md"):
             continue
-            
+
         file_path = os.path.join(scripts_dir, filename)
         with open(file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-            
+
         for i, line in enumerate(lines, 1):
             matches = tag_pattern.findall(line)
             for tag_type, tag_id in matches:
                 if tag_type in ['REF', 'SLIDE']:
                     if tag_id not in valid_slides:
-                        # Fallback check: sometimes IDs might be referenced loosely? 
+                        # Fallback check: sometimes IDs might be referenced loosely?
                         # But strictly they should match.
                         errors.append(f"{filename}:{i} - Invalid Slide Reference: '{tag_id}' (Tag: [{tag_type}: {tag_id}])")
                 elif tag_type == 'ACTION':
@@ -64,37 +64,37 @@ if __name__ == "__main__":
     # dirname -> skills
     # dirname -> .agent
     # dirname -> root
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
-    
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
     slide_db_path = os.path.join(base_dir, "02_Visuals", "Slide_Database.md")
     action_map_path = os.path.join(base_dir, "03_MVP_Demo", "Action_Map.md")
     scripts_dir = os.path.join(base_dir, "01_Scripts")
-    
+
     print(f"Validating project at: {base_dir}")
-    
+
     # 2. Parse Definitions
     # Slides: ## S01_Title (Supports S02b)
     slide_id_pattern = re.compile(r'^##\s+(S[a-zA-Z0-9]+_[a-zA-Z0-9_]+)')
     valid_slides = parse_definitions(slide_db_path, slide_id_pattern)
     print(f"Loaded {len(valid_slides)} Visual Slides.")
-    
+
     # Actions: ## ACT_00_Play_Bad_Audio (Supports ACT_00b)
     # Note: action map starts with ## ACT_...
-    action_id_pattern = re.compile(r'^##\s+(ACT_\S+)') 
+    action_id_pattern = re.compile(r'^##\s+(ACT_\S+)')
     valid_actions = parse_definitions(action_map_path, action_id_pattern)
     print(f"Loaded {len(valid_actions)} MVP Actions.")
-    
+
     # 3. Validate
     # We now also check if the DEFINITIONS themselves point to real files
     # But for now, let's at least check valid_scripts -> valid_slides/actions logic
     # AND verify that the defined Actions point to real assets if mentioned.
-    
+
     validate_scripts(scripts_dir, valid_slides, valid_actions)
-    
+
     # 4. Physical Asset Validation (New Feature)
     print("\n🔍 Validating Physical Assets...")
     missing_assets = []
-    
+
     # Scan Action Map for "assets/..." references
     with open(action_map_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
@@ -106,7 +106,7 @@ if __name__ == "__main__":
                 full_path = os.path.join(base_dir, "03_MVP_Demo", relative_path)
                 if not os.path.exists(full_path):
                     missing_assets.append(f"Action_Map.md:{line_num} - Missing Asset: {relative_path}")
-    
+
     if missing_assets:
         print(f"❌ Found {len(missing_assets)} missing physical assets:")
         for m in missing_assets:
