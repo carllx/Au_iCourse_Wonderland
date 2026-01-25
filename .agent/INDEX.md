@@ -27,7 +27,7 @@ This project operates in two distinct modes. **You must determine your current m
 **Tone**: Emotional, Vivid, Scaffolding Pedagogy (Why -> What -> How).
 **Key Documents**:
 *   `.agent/styles/LinXin_Voice.md`: **[MUST APPLY]** Style guide & Catchphrases.
-*   `.agent/rules/script_standards.md`: **[SYNTAX]** Strict formatting for valid word count.
+*   `.agent/rules/script_standards.md`: **[GLOB: 01_Scripts/*]** Auto-active when editing scripts.
 *   `01_Scripts/00_Structure_Map.md`: **[Source of Truth]** The skeleton you must flesh out.
 *   `.agent/rules/creative_muse.md`: Visual metaphor protocols.
 

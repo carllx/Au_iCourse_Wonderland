@@ -1,3 +1,10 @@
+---
+activation:
+  type: glob
+  pattern: "01_Scripts/*.md"
+description: Enforces strict structural syntax for word counting.
+---
+
 # 规则：脚本格式标准 (Script Syntax Standards)
 
 **适用范围**: 仅用于编写 `01_Scripts/*.md` 逐字稿。
