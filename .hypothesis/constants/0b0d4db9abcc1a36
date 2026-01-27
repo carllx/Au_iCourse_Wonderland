@@ -1,0 +1,4 @@
+# file: /Users/yamlam/Downloads/数字音频编辑Audition实用教程-混响2/01_MVP_Demo/_Pipeline/qa/psychoacoustic_validator.py
+# hypothesis_version: 6.148.11
+
+[0.0, 1e-10, 0.01, 0.05, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.95, 1.0, 2.0, 10.0, 20.0, 100.0, 200, 500, 3000, 20000, 48000, 'anxiety_level', 'biofidelity_score', 'brightness', 'darkness', 'envelope_sharpness', 'has_lowpass_filter', 'has_sharp_envelope', 'has_sine_sweep', 'has_threat_frequency', 'inner_correlation', 'is_separated', 'issues', 'outer_correlation', 'same', 'separation_degree', 'threat', 'threat_score', '中度焦虑', '中性', '内部轨道不是立体声，无法计算相关性', '外部轨道不是立体声，无法计算相关性', '平静', '明亮', '深邃、黑暗', '高度焦虑、威胁感强']

@@ -1,0 +1,4 @@
+# file: /Users/yamlam/Downloads/数字音频编辑Audition实用教程-混响2/01_MVP_Demo/_Pipeline/qa/config.py
+# hypothesis_version: 6.148.11
+
+[0.0, 0.01, 0.05, 0.1, 0.5, 0.95, 0.99, 6.0, 10.0, 31.5, 125, 200, 250, 500, 1000, 2000, 3000, 4000, 8000, 16000, 44100, 48000, 96000, './qa_reports', 'bit_depth', 'c80', 'clipping', 'clipping_locations', 'critical', 'dc_offset', 'dc_offset_value', 'discontinuity', 'dominant_frequencies', 'edt', 'error', 'has_aliasing', 'has_clipping', 'has_dc_offset', 'has_discontinuities', 'heartbeat_cutoff', 'high', 'info', 'low', 'lufs', 'medium', 'mono', 'octave_band_energy', 'peak_amplitude', 'pre_delay_ms', 'rms_energy_db', 'sample_rate', 'spectral_centroid', 'spectral_centroid_hz', 'spectral_rolloff', 'stereo_correlation', 'stereo_width', 'stereo_width_percent', 't60', 'threat', 'warning', 'wide', '•', 'ℹ️', '⚠️', '✓ PASS', '✗ FAIL', '❌', '🔥']

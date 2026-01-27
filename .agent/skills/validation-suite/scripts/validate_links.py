@@ -10,9 +10,10 @@ def parse_definitions(file_path, id_pattern):
 
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
-            match = id_pattern.match(line)
-            if match:
-                ids.add(match.group(1))
+            # Use findall to capture multiple definitions on one line
+            matches = id_pattern.findall(line)
+            for m in matches:
+                ids.add(m)
     return ids
 
 def validate_scripts(scripts_dir, valid_slides, valid_actions):
@@ -64,10 +65,10 @@ if __name__ == "__main__":
     # dirname -> skills
     # dirname -> .agent
     # dirname -> root
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
     slide_db_path = os.path.join(base_dir, "02_Visuals", "Slide_Database.md")
-    Performance_Map_path = os.path.join(base_dir, "01_MVP_Demo", "Performance_Map.md")
+    Design_Spec_path = os.path.join(base_dir, "01_MVP_Demo", "00_Design_Spec_Alice.md")
     scripts_dir = os.path.join(base_dir, "03_Scripts")
 
     print(f"Validating project at: {base_dir}")
@@ -78,10 +79,10 @@ if __name__ == "__main__":
     valid_slides = parse_definitions(slide_db_path, slide_id_pattern)
     print(f"Loaded {len(valid_slides)} Visual Slides.")
 
-    # Actions: ## ACT_00_Play_Bad_Audio (Supports ACT_00b)
-    # Note: action map starts with ## ACT_...
-    action_id_pattern = re.compile(r'^##\s+(ACT_\S+)')
-    valid_actions = parse_definitions(Performance_Map_path, action_id_pattern)
+    # Actions: Defined in Design Spec via > *ACT_ID: [ACT_01], [ACT_02]*
+    # Regex looks for [ACT_...]
+    action_id_pattern = re.compile(r'\[(ACT_[a-zA-Z0-9_]+)\]')
+    valid_actions = parse_definitions(Design_Spec_path, action_id_pattern)
     print(f"Loaded {len(valid_actions)} MVP Actions.")
 
     # 3. Validate
@@ -95,17 +96,17 @@ if __name__ == "__main__":
     print("\n🔍 Validating Physical Assets...")
     missing_assets = []
 
-    # Scan Action Map for "assets/..." references
-    with open(Performance_Map_path, 'r', encoding='utf-8') as f:
+    # Scan Design Spec for "assets/..." references
+    with open(Design_Spec_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
-            # Look for: `_Library/...` references
+            # Look for: `_Library/...` references or `../02_Visuals/...`
             # Regex captures: _Library/S02_Purify/asset_name.wav
             match = re.search(r'(_Library/[a-zA-Z0-9_/-]+\.\w+)', line)
             if match:
                 relative_path = match.group(1)
                 full_path = os.path.join(base_dir, "01_MVP_Demo", relative_path)
                 if not os.path.exists(full_path):
-                    missing_assets.append(f"Performance_Map.md:{line_num} - Missing Asset: {relative_path}")
+                    missing_assets.append(f"Design_Spec.md:{line_num} - Missing Asset: {relative_path}")
 
     if missing_assets:
         print(f"❌ Found {len(missing_assets)} missing physical assets:")

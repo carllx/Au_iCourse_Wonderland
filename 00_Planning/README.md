@@ -63,7 +63,8 @@ Project_Root/
 ├── 02_Visuals/                   # [视觉层] PPT 内容以“数据”形式存在
 │   └── Slide_Database.md         # 包含 Slide_ID, Visual_Prompt, Text_Content
 ├── 01_MVP_Demo/                  # [逻辑层] 演示步骤配置
-│   ├── Performance_Map.md             # 包含 Action_ID, Step_Description, Parameter_Value
+│    ├── Performance_Map.md             # [Deprecated], merged into Design Spec
+    ├── 00_Design_Spec_Alice.md        # [Source of Truth] 包含 Action_ID, Step_Description, Parameter_Value
 │   └── assets/                   # 音频素材
 └── .agent/                       # [智能体配置]
     ├── knowledge/                # [知识库] 原始教材的“索引化”版本
@@ -108,7 +109,7 @@ Project_Root/
 
 *   **Writer Agent (执行)**:
     *   *Trigger*: `python3 .agent/executors/build_factory.py --task writer`
-    *   *Mechanism*: 自动装配 `LinXin_Voice` + `Textbook_Index` + `Performance_Map`。
+    *   *Mechanism*: 自动装配 `LinXin_Voice` + `Textbook_Index` + `Design_Spec_Alice`。
     *   *Protocol*: **[Strict Chinese]** 强制输出简体中文 Prompt，杜绝英文污染；**[Fail Fast]** 核心组件缺失时立即通过 `sys.exit(1)` 阻断执行。
     *   *Output*: 包含 "Deep Listening" 留白的严格脚本。
 

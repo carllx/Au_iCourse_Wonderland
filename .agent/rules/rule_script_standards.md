@@ -1,49 +1,56 @@
 ---
 trigger: glob
-description: Enforces strict structural syntax for word counting.
+description: Enforces Smart Course AV Script standards (Visual/Audio split, Pacing, Asset Linking).
 globs: 03_Scripts/*.md
 ---
 
-# 规则：脚本格式标准 (Script Syntax Standards)
+# 规则：智慧课程脚本标准 (Smart Course AV Script Standards)
 
-**适用范围**: 仅用于编写 `03_Scripts/*.md` 逐字稿。
+**适用范围**: 所有 `03_Scripts/*.md` 教学逐字稿。
+**核心原则**: **No Naked Script**. 所有脚本必须是 **音画分镜稿 (AV Script)**。
 
-为了确保字数统计程序 (`validate_script_length.py`) 能准确区分“朗读内容”和“舞台指示”，所有脚本必须遵守以下**视觉结构**：
+## 1. 结构标准：AV 双轨制 (Visual-First)
 
-## 1. 舞台指示 (Stage Directions)
-任何**不应该被读出来**的动作、PPT提示、音效指示，必须满足三个条件：
-1.  **独占一行**。
-2.  被 **`**(...)**`** (粗体括号) 包裹。
-3.  **禁止**与朗读文本混排在同一行。
+脚本必须按照 **“先画后音”** 的顺序编写。严禁出现没有任何视觉描述的“干讲”。
 
-**✅ 正确示例**:
+### ✅ 标准格式 (Standard Syntax)
+
+每个段落 (Segment) 必须包含：
+
+1.  **视觉轨 (Visual Track)**: 使用 `>` 引用块，以 `**[VISUAL]**` 开头。
+2.  **音频轨 (Audio Track)**: 使用普通文本，以 `**[AUDIO]**` (或角色名) 开头。
+
 ```markdown
-**(PPT: 切换到 S03 页)**
+### Segment X: [Title]
 
-同学们好，今天我们讲混响。
+> **[VISUAL]**
+> *   **Scene**: 屏幕显示 Audition 波形视图。
+> *   **Asset**: 打开 `asset_01_demo.wav`。
+> *   **Action**: [ACT: Select_Range] 鼠标选中 0-5s 区域。
 
-**(播放: 演示音频 01)**
-
-听到区别了吗？
+**[AUDIO]**
+(温和而坚定)
+同学们看，这就是我们今天要处理的“罪证”。
 ```
 
-**❌ 错误示例** (会导致被误算为朗读字数):
-```markdown
-同学们好 (PPT切换)，今天我们讲混响。
-(播放音频)
-```
+## 2. 视觉锚点法则 (Visual Anchors)
 
-## 2. 元数据 (Metadata)
-文件头部的上下文信息必须使用 `>` 引用块。
+*   **Asset Linking**: 视觉描述中涉及素材时，必须使用**行内代码**标注文件名。
+    *   ✅ `打开 asset_S02_heartbeat.wav`
+    *   ❌ `打开那个心跳文件`
+*   **Atomic Actions**: 操作演示必须使用 `[ACT: Action_Name]` 标签。**注意**：这是给**演示机器人/录屏**的指令，不是给学生的指令。由讲师执行。
 
-**✅ 正确示例**:
-```markdown
-> **Context**: 05:00 - 10:00
-> **Ref**: [SLIDE: S02]
-```
+## 3. 语速与留白 (Pacing & Gaps)
 
-## 3. 标签 (Tags)
-嵌入在文本中的简短标签可以使用 `[...]`，这些会被自动过滤，但尽量使用“独占一行”的写法以保持清晰。
-```markdown
-[ACTION: ACT_01_Test]
-```
+*   **黄金语速**: **180 - 220 字/分 (CN Char)**。
+    *   教育类内容必须低于日常语速 (240+)，给大脑留出“认知带宽”。
+*   **留白 (Gaps)**:
+    *   每 3 分钟必须设计一次 **Visual Gap** (仅有画面动作，无旁白)，时长 3-5秒。
+    *   标注方式: `**(Pause: 3s)**`
+
+## 4. 此时此刻检测 (Validation)
+
+运行 `python3 .agent/skills/validation-suite/scripts/validate_script_length.py` 会检测：
+1.  **AV结构**: 是否存在“裸奔”的音频段落。
+2.  **语速**: 是否超速 (Over-speed) 或 拖沓 (Under-speed)。
+3.  **素材完整性**: [VISUAL] 块中是否遗漏了 Asset 引用。

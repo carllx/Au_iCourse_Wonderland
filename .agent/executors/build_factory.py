@@ -69,7 +69,6 @@ def build_writer_prompt(section):
     skill = read_file(os.path.join(SKILLS_DIR, "transcript_compiler/SKILL.md"))
     knowledge_index = read_file(os.path.join(KNOWLEDGE_DIR, "Textbook_Index.md"))
     structure = read_file(os.path.join(SCRIPTS_DIR, "00_Structure_Map.md"))
-    actions = read_file(os.path.join(SCRIPTS_DIR, "00_Performance_Map.md"))
     design_spec = read_file(os.path.join(DEMO_DIR, "00_Design_Spec_Alice.md"))
 
     # 2. [Safe Slice] Extract Specific Section
@@ -96,10 +95,7 @@ def build_writer_prompt(section):
 ### A. Course Structure (课程结构与教学逻辑 - Current Slice)
 {sliced_structure}
 
-### B. Action Dictionary (演示动作映射表)
-{actions}
-
-### C. Textbook Index (教材知识库 - 唯一真理源)
+### B. Textbook Index (教材知识库 - 唯一真理源)
 {knowledge_index}
 
 ## 4. IMMEDIATE EXECUTION TRIGGER (立即执行指令)

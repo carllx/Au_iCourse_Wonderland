@@ -18,6 +18,12 @@
             "name": "Transcript Compiler",
             "path": "skills/transcript_compiler",
             "description": "编译课程逐字稿，将大纲转化为自然语言讲课稿。"
+        },
+        {
+            "id": "narrative-archaeologist",
+            "name": "Narrative Archaeologist",
+            "path": "skills/narrative_archaeologist",
+            "description": "专门用于挖掘技术概念背后的哲学隐喻、历史起源与科学奇闻。"
         }
     ]
 }

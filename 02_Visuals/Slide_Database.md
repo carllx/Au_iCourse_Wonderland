@@ -38,7 +38,7 @@
 ## S05b_Spectrum (Visual Aid)
 *   **Concept**: 听见真空 (Visualizing Silence)
 *   **Visual**: A Frequency Spectrum Analyzer (Dynamic).
-*   **Overlay**: A 45s Countdown Timer in the center.
+*   **Overlay**: A 30s Countdown Timer in the center.
 *   **Motion**: The spectrum should be flat (showing silence) or showing specific noise frequencies, keeping user attention during the listening blackout.
 
 ## S08_Visual_Alice_Drink (Metaphor)

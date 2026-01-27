@@ -1,0 +1,19 @@
+# Phase 4 合成质量保证系统依赖
+
+# 音频处理
+numpy>=1.20.0
+scipy>=1.7.0
+soundfile>=0.10.0
+
+# 属性测试
+hypothesis>=6.0.0
+
+# 测试框架
+pytest>=6.0.0
+pytest-cov>=2.10.0
+
+# 可视化（可选）
+matplotlib>=3.3.0
+
+# 数据处理
+dataclasses; python_version < '3.7'

@@ -1,0 +1,4 @@
+# file: /Users/yamlam/Downloads/数字音频编辑Audition实用教程-混响2/01_MVP_Demo/_Pipeline/qa/script_analyzer.py
+# hypothesis_version: 6.148.11
+
+['#', 'CONFIG', 'PARAM', 'T60', 'Voss-McCartney', 'algorithm', 'convolve', 'critical', 'high', 'impulse', 'ir', 'mccartney', 'medium', 'noise', 'normalize', 'parameter', 'pink', 'pre_delay_ms', 'processing_order', 'r', 'sample_rate', 'stereo', 't60', 't60_low.*t60_high', 'utf-8', 'voss', '处理顺序错误：立体声扩展应该在卷积之后', '归一化应该在所有处理步骤之后', '未检测到频率相关衰减实现', '预延迟', '频率相关衰减']

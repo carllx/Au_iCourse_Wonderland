@@ -152,7 +152,7 @@ python3 .agent/executors/build_factory.py --task writer --section S02
 **Dependencies**:
 - Python 3.8+
 - OpenAI API key (set in environment)
-- Project structure files (Structure_Map, Performance_Map)
+- Project structure files (Structure_Map, Design_Spec)
 
 **Execution Context**: Run from project root directory with proper environment variables set
 ```

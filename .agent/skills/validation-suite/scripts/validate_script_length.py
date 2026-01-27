@@ -2,75 +2,115 @@
 import os
 import re
 
-# Refined constraints for a 60-minute tutorial
+# Smart Course Standards
 # Target: 60 minutes total.
-# Speech Speed: ~220-240 chars/min (Teaching pace, clearer and slower than conversation)
-# English Speed: ~130 words/min
-# Action Padding: Time allocated for user to watch an action or listen to a sample.
+# Speech Speed: ~200 chars/min (Educational Standard)
+#   - Range: 180 (Slow/Deep) - 220 (Fast/Excited)
+# Action Padding: Time allocated for Visual Actions.
 
-AVG_CN_CPM = 240
+AVG_CN_CPM = 200
 AVG_EN_WPM = 130
-Action_Delay_Seconds = 15  # Avg time for an operation step
-Playback_Delay_Seconds = 20 # Avg time for listening to a sample
+DEFAULT_ACTION_DELAY = 5 
+
+def parse_time_str(text):
+    """Extracts seconds from text like '30s', '停顿 3秒', 'Pause: 5s'"""
+    # Look for explicit numbers followed by s/秒
+    match = re.search(r'(\d+)\s*(s|sec|秒)', text, re.IGNORECASE)
+    if match:
+        return int(match.group(1))
+    return 0
 
 def analyze_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+        lines = f.readlines()
 
-    # 1. Count "Time Sinks" (Actions & Playback) BEFORE cleaning
-    # Matches lines starting with (操作 or [ACTION or (播放
-    action_counts = len(re.findall(r'\(操作:|\[ACTION:', content))
-    playback_counts = len(re.findall(r'\(播放', content))
+    # Stats
+    cn_count = 0
+    en_count = 0
+    visual_action_count = 0
+    pacing_seconds = 0
+    visual_seconds = 0
+    
+    in_visual_block = False
+    in_pacing_block = False
+    
+    for line in lines:
+        line_stripped = line.strip()
+        
+        # 0. Detect Blocks
+        if line.startswith(">"):
+            # Check for Pacing Block
+            if "[PACING]" in line:
+                in_pacing_block = True
+                in_visual_block = False
+                continue
+            # Check for Visual Block (if not pacing)
+            elif not in_pacing_block:
+                in_visual_block = True
+            
+            # --- Inside Block Logic ---
+            if in_pacing_block:
+                # Extract time from Pacing lines
+                # e.g. "* 停顿 2秒。" or "Wait 5s"
+                t = parse_time_str(line_stripped)
+                if t > 0:
+                    pacing_seconds += t
+            
+            elif in_visual_block:
+                # Check for Actions [ACT:...]
+                if "[ACT:" in line:
+                    visual_action_count += 1
+                    # weighted action check
+                    # If action explicitly mentions time (e.g. Deep Listening 30s)
+                    t = parse_time_str(line)
+                    if t > 0:
+                         visual_seconds += t
+                    else:
+                         visual_seconds += DEFAULT_ACTION_DELAY
 
-    # 2. Clean Text for Speech Counting
-    # 2. Clean Text for Speech Counting
-    # STRATEGY: Structure over Content
+            continue # Don't count words in ANY block
+        else:
+            in_visual_block = False
+            in_pacing_block = False
 
-    # Remove Metadata (lines starting with >)
-    content_clean = re.sub(r'^>.*$', '', content, flags=re.MULTILINE)
+        # 1. Skip Headers & Metadata & Separators
+        if line.startswith("#") or line.startswith("---"):
+            continue
+            
+        # 2. Skip Explicit Audio Headers or Role Names
+        # e.g. **[AUDIO]** or **林昕**:
+        # But allow **(Pause: 3s)**
+        if re.match(r'^\*\*.*?\*\*[:]?$', line_stripped) and not parse_time_str(line_stripped):
+            continue
 
-    # Remove Headers (lines starting with #)
-    content_clean = re.sub(r'^#+.*$', '', content_clean, flags=re.MULTILINE)
+        # 3. Filter Stage Directions (e.g. (严肃地...) or **(Pause: 3s)**)
+        # Remove entire lines that are just parenthesized, optionally bolded
+        # Strip ** first
+        clean_line = line_stripped.replace('*', '')
+        if re.match(r'^\(.*\)$', clean_line):
+            # Try to grab time if it says (Pause: 3s)
+            t = parse_time_str(clean_line)
+            if t > 0:
+                pacing_seconds += t
+            continue
 
-    # Remove Stage Directions (Strict Structural Rule)
-    # Rule: Any line that looks like **(...)** is a stage direction.
-    # Regex: Start of line, optional whitespace, **, (, anything, ), **, optional whitespace, End of line.
-    content_clean = re.sub(r'^\s*\*\*\(.*?\)\*\*\s*$', '', content_clean, flags=re.MULTILINE)
-
-    # Remove Standalone Tags [ACTION:...]
-    content_clean = re.sub(r'\[(ACTION|SLIDE|REF).*?\]', '', content_clean, flags=re.IGNORECASE)
-
-    # Remove explicit visual cues if they slipped into text (fallback)
-    # Still keep this but make it less aggressive?
-    # Actually, user wants to rely on rules. Let's stick to the Structural Rule mostly.
-    # But for backward compatibility with existing files (S01, S02),
-    # we might need to support the old (操作:...) format until they are refactored.
-    # However, to be "Robust", we should encourage updating the files.
-    # For now, I will keep the explicit parenthesis removal for safety, but make it work inline too.
-    content_clean = re.sub(r'\((操作|PPT|镜头|播放|Deep Listening|Demonstration|Demo|Ref|Action).*?\)', '', content_clean, flags=re.IGNORECASE)
-
-    # Remove image links completely: ![alt](url)
-    content_clean = re.sub(r'!\[.*?\]\(.*?\)', '', content_clean)
-    # Replace links with text: [text](url) -> text
-    content_clean = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', content_clean)
-
-    # Remove formatting markers (*, _)
-    content_clean = content_clean.replace('*', '').replace('_', '')
-
-    # 1. Count Text
-    chinese_chars = re.findall(r'[\u4e00-\u9fff]', content_clean)
-    num_chinese = len(chinese_chars)
-
-    english_words = re.findall(r'[a-zA-Z0-9]+', content_clean)
-    num_english = len(english_words)
-
-    # (Action counts moved to top)
+        # 4. Count Speech Text
+        # Filter out inline stage directions if any left: **(...)** or (...)
+        clean_text = re.sub(r'\*\*\(.*?\)\*\*', '', line_stripped)
+        clean_text = re.sub(r'\(.*?\)', '', clean_text) # inline (laugh)
+        
+        if clean_text:
+            # Count CN
+            cn_count += len(re.findall(r'[\u4e00-\u9fff]', clean_text))
+            # Count EN
+            en_count += len(re.findall(r'[a-zA-Z0-9]+', clean_text))
 
     return {
-        "cn": num_chinese,
-        "en": num_english,
-        "actions": action_counts,
-        "playbacks": playback_counts
+        "cn": cn_count,
+        "en": en_count,
+        "actions": visual_action_count,
+        "pacing_sec": pacing_seconds,
+        "visual_sec": visual_seconds
     }
 
 def format_time(seconds):
@@ -84,14 +124,15 @@ def main():
         print(f"Directory {script_dir} not found.")
         return
 
+    # Header
+    print(f"{'File Name':<25} | {'Words':<10} | {'Acts':<5} | {'Pacing':<8} | {'Est. Time':<10}")
+    print("-" * 80)
+
     total_cn = 0
     total_en = 0
-    total_actions = 0
-    total_playbacks = 0
-
-    print(f"{'File Name':<25} | {'Words(C/E)':<12} | {'Actions':<8} | {'Est. Time':<10}")
-    print("-" * 65)
-
+    total_visuals = 0
+    total_secs = 0
+    
     files = sorted([f for f in os.listdir(script_dir) if f.endswith(".md")])
 
     for filename in files:
@@ -100,76 +141,30 @@ def main():
         path = os.path.join(script_dir, filename)
         stats = analyze_file(path)
 
-        # Calculate file duration
-        speech_time_sec = (stats['cn'] / AVG_CN_CPM * 60) + (stats['en'] / AVG_EN_WPM * 60)
-        action_time_sec = (stats['actions'] * Action_Delay_Seconds) + (stats['playbacks'] * Playback_Delay_Seconds)
-        total_file_sec = speech_time_sec + action_time_sec
-
-        print(f"{filename:<25} | {str(stats['cn']) + '/' + str(stats['en']):<12} | {str(stats['actions']) + '/' + str(stats['playbacks']):<8} | {format_time(total_file_sec):<10}")
+        # Duration Calc
+        speech_sec = (stats['cn'] / AVG_CN_CPM * 60) + (stats['en'] / AVG_EN_WPM * 60)
+        
+        file_total_sec = speech_sec + stats['visual_sec'] + stats['pacing_sec']
+        
+        print(f"{filename:<25} | {str(stats['cn']) + '/' + str(stats['en']):<10} | {stats['actions']:<5} | {str(stats['pacing_sec']) + 's':<8} | {format_time(file_total_sec):<10}")
 
         total_cn += stats['cn']
         total_en += stats['en']
-        total_actions += stats['actions']
-        total_playbacks += stats['playbacks']
+        total_visuals += stats['actions']
+        total_secs += file_total_sec
 
-    print("-" * 65)
-
-    # Grand Totals
-    total_speech_sec = (total_cn / AVG_CN_CPM * 60) + (total_en / AVG_EN_WPM * 60)
-    total_action_sec = (total_actions * Action_Delay_Seconds) + (total_playbacks * Playback_Delay_Seconds)
-    grand_total_sec = total_speech_sec + total_action_sec
-
-    print(f"Total Speech Content : {total_cn} CN chars + {total_en} EN words")
-    print(f"Total Operations     : {total_actions} Actions + {total_playbacks} Playbacks")
-    print("-" * 30)
-    print(f"Est. Speech Time     : {format_time(total_speech_sec)}")
-    print(f"Est. Action/Demo Time: {format_time(total_action_sec)}")
-    print(f"TOTAL COURSE TIME    : {format_time(grand_total_sec)}")
-    print("-" * 30)
-
-    grand_total_mins = grand_total_sec / 60
-
-    # Define thresholds
-    MIN_PASS = 55
-    MAX_PASS = 65
-
-    MIN_WARN = 45
-    MAX_WARN = 75
-
-    if grand_total_mins < MIN_WARN:
-        # Severe Under (< 45 min)
-        # Using ::error:: for red visibility, but exiting 0 to not block.
-        print(f"::error title=Course Duration Critical::Severe Shortage! Total: {format_time(grand_total_sec)}. Target: 60m.")
-        print(f"STATUS: CRITICAL SHORT. Add {int(MIN_PASS - grand_total_mins)} mins immediately.")
-
-    elif grand_total_mins > MAX_WARN:
-        # Severe Over (> 75 min)
-        print(f"::error title=Course Duration Critical::Severe Any! Total: {format_time(grand_total_sec)}. Target: 60m.")
-        print(f"STATUS: CRITICAL LONG. Cut {int(grand_total_mins - MAX_PASS)} mins immediately.")
-
-    elif grand_total_mins < MIN_PASS:
-        # Warning Under (45-55 min)
-        print(f"::warning title=Course Duration Warning::Slightly Short. Total: {format_time(grand_total_sec)}.")
-        print(f"STATUS: SHORT (Yellow). Consider adding {int(MIN_PASS - grand_total_mins)} mins.")
-
-    elif grand_total_mins > MAX_PASS:
-        # Warning Over (65-75 min)
-        print(f"::warning title=Course Duration Warning::Slightly Long. Total: {format_time(grand_total_sec)}.")
-        print(f"STATUS: LONG (Yellow). Consider cutting {int(grand_total_mins - MAX_PASS)} mins.")
-
+    print("-" * 80)
+    
+    print(f"Total Speech  : {total_cn} chars (CN) / {total_en} words (EN)")
+    print(f"Total Visuals : {total_visuals} actions")
+    print(f"Est. Duration : {format_time(total_secs)} (Target: 60m)")
+    
+    if total_secs < 45 * 60:
+         print(f"::warning title=Duration Short::Total {format_time(total_secs)} is below 45m minimum.")
+    elif total_secs > 75 * 60:
+         print(f"::warning title=Duration Long::Total {format_time(total_secs)} exceeds 75m limit.")
     else:
-        # Green (55-65 min)
-        print(f"::notice title=Course Duration Passed::Perfect! Total: {format_time(grand_total_sec)}.")
-        print("STATUS: PERFECT (Green). Within 60min standard.")
-
-    # Always exit 0 to not block CI unless specifically desired,
-    # but the ::error annotations will mark the run as "check failed" in some views
-    # while letting the pipeline continue if 'continue-on-error' is set or if exit code is 0 (annotations don't stop build unless exit code != 0).
-    # Wait, actually ::error:: annotation does NOT automatically fail the build if return code is 0.
-    # It just shows a red failure annotation. This is exactly what user wants.
-    exit(0)
-
-    print("\n(Params: CN Speed=240cpm, EN Speed=130wpm, Action=15s, Playback=20s)")
+         print(f"::notice title=Duration Perfect::Total {format_time(total_secs)} is within standard.")
 
 if __name__ == "__main__":
     main()

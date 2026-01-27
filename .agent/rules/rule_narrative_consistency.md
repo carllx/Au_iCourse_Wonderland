@@ -25,7 +25,7 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
 ## 3. 来源一致性 (Source of Truth)
 
 `01_MVP_Demo/00_Design_Spec_Alice.md` 是目前的**最高叙事真理**。
-*   任何时候生成的 Workshop 步骤，必须与该文件中的参数（如 75% Reduction, +5 Pitch）保持严格一致。
+*   任何时候生成的 Demonstration 步骤，必须与该文件中的参数（如 75% Reduction, +5 Pitch）保持严格一致。
 *   如果发现冲突，**以该文件为准**。
 
 ## 4. 语言风格 (Tone Check)

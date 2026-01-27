@@ -93,7 +93,7 @@ class TestScriptDocumentationTemplate:
             dependencies=[
                 "Python 3.8+",
                 "OpenAI API key (set in environment)",
-                "Project structure files (Structure_Map, Performance_Map)"
+                "Project structure files (Structure_Map, Design_Spec)"
             ],
             execution_context="Run from project root directory with proper environment variables set"
         )

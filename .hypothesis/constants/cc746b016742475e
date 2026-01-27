@@ -1,0 +1,4 @@
+# file: /Users/yamlam/Downloads/数字音频编辑Audition实用教程-混响2/01_MVP_Demo/_Pipeline/qa/audio_analyzer.py
+# hypothesis_version: 6.148.11
+
+[0.0, 1e-10, 1e-06, 0.08, 0.1, 0.5, 0.85, 0.9, 1.0, 2.0, 32768.0, 2147483648.0, 200, 1000, 2048, 48000, '-', '=', '[C80 测量] 错误: 后续能量为零', '[EDT 测量] 错误: 信号能量为零', '[EDT 测量] 错误: 衰减斜率接近零', '[EDT 测量] 错误: 衰减范围无效', '[T60 测量] 错误: 信号能量为零', '[T60 测量] 错误: 衰减斜率接近零', '[预延迟测量] 错误: 信号最大值为零', 'center', 'clipping', 'critical', 'dc_offset', 'density', 'discontinuity', 'file_not_found', 'float64', 'format_error', 'left', 'mono', 'right', 'wide', '声学指标测量', '测量摘要:', '请检查文件路径是否正确', '音频数据为空']

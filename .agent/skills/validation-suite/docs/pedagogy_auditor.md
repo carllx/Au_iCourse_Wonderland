@@ -20,7 +20,7 @@
 *   **Fail**: 全篇都在说话，没有给学生“听”的时间。
 
 ### 3. 技术一致性审查 (Technical Alignment)
-*   **规则**: 脚本中提到的参数值，必须与 `03_Scripts/00_Performance_Map.md` 完全一致。
+*   **规则**: 脚本中提到的参数值，必须与 `01_MVP_Demo/00_Design_Spec_Alice.md` 完全一致。
 *   **例如**: 如果 Map 里是 `-2 Semitones`，脚本里不能说 "降低一个八度"。
 
 ### 4. 数据一致性校验 (Consistency Check)
