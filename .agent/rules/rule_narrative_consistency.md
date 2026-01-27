@@ -5,7 +5,7 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
 
 # 规则：叙事一致性协议 (Narrative Consistency Protocol)
 
-**生效范围**: 所有涉及 Audition 操作步骤、脚本编写 (`01_Scripts/*.md`)、演示指南 (`03_MVP_Demo/*.md`) 的生成任务。
+**生效范围**: 所有涉及 Audition 操作步骤、脚本编写 (`03_Scripts/*.md`)、演示指南 (`01_MVP_Demo/*.md`) 的生成任务。
 
 ## 1. 核心铁律 (The Golden Rule)
 
@@ -24,8 +24,8 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
 
 ## 3. 来源一致性 (Source of Truth)
 
-`01_Scripts/Experiment_Manual_Alice.md` 是目前的**最高叙事真理**。
-*   任何时候生成的 Workshop 步骤，必须与该文件中的参数（如 150% Width, +3 Pitch）保持严格一致。
+`01_MVP_Demo/00_Design_Spec_Alice.md` 是目前的**最高叙事真理**。
+*   任何时候生成的 Workshop 步骤，必须与该文件中的参数（如 75% Reduction, +5 Pitch）保持严格一致。
 *   如果发现冲突，**以该文件为准**。
 
 ## 4. 语言风格 (Tone Check)

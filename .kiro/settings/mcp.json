@@ -1,0 +1,20 @@
+{
+  "mcpServers": {},
+  "powers": {
+    "mcpServers": {},
+    "local": {
+      "lab-factory": {
+        "path": ".kiro/powers/lab-factory-power",
+        "enabled": true
+      },
+      "transcript-compiler": {
+        "path": ".kiro/powers/transcript-compiler-power",
+        "enabled": true
+      },
+      "validation-suite": {
+        "path": ".kiro/powers/validation-suite-power",
+        "enabled": true
+      }
+    }
+  }
+}

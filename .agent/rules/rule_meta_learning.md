@@ -12,7 +12,7 @@ description: SOP for self-updating documentation and rules.
 | 场景事件 | 对应行动 (Action) | 目标文件 (Target) |
 | :--- | :--- | :--- |
 | **架构决策** (选中了某个库，废弃了某种写法) | Record Decision | `.agent/memory/ADR.md` |
-| **Bug 修复** (发现某个脚本总是报错) | Update Guide | `03_MVP_Demo/Asset_Production_Guide.md` (Failed Cases) |
+| **Bug 修复** (发现某个脚本总是报错) | Update Guide | `01_MVP_Demo/Asset_Production_Guide.md` (Failed Cases) |
 | **知识发现** (发现了一个新的 Audition 技巧) | Map Knowledge | `.agent/knowledge/Audition_Skills_Map.md` |
 | **风格反馈** (用户说“这不像林昕老师”) | Update Style | `.agent/styles/LinXin_Voice.md` |
 | **规则漏洞** (用户指出了你没遵守的潜规则) | Patch Rules | `.agent/rules/*.md` |
@@ -50,6 +50,6 @@ globs: [path/to/files/*.ext] # Only required if trigger is glob
 ---
 trigger: glob
 description: Enforces syntax for script files.
-globs: 01_Scripts/*.md
+globs: 03_Scripts/*.md
 ---
 ```

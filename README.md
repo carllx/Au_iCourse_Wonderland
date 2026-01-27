@@ -14,9 +14,9 @@
 2.  **⏱️ 课时与字数测算** (`validate_script_length.py`): 实时估算课程时长，确保贴近 60分钟 标准。
 
 ## 目录结构
-*   `01_Scripts/`: 课程逐字稿 (Markdown)
+*   `03_Scripts/`: 课程逐字稿 (Markdown)
 *   `02_Visuals/`: PPT 视觉数据库
-*   `03_MVP_Demo/`: 演示操作映射表 (架构规范见 `ARCHITECTURE_GUIDE.md`)
+*   `01_MVP_Demo/`: 演示操作映射表 (架构规范见 `ARCHITECTURE_GUIDE.md`)
 *   `.agent/`: **[核心] 智能体工程**
     *   `executors/`: 提示词装配工厂 (`build_factory.py`)
     *   `rules/`: 行为准则 (`workflow_protocol.md`)
@@ -32,7 +32,7 @@
     ```
 2.  **审查质量 (Auditor Mode)**:
     ```bash
-    python3 .agent/executors/build_factory.py --task auditor --file 01_Scripts/S02.md
+    python3 .agent/executors/build_factory.py --task auditor --file 03_Scripts/S02.md
     ```
 
 > **Note**: 严禁 AI 凭空生成内容。必须执行上述指令获取 Context。

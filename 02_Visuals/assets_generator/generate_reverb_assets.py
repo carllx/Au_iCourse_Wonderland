@@ -25,22 +25,22 @@ def apply_lowpass(audio, cutoff_freq, rate):
 
 def generate_reverb_ir(duration, decay_time, sample_rate, room_type="small"):
     samples = int(duration * sample_rate)
-    
+
     # 1. Base Tail (Pink Noise)
     tail = generate_pink_noise(samples)
-    
+
     # Envelope (RT60 decay)
     t = np.linspace(0, duration, samples, False)
     tau = decay_time / 6.9
     envelope = np.exp(-t / tau)
     tail = tail * envelope
-    
+
     # 2. Spectral Shaping
     if room_type == "small":
         tail = apply_lowpass(tail, 3000, sample_rate) # 3kHz cutoff (Hard walls)
     else:
         tail = apply_lowpass(tail, 1500, sample_rate) # 1.5kHz cutoff (Air absorption)
-        
+
     # 3. Early Reflections (ER)
     er = np.zeros(samples, dtype=np.float32)
     if room_type == "small":
@@ -49,7 +49,7 @@ def generate_reverb_ir(duration, decay_time, sample_rate, room_type="small"):
     else:
         delays = [0.020, 0.045, 0.080, 0.150]
         gains =  [0.8,   0.7,   0.5,   0.3]
-        
+
     for d, g in zip(delays, gains):
         idx = int(d * sample_rate)
         if idx < samples:
@@ -59,12 +59,12 @@ def generate_reverb_ir(duration, decay_time, sample_rate, room_type="small"):
     # Normalize & Mix
     if np.max(np.abs(er)) > 0: er /= np.max(np.abs(er))
     if np.max(np.abs(tail)) > 0: tail /= np.max(np.abs(tail))
-    
+
     # Fade in tail
     fade_in = int(0.05 * sample_rate)
     if fade_in < samples:
         tail[:fade_in] *= np.linspace(0, 1, fade_in)
-        
+
     ir = (er * 0.4) + (tail * 0.6)
     return ir.astype(np.float32)
 
@@ -78,15 +78,15 @@ def save_wav(path, data, rate):
 
 def main():
     print("--- Alice Asset Factory: Reverb ---")
-    
+
     # 1. Generate Small Room IR (For contrast)
     ir_small = generate_reverb_ir(0.5, 0.4, SAMPLE_RATE, "small")
     save_wav(os.path.join(OUTPUT_DIR, "ir_room_small.wav"), ir_small, SAMPLE_RATE)
-    
+
     # 2. Generate Large Hall IR (For The Abyss - S04)
     ir_large = generate_reverb_ir(3.0, 2.5, SAMPLE_RATE, "large")
     save_wav(os.path.join(OUTPUT_DIR, "ir_hall_large.wav"), ir_large, SAMPLE_RATE)
-    
+
     print("Reverb assets generation complete.")
 
 if __name__ == "__main__":

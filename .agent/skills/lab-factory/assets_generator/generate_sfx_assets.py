@@ -72,30 +72,30 @@ def apply_monster_pitch(audio, rate, semitones=-4):
 def apply_bad_signal(audio, rate):
     samples = len(audio)
     broken = audio.copy()
-    
+
     # 1. Random Dropouts (Reduced frequency)
     # 2 dropouts per second (was 8)
     num_dropouts = int(samples / rate * 2) 
-    
+
     for _ in range(num_dropouts):
         start = np.random.randint(0, samples - 1000)
         # Length: 20ms to 100ms
         duration = np.random.randint(int(0.02 * rate), int(0.1 * rate))
         end = min(start + duration, samples)
         broken[start:end] = 0.0
-        
+
         # 2. Add Static Burst (Softer)
         if start < samples:
             broken[start] += 0.2 # Reduced click
             
     # 3. Background Static (Much Softer)
     static = np.random.normal(0, 0.005, samples).astype(np.float32) # Reduced from 0.05
-    
+
     return broken + static
 
 def main():
     print("Generating SFX Assets...")
-    
+
     rate, audio = load_audio(SOURCE_FILE)
     if audio is None: return
 
@@ -104,19 +104,19 @@ def main():
     phone = apply_telephone_eq(audio, rate)
     phone_dist = apply_distortion(phone, gain=10.0)
     save_wav(os.path.join(OUTPUT_DIR, "vocal_telephone.wav"), phone_dist, rate)
-    
+
     # 1.5 Telephone Broken (New Request)
     print("Creating Broken Telephone (Signal Instability)...")
     # Apply bad signal logic ON TOP of the telephone EQ
     phone_broken = apply_bad_signal(phone_dist, rate)
     save_wav(os.path.join(OUTPUT_DIR, "vocal_telephone_broken.wav"), phone_broken, rate)
-    
+
     # 2. Monster Voice
     print("Creating Monster Voice (Pitch -5 semitones)...")
     # -5 semitones slows it down significantly, making it sound huge
     monster = apply_monster_pitch(audio, rate, -5)
     save_wav(os.path.join(OUTPUT_DIR, "vocal_monster.wav"), monster, rate)
-    
+
     print("Done.")
 
 if __name__ == "__main__":

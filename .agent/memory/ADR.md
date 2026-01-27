@@ -1,43 +1,61 @@
-# Architecture Decision Records (ADR)
+# 架构决策记录 (ADR)
 
-This document records the "Why" behind critical technical decisions. Future Agents **MUST NOT** revert these changes without user approval.
-
----
-
-## ADR-001: Modular Architecture for MVP Demo
-*   **Status**: Accepted (2026-01-25)
-*   **Context**: The project previously had flat `tools` and `assets` folders, leading to confusion between "script A" and "asset B".
-*   **Decision**: 
-    1. Split into `_Pipeline` (Code) and `_Library` (Data).
-    2. Enforce strict `[Type]_[Module]_[Name]` naming (e.g. `gen_S02_heartbeat.py` -> `asset_S02_heartbeat.wav`).
-*   **Consequences**: 
-    *   (+) Clear ownership. 
-    *   (-) Requires Agents to follow regex rules.
+本文档记录关键技术决策背后的“原因”。未来的 Agent **严禁**在未经用户批准的情况下撤销这些更改。
 
 ---
 
-## ADR-002: Exponential Audio Fade
-*   **Status**: Accepted (2026-01-25)
-*   **Context**: Linear volume fade-outs sounded abrupt because human hearing is logarithmic (`dB`).
-*   **Decision**: All audio generator scripts MUST use **Exponential Fade** (Linear in dB) logic for transitions.
-*   **Code Pattern**: `np.logspace(0, -3, length)` (Fade from 1.0 to 0.001)
+## ADR-001: MVP 演示的模块化架构
+*   **状态**: Accepted (2026-01-25)
+*   **背景**: 项目以前只有平铺的 `tools` 和 `assets` 文件夹，导致“脚本 A”和“资产 B”之间的关系混乱。
+*   **决策**: 
+    1. 拆分为 `_Pipeline` (代码) 和 `_Library` (数据)。
+    2. 强制执行严格的 `[Type]_[Module]_[Name]` 命名规范 (例如 `gen_S02_heartbeat.py` -> `asset_S02_heartbeat.wav`)。
+*   **后果**: 
+    *   (+) 所有权清晰。
+    *   (-) 需要 Agent 遵循正则规则。
 
 ---
 
-## ADR-003: Linear Frequency Visualization
-*   **Status**: Accepted (2026-01-25)
-*   **Context**: For the "Mist/Fog" metaphor in S02, Log scale compressed high-frequency noise into a thin line.
-*   **Decision**: For `render_S02_spectrum.py` specifically, we MUST use **Linear Frequency Scale** (0-16kHz) to make the noise visually fill the screen.
-*   **Constraint**: Regular audio analysis usually needs Log scale. This is an artistic exception for the "Fog" metaphor.
+## ADR-002: 指数级音频淡出 (Exponential Audio Fade)
+*   **状态**: Accepted (2026-01-25)
+*   **背景**: 线性音量淡出听起来很突兀，因为人类听觉是对数关系 (`dB`)。
+*   **决策**: 所有音频生成器脚本必须使用 **指数淡出** (dB 线性) 逻辑进行过渡。
+*   **代码模式**: `np.logspace(0, -3, length)` (从 1.0 淡出到 0.001)
 
 ---
 
-## ADR-004: Adoption of Smart Appreciation Course Mode (Smart Course)
-*   **Status**: Accepted (2026-01-25)
-*   **Context**: The original plan included student "lab submissions". However, the user clarified that this is a "Smart Course" where students focus on *experience* and *decisions*, not file exports.
-*   **Decision**: 
-    1.  **No Homework**: All requirements for student submissions (e.g., MP3 exports) are removed from the syllabus.
-    2.  **Anderson Narrative**: All technical parameters MUST be justified by narrative metaphors ("Soul Mapping"). Purely technical explanations (e.g., "to remove noise") are banned; they must be framed as narrative actions (e.g., "to expel reality").
-*   **Consequences**: 
-    *   (+) Higher engagement, less friction for students.
-    *   (-) Validation scripts (like `validate_submission.py`) are now obsolete and should be ignored or removed.
+## ADR-003: 线性频率可视化 (Linear Frequency Visualization)
+*   **状态**: Accepted (2026-01-25)
+*   **背景**: 对于 S02 中的“迷雾/Fog”隐喻，对数刻度将高频噪声压缩成了一条细线。
+*   **决策**: 专门针对 `render_S02_spectrum.py`，我们必须使用 **线性频率刻度** (0-16kHz)，使噪声在视觉上充满屏幕。
+*   **限制**: 常规音频分析通常需要对数刻度。这是为了“Fog”隐喻所做的艺术性例外。
+
+---
+
+## ADR-004: 采用智能鉴赏课程模式 (Smart Course)
+*   **状态**: Accepted (2026-01-25)
+*   **背景**: 原计划包含学生“实验室提交”。然而，用户澄清这是一个“智能课程”，学生专注于 *体验* 和 *决策*，而不是文件导出。
+*   **决策**: 
+    1.  **无家庭作业**: 从教学大纲中删除所有关于学生提交（如 MP3 导出）的要求。
+    2.  **安德森叙事 (Anderson Narrative)**: 所有技术参数必须由叙事隐喻（“灵魂映射”）证明。禁止纯技术解释（例如“为了去噪”）；必须框架化为叙事行动（例如“为了驱逐现实”）。
+*   **后果**: 
+    *   (+) 更高的参与度，减少学生的阻力。
+    *   (-) 验证脚本 (如 `validate_submission.py`) 现已过时，应忽略或删除。
+
+---
+
+## ADR-005: 语境感知的资产合成 ("语义大于信号")
+*   **状态**: Accepted (2026-01-25)
+*   **背景**: 
+    *   最初尝试使用随机噪声生成器生成“坏损案例”音频 (Hum/Click/Hiss) 未能满足教学需求。
+    *   随机的 Click 听起来很假；标准语谱图未能显示低频 Hum。
+    *   用户反馈强调“噪声必须与信号相关” (例如，Click 发生在爆破音处)。
+*   **决策**: 
+    *   **放弃随机性**: 所有合成伪影必须是 **语境感知 (Context-Aware)** 的。
+        *   *示例*: Click 现在由语音包络上的 `signal.find_peaks` (爆破音) 触发。
+    *   **强制视觉语义**: 可视化必须使用 **对数刻度 (Log Scale)** 来显示 50Hz Hum。
+    *   **叙事标签**: 所有 UI 标签必须使用 `MetricTranslator` 协议 (中文叙事术语)，禁止使用原始的技术英文。
+*   **后果**: 
+    *   资产不再只是“技术文件”，而是“叙事道具”。
+    *   生成器脚本更加复杂 (需要信号分析，而不仅是合成)。
+    *   视觉验证现在是强制性的 (不能仅相信代码正确性；必须验证 *可见性*)。

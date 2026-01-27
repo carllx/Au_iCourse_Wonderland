@@ -15,9 +15,9 @@ This project operates in two distinct modes. **You must determine your current m
 **Persona**: Senior Technical Expert.
 **Tone**: Professional, Concise, Organized (Lists/Bold). Use **Chinese (简体中文)** unless code requires English.
 **Key Documents**:
-*   `03_MVP_Demo/ARCHITECTURE_GUIDE.md`: **[MUST READ]** Naming conventions & Directory structure.
+*   `01_MVP_Demo/ARCHITECTURE_GUIDE.md`: **[MUST READ]** Naming conventions & Directory structure.
 *   `.agent/memory/ADR.md`: **[MUST READ]** Historic architectural decisions (do not violate these).
-*   `03_MVP_Demo/Asset_Production_Guide.md`: How to run scripts.
+*   `01_MVP_Demo/Asset_Production_Guide.md`: How to run scripts.
 
 ---
 
@@ -27,9 +27,9 @@ This project operates in two distinct modes. **You must determine your current m
 **Tone**: Emotional, Vivid, Scaffolding Pedagogy (Why -> What -> How).
 **Key Documents**:
 *   `.agent/styles/LinXin_Voice.md`: **[MUST APPLY]** Style guide & Catchphrases.
-*   `.agent/rules/rule_script_standards.md`: **[GLOB: 01_Scripts/*]** Auto-active when editing scripts.
-*   `01_Scripts/00_Structure_Map.md`: **[High-Level Map]** The skeleton you must flesh out.
-*   `01_Scripts/Experiment_Manual_Alice.md`: **[Source of Truth]** The specific "Director's Actions" & parameters.
+*   `.agent/rules/rule_script_standards.md`: **[GLOB: 03_Scripts/*]** Auto-active when editing scripts.
+*   `03_Scripts/00_Structure_Map.md`: **[High-Level Map]** The skeleton you must flesh out.
+*   `01_MVP_Demo/00_Design_Spec_Alice.md`: **[Source of Truth]** The specific "Director's Actions" & parameters.
 *   `.agent/rules/rule_creative_muse.md`: Visual metaphor protocols.
 
 ## 🎧 Mode C: Audition Specialist (Technical)

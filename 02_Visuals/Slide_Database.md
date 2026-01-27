@@ -14,6 +14,7 @@
     *   Click (爆音) -> 6.6.5
     *   **Hiss (宽频底噪) -> 6.6.2 (Today's Focus)**
 *   **Visual**: A waveform with red circles highlighting the "dirty" parts.
+    *   **Ref**: ![S02_Purify_75pct_NR](./assets/S02_Phase1_Purify/S02_Purify_75pct_NR.png)
 
 ## S02b_Toolbox_Flash
 *   **Text**: 声音特效武器库 (Know-How)

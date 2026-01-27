@@ -9,8 +9,8 @@ STYLES_DIR = os.path.join(AGENT_DIR, "styles")
 SKILLS_DIR = os.path.join(AGENT_DIR, "skills")
 KNOWLEDGE_DIR = os.path.join(AGENT_DIR, "knowledge")
 RULES_DIR = os.path.join(AGENT_DIR, "rules")
-SCRIPTS_DIR = os.path.join(BASE_DIR, "01_Scripts")
-DEMO_DIR = os.path.join(BASE_DIR, "03_MVP_Demo")
+SCRIPTS_DIR = os.path.join(BASE_DIR, "03_Scripts")
+DEMO_DIR = os.path.join(BASE_DIR, "01_MVP_Demo")
 
 def read_file(path):
     """Reads a file and returns its content. Returns error string if not found."""
@@ -66,10 +66,11 @@ def build_writer_prompt(section):
 
     # 1. Load Components
     persona = read_file(os.path.join(STYLES_DIR, "LinXin_Voice.md"))
-    skill = read_file(os.path.join(SKILLS_DIR, "compile_transcript.md"))
+    skill = read_file(os.path.join(SKILLS_DIR, "transcript_compiler/SKILL.md"))
     knowledge_index = read_file(os.path.join(KNOWLEDGE_DIR, "Textbook_Index.md"))
     structure = read_file(os.path.join(SCRIPTS_DIR, "00_Structure_Map.md"))
-    actions = read_file(os.path.join(DEMO_DIR, "Action_Map.md"))
+    actions = read_file(os.path.join(SCRIPTS_DIR, "00_Performance_Map.md"))
+    design_spec = read_file(os.path.join(DEMO_DIR, "00_Design_Spec_Alice.md"))
 
     # 2. [Safe Slice] Extract Specific Section
     # Fix V-03: Only inject the relevant section of the structure map
@@ -87,6 +88,9 @@ def build_writer_prompt(section):
 你的指令定义在以下的技能文档中：
 
 {skill}
+
+### D. Design Specification (设计真理 - 核心参数源)
+{design_spec}
 
 ## 3. CONTEXT & KNOWLEDGE (上下文与知识库)
 ### A. Course Structure (课程结构与教学逻辑 - Current Slice)
@@ -111,7 +115,11 @@ def build_auditor_prompt(target_file):
     """Assembles the prompt for the Auditor Agent."""
 
     # 1. Load Components
-    skill = read_file(os.path.join(SKILLS_DIR, "pedagogy_auditor.md"))
+    # [Fix V-02] Corrected path to validation suite
+    skill = read_file(os.path.join(SKILLS_DIR, "validation-suite/docs/pedagogy_auditor.md"))
+    
+    # [Fix V-02] Load Truth Sources
+    design_spec = read_file(os.path.join(DEMO_DIR, "00_Design_Spec_Alice.md"))
 
     # 2. Load Target Content
     target_content = read_file(target_file)
@@ -121,15 +129,20 @@ def build_auditor_prompt(target_file):
 # SYSTEM PROMPT: PEDAGOGY AUDITOR AGENT (教学审查 Agent)
 
 ## 1. THE MISSION (任务目标)
-你是质量控制审计员。你的工作是根据严格的教育标准审查以下逐字稿。
+你是质量控制审计员。你的工作是根据 stric t的教育标准和**技术真理**审查以下逐字稿。
 
 ## 2. AUDIT CRITERIA (审查标准)
 {skill}
 
-## 3. DOCUMENT TO AUDIT (待审查文档)
+## 3. TECHNICAL TRUTH (技术真理 - 核心参数源)
+> 所有的脚本参数必须与以下设计规范完全一致。任何偏差 (e.g. +3 vs +5) 都视为 BUG。
+
+{design_spec}
+
+## 4. DOCUMENT TO AUDIT (待审查文档)
 {target_content}
 
-## 4. IMMEDIATE EXECUTION TRIGGER (立即执行指令)
+## 5. IMMEDIATE EXECUTION TRIGGER (立即执行指令)
 > 请根据上述规则输出 "审计报告 (Audit Report)"。
 > **语言要求**：所有评价和建议必须使用 **简体中文**。
 """

@@ -67,8 +67,8 @@ def check_scripts(scripts_dir, expected_timelines):
 
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    structure_path = os.path.join(base_dir, "01_Scripts", "00_Structure_Map.md")
-    scripts_dir = os.path.join(base_dir, "01_Scripts")
+    structure_path = os.path.join(base_dir, "03_Scripts", "00_Structure_Map.md")
+    scripts_dir = os.path.join(base_dir, "03_Scripts")
 
     print("🔍 Integrity Check: Structure vs Scripts Timeline...")
 

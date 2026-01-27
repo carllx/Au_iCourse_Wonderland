@@ -1,13 +1,13 @@
 ---
 trigger: glob
 description: Naming and structural conventions for MVP Demo.
-globs: 03_MVP_Demo/**
+globs: 01_MVP_Demo/**
 ---
 
 # MVP Demo Architecture Guidelines
 
-When working within `03_MVP_Demo`, you **MUST** follow the architecture and naming conventions defined in:
-`03_MVP_Demo/ARCHITECTURE_GUIDE.md`
+When working within `01_MVP_Demo`, you **MUST** follow the architecture and naming conventions defined in:
+`01_MVP_Demo/ARCHITECTURE_GUIDE.md`
 
 Key highlights:
 - **Scripts**: `_Pipeline/generators/` (e.g. `gen_S02_heartbeat.py`)

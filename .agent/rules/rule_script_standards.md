@@ -1,12 +1,12 @@
 ---
 trigger: glob
 description: Enforces strict structural syntax for word counting.
-globs: 01_Scripts/*.md
+globs: 03_Scripts/*.md
 ---
 
 # 规则：脚本格式标准 (Script Syntax Standards)
 
-**适用范围**: 仅用于编写 `01_Scripts/*.md` 逐字稿。
+**适用范围**: 仅用于编写 `03_Scripts/*.md` 逐字稿。
 
 为了确保字数统计程序 (`validate_script_length.py`) 能准确区分“朗读内容”和“舞台指示”，所有脚本必须遵守以下**视觉结构**：
 

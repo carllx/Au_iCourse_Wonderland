@@ -52,7 +52,7 @@ Project_Root/
 │   ├── Content_Strategy.md       # 教学策略 (爱丽丝剧场、无形(声音)空间秩序的导演理念)
 │   ├── Dev_Build_Plan.md         # 工程规范 (本文档拆分后归档于此)
 │   └── task.md                   # 进度看板
-├── 01_Scripts/                   # [生成产物] 模块化逐字稿 (由 Map 编译生成)
+├── 03_Scripts/                   # [生成产物] 模块化逐字稿 (由 Map 编译生成)
 │   ├── 00_Structure_Map.md       # [核心骨架] 结构化映射表 (控制逻辑、甚至包含伪代码)
 │   ├── S01_Intro.md              # 导入部分
 │   ├── S02_Phase1_Purify.md      # 净化环节
@@ -62,8 +62,8 @@ Project_Root/
 │   └── S06_Summary.md            # 总结
 ├── 02_Visuals/                   # [视觉层] PPT 内容以“数据”形式存在
 │   └── Slide_Database.md         # 包含 Slide_ID, Visual_Prompt, Text_Content
-├── 03_MVP_Demo/                  # [逻辑层] 演示步骤配置
-│   ├── Action_Map.md             # 包含 Action_ID, Step_Description, Parameter_Value
+├── 01_MVP_Demo/                  # [逻辑层] 演示步骤配置
+│   ├── Performance_Map.md             # 包含 Action_ID, Step_Description, Parameter_Value
 │   └── assets/                   # 音频素材
 └── .agent/                       # [智能体配置]
     ├── knowledge/                # [知识库] 原始教材的“索引化”版本
@@ -108,7 +108,7 @@ Project_Root/
 
 *   **Writer Agent (执行)**:
     *   *Trigger*: `python3 .agent/executors/build_factory.py --task writer`
-    *   *Mechanism*: 自动装配 `LinXin_Voice` + `Textbook_Index` + `Action_Map`。
+    *   *Mechanism*: 自动装配 `LinXin_Voice` + `Textbook_Index` + `Performance_Map`。
     *   *Protocol*: **[Strict Chinese]** 强制输出简体中文 Prompt，杜绝英文污染；**[Fail Fast]** 核心组件缺失时立即通过 `sys.exit(1)` 阻断执行。
     *   *Output*: 包含 "Deep Listening" 留白的严格脚本。
 

@@ -4,7 +4,7 @@
 此技能定义了 Auditor Agent 的核心职责：不仅仅是检查语法或链接，而是作为“教务处”进行**教育学审计 (Pedagogical Audit)**。
 
 ## 审查对象 (Audit Targets)
-- `01_Scripts/S0x_Transcript.md` (逐字稿)
+- `03_Scripts/S0x_Transcript.md` (逐字稿)
 
 ## 审查标准 (Audit Criteria)
 
@@ -20,8 +20,13 @@
 *   **Fail**: 全篇都在说话，没有给学生“听”的时间。
 
 ### 3. 技术一致性审查 (Technical Alignment)
-*   **规则**: 脚本中提到的参数值，必须与 `03_MVP_Demo/Action_Map.md` 完全一致。
+*   **规则**: 脚本中提到的参数值，必须与 `03_Scripts/00_Performance_Map.md` 完全一致。
 *   **例如**: 如果 Map 里是 `-2 Semitones`，脚本里不能说 "降低一个八度"。
+
+### 4. 数据一致性校验 (Consistency Check)
+*   **规则**: 脚本中出现的所有数值与操作 (e.g. +5 Semitones, 75% Reduction) 必须与Prompt中的 `00_Design_Spec_Alice.md` 完全锁定。
+*   **Fail**: Design Spec 说 +5，脚本里写 +3。 (这是严重的技术错误，必须 REJECT)。
+*   **Fail**: Design Spec 说 "Abyss IR"，脚本里用 "Plate Reverb"。
 
 ## 执行指令 (Instructions)
 作为一个 Auditor，请阅读目标文件，并输出一份 **Audit Report**：
@@ -31,5 +36,6 @@
 * [✅/❌] Director's Voice: (评语)
 * [✅/❌] Deep Listening: (评语，指出留白位置)
 * [✅/❌] Technical Accuracy: (评语)
+* [✅/❌] Design Spec Consistency: (评语，是否所有参数都与Alice的设计规范一致)
 * **Conclusion**: (PASS / REJECT)
 ```

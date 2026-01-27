@@ -67,8 +67,8 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
     slide_db_path = os.path.join(base_dir, "02_Visuals", "Slide_Database.md")
-    action_map_path = os.path.join(base_dir, "03_MVP_Demo", "Action_Map.md")
-    scripts_dir = os.path.join(base_dir, "01_Scripts")
+    Performance_Map_path = os.path.join(base_dir, "01_MVP_Demo", "Performance_Map.md")
+    scripts_dir = os.path.join(base_dir, "03_Scripts")
 
     print(f"Validating project at: {base_dir}")
 
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # Actions: ## ACT_00_Play_Bad_Audio (Supports ACT_00b)
     # Note: action map starts with ## ACT_...
     action_id_pattern = re.compile(r'^##\s+(ACT_\S+)')
-    valid_actions = parse_definitions(action_map_path, action_id_pattern)
+    valid_actions = parse_definitions(Performance_Map_path, action_id_pattern)
     print(f"Loaded {len(valid_actions)} MVP Actions.")
 
     # 3. Validate
@@ -96,16 +96,16 @@ if __name__ == "__main__":
     missing_assets = []
 
     # Scan Action Map for "assets/..." references
-    with open(action_map_path, 'r', encoding='utf-8') as f:
+    with open(Performance_Map_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
             # Look for: `_Library/...` references
             # Regex captures: _Library/S02_Purify/asset_name.wav
             match = re.search(r'(_Library/[a-zA-Z0-9_/-]+\.\w+)', line)
             if match:
                 relative_path = match.group(1)
-                full_path = os.path.join(base_dir, "03_MVP_Demo", relative_path)
+                full_path = os.path.join(base_dir, "01_MVP_Demo", relative_path)
                 if not os.path.exists(full_path):
-                    missing_assets.append(f"Action_Map.md:{line_num} - Missing Asset: {relative_path}")
+                    missing_assets.append(f"Performance_Map.md:{line_num} - Missing Asset: {relative_path}")
 
     if missing_assets:
         print(f"❌ Found {len(missing_assets)} missing physical assets:")

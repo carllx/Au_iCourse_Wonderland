@@ -1,7 +1,7 @@
 ---
 trigger: glob
 description: Enforces pedagogical scaffolding to prevent "God-View Bias" and "Naked Metaphors" in educational scripts.
-globs: 01_Scripts/*.md
+globs: 03_Scripts/*.md
 ---
 
 # Rule: Pedagogy Scaffolding (反上帝视角协议)

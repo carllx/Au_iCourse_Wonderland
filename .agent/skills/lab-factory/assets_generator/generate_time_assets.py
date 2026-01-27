@@ -42,7 +42,7 @@ def save_wav(path, data, rate):
 
 def main():
     print("Generating Lesson 05 Assets: The Temporal Detective...")
-    
+
     # 1. Load the Source
     vocal = load_vocal(SOURCE_VOCAL)
     if vocal is None:
@@ -56,13 +56,13 @@ def main():
     dur_sec = 4.0
     start_idx = int(start_sec * SAMPLE_RATE)
     end_idx = start_idx + int(dur_sec * SAMPLE_RATE)
-    
+
     if len(vocal) > end_idx:
         clue = vocal[start_idx:end_idx]
     else:
         # If too short, just use what we have or loop
         clue = np.tile(vocal, 2)[:int(dur_sec*SAMPLE_RATE)]
-        
+
     print(f"Extracted Clue: {len(clue)/SAMPLE_RATE:.2f}s")
 
     # ==========================================
@@ -82,11 +82,11 @@ def main():
     #   Method B (Elastic): Stretch 300% (Time Only). Pitch remains High. 
     #                       Then Pitch Shift -19st.
     # We will encourage Method B in the lab guide.
-    
+
     speed_factor = 3.0 # 3x faster
     target_len = int(len(reversed_clue) / speed_factor)
     scrambled = scipy.signal.resample(reversed_clue, target_len)
-    
+
     # ==========================================
     # ENCRYPTION STAGE 3: MASKING
     # ==========================================
@@ -95,15 +95,15 @@ def main():
     noise = np.random.normal(0, 0.05, len(scrambled))
     sos_lp = scipy.signal.butter(2, 200, 'lp', fs=SAMPLE_RATE, output='sos')
     rumble = scipy.signal.sosfilt(sos_lp, noise)
-    
+
     # Mix: Evidence needs to be reasonably loud to be recoverable
     evidence = scrambled * 0.8 + rumble * 0.4
-    
+
     # Pad with silence to allow manipulation room
     # Add 0.5s silence at both ends
     silence = np.zeros(int(0.5 * SAMPLE_RATE))
     final_output = np.concatenate((silence, evidence, silence))
-    
+
     save_wav(os.path.join(OUTPUT_DIR, "evidence_tape_05.wav"), final_output, SAMPLE_RATE)
     print("Encryption Complete. The detective is ready.")
 
@@ -116,11 +116,11 @@ def main():
     print("Generating Practical Asset: Podcast Jingle (12s)...")
     bpm = 110
     total_dur = 12.0 
-    
+
     t = np.linspace(0, total_dur, int(total_dur*SAMPLE_RATE), False)
-    
+
     # 1. Structure: Intro (0-1s) -> Groove (1s-10s) -> Outro (10s-12s)
-    
+
     # ==========================================
     # PRACTICAL CHALLENGE: PODCAST JINGLE (MUSICAL ALIGNMENT)
     # ==========================================
@@ -132,27 +132,27 @@ def main():
     beat_dur = 60.0 / bpm 
     bar_dur = beat_dur * 4 # 3.0s
     total_dur = 12.0 
-    
+
     t = np.linspace(0, total_dur, int(total_dur*SAMPLE_RATE), False)
-    
+
     # 1. Rhythmic Arpeggio (Bars 1-3: 0s - 9s)
     melody_dur = 9.0 # Stop exactly at Bar 4
     notes = [440, 554, 659, 880] 
     melody = np.zeros_like(t)
-    
+
     step = beat_dur / 2.0 # 8th notes
     num_steps = int(melody_dur / step)
-    
+
     for i in range(num_steps):
         note_freq = notes[i % 4]
         if i % 4 == 0: note_freq *= 0.5
-        
+
         start = int(i * step * SAMPLE_RATE)
         local_t = np.linspace(0, 0.5, int(0.5*SAMPLE_RATE), False)
-        
+
         tone = np.sin(2*np.pi*note_freq*local_t) + 0.5*np.sin(2*np.pi*note_freq*2*local_t)
         pluck = tone * np.exp(-local_t * 5)
-        
+
         end = min(start + len(pluck), len(melody))
         melody[start:end] += pluck[:end-start] * 0.25
 
@@ -163,18 +163,18 @@ def main():
     pad_vol = np.ones_like(t)
     fade_start = 8.5
     fade_end = 9.0
-    
+
     fade_zone = (t >= fade_start) & (t < fade_end)
     pad_vol[fade_zone] = np.linspace(1, 0, np.sum(fade_zone))
     pad_vol[t >= fade_end] = 0
     pad *= pad_vol
-    
+
     # 3. Distinct Outro: Final Chord (Bar 4: 9s - 12s)
     outro_start = 9.0
     outro_idx = int(outro_start * SAMPLE_RATE)
     outro_len = total_dur - outro_start
     out_t = np.linspace(0, outro_len, int(outro_len*SAMPLE_RATE), False)
-    
+
     chord_freqs = [220, 440, 554, 659]
     final_chord = np.zeros(len(out_t))
     for f in chord_freqs:
@@ -184,13 +184,13 @@ def main():
         if att_len < len(env):
             env[:att_len] = np.linspace(0, 1, att_len)
         env *= np.exp(-out_t*1.5)
-        
+
         final_chord += np.sin(2*np.pi*f*out_t) * env * 0.2
-        
+
     outro_layer = np.zeros_like(t)
     l_chord = min(len(final_chord), len(outro_layer)-outro_idx)
     outro_layer[outro_idx:outro_idx+l_chord] = final_chord[:l_chord]
-    
+
     # Mix
     bgm = melody + pad + outro_layer
     save_wav(os.path.join(OUTPUT_DIR, "podcast_jingle.wav"), bgm, SAMPLE_RATE)

@@ -20,7 +20,7 @@
 
 - [x] **阶段 3: 视觉与演示整合**
     - [x] 创建 `02_Visuals/Slide_Database.md`。
-    - [x] 创建 `03_MVP_Demo/Action_Map.md`。
+    - [x] 创建 `003_Scripts/00_Performance_Map.md.md`。
     - [ ] 验证资产存在性 (音频文件)。
 
 - [ ] **阶段 4: 审计与验证**
@@ -32,4 +32,4 @@
 
 ## 持续跟进问题 (Ongoing Issues)
 - 验证本地音频资产 (`assets/`) 是否完整 (Phase 3 剩余项).
-- 确保 `Action_Map` 中的所有技术参数与脚本中的“导演决策”保持一致。
+- 确保 `Performance_Map` 中的所有技术参数与脚本中的“导演决策”保持一致。

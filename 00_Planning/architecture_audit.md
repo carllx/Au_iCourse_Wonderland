@@ -14,9 +14,9 @@ The "Courseware Compiler Pattern" is now fully operational.
 | Component | Status | Verification |
 | :--- | :--- | :--- |
 | **00_Planning** | **Stable** | Strategy defined; Vulnerabilities documented in `vulnerability_report.md`. |
-| **01_Scripts** | **Complete** | S01-S06 generated with "Director Persona" and "Deep Listening". |
+| **03_Scripts** | **Complete** | S01-S06 generated with "Director Persona" and "Deep Listening". |
 | **02_Visuals** | **Ready** | `Slide_Database.md` populated with cinematic metaphors. |
-| **03_MVP_Demo** | **Ready** | `Action_Map.md` maps specific actions to script decision points. |
+| **01_MVP_Demo** | **Ready** | `Performance_Map.md` maps specific actions to script decision points. |
 | **.agent** | **Active** | Skills and Factory updated for Python-based generation. |
 
 ## 2. Audit Findings

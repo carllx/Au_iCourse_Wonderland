@@ -1,7 +1,7 @@
 ---
 trigger: glob
 description: Inspiration engine for metaphors (Lin Xin persona).
-globs: 01_Scripts/*.md
+globs: 03_Scripts/*.md
 ---
 
 # 规则：灵感缪斯协议 (Creative Muse Protocol)

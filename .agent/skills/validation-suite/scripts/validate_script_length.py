@@ -79,7 +79,7 @@ def format_time(seconds):
     return f"{mins}m {secs}s"
 
 def main():
-    script_dir = "01_Scripts"
+    script_dir = "03_Scripts"
     if not os.path.exists(script_dir):
         print(f"Directory {script_dir} not found.")
         return

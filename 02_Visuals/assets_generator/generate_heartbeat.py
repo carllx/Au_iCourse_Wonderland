@@ -12,22 +12,22 @@ BPM = 100 # Anxious Alice
 
 def generate_heart_transient(duration, freq_start, freq_end, noise_mix=0.0):
     t_h = np.linspace(0, duration, int(duration*SAMPLE_RATE), False)
-    
+
     # 1. Tonal (Muscle) - Sine Sweep
     # Logarithmic chirp for natural decay
     freqs = np.logspace(np.log10(freq_start), np.log10(freq_end), len(t_h))
     phases = np.cumsum(freqs) * 2 * np.pi / SAMPLE_RATE
     tone = np.sin(phases)
-    
+
     # Envelope: Fast attack, exponential decay
     env = np.exp(-t_h * 15)
     tone *= env
-    
+
     # 2. Texture (Fluid) - Filtered Noise
     noise = np.random.normal(0, 1, len(t_h))
     sos_bp = scipy.signal.butter(2, [100, 400], 'bp', fs=SAMPLE_RATE, output='sos')
     texture = scipy.signal.sosfilt(sos_bp, noise) * env
-    
+
     return (tone * (1-noise_mix) + texture * noise_mix)
 
 def save_wav(path, data, rate):
@@ -40,18 +40,18 @@ def save_wav(path, data, rate):
 
 def main():
     print("--- Alice Asset Factory: Heartbeat ---")
-    
+
     # Parameters for realistic heart (S1/S2)
     # S1 (Lub): Deeper 70->40z
     lub = generate_heart_transient(0.15, 70, 40, noise_mix=0.4)
     # S2 (Dub): Sharper 90->50Hz
     dub = generate_heart_transient(0.12, 90, 50, noise_mix=0.3)
-    
+
     # Sequence
     beat_dur = 60.0 / BPM
     bar_dur = beat_dur * 4 # 4/4 bar
     full_bar = np.zeros(int(bar_dur * SAMPLE_RATE), dtype=np.float32)
-    
+
     def add_sound(canvas, sound, pos_sec, gain=1.0):
         idx = int(pos_sec * SAMPLE_RATE)
         l = min(len(sound), len(canvas) - idx)
@@ -63,15 +63,15 @@ def main():
         offset = i * beat_dur
         add_sound(full_bar, lub, offset + 0.0, 1.0)
         add_sound(full_bar, dub, offset + 0.28, 0.9)
-    
+
     # Bone Conduction Filter (The "Internal" Effect)
     # LPF 250Hz - Simulating hearing from inside chest
     sos_bone = scipy.signal.butter(2, 250, 'lp', fs=SAMPLE_RATE, output='sos')
     internal_heart = scipy.signal.sosfilt(sos_bone, full_bar)
-    
+
     # Loop it 4 times
     final_track = np.tile(internal_heart, 4)
-    
+
     save_wav(os.path.join(OUTPUT_DIR, "Alice_Heartbeat_Internal.wav"), final_track, SAMPLE_RATE)
     print("Heartbeat generation complete.")
 

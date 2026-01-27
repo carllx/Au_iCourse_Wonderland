@@ -8,13 +8,13 @@ trigger: /compile, 生成逐字稿, 编译脚本
 # 技能：编译课程逐字稿 (Compile Course Transcript)
 
 ## 描述 (Description)
-此技能将结构化大纲 (`Structure_Map`) 和技术参数 (`Action_Map`) 转化为自然语言讲课稿，同时严格遵守原始教材 (`Textbook_Index`) 的知识点和林昕老师 (`LinXin_Voice`) 的授课风格。
+此技能将结构化大纲 (`Structure_Map`) 和技术参数 (`Performance_Map`) 转化为自然语言讲课稿，同时严格遵守原始教材 (`Textbook_Index`) 的知识点和林昕老师 (`LinXin_Voice`) 的授课风格。
 
 ## 输入环境 (Inputs / Context)
-1.  **结构 (Structure)**: `01_Scripts/00_Structure_Map.md` (时间轴与逻辑)
+1.  **结构 (Structure)**: `03_Scripts/00_Structure_Map.md` (时间轴与逻辑)
 2.  **知识 (Knowledge)**: `../数字音频编辑Audition实用教程-混响-2md.md` (技术定义的唯一真理)
 3.  **人设 (Persona)**: `.agent/styles/LinXin_Voice.md` (语气与口吻)
-4.  **动作 (Action)**: `03_MVP_Demo/Action_Map.md` (具体操作步骤)
+4.  **动作 (Action)**: `003_Scripts/00_Performance_Map.md.md` (具体操作步骤)
 
 ## 执行指令 (Instructions for Agent)
 1.  **Step 0: 注入上下文 (Inject Context)**
@@ -35,15 +35,15 @@ trigger: /compile, 生成逐字稿, 编译脚本
     *   *例子*: 把 "信噪比" 比作 "信号是主角，噪声是群演"。
 
 5.  **Step 4: 植入动作与留白 (Embed Action & Silence)**
-    *   当 `Structure_Map` 出现 `[ACTION: ACT_xx]` 时，插入 `Action_Map.md` 中的具体步骤。
+    *   当 `Structure_Map` 出现 `[ACTION: ACT_xx]` 时，插入 `Performance_Map.md` 中的具体步骤。
     *   **关键**: 当涉及“听辨”时，必须插入 **(留白 10-30秒)** 字样，作为“深听”环节的占位。
 
 6.  **Step 5: 输出成果 (Output)**
     *   生成 `S0x_Transcript.md` 中文内容。
-    
+
 ## 质量检查 (Quality Check)
 - [ ] 是否在开头/结尾明确体现了“无形造境者”的身份？
 - [ ] 是否从“构建空间”的角度进行教学（而非单纯的技术讲解）？
-- [ ] 技术参数是否与 `Action_Map` 和原始教材完全一致？
+- [ ] 技术参数是否与 `Performance_Map` 和原始教材完全一致？
 - [ ] 是否包含了 **(留白)** 标记以支持 Deep Listening？
 - [ ] 所有的 PPT 引用 `[REF:...]` 是否保留？

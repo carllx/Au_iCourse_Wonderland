@@ -1,7 +1,7 @@
 ---
 trigger: model_decision
-description: 视觉/脚本一致性技能：创建一个 Workflow，专门用于检查 02_Visuals/Slide_Database.md 是否与当前的 01_Scripts 内容匹配。
-globs: 01_Scripts/*.md
+description: 视觉/脚本一致性技能：创建一个 Workflow，专门用于检查 02_Visuals/Slide_Database.md 是否与当前的 03_Scripts 内容匹配。
+globs: 03_Scripts/*.md
 ---
 
 # Rule: Visuals Consistency (视觉/脚本一致性)
@@ -18,7 +18,7 @@ globs: 01_Scripts/*.md
 ## 2. 核心检查逻辑 (Core Logic)
 Agent 必须执行以下比对流程：
 
-1.  **读取脚本**: 读取目标脚本 `01_Scripts/S0x_Transcript.md`。
+1.  **读取脚本**: 读取目标脚本 `03_Scripts/S0x_Transcript.md`。
 2.  **提取标记**: 提取所有 visual cue (通常标记为 `[画面: xxx]` 或 `(Visual: xxx)`)。
 3.  **查询数据库**: 读取 `02_Visuals/Slide_Database.md`。
 4.  **验证存在性**: 检查脚本中的每一个 visual cue 是否在 Slide Database 中有对应的条目 (ID 或 描述匹配)。
