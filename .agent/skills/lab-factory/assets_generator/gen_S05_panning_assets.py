@@ -142,7 +142,7 @@ def main():
         t_h = np.linspace(0, duration, int(duration*SAMPLE_RATE), False)
         # 1. Tonal Component (Muscle) - Sine Sweep
         # Use a logarithmic chirp for natural decay
-        phase = 2 * np.pi * (freq_start * t_h - 0.5 * (freq_start - freq_end) * t_h**2 / duration) 
+        # Phase calculation removed (unused). See line 146. 
         # Actually simple exp decay freq is better for percussion
         freqs = np.logspace(np.log10(freq_start), np.log10(freq_end), len(t_h))
         phases = np.cumsum(freqs) * 2 * np.pi / SAMPLE_RATE
@@ -174,9 +174,9 @@ def main():
 
     def add_sound(canvas, sound, pos_sec, gain=1.0):
         idx = int(pos_sec * SAMPLE_RATE)
-        l = min(len(sound), len(canvas) - idx)
-        if l > 0:
-            canvas[idx:idx+l] += sound[:l] * gain
+        length = min(len(sound), len(canvas) - idx)
+        if length > 0:
+            canvas[idx:idx+length] += sound[:length] * gain
 
     # Beat 1
     add_sound(bar_pulse, lub, 0.0, 1.0)

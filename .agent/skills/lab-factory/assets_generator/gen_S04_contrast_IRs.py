@@ -84,8 +84,10 @@ def generate_reverb_ir(duration, decay_time, sample_rate, room_type="small"):
     # Tail usually starts building up after ER. Let's fade in the tail.
 
     # Normalize individual parts
-    if np.max(np.abs(er)) > 0: er /= np.max(np.abs(er))
-    if np.max(np.abs(tail)) > 0: tail /= np.max(np.abs(tail))
+    if np.max(np.abs(er)) > 0:
+        er /= np.max(np.abs(er))
+    if np.max(np.abs(tail)) > 0:
+        tail /= np.max(np.abs(tail))
 
     # Mix: ER leads, Tail follows
     # We'll just add them. The tail envelop already decays from 0, maybe we should fade it in?

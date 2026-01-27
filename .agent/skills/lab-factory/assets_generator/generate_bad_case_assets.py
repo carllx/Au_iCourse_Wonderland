@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from matplotlib.colors import LinearSegmentedColormap
+
 from scipy.io import wavfile
 import scipy.signal as signal
 import os
@@ -16,7 +16,7 @@ OUTPUT_DIR = os.path.join(PROJECT_ROOT, "01_MVP_Demo/_Library/S0X_Shared")
 
 sys.path.append(CONFIG_DIR)
 try:
-    from Visual_System_Config import VisualTheme, Palette, MetricTranslator, CURRENT_THEME, FONT_REGULAR, FONT_MEDIUM
+    from Visual_System_Config import Palette, MetricTranslator, CURRENT_THEME, FONT_REGULAR, FONT_MEDIUM
 except ImportError:
     print("CRITICAL WARNING: Visual_System_Config not found.")
 

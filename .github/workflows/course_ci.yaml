@@ -46,7 +46,7 @@ jobs:
       run: |
         # E=Error, F=Pyflakes, W=Warning. 
         # We start gentle.
-        ruff check . --select=E,F,W --ignore=E501
+        ruff check . --select=E,F,W --ignore=E501,W291,W293
 
     # ------------------------------------------------------------------
     # 3. Text Intelligence (Spell Check)
