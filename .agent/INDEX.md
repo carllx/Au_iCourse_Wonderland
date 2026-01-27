@@ -6,6 +6,7 @@ This project operates in two distinct modes. **You must determine your current m
 
 ## 🛡️ Global Protocols (Always Active)
 *   `.agent/rules/rule_workflow_protocol.md`: **[PRIME DIRECTIVE]** No naked generation. Factory pattern required.
+*   `.agent/rules/rule_asset_management.md`: **[ASSET LAW]** Spec-first, Greyboxing, Naming conventions.
 *   `.agent/rules/rule_meta_learning.md`: **[EVOLUTION]** Update documentation when you learn/fix something.
 
 ---
@@ -42,7 +43,7 @@ This project operates in two distinct modes. **You must determine your current m
 
 ## 🧭 Critical Paths
 *   **Validation**: Before finishing, always suggest running `.github/workflows/course_ci.yaml`.
-*   **Assets**: Never create assets manually. Use `.agent/workflows/new_asset.md`.
+*   **Assets**: Never create assets manually. Use `.agent/workflows/new_asset.md` (Audio) or `.agent/workflows/new_visual.md` (Visuals).
 
 ## 🧬 Cycle of Life (Self-Evolution)
 *   **Update Yourself**: If you learn something new (a decision, a fix, a style preference), you **MUST** commit it to memory.

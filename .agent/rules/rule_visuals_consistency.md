@@ -21,7 +21,21 @@ Agent 必须执行以下比对流程：
 1.  **读取脚本**: 读取目标脚本 `03_Scripts/S0x_Transcript.md`。
 2.  **提取标记**: 提取所有 visual cue (通常标记为 `[画面: xxx]` 或 `(Visual: xxx)`)。
 3.  **查询数据库**: 读取 `02_Visuals/Slide_Database.md`。
-4.  **验证存在性**: 检查脚本中的每一个 visual cue 是否在 Slide Database 中有对应的条目 (ID 或 描述匹配)。
+4.  **验证存在性**: (Basic) 检查脚本中的每一个 visual cue 是否在 Slide Database 中有对应的条目 (ID 或 描述匹配)。
+5.  **验证类型匹配**: (Advanced) 检查 Slide 定义是否包含有效的 `Type` 字段。
+
+## 2.1 视觉分类分类学 (Visual Taxonomy)
+为了支持异构生产管线，Slide Database 中的每个条目必须包含 `Type` 字段，且属于以下类别之一：
+
+| 类型 (Type) | 定义 | 生产方式 |
+| :--- | :--- | :--- |
+| **[Motion Graphic]** | 动态图形/片头 | AE/PR 后期制作 |
+| **[UI Graphic]** | 软件界面截图 | Audition 原始截图 (需高亮) |
+| **[UI Composite]** | 复合界面设计 | 截图 + 示意图拼贴 (分屏) |
+| **[Diagram]** | 逻辑图示 | Keynote/PPT 绘制 |
+| **[Concept Art]** | 概念/隐喻艺术 | Midjourney/DALL-E 生成 (安徒生风格) |
+| **[Stock/Reference]** | 现成素材引用 | 电影剧照/网络搜图 |
+| **[Task Card]** | 纯文本任务卡 | 平面排版 |
 
 ## 3. 错误处理 (Error Handling)
 *   **Missing Asset**: 如果脚本引用了数据库中不存在的图片 -> **Report Error** (不要自行幻想图片存在)。

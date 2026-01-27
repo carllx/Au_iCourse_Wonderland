@@ -66,7 +66,13 @@ def check_scripts(scripts_dir, expected_timelines):
     return errors
 
 if __name__ == "__main__":
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    # Path is: ROOT/.agent/skills/validation-suite/scripts/validate_consistency.py
+    # We need to go up 5 levels to reach ROOT
+    current_path = os.path.abspath(__file__)
+    base_dir = current_path
+    for _ in range(5):
+        base_dir = os.path.dirname(base_dir)
+
     structure_path = os.path.join(base_dir, "03_Scripts", "00_Structure_Map.md")
     scripts_dir = os.path.join(base_dir, "03_Scripts")
 

@@ -37,7 +37,45 @@
 
 > **Note**: 严禁 AI 凭空生成内容。必须执行上述指令获取 Context。
 
+## 🛠️ 协作者指南 (Contributor's Guide)
+
+### 场景 A: 添加新图 (Visuals Workflow)
+**原则**: Spec-First (先定义，再生成，后覆盖)
+1.  **Define**: 在 `02_Visuals/Slide_Database.md` 里新起一行，定义 `ID`, `Type` 和 `Concept`。
+2.  **Generate**: 运行自动化脚本生成 **"灰盒占位图"** (Greybox)。
+    ```bash
+    python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
+    ```
+3.  **Produce**: 用 PS 成品覆盖生成的灰盒 PNG。素材(Raw)请加 `src_` 前缀放入同级目录。
+
+### 场景 B: 添加新音/资产 (Audio Workflow)
+1.  **Define**: 在 `01_MVP_Demo/00_Design_Spec_Alice.md` 里定义参数。
+2.  **Generate**: 编写/运行 `01_MVP_Demo/_Pipeline` 下的 Python 脚本生成 `.wav`。
+
+## 🧰 常用工具箱 (Project Toolkit)
+
+以下脚本可由用户直接运行，用于辅助课程开发与内容提取：
+
+### 1. 课程时长与文本提取
+*   **用途**: 估算课程演示时长（含动作与留白），或提取纯净口播稿。
+*   **指令**:
+    ```bash
+    # ⏱️ 此时长检查
+    python .agent/skills/validation-suite/scripts/validate_script_length.py
+
+    # 📝 提取纯文本 (用于 TTS/字幕)
+    python .agent/skills/validation-suite/scripts/validate_script_length.py --dump-text
+    ```
+
+### 2. 链接完整性自检 (CI/CD)
+*   **用途**: 检查脚本中引用的图片、音频资产是否存在死链。
+*   **指令**:
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_links.py
+    ```
+
 ## 当前状态
-*   ✅ **工程升级**: 完成 "Active Agent" 架构改造。
 *   ✅ **策略升级**: 引入 "Deep Listening" (深听) 策略，填补时长缺口。
+*   ✅ **资产重构**: 视觉资产已完成 "Greybox" 灰盒化与模块化迁移。
 *   🔄 **执行中**: S02-S05 脚本重构中。
+
