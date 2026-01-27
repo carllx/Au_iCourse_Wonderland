@@ -30,13 +30,14 @@ jobs:
     # 1. Project Logic (Custom Validators) - CRITICAL FIRST
     # ------------------------------------------------------------------
     - name: ⏱️ Check Course Duration
-      run: python .agent/skills/validate_script_length.py
+      run: python .agent/skills/validation-suite/scripts/validate_script_length.py
 
     - name: 🔗 Validate Links & Assets
-      run: python .agent/skills/validate_links.py
+      run: python .agent/skills/validation-suite/scripts/validate_links.py
 
     - name: 🔄 Validate Data Consistency
-      run: python .agent/skills/validate_consistency.py
+      run: python .agent/skills/validation-suite/scripts/validate_consistency.py
+
 
     # ------------------------------------------------------------------
     # 2. Code Intelligence (Linter)
