@@ -52,6 +52,7 @@ jobs:
     # 3. Text Intelligence (Spell Check)
     # ------------------------------------------------------------------
     - name: 📝 Check Spelling (Typos)
+      if: success() || failure()
       uses: crate-ci/typos@master
       with:
         # Ignore specific file types or folders if needed
