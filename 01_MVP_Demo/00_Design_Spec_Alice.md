@@ -88,8 +88,9 @@
     *   [ ] **Track 2 (Heart)**: `asset_S05_heartbeat_visceral.wav`。
         *   **Width**: 强制设为 Mono **0%** (死寂的点)。
     *   [ ] **Track 3 (Shadow)**: `asset_S05_shadow_self.wav`。
-        *   *Sound*: **Clean Reverse** (纯净反向人声)。
+        *   *Sound*: **Reverse + Pitch Shift (-3 semitones)**。
         *   *Pan*: **Center**。它是心魔，不应该有位置偏倚。
+        *   *Mix*: **0.25** (背景回声)，延迟 0.5s 开始。
     *   [ ] **Track 4 (The Wall)**: `asset_S05_threat_pressure.wav`。
         *   *Movement*: **Approaching** (逼近)。
         *   *Tech*: Low Pass Filter 逐渐打开 (50Hz -> 5000Hz) + 立体声宽度从窄变宽。
@@ -98,6 +99,10 @@
         *   *Movement*: **Spiral** (螺旋)。
         *   *Tech*: 360° Panning Automation + Doppler Effect (Pitch Shift)。
         *   *Feeling*: 一根刺在头顶疯狂盘旋。
+    *   [ ] **Track 6 (Consciousness)**: `asset_S05_conscious_voice.wav`。
+        *   *Sound*: **Dry + Bone Conduction EQ** (极干 + 骨导温暖)。
+        *   *Pan*: **Center**。它是"我"的主体性位置。
+        *   *Mix*: **0.7** (主角声音)。
     *   [ ] **Width Automation**:
         *   当 Track 4 & 5 逼近高潮时，将全局 Reverb 的 Width 推至 **150%**。
         *   *Experience*: 极端动态的物理压迫 vs 极端空旷的心理荒野。

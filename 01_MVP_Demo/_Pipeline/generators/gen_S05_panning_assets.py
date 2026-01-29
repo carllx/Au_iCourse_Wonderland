@@ -112,7 +112,7 @@ def generate_anxiety_source(duration_sec, fs=48000):
 
 def process_shadow_self(src_path, duration_sec, fs=48000):
     """
-    Shadow Self: 纯净反向人声。
+    Shadow Self: 反向 + 降调 (Tape Style).
     """
     if not os.path.exists(src_path):
         print("  Warning: Source voice not found.")
@@ -130,6 +130,14 @@ def process_shadow_self(src_path, duration_sec, fs=48000):
         
     # REVERSE
     voice_rev = voice[::-1]
+
+    # PITCH SHIFT (Tape Style: Resample)
+    # -3 Semitones = 2^(-3/12) ~= 0.84 speed
+    # To lower pitch, we stretch the audio (more samples)
+    semitones = -3
+    ratio = 2 ** (semitones / 12.0)
+    new_len = int(len(voice_rev) / ratio)
+    voice_rev = signal.resample(voice_rev, new_len)
     
     # NORMALIZE
     voice_rev = voice_rev / (np.max(np.abs(voice_rev)) + 1e-6)
@@ -140,6 +148,46 @@ def process_shadow_self(src_path, duration_sec, fs=48000):
         voice_rev = np.concatenate([voice_rev, voice_rev])
     
     return voice_rev[:target_samples]
+
+def process_conscious_voice(src_path, duration_sec, fs=48000):
+    """
+    Conscious Voice: Dry + Bone Conduction EQ (Low End Boost).
+    """
+    if not os.path.exists(src_path):
+        return np.zeros(int(fs * duration_sec))
+    
+    fs_v, voice = wavfile.read(src_path)
+    if len(voice.shape) > 1: voice = voice[:, 0]
+    if voice.dtype != np.float32:
+        voice = voice.astype(np.float32) / 32768.0 if voice.dtype == np.int16 else voice.astype(np.float32)
+
+    # Resample
+    if fs_v != fs:
+        num_samples = int(len(voice) * fs / fs_v)
+        voice = signal.resample(voice, num_samples)
+
+    # Bone Conduction EQ
+    # Boost 150-250Hz (+4dB approx)
+    # Implementation: Add a Bandpass filter result to the dry signal
+    sos = signal.butter(2, [150, 250], btype='band', fs=fs, output='sos')
+    low_boost = signal.sosfilt(sos, voice)
+    
+    # Proximity Warmth (300-500Hz)
+    sos2 = signal.butter(2, [300, 500], btype='band', fs=fs, output='sos')
+    warm_boost = signal.sosfilt(sos2, voice)
+    
+    # Mix: Dry + 1.2*Low + 0.5*Warm
+    out = voice + low_boost * 1.2 + warm_boost * 0.5
+    
+    # Normalize
+    out = out / (np.max(np.abs(out)) + 1e-6)
+    
+    # Loop/Trim
+    target_samples = int(fs * duration_sec)
+    while len(out) < target_samples:
+        out = np.concatenate([out, out])
+        
+    return out[:target_samples]
 
 # ==============================================================================
 # Part 2: Dynamic Panning DSP Functions (The Core Algorithms)
@@ -254,6 +302,10 @@ def main():
     anxiety_src = generate_anxiety_source(DUR, FS)
     save_wav(os.path.join(OUT_DIR, "asset_S05_threat_anxiety.wav"), anxiety_src)
     
+    print("  1.5 Conscious Voice (Bone Conduction)")
+    conscious = process_conscious_voice(SRC_VOICE, DUR, FS)
+    save_wav(os.path.join(OUT_DIR, "asset_S05_conscious_voice.wav"), conscious)
+    
     # --- Generate Final Demo Mix (Stereo) ---
     print("[Phase 2] Generating Demo Mix with Dynamic Panning...")
     
@@ -271,9 +323,18 @@ def main():
     mix_L = np.zeros(int(FS * DUR))
     mix_R = np.zeros(int(FS * DUR))
     
-    # Center: Heartbeat + Shadow (Both mono, equal L/R)
-    mix_L += hb * 0.7 + shadow * 0.5
-    mix_R += hb * 0.7 + shadow * 0.5
+    # Center: Heartbeat + Consciousness (Primary) + Shadow (Delayed Echo)
+    # Design: Consciousness is the protagonist, Shadow is the ghostly mirror
+    
+    # Shadow Delay: 0.5 seconds (time mirror effect)
+    shadow_delay_samples = int(FS * 0.5)
+    shadow_delayed = np.zeros(int(FS * DUR))
+    n_shadow = min(len(shadow), len(shadow_delayed) - shadow_delay_samples)
+    shadow_delayed[shadow_delay_samples:shadow_delay_samples + n_shadow] = shadow[:n_shadow]
+    
+    # Mix Ratios: Consciousness 0.7 (Primary), Shadow 0.25 (Background Echo)
+    mix_L += hb * 0.5 + conscious * 0.7 + shadow_delayed * 0.25
+    mix_R += hb * 0.5 + conscious * 0.7 + shadow_delayed * 0.25
     
     # Dynamic: Needle (Spiral)
     n = min(len(mix_L), len(anx_L))

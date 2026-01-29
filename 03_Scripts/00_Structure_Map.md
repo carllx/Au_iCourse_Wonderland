@@ -74,7 +74,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **65-68'** | Theory (O) | 声音是有形状的。**Width** 是宽度，**Pan** 是轨迹。介绍 "Object-Based Audio" 概念：不是把声音放在左边，而是让声音**走**到左边。 | `[SLIDE: S14_Visual_Spiral]` (动态螺旋雷达图示意) | N/A |
 | **68-70'** | **Guided Listening** | **深听时刻 (30s)**：戴耳机。闭眼感受两股力量：<br>1. **The Wall**: 从正前方压过来的低频墙。<br>2. **The Needle**: 在头顶盘旋的高频刺。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > Listening]` |
-| **70-75'** | Demonstration | 执行 Automation。<br>1. **Needle**: 绘制 360° 螺旋线 (Doppler)。<br>2. **Wall**: 绘制 Low Pass Filter 打开曲线 (Approaching)。<br>**高潮时刻**: 当 Needle 刺入眉心时，Width 瞬间炸开至 150%。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > ACT_07/08]` |
+| **70-75'** | Demonstration | 执行 Automation。<br>1. **Consciousness**: 骨导 EQ (主角 0.7)。<br>2. **Shadow**: 反向 + 降调 (回声 0.25, 延迟 0.5s)。<br>3. **Needle**: 绘制 360° 螺旋线 (Doppler)。<br>4. **Wall**: 绘制 Low Pass Filter 打开曲线 (Approaching)。<br>**高潮时刻**: 当 Needle 刺入眉心时，Width 瞬间炸开至 150%。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > ACT_07/08]` |
 
 ---
 

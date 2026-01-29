@@ -42,7 +42,32 @@
 *   **Track 5 (The Needle)**: 导入 `asset_S05_threat_anxiety.wav`。
     *   这是一根高频的刺。”
 
+
 ---
+
+## 1.5 意识 vs 潜意识 (Consciousness vs Shadow)
+
+**林昕**:
+“等等，只有 Shadow 吗？
+如果深渊里只有反向的怪物，那就只是恐怖片。
+爱丽丝之所以痛苦，是因为**她还清醒着**。
+
+请增加第六感：
+*   **Track 6 (Consciousness)**: 导入 `asset_S05_conscious_voice.wav`。
+    *   **听感**: 极干 (Dry) + 温暖 (Warm)。
+    *   **原理**: 当你听到自己的心声时，声音是通过**骨头**传导的（Bone Conduction）。它是世界上最亲密的声音。
+    *   (Academic Ref: **Internal-Subjective Sound**, Michel Chion)
+
+(Guided Listening: A/B Test)
+*   **A (Shadow)**: 听，这是被扔进深渊的你（Reverse, Wet, Distorted）。那是你的恐惧。
+*   **B (Consciousness)**: 听，这是还留在你脑海里的你（Dry, Bone EQ）。那是你的理智。
+
+当这两个声音同时在 Center 响起时，
+**理智的干声** 被 **恐惧的湿声** 包裹。
+这才是真正的‘精神分裂’。”
+
+---
+
 
 ## 2. 动态演示 (Automation)
 
@@ -50,18 +75,20 @@
 “现在，不要只推推子。我们要画线。打开 **Automation Mode (自动化模式)**。
 
 **第一步：The Wall (压迫之墙)**
-不仅仅是音量变大。
-我们要让这堵墙‘走’过来。
-*   **Filter Automation**: 绘制一条曲线，让 Low Pass Filter 的截止频率从 50Hz 慢慢打开到 5000Hz。
-*   **听感**: 声音从沉闷的‘嗡嗡’声，变成了贴在脸上的‘轰鸣’。它在逼近。
+*   **Geometry**: **Approaching Wedge (逼近的楔形)**。
+*   不仅是音量变大，而是物理属性的改变。
+*   **Filter Automation**: 绘制一条曲线，让 Low Pass Filter 的截止频率从 50Hz (Inaudible) 慢慢打开到 5000Hz (Harsh)。
+*   **听感**: 声音从远处闷罐般的‘嗡嗡’声，变成了贴在脸上、颗粒毕现的‘轰鸣’。这一刻，墙不再是声音，它是**物体**。
 
 **第二步：The Needle (焦虑之刺)**
+*   **Geometry**: **Deep Spiral (深渊螺旋)**。
 *   **Pan Automation**: 我们不画直线。我们要画**正弦波 (Sine Wave)**。
-*   左-右-左-右。
-*   并且频率越来越快。
-*   **听感**: 这只苍蝇在绕着你飞。配合多普勒效应 (Doppler)，你会感到它就在你的头皮上摩擦。
+    *   左-右-左-右。
+    *   并且频率越来越快 (Exponential)。
+*   **Doppler Effect**: 配合微小的 Pitch Shift，模拟那种‘咻——咻——’的掠过感。
+*   **听感**: 这只高频的苍蝇不仅在转，而且在**钻**。它正顺着你的耳膜钻进大脑皮层。
 
-(Demonstration Action: 鼠标快速绘制包络线)
+(Demonstration Action: 鼠标快速绘制包络线，屏幕上的雷达图随之疯狂旋转)
 
 ---
 
