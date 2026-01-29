@@ -78,25 +78,31 @@
 
 ---
 
-## Phase 4: 定位 (Position) — 镜中双生
-> *Technical Reference: Multitrack Session > Effects > Stereo Imagery > Stereo Expander*
-> *ACT_ID: [ACT_07_Multitrack_Setup], [ACT_08_Contrast_Stereo]*
+## Phase 4: 定位 (Position) — 动态的几何学
+> *Technical Reference: Multitrack Session > Effects > Stereo Imagery > Stereo Expander & Automation*
+> *ACT_ID: [ACT_07_Multitrack_Setup], [ACT_08_Dynamic_Shape]*
 
-*   **Story**: 在深渊底部，爱丽丝遇到了唯一的“对手”——那个被异化了的自我。
+*   **Story**: 在深渊底部，爱丽丝不仅要面对"孤独"(Width)，还要面对"围剿"(Motion)。
 *   **Action (多轨构建)**:
-    *   [ ] **Track 1 (Voice)**: 爱丽丝。**Center**。
-    *   [ ] **Track 2 (Heart)**: `asset_S05_heartbeat_visceral.wav`。**Center**。那枚生锈的钉子。
+    *   [ ] **Track 1 (Voice)**: 愛麗絲。**Center**。
+    *   [ ] **Track 2 (Heart)**: `asset_S05_heartbeat_visceral.wav`。
         *   **Width**: 强制设为 Mono **0%** (死寂的点)。
-    *   [ ] **Track 3 (Shadow)**: 导入 `asset_S05_shadow_self.wav`。
-        *   *Sound*: **Reverse Voice** (反向人声) + **Slowing Tick** (凝固的时间)。
-        *   *Pan*: **Center**。它不在旁边，它就在镜子里/心里。
-    *   [ ] **Track 4 (The World)**: 导入 `asset_S04_void_ir.wav` 的纯湿声渲染轨道 (Environment)。
-    *   [ ] **Expansion (扩展)**:
-        *   对 **Track 4 (The World)** 加载 Stereo Expander，宽度 **150%-200%**。
-        *   *Experience*: 感受 **150% 的世界荒野** 与 **0% 的自我心跳** 之间的撕裂感。
+    *   [ ] **Track 3 (Shadow)**: `asset_S05_shadow_self.wav`。
+        *   *Sound*: **Clean Reverse** (纯净反向人声)。
+        *   *Pan*: **Center**。它是心魔，不应该有位置偏倚。
+    *   [ ] **Track 4 (The Wall)**: `asset_S05_threat_pressure.wav`。
+        *   *Movement*: **Approaching** (逼近)。
+        *   *Tech*: Low Pass Filter 逐渐打开 (50Hz -> 5000Hz) + 立体声宽度从窄变宽。
+        *   *Feeling*: 一堵墙正迎面压过来。
+    *   [ ] **Track 5 (The Needle)**: `asset_S05_threat_anxiety.wav`。
+        *   *Movement*: **Spiral** (螺旋)。
+        *   *Tech*: 360° Panning Automation + Doppler Effect (Pitch Shift)。
+        *   *Feeling*: 一根刺在头顶疯狂盘旋。
+    *   [ ] **Width Automation**:
+        *   当 Track 4 & 5 逼近高潮时，将全局 Reverb 的 Width 推至 **150%**。
+        *   *Experience*: 极端动态的物理压迫 vs 极端空旷的心理荒野。
 *   **Experience**:
-    *   感受 **150% 的世界荒野** 与 **0% 的自我心跳** 之间的撕裂感。
-    *   在那反向的呓语中，听见时间的枯竭。
+    *   即使闭上眼，你也能“看见”声音的形状：它不是平面的左右，而是立体的**漩涡**。
 
 ---
 

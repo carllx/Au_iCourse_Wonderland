@@ -66,14 +66,15 @@
 
 ## 模块五：定位 (S05_Phase4_Position)
 *   **Time**: 65:00 - 75:00
-*   **Theme**: 孤独的相对论 (150% vs 0%)
-*   **Tech**: 6.9 立体声扩展 (Stereo Expander)
+*   **Theme**: 动态的几何学 (Dynamic Geometry)
+*   **Tech**: 6.9 自动化 (Automation) & 360° 声像
+*   **Note**: 本节超越传统的 L/R，引入 Time (时间) 维度。
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Design Spec) |
 | :--- | :--- | :--- | :--- | :--- |
-| **65-68'** | Theory (O) | 立体声宽度(Width)与声像(Pan)。不仅是左右，更是“包围感”。 | `[SLIDE: S14_Visual_Inception]` (声场扇形图) | N/A |
-| **68-70'** | **Guided Listening** | **深听时刻 (30s)**：戴耳机。感受声音从脑中跑到脑后的过程。 | `[SLIDE: S14_Visual_Inception]` | `[Spec > Phase 4 > Listening]` |
-| **70-75'** | Demonstration | 扩展 Width > 150%。注意相位抵消警告（变红）。<br>**高潮时刻**：对比 150% 混响与 0% 心跳。 | `[SLIDE: S14_Visual_Inception]` | `[Spec > Phase 4 > ACT_07/08]` |
+| **65-68'** | Theory (O) | 声音是有形状的。**Width** 是宽度，**Pan** 是轨迹。介绍 "Object-Based Audio" 概念：不是把声音放在左边，而是让声音**走**到左边。 | `[SLIDE: S14_Visual_Spiral]` (动态螺旋雷达图示意) | N/A |
+| **68-70'** | **Guided Listening** | **深听时刻 (30s)**：戴耳机。闭眼感受两股力量：<br>1. **The Wall**: 从正前方压过来的低频墙。<br>2. **The Needle**: 在头顶盘旋的高频刺。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > Listening]` |
+| **70-75'** | Demonstration | 执行 Automation。<br>1. **Needle**: 绘制 360° 螺旋线 (Doppler)。<br>2. **Wall**: 绘制 Low Pass Filter 打开曲线 (Approaching)。<br>**高潮时刻**: 当 Needle 刺入眉心时，Width 瞬间炸开至 150%。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > ACT_07/08]` |
 
 ---
 

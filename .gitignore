@@ -1,0 +1,16 @@
+# Junk
+.DS_Store
+*.pkf
+*.sesx
+*.bak
+*~
+.hypothesis/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual Environments
+venv/
+migration_scripts/venv/
+
+# Adobe Backups
+Backup/

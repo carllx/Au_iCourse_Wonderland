@@ -31,4 +31,14 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
 ## 4. 语言风格 (Tone Check)
 
 *   **拟人化**: 鼓励使用拟人化比喻（"回声是候鸟", "心跳是钉子"）。
-*   **戏剧性**: 在枯燥的技术环节（如降噪），必须强调其对故事破坏性的后果（"底噪会打破梦境"）。
+*   **戏剧性**: 在枯燥的技术环节（如降噪），必须强调其对声音“角色感”的破坏后果（"底噪会打破梦境"）。
+
+## 5. 语义桥接 (The Semantic Bridge)
+
+**"No Suspended Literature" (禁止悬浮文学)**。
+所有文学隐喻（Metaphor）都必须在声学物理层找到明确的对应物（Anchor）。
+
+*   ❌ **悬浮**: "她只剩下了躯壳。" (抽象文学，无听觉指引)
+*   ✅ **锚定**: "她只剩下了躯壳 (Metaphor)，因为缩小的药水压扁了她的**共鸣腔体** (Acoustic Anchor)，导致声音失去了**低频重量** (Physics)。"
+
+**公式**: `Metaphor (文学意象) <---> Acoustic Anchor (声学中介) <---> Parameter (技术参数)`。

@@ -47,6 +47,13 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 └── ...
 ```
 
+### 3.3 音频资产的基于对象命名 (Object-Based Naming for Audio)
+*   **背景 (ADR-006)**: 动态声像资产的位置会随时间变化，因此文件名不应描述其初始位置。
+*   **规则**: 命名应描述 **"本质/质感 (Character)"**，而非 **"位置 (Location)"**。
+*   **示例**:
+    *   ❌ `asset_S05_threat_L.wav` (位置会变)
+    *   ✅ `asset_S05_threat_pressure.wav` (质感恒定)
+
 ## 4. 生产工作流 (Production Workflow)
 
 ### Step 1: Define (意图)
@@ -68,7 +75,8 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 ## 5. 质量保证 (Quality Assurance)
 
 ### 5.1 结构完整性 (Structural Integrity)
-运行 `validate_links.py`。
+在项目根目录下运行 (Run from Root)：
+`python .agent/skills/validation-suite/scripts/validate_links.py`
 *   检查：脚本里引用的 ID 是否在 Database 里有定义？
 *   检查：Database 里的定义是否在 assets 文件夹里有文件（灰盒或成品）？
 
@@ -80,4 +88,5 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 
 ---
 **变更记录**:
+*   2026-01-29: 新增 3.3 Object-Based Naming 规范 (Based on ADR-006).
 *   2026-01-27: 初始版本 (Based on Research Report & Migration).

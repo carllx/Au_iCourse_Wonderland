@@ -46,10 +46,11 @@
 | 文件名 | 用途 | 对应脚本 |
 | :--- | :--- | :--- |
 | **`asset_S05_heartbeat_visceral.wav`** | 内部心跳 (Center) | `gen_S05_panning_assets.py` |
-| **`asset_S05_threat_L.wav`** | 左侧威胁 (Low) | `gen_S05_panning_assets.py` |
-| **`asset_S05_threat_R.wav`** | 右侧威胁 (High) | `gen_S05_panning_assets.py` |
-| **`asset_S05_shadow_self.wav`** | 镜中阴影 (Reverse+Tick) | `gen_S05_panning_assets.py` |
-| **`visual_S05_radar.mp4`** | 声像雷达可视化 | `render_S05_panning_visual.py` |
+| **`asset_S05_threat_pressure.wav`** | 压迫之墙 (Low/Wall) | `gen_S05_panning_assets.py` |
+| **`asset_S05_threat_anxiety.wav`** | 焦虑之刺 (High/Spiral) | `gen_S05_panning_assets.py` |
+| **`asset_S05_shadow_self.wav`** | 镜中阴影 (Clean Reverse) | `gen_S05_panning_assets.py` |
+| **`demo_S05_spiral_mix.wav`** | 螺旋混音演示 | `gen_S05_panning_assets.py` |
+| **`visual_S05_spiral_radar.mp4`** | 动态雷达可视 | `render_S05_panning_visual.py` |
 
 ---
 
@@ -109,12 +110,12 @@ python 01_MVP_Demo/_Pipeline/renderers/render_S04_contrast.py
 python 01_MVP_Demo/_Pipeline/generators/gen_S03_time_pitch.py
 ```
 
-### 场景 6: 生成 S05 心理声像素材
+### 场景 6: 生成 S05 动态心理声像素材
 ```bash
-# 生成所有音频分轨 (Heartbeat, Threat L/R, Shadow)
+# 生成所有音频分轨 (Heartbeat, Pressure, Anxiety, Shadow) 及 Spiral Mix
 python 01_MVP_Demo/_Pipeline/generators/gen_S05_panning_assets.py
 
-# 生成雷达可视化
+# 生成螺旋雷达可视化 (Video)
 python 01_MVP_Demo/_Pipeline/renderers/render_S05_panning_visual.py
 ```
 

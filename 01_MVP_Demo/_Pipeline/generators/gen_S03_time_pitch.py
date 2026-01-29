@@ -3,7 +3,7 @@ S03 塑形 (Sculpt) - 丑小鸭演示生成器
 -----------------------------------
 Narrative: "缺陷美学"
 目标: 生成一段只有物理变调(Pitch Up)的音频，展示"滑稽感"(Chipmunk Effect)。
-教学目的: 反衬 Audition "Formant Preservation" 的魔法。
+教学目的: 反衬 Audition "Format Preservation" 的魔法。
 
 输入: _Library/S0X_Shared/asset_S0X_dry_voice_clean.wav
 输出: _Library/S03_Sculpt/demo_S03_ugly_duckling.wav

@@ -1,6 +1,6 @@
 # MVP Demo Architecture Guide
 
-**Version**: 1.0 (2026-01-25)
+**Version**: 1.1 (2026-01-29)
 **Scope**: `01_MVP_Demo` assets and tools.
 
 ## 1. Core Philosophy (核心理念)
@@ -41,6 +41,9 @@ AI Agents **MUST** validate file names against these Regex patterns before savin
 ### B. Assets (`_Library`)
 *   **Assets**: `^asset_S\d{2}_[a-z0-9_]+\.(wav|mp3|mp4)$`
     *   Example: `asset_S02_heartbeat_subtle.wav`
+*   **Object-Based Naming (New in v1.1)**:
+    *   For dynamic assets (moving in 3D space), name by **Character/Texture** (e.g., `_pressure`, `_anxiety`), NOT by location (`_L`, `_R`).
+    *   Location is a *state*, not an *identity*.
 *   **References**: `^ref_[a-z0-9_]+\.(wav|mp3|txt)$`
     *   Example: `ref_voice_tts_demo.wav`
 

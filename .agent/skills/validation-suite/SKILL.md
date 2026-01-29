@@ -34,9 +34,16 @@ trigger: /validate, 检查一致性, 验证链接, 审计脚本
 *   **脚本**: `scripts/validate_consistency.py`
 *   **用途**: 检查文件名、标题与 `00_Structure_Map` 的对齐情况。
 
-### 4. 教学法审计
+### 4. 教学法审计 (Pedagogy Auditor)
 *   **指南**: `docs/pedagogy_auditor.md`
-*   **用途**: 手动或 LLM 辅助的教学法审计清单（林昕风格检查）。
+*   **脚本**: `scripts/validate_pedagogy.py`
+*   **用途**: 强制执行“林昕风格”（禁止裸参数，强制留白）。
+*   **用法**: `python3 .agent/skills/validation_suite/scripts/validate_pedagogy.py`
+
+### 5. 一键全检 (Master Commander)
+*   **脚本**: `scripts/validate_project.py`
+*   **用途**: 串行执行所有验证脚本，并在CI/CD前进行自我体检。
+*   **用法**: `python3 .agent/skills/validation_suite/scripts/validate_project.py`
 
 ## 开发指南
 

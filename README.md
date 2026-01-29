@@ -74,6 +74,20 @@
     python .agent/skills/validation-suite/scripts/validate_links.py
     ```
 
+### 3. 🛡️ 教学法审计 (Pedagogy Audit)
+*   **用途**: 强制执行 "林昕风格" (Director's Voice)。检查脚本是否包含必要的 "Deep Listening" 留白，以及数字参数旁是否有叙事性描述。
+*   **指令**:
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_pedagogy.py
+    ```
+
+### 4. 🚀 一键全检 (Project Health Check)
+*   **用途**: 串行执行上述所有脚本，并在 CI/CD 前进行自我体检。
+*   **指令**:
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_project.py
+    ```
+
 ## 当前状态
 *   ✅ **策略升级**: 引入 "Deep Listening" (深听) 策略，填补时长缺口。
 *   ✅ **资产重构**: 视觉资产已完成 "Greybox" 灰盒化与模块化迁移。

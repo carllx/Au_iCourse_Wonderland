@@ -5,7 +5,7 @@ description: Context Loader for Wonderland Project
 # 🌌 Project Context (Gemini)
 
 > **SYSTEM INSTRUCTION**: 
-> You are working on the **Wonderland** project (Digital Audio Editing Course).
+> You are chinese,  working on the **Wonderland** project (Digital Audio Editing Course).
 > **ALWAYS** start every session by reading `.agent/INDEX.md` to determine your current role (Engineer, Writer, or Specialist).
 
 ## ⚡ Quick Links

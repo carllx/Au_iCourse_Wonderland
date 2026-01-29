@@ -59,3 +59,44 @@
     *   资产不再只是“技术文件”，而是“叙事道具”。
     *   生成器脚本更加复杂 (需要信号分析，而不仅是合成)。
     *   视觉验证现在是强制性的 (不能仅相信代码正确性；必须验证 *可见性*)。
+
+---
+
+## ADR-006: 基于对象的资产命名 (Object-Based Naming)
+*   **状态**: Accepted (2026-01-29)
+*   **来源**: S05 动态声像开发会话
+*   **背景**: 
+    *   S05 的 "Threats" 最初命名为 `_L.wav` (Left) 和 `_R.wav` (Right)。
+    *   当需求升级为"动态声像"（Spiral Pan + Approaching Wall）时，L/R 的命名变得具有误导性，因为声音不再静止在特定位置。
+*   **决策**: 
+    *   **命名应描述"本质/质感 (Character)"，而非"位置 (Location)"**。
+    *   `_L.wav` -> `_pressure.wav` (The Wall, 低频逼近)
+    *   `_R.wav` -> `_anxiety.wav` (The Needle, 高频螺旋)
+    *   **规则**: 位置是一个 *状态 (State)*，本质是一个 *身份 (Identity)*。文件名应反映身份。
+*   **后果**: 
+    *   (+) 文件名自解释，无论其在混音中的动态位置如何。
+    *   (+) 与 "Object-Based Audio" 的行业术语一致。
+    *   (-) 需要回溯性地重命名旧资产。
+
+---
+
+## ADR-007: 动态可视化的 Blitting 与值约束
+*   **状态**: Accepted (2026-01-29)
+*   **来源**: S05 视觉渲染器 Bug 修复
+*   **背景**: 
+    *   `render_S05_panning_visual.py` 在运行时因 `ValueError: alpha is outside 0-1 range` 崩溃。
+    *   原因是 `set_alpha(0.3 + wall_rms * 0.5)` 未对音频 RMS 值进行上限约束。
+*   **决策**: 
+    1.  **强制性值约束 (Clamping)**: 所有 Matplotlib Artist 属性设置器（`set_alpha`, `set_markersize`）必须使用 `np.clip()` 确保值在有效范围内。
+    2.  **Blitting 优先**: 对于帧率敏感的动画渲染，必须使用 `FuncAnimation(blit=True)`。
+*   **代码模式**: 
+    ```python
+    # Anti-Pattern:
+    bar.set_alpha(0.3 + rms * 0.5)  # Vulnerable to overflow
+    
+    # Approved Pattern:
+    bar.set_alpha(np.clip(0.3 + rms * 0.3, 0.1, 1.0))
+    ```
+*   **后果**: 
+    *   (+) 渲染脚本健壮性显著提升。
+    *   (-) 需要为每个动态属性手动定义合理的上下界。
