@@ -130,6 +130,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 ### Segment 2: 制造真空与电子鸟 (The Ghost in the Machine)
 
 > **[VISUAL]**
+> *   **Action**: [ACT: Select_All] **Ctrl + A** (全选音频)。 *Critical Step: Must apply to the whole file.*
 > *   **Action**: [ACT: Menu_Effects] Effects > Noise Reduction > Noise Reduction (process)。
 > *   **Scene**: 降噪面板弹出。
 > *   **Action**: [ACT: Set_Reduction] 将 "Noise Reduction" 滑块拖动到 75%。
@@ -138,6 +139,8 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 
 **[AUDIO]**
 (果断地回到技术界面)
+采样结束，记得 **Ctrl+A 全选整个文件**。只降那一小段是没有意义的。
+
 现在，打开 Effects 菜单下的 `Noise Reduction` 面板。
 这里有两个核心参数，它们是相辅相成的。
 
@@ -166,11 +169,17 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 > **[VISUAL]**
 > *   **Demonstration**: 快速掩饰一个 100% / 100dB 的错误设置，让观众听到那个可怕的声音。
 > *   **Graphic**: 屏幕中央浮现一只由噪点组成的“半透明幽灵鸟”，随后被 "75% / 30dB" 的参数组合击碎。
-> *   **Action**: [ACT: Check_OutputNoiseOnly] 勾选 Output Noise Only (仅输出噪音)。
+> *   **Action**: [ACT: Check_OutputNoiseOnly] 勾选 **Output Noise Only** (仅输出噪音)。这是一道“验尸”程序。
 
 **[AUDIO]**
 (听到电子鸟叫声后)
 听到了吗？这些“数字鸟叫”比原本的底噪更可怕，因为它们听起来是“假”的。
+
+(语气转为警戒)
+现在，勾选这个 **Output Noise Only**。
+这个时候，你应该**只能**听到“嘶嘶”的灰尘声。
+如果你在这里听到了那个富有节奏的“咚——咚——”的心跳声...
+那就是你在谋杀爱丽丝。说明你的手术刀（蓝线）切得太深了。
 
 记住，我们要的是**“听不见”**，而不是**“不存在”**。
 把噪音压低 30dB，就像给房间关上了一道厚重的隔音门。
@@ -181,12 +190,13 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 ### Segment 2.5: 手术台细节 (The Surgeon's Knife)
 
 > **[VISUAL]**
-> *   **Scene**: 降噪面板的频谱图。
+> *   **Scene**: 降噪面板频谱图。取消勾选 Output Noise Only。
 > *   **Highlight**: 解释红、黄、绿粒子。
 > *   **Action**: [ACT: Click_Point] 在蓝色曲线 (Noise Reduction Curve) 调节。
 
 **[AUDIO]**
 (严肃纠偏，技术解密)
+关掉 Output Noise Only，回到正常监听。
 现在，请盯着这张图谱。很多人第一眼看到这些密密麻麻的红绿像素，会觉得它只是一堆令人头大的工程数据。不，其实这是一个战场。
 
 *   **黄色粒子 (Yellow)**：代表噪音最高能有多响。

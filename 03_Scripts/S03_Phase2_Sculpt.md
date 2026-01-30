@@ -11,7 +11,8 @@
 
 > **[VISUAL]**
 > *   **Scene**: Audition 波形编辑器 (Waveform Editor)。
-> *   **Asset**: 屏幕上是一个极短、极细的波形 `ugly_duckling_raw.wav`。
+> *   **Ref**: `[SLIDE: S07b_Ugly_Duckling]`
+> *   **Asset**: 屏幕上是一个极短、极细的波形 `demo_S03_ugly_duckling.wav`。
 > *   **Action**: [ACT: Zoom_Out] 缩小视图，让波形在巨大的黑色背景中显得无比渺小。
 > *   **Graphic**: 引用文字 "The Ugly Duckling" (丑小鸭)。
 
@@ -27,7 +28,7 @@
 我们要面对的，是**共鸣腔体 (Resonance)** 的全面坍塌。
 
 > **[VISUAL]**
-> *   **Action**: [ACT: Play_Audio] 播放原始 `ugly_duckling_raw.wav`。
+> *   **Action**: [ACT: Play_Audio] 播放原始 `demo_S03_ugly_duckling.wav`。
 > *   **Subtitle**: "Original Audio: High-pitched, No Body, Nervous" (原声：尖锐、无体量、神经质)。
 
 **[AUDIO]**
@@ -50,6 +51,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 全黑画面，中央出现一盘旋转的**老式开盘磁带 (Reel-to-Reel Tape)**。
+> *   **Ref**: `[SLIDE: S08b_Tape_Machine]`
 > *   **Animation**: 磁带转速忽快忽慢。
 > *   **Graphic**: 公式 `Speed ↑ = Pitch ↑ = Time ↓`。
 
@@ -60,7 +62,14 @@
 但这也意味着，声音的长度变短了，时间流逝变快了。
 就像希腊神话里的 **Cronos (时间之神)**，他为了维持秩序，必须吞噬自己的孩子。
 
-音调 (Pitch) 和 时间 (Time)，曾是一对被锁死的双胞胎。
+(停顿)
+(严肃地补充)
+这也是为什么我们必须检查**采样率 (Sample Rate)**。
+如果你的素材依然是 44.1kHz，当你把速度拉慢，原本的高频信息会不够用，声音会出现金属般的**数字伪影 (Aliasing)**。
+那不是神性，那是破碎的像素。
+但今天，假设我们已经拥有了足够的时间分辨率。
+
+你听，音调 (Pitch) 和 时间 (Time)，曾是一对被锁死的双胞胎。
 你想飞得高，生命就得燃烧得快。
 
 > **[CULTURAL REF]**:
@@ -72,6 +81,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 全黑画面，中央出现一张老照片：**Pierre Schaeffer** 在 1948 年的巴黎工作室操作唱机。
+> *   **Ref**: `[SLIDE: S08c_Pierre_Schaeffer]`
 > *   **Graphic**: 并不是波形，而是一个被切断了脐带的、悬浮在空中的发光球体。
 > *   **Text**: "Acousmatic: The sound one hears without seeing the causes behind it." (听觉化：只闻其声，不见其源)。
 
@@ -104,6 +114,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: Audition `Effects > Time and Pitch > Stretch and Pitch` 面板。
+> *   **Ref**: `[SLIDE: S08d_Chipmunk]`
 > *   **Action**: [ACT: Set_Pitch_Only] 仅将 Pitch 设为 +3，不勾选 Preserve Speech Characteristics。
 > *   **Graphic**: 屏幕右下角浮现 1958年 **Ross Bagdasarian** 和三只卡通花栗鼠的黑白照片。
 
@@ -138,6 +149,12 @@
 > *   **Reference**: 电影《盗梦空间》海报一闪而过 (梦境层级图)。
 
 **[AUDIO]**
+(操作前预警)
+在我们按下播放键之前，警告：
+**iZotope Radius 算法极其沉重。**
+它在进行巨大的数学运算。如果你听到“咔哒”声或电脑卡顿，那是正常的。
+就像搬动一座大理石雕像，你需要预留缓冲区 (Pre-render)。
+
 如果说现实世界的时间是线性的，那么深渊里的时间，是**粘稠**的。
 
 还记得电影**《Inception》 (盗梦空间)** 吗？
@@ -149,8 +166,13 @@
 
 (演示操作)
 我们将 **Stretch (伸缩)** 设为 **135%**。
-这是一个精心计算的数值。
-**135%**，就是让她从“惊慌”变成“呼吸”的那个临界点。
+
+(侧耳倾听)
+等等，不要死守 135% 这个数字。
+听她的**呼吸 (Cadence)**。
+如果她在喘息 (Too Fast)，说明拉伸不够；如果她听起来像在溺水 (Too Slow)，说明拉伸过度。
+我们要的那个点，是她**刚刚掌握了某种神性，却还没有失去人性**的瞬间。
+在这个案例里，是 135%。
 我们要强制让时间在她的喉咙里慢下来，以此来对抗她变小的身体。
 
 > **[CULTURAL REF]**:
@@ -162,6 +184,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 剖面解剖图。左边是声带 (Vocal Folds)，右边是声道 (Vocal Tract)。
+> *   **Ref**: `[SLIDE: S08e_Cello_Body]` (S08_Visual_Alice_Drink as secondary)
 > *   **Metaphor**: 图像渐变。声带变成了**琴弦**，声道变成了**大提琴的共鸣箱 (Body)**。
 > *   **Highlight**: 高亮 "Formant" (共振峰)。
 
@@ -204,7 +227,29 @@
 
 这个选项就是那道魔法。
 它告诉算法：
-169: “即使把那根名为‘时间’的琴弦拉断，也绝对不要破坏这座名为‘灵魂’的教堂。”
+“即使把那根名为‘时间’的琴弦拉断，也绝对不要破坏这座名为‘灵魂’的教堂。”
+
+---
+
+### Segment 5.5: 抛光 - 磨去噪点 (Polishing the Statue)
+
+> **[VISUAL]**
+> *   **Scene**: 波形细部检查。
+> *   **Action**: [ACT: Highlight] 放大波形本来平直的静音部分，现在上面布满了毛刺。
+> *   **Metaphor**: 雕像表面吸附了灰尘。
+
+**[AUDIO]**
+别急着庆祝。
+我们刚才把时间拉长了 135%，这意味着：
+**原本微不可见的背景底噪，也被拉长了，甚至被放大了。**
+就像把一张照片放大，颗粒感 (Grain) 暴露无遗。
+
+还有动态。
+现在的声音起伏可能过于剧烈，缺乏神像的稳固感。
+(快速操作)
+如果需要，挂上一个轻微的 **Compressor (压缩器)**。
+压住那些不稳定的瞬间，给它穿上一层光滑的**大理石外衣**。
+这才是真正的完成品。
 
 ---
 
@@ -212,6 +257,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 屏幕全黑。只有两个单词隐约浮现：**Body** vs **Soul**。
+> *   **Ref**: `[SLIDE: S08f_Deep_Listening_Body_Soul]`
 > *   **Gap**: `(Silence: 10s)`
 > *   **Action**: [ACT: Toggle_Bypass] 快速切换 A/B 对比（开/关效果）。
 

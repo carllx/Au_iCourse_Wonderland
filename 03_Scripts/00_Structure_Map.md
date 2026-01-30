@@ -20,7 +20,8 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **0-1'** | Opening | 我是林昕。承接陈老师(A/L/D/Q/U)。引入本课(N/B/C/O/E)。 | `[SLIDE: S01_Title]` (声音魔术师) | N/A |
 | **1-3'** | Bad Case Crash | **【知识修补】** 快速展示"脏音频"。指认：这是电流(Hum)，这是爆音(Click)，这是底噪(Hiss)。今天只杀最大的敌人：底噪。 | `[SLIDE: S02_BadCase]` (波形图上的脏点标记) | `[Spec > Intro > Play Bad]` |
-| **3-5'** | Mission Brief | 引入 "Alice Project"。Audition 不止是扫帚（清理工具），更是画笔（创作工具）。提出核心问题：**“听众在哪里？”** | `[SLIDE: S03_Concept_Source_Space_Ear]` (声源-空间-耳朵 核心图) | N/A |
+| **3-4'** | **Toolbox Flash** | **武器库展示**：Audition 的那一排武器。多普勒、吉他包、中置提取... | `[SLIDE: S02b_Toolbox_Flash]` (图标网格) | N/A |
+| **4-5'** | Mission Brief | 引入 "Alice Project"。Audition 不止是扫帚（清理工具），更是画笔（创作工具）。提出核心问题：**“听众在哪里？”** | `[SLIDE: S03_Concept_Source_Space_Ear]` (核心图) | N/A |
 
 ---
 
@@ -31,10 +32,11 @@
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Design Spec) |
 | :--- | :--- | :--- | :--- | :--- |
-| **05-08'** | Theory (N) | 采样降噪原理：抓通缉犯(Sample) -> 全城搜捕(Process)。解释“信噪比”与**1/f 心跳宇宙 (Voss & Clarke, 1975)**。 | `[SLIDE: S05_Visual_Matrix]` **[Visual]**: 极简主义数据艺术。左侧是混乱的粉红噪音粒子（像沙尘暴），右侧是清晰的心跳波形（像发光山脉）。背景是宇宙深空的深蓝色。 | `[Spec > Phase 1 > Intro]` |
-| **08-11'** | **Guided Listening** | **深听时刻 (30s)**：闭眼感受“真空的压迫感”。引入 **John Cage (1951) 哈佛消声室** 故事：每个人都有自己的本底噪音。 | `[SLIDE: S05b_Spectrum]` **[Visual]**: 动态频谱图。但不是冷冰冰的线，而是像极光的流动。中央有一个巨大的倒计时数字。Tagline: "The Pulse of Silence". | `[Spec > Phase 1 > Check]` |
-| **11-14'** | **Director's Choice** | **决策时刻**：我们要“死寂的真空”还是“真实的房间”？解释 **Musical Noise (Steven Boll, 1979)** 的诅咒。 | `[SLIDE: S06_Ghost_Math]` **[Visual]**: 一个半透明的、充满噪点的幽灵鸟（Birdies/Artifacts）漂浮在纯黑的背景中。隐喻：过度降噪产生的“数字幽灵”。 | N/A |
-| **14-20'** | Demonstration | 执行降噪。**关键组合拳**：<br>1. **Reduction**: 75% (比例)<br>2. **Reduce by**: 20-30dB (深度)<br>**技术注释**：解释 FFT 4096 背后的 **Gabor (1946) 测不准原理**。 | `[SLIDE: S07_Demonstration]` **[Visual]**: 分屏设计。左边是 Audition 面板参数截图（高亮 75% + 30dB），右边是 Dennis Gabor 的手绘信息单元图（Information Diagram）。 | `[Spec > Phase 1 > ACT_01/02]` |
+| **05-08'** | Theory (N) | 采样降噪原理：抓通缉犯(Sample) -> 全城搜捕(Process)。解释“信噪比”与**1/f 心跳宇宙 (Voss & Clarke, 1975)**。 | `[SLIDE: S05_Visual_Matrix]` | `[Spec > Phase 1 > Intro]` |
+| **08-11'** | **Guided Listening** | **深听时刻 (30s)**：闭眼感受“真空的压迫感”。引入 **John Cage (1951) 哈佛消声室** 故事：每个人都有自己的本底噪音。 | `[SLIDE: S05b_Spectrum]` | `[Spec > Phase 1 > Check]` |
+| **11-14'** | **Director's Choice** | **决策时刻**：我们要“死寂的真空”还是“真实的房间”？解释 **Musical Noise (Steven Boll, 1979)** 的诅咒。 | `[SLIDE: S06_Ghost_Math]` | N/A |
+| **14-20'** | Demonstration | 执行降噪。**关键组合拳**：<br>1. **Reduction**: 75% (比例)<br>2. **Reduce by**: 20-30dB (深度)<br>**技术注释**：解释 FFT 4096 背后的 **Gabor (1946) 测不准原理**。 | `[SLIDE: S07_Demonstration]` | `[Spec > Phase 1 > ACT_01/02]` |
+| **20-21'** | **Result (Closure)** | **审视尸体**：降噪完成后的声音虽然干净，但失去了厚度。 | `[SLIDE: S07b_Ugly_Duckling]` (声音的尸体) | N/A |
 
 ---
 
@@ -45,8 +47,12 @@
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Design Spec) |
 | :--- | :--- | :--- | :--- | :--- |
-| **20-25'** | **Director's Choice** | **决策时刻**：是做“惊慌的小孩”(急促) 还是 “优雅的灵魂”(沉稳)？<br>*决定：赋予成熟与优雅。* | `[SLIDE: S08_Visual_Alice_Drink]` (爱丽丝喝药水变身静帧) | N/A |
-| **25-30'** | **Guided Listening** | **深听时刻 (30s)**：闭眼辨别 **-2 semitones (粗)** 与 **-4 semitones (优雅)** 的质感区别。以及 **135% Stretch** 的舒缓感。 | `[SLIDE: S08_Visual_Alice_Drink]` | N/A |
+| **18-20'** | **Theory (History)** | **引入声音对象 (Sound Object)**：Pierre Schaeffer 的发现。声音可以脱离物体存在。 | `[SLIDE: S08c_Pierre_Schaeffer]` (Schaeffer 操作唱机历史照片) | N/A |
+| **20-21'** | **Theory (Physics)** | **克洛诺斯的诅咒**：在数字时代之前，时间与音高是绑定的。加速=变高，减速=变低。 | `[SLIDE: S08b_Tape_Machine]` (疯转的磁带机动画) | N/A |
+| **21-23'** | **Director's Choice** | **决策时刻**：是做“惊慌的小孩”(急促) 还是 “优雅的灵魂”(沉稳)？<br>*决定：赋予成熟与优雅。* | `[SLIDE: S08_Visual_Alice_Drink]` (爱丽丝喝药水变身静帧) | N/A |
+| **23-24'** | **Warning** | **花栗鼠陷阱**：如果直接变调，会发生 Formant Shift（共振峰偏移），变成卡通人物。 | `[SLIDE: S08d_Chipmunk]` (花栗鼠警告) | N/A |
+| **24-25'** | **Theory (Deep)** | **共振峰 (Formant)**：声带（弦）变了，但琴体（身体）不能变。 | `[SLIDE: S08e_Cello_Body]` (声带与琴体对比图) | N/A |
+| **25-30'** | **Guided Listening** | **深听时刻 (30s)**：闭眼辨别 **-4 semitones** 时 Body 与 Pitch 的分离感。 | `[SLIDE: S08f_Deep_Listening_Body_Soul]` (Body vs Soul) | N/A |
 | **30-40'** | Demonstration | 1. **Stretch**: 135% (成熟)。<br>2. **Pitch**: -4 semitones (优雅)。<br>3. **Key**: 勾选 Preserve Speech Characteristics。 | `[SLIDE: S08_Visual_Alice_Drink]` | `[Spec > Phase 2 > ACT_04]` |
 
 ---
@@ -58,9 +64,11 @@
 %%希望引入用气球 DIY 制作 Impulse Responses 的方法%%
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Design Spec) |
 | :--- | :--- | :--- | :--- | :--- |
-| **40-45'** | Theory (B) | 混响不是回声。它是空间的指纹。卷积混响 = 空间的“克隆技术”。 | `[SLIDE: S11_Visual_RabbitHole]` (脉冲响应示意) | N/A |
-| **45-50'** | **Guided Listening** | **深听时刻 (30s)**：试错对比。**Closet (太窄) vs Hall (太假)**。我们寻找的是 "Void" (虚无)。 | `[SLIDE: S11b_Tail_Timer]` (不同空间脉冲对比) | `[Spec > Phase 3 > ACT_05a]` |
-| **50-65'** | Demonstration | 加载 `asset_S04_void_ir.wav`。参数物理学：<br>1. **Size 150%** (拉长遗言)<br>2. **Mix 75%** (肉体消融)<br>3. **Pre-Delay 80ms** (灵魂出窍)。 | `[SLIDE: S11_Visual_RabbitHole]` | `[Spec > Phase 3 > ACT_05b]` |
+| **40-42'** | Theory (B) | 混响不是回声。它是空间的指纹。卷积混响 = 空间的“克隆技术”。 | `[SLIDE: S11_Visual_RabbitHole]` (脉冲响应示意) | N/A |
+| **42-45'** | **Theory (Physics)** | **脉冲响应 (IR) 原理**：如何在山洞里戳破气球，抓到空间的 DNA。 | `[SLIDE: S11c_Balloon_Cave]` (气球爆炸图示) | N/A |
+| **45-50'** | **Guided Listening** | **深听时刻 (30s)**：试错对比。**Closet (太窄) vs Hall (太假)**。我们寻找的是 "Void" (虚无)。<br>**Dry vs Wet**: 贴脸 vs 深渊。 | `[SLIDE: S11b_Tail_Timer]` (不同空间脉冲对比) <br> `[SLIDE: S10_Concept_Dry_Wet]` (干湿对比) | `[Spec > Phase 3 > ACT_05a]` |
+| **50-52'** | **Theory (Adv)** | **高频阻尼 (Damping)**：为什么深海听不到高频？ | `[SLIDE: S12_Damping_Curve]` (潜水员与红光消失) | N/A |
+| **52-65'** | Demonstration | 加载 `asset_S04_void_ir.wav`。参数物理学：<br>1. **Size 150%** (拉长遗言)<br>2. **Mix 75%** (肉体消融)<br>3. **Pre-Delay 80ms** (灵魂出窍)。<br>4. **Automation**: `[SLIDE: S13_Automation_Dissolution]` | `[SLIDE: S11_Visual_RabbitHole]` | `[Spec > Phase 3 > ACT_05b]` |
 
 ---
 
@@ -72,13 +80,18 @@
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Design Spec) |
 | :--- | :--- | :--- | :--- | :--- |
-| **65-68'** | Theory (O) | 声音是有形状的。**Width** 是宽度，**Pan** 是轨迹。介绍 "Object-Based Audio" 概念：不是把声音放在左边，而是让声音**走**到左边。 | `[SLIDE: S14_Visual_Spiral]` (动态螺旋雷达图示意) | N/A |
-| **68-70'** | **Guided Listening** | **深听时刻 (30s)**：戴耳机。闭眼感受两股力量：<br>1. **The Wall**: 从正前方压过来的低频墙。<br>2. **The Needle**: 在头顶盘旋的高频刺。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > Listening]` |
-| **70-75'** | Demonstration | 执行 Automation。<br>1. **Consciousness**: 骨导 EQ (主角 0.7)。<br>2. **Shadow**: 反向 + 降调 (回声 0.25, 延迟 0.5s)。<br>3. **Needle**: 绘制 360° 螺旋线 (Doppler)。<br>4. **Wall**: 绘制 Low Pass Filter 打开曲线 (Approaching)。<br>**高潮时刻**: 当 Needle 刺入眉心时，Width 瞬间炸开至 150%。 | `[SLIDE: S14_Visual_Spiral]` | `[Spec > Phase 4 > ACT_07/08]` |
+| **65-68'** | Theory (O) | 声音是有形状的。**Width** 是宽度，**Pan** 是轨迹。介绍 "Object-Based Audio" 概念：不是把声音放在左边，而是让声音**走**到左边。 | `[SLIDE: S14_Visual_Inception]` (动态螺旋雷达图示意) | N/A |
+| **68-70'** | **Guided Listening** | **深听时刻 (30s)**：戴耳机。闭眼感受两股力量：<br>1. **The Wall**: 从正前方压过来的低频墙。<br>2. **The Needle**: 在头顶盘旋的高频刺。 | `[SLIDE: S14_Visual_Inception]` | `[Spec > Phase 4 > Listening]` |
+| **70-75'** | Demonstration | 执行 Automation。<br>1. **Consciousness**: 骨导 EQ (主角 0.7)。<br>2. **Shadow**: 反向 + 降调 (回声 0.25, 延迟 0.5s)。<br>3. **Needle**: 绘制 360° 螺旋线 (Doppler)。<br>4. **Wall**: 绘制 Low Pass Filter 打开曲线 (Approaching)。<br>**高潮时刻**: 当 Needle 刺入眉心时，Width 瞬间炸开至 150%。 | `[SLIDE: S14_Visual_Inception]` | `[Spec > Phase 4 > ACT_07/08]` |
 
 ---
 
 ## 模块六：总结 (S06_Summary)
-*   **Time**: 75:00 - 80:00
+| **Time**: 75:00 - 80:00
 *   **Theme**: 剧场谢幕
 *   **Visual**: `[SLIDE: S16_Summary_Loop]` (净化-塑形-置景-定位 闭环图)
+
+| Timeline | Topic | Key Content | Visual Ref | Action Ref |
+| :--- | :--- | :--- | :--- | :--- |
+| **75-78'** | Summary | 回顾四步法。引用 **Walter Murch**。 | `[SLIDE: S16_Summary_Loop]` <br> `[SLIDE: S19_Murch_Rule_of_Six]` | N/A |
+| **78-80'** | Homework | **逃离麦克风**：录制干声并异化。 | `[SLIDE: S17_Homework]` | N/A |

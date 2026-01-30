@@ -14,3 +14,8 @@ migration_scripts/venv/
 
 # Adobe Backups
 Backup/
+
+# Private Configuration (API Keys)
+.env
+.env.local
+*.secret

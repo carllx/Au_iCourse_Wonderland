@@ -100,3 +100,57 @@
 *   **后果**: 
     *   (+) 渲染脚本健壮性显著提升。
     *   (-) 需要为每个动态属性手动定义合理的上下界。
+
+---
+
+## ADR-008: 文档职责边界重整 (Document Boundary Refactoring)
+*   **状态**: Accepted (2026-01-29)
+*   **来源**: 架构审查会话
+*   **背景**: 
+    *   `00_Structure_Map.md` 中包含大量视觉描述 (如 `**[Visual]**: 极简主义数据艺术...`)
+    *   Script 文件与 `01_MVP_Demo/_Library` 之间的资产引用不一致
+*   **决策**: 
+    1.  **SSOT 原则**: 每种信息只能在一个地方定义
+        *   视觉描述 → `Slide_Database.md`
+        *   课程结构 → `00_Structure_Map.md` (只引用 Slide ID)
+        *   音频资产 → `asset_manifest.json`
+    2.  **创建资产清单**: `01_MVP_Demo/asset_manifest.json` 区分"源资产"和"演示中间产物"
+    3.  **制度化**: 创建 `rule_document_boundaries.md` 防止未来越界
+*   **执行的变更**: 
+    *   清理了 `00_Structure_Map.md` 中 4 处视觉描述越界
+    *   补全了 `S05_Visual_Matrix` 和 `S05b_Spectrum` 的视觉描述
+    *   创建了 `asset_manifest.json` 资产清单
+*   **后果**: 
+    *   (+) 文档职责清晰,易于维护
+    *   (+) 资产引用可验证
+    *   (-) 需要团队成员学习新规范
+
+---
+
+## ADR-009: 三层管线分离与 TTS 标准化
+*   **状态**: Accepted (2026-01-30)
+*   **来源**: 深度架构审查会话
+*   **背景**: 
+    *   `_Pipeline/renderers/` 混杂素材动效生成器和课程合成工具
+    *   TTS 语音无标准存放位置
+    *   录屏素材无规范目录
+*   **决策**: 
+    1.  **三层管线 (Three-Tier Pipeline)**:
+        *   `generators/`: 音频资产生成
+        *   `renderers/`: 单素材可视化
+        *   `composers/`: 课程级合成 (NEW)
+    2.  **TTS 标准路径**: `03_Scripts/tts/Sxx_Name.wav|srt`
+    3.  **录屏标准路径**: `01_MVP_Demo/_Media/recordings/`
+    4.  **接口 vs 实现**: 剪辑引用 `Sxx.png` (接口)，可随时替换 `src_Sxx...` (实现)
+*   **执行的变更**: 
+    *   创建 `03_Scripts/tts/`
+    *   创建 `01_MVP_Demo/_Pipeline/composers/`
+    *   创建 `01_MVP_Demo/_Media/recordings/`
+    *   删除违规 `02_Visuals/assets/proxies/`
+    *   开发 `render_preview.py` (章节预览生成器)
+    *   更新 `rule_asset_management.md` (新增 3.5-3.8 节)
+*   **后果**: 
+    *   (+) 工具职责清晰
+    *   (+) TTS 工作流有章可循
+    *   (+) 预览视频可自动化生成
+    *   (-) 需适应新目录结构

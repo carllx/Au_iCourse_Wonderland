@@ -30,10 +30,21 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 | :--- | :--- | :--- | :--- | :--- |
 | **`Sxx_`** | **Slide (Final)** | **[交付物]** 最终出现在屏幕上的画面（或其灰盒占位）。 | `S07_Demonstration.png` | 放入 Timeline |
 | **`src_`** | **Source (Raw)** | **[原料]** 原始素材（截图、录屏、实拍）。 | `src_S07_AuditionPanel.png` | 用于合成 Sxx |
-| **`ref_`** | **Reference** | **[参考]** 灵感图、网图（无版权）。 | `ref_S11_Balloon_DIY.png` | 仅供美术参考 |
+| **`ref_`** | **Reference** | **[参考]** 灵感图、网图（仅参考）。 | `ref_S11_Balloon_DIY.png` | 仅供美术参考 |
 | **`doc_`** | **Document** | **[文档]** 相关的研发笔记、技术说明。 | `doc_S11_Balloon_DIY_Note.md` | 知识库 |
 
-### 3.2 目录结构 (Directory Structure)
+### 3.2 来源后缀系统 (Source Suffix)
+原始素材 (`src_`) 必须标注来源,格式为 `src_Sxx_[描述]_[来源].ext`:
+
+| 后缀 | 含义 | 示例 |
+| :--- | :--- | :--- |
+| `_ai` | 文生图 (AI Generated) | `src_S06_ghost_bird_ai.png` |
+| `_web` | 网络搜索下载 | `src_S06_gabor_diagram_web.jpg` |
+| `_cap` | 截图 (Screen Capture) | `src_S07_audition_panel_cap.png` |
+| `_rec` | 录屏 (Screen Recording) | `src_S07_demo_rec.mp4` |
+| `_photo` | 实拍照片 | `src_S11_balloon_photo.jpg` |
+
+### 3.3 目录结构 (Directory Structure)
 严禁使用“状态文件夹”（如 `pending`, `done`, `proxies`）。
 必须使用 **“模块卡槽” (Module Slots)**：
 
@@ -47,7 +58,7 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 └── ...
 ```
 
-### 3.3 音频资产的基于对象命名 (Object-Based Naming for Audio)
+### 3.4 音频资产的基于对象命名 (Object-Based Naming for Audio)
 *   **背景 (ADR-006)**: 动态声像资产的位置会随时间变化，因此文件名不应描述其初始位置。
 *   **规则**: 命名应描述 **"本质/质感 (Character)"**，而非 **"位置 (Location)"**。
 *   **示例**:
@@ -88,5 +99,58 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 
 ---
 **变更记录**:
+*   2026-01-30: 新增 3.5 接口 vs 实现, 3.6 录屏规范, 3.7 AI 工具, 3.8 TTS 规范 (Based on Architectural Audit v2).
 *   2026-01-29: 新增 3.3 Object-Based Naming 规范 (Based on ADR-006).
 *   2026-01-27: 初始版本 (Based on Research Report & Migration).
+
+---
+
+## 附录：扩展规范 (Extended Specifications)
+
+### 3.5 接口 vs 实现 (Interface vs Implementation)
+*   **原理**: `Sxx_ID.png` 是 **接口 (Interface)**，剪辑软件链接到它。`src_Sxx_...` 是 **实现 (Implementation)**，可随时替换。
+*   **好处**: 更换素材时，只需覆盖 `Sxx` 文件，无需重新链接时间轴。
+*   **示例**:
+    ```
+    S06_Ghost_Math.png          <- 剪辑软件链接此文件 (稳定指针)
+    src_S06_ghost_bird_ai.png   <- 当前使用的 AI 生成图 (可替换)
+    src_S06_ghost_bird_v2_ai.png <- 未来可能的替代版本
+    ```
+
+### 3.6 屏幕录制规范 (Screen Recording)
+*   **存放位置**: `01_MVP_Demo/_Media/recordings/`
+*   **命名格式**: `Sxx_[描述]_demo.mp4`
+*   **技术要求**:
+    *   分辨率: 1920x1080 (可压缩为 720p 交付)
+    *   帧率: 30fps
+    *   格式: MP4 (H.264)
+*   **示例**:
+    ```
+    01_MVP_Demo/_Media/recordings/
+    ├── S02_noise_reduction_demo.mp4
+    └── S04_reverb_automation_demo.mp4
+    ```
+
+### 3.7 AI 生成工具 (AI Generation)
+*   **指定工具**: `.agent/skills/validation-suite/scripts/gen_visual_asset.py`
+*   **使用方式**:
+    ```bash
+    # 生成单个 Slide
+    python gen_visual_asset.py S06_Ghost_Math
+    
+    # 生成并覆盖灰盒
+    python gen_visual_asset.py S06 --deploy
+    ```
+*   **禁止**: 使用其他 AI 工具生成素材后手动命名。
+
+### 3.8 TTS 资产规范 (TTS Assets)
+*   **存放位置**: `03_Scripts/tts/`
+*   **命名格式**: `Sxx_Name.wav`, `Sxx_Name.srt`
+*   **示例**:
+    ```
+    03_Scripts/tts/
+    ├── S01_Intro.wav
+    ├── S01_Intro.srt
+    └── S02_Phase1_Purify.wav
+    ```
+*   **用途**: 用于 `render_preview.py` 生成章节预览视频。

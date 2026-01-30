@@ -1,0 +1,163 @@
+{
+    "version": "1.0",
+    "last_updated": "2026-01-29",
+    "description": "资产注册表 (Asset Registry) - 所有音频资产的中心化索引",
+    "source_assets": {
+        "S02_dirty_heartbeat": {
+            "id": "S02_dirty_heartbeat",
+            "path": "_Library/S02_Purify/asset_S02_dirty_heartbeat.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S02_heartbeat.py",
+            "version": "v12",
+            "description": "真实粉红噪音 + 自然心跳",
+            "used_in": [
+                "S02_Phase1_Purify"
+            ]
+        },
+        "S02_cleaned_heartbeat": {
+            "id": "S02_cleaned_heartbeat",
+            "path": "_Library/S02_Purify/asset_S02_cleaned_heartbeat.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/verify_noise_reduction.py",
+            "description": "Python 降噪后的心跳 (验证用)",
+            "used_in": [
+                "S03_Phase2_Sculpt"
+            ]
+        },
+        "S04_void_ir": {
+            "id": "S04_void_ir",
+            "path": "_Library/S04_Space/asset_S04_void_ir.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S04_void_ir.py",
+            "description": "虚空脉冲响应 (2.5s)",
+            "used_in": [
+                "S04_Phase3_Space",
+                "S05_Phase4_Position"
+            ]
+        },
+        "S04_contrast_closet": {
+            "id": "S04_contrast_closet",
+            "path": "_Library/S04_Space/contrast_IR_small_closet.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S04_contrast_IRs.py",
+            "description": "对比 IR: 小衣柜 (示范用)",
+            "used_in": [
+                "S04_Phase3_Space"
+            ]
+        },
+        "S04_contrast_hall": {
+            "id": "S04_contrast_hall",
+            "path": "_Library/S04_Space/contrast_IR_large_hall.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S04_contrast_IRs.py",
+            "description": "对比 IR: 大厅 (示范用)",
+            "used_in": [
+                "S04_Phase3_Space"
+            ]
+        },
+        "S05_heartbeat_visceral": {
+            "id": "S05_heartbeat_visceral",
+            "path": "_Library/S05_Position/asset_S05_heartbeat_visceral.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S05_panning_assets.py",
+            "description": "内脏心跳 (Center/Mono)",
+            "used_in": [
+                "S05_Phase4_Position"
+            ]
+        },
+        "S05_threat_pressure": {
+            "id": "S05_threat_pressure",
+            "path": "_Library/S05_Position/asset_S05_threat_pressure.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S05_panning_assets.py",
+            "description": "压迫之墙 (Low Freq)",
+            "used_in": [
+                "S05_Phase4_Position"
+            ]
+        },
+        "S05_threat_anxiety": {
+            "id": "S05_threat_anxiety",
+            "path": "_Library/S05_Position/asset_S05_threat_anxiety.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S05_panning_assets.py",
+            "description": "焦虑之刺 (High Freq Spiral)",
+            "used_in": [
+                "S05_Phase4_Position"
+            ]
+        },
+        "S05_shadow_self": {
+            "id": "S05_shadow_self",
+            "path": "_Library/S05_Position/asset_S05_shadow_self.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S05_panning_assets.py",
+            "description": "镜中阴影 (Clean Reverse)",
+            "used_in": [
+                "S05_Phase4_Position"
+            ]
+        },
+        "S05_conscious_voice": {
+            "id": "S05_conscious_voice",
+            "path": "_Library/S05_Position/asset_S05_conscious_voice.wav",
+            "type": "audio/wav",
+            "generator": "_Pipeline/generators/gen_S05_panning_assets.py",
+            "description": "意识之声 (Dry/Bone EQ)",
+            "used_in": [
+                "S05_Phase4_Position"
+            ]
+        },
+        "S0X_dry_voice_clean": {
+            "id": "S0X_dry_voice_clean",
+            "path": "_Library/S0X_Shared/asset_S0X_dry_voice_clean.wav",
+            "type": "audio/wav",
+            "generator": null,
+            "description": "基准干声 (人工录音)",
+            "used_in": [
+                "S01_Intro"
+            ]
+        },
+        "S0X_bad_case_demo": {
+            "id": "S0X_bad_case_demo",
+            "path": "_Library/S0X_Shared/asset_S0X_bad_case_demo.wav",
+            "type": "audio/wav",
+            "generator": null,
+            "description": "问题样本 (添加了底噪/爆音的脏音频)",
+            "used_in": [
+                "S01_Intro"
+            ]
+        }
+    },
+    "demo_intermediates": {
+        "_note": "虚拟资产 - 由演示过程中在 Audition 里临时生成,不存储在磁盘上",
+        "S02_heartbeat_cleaned_demo": {
+            "id": "S02_heartbeat_cleaned_demo",
+            "description": "S02 降噪后的输出 (演示中临时生成)",
+            "input": "S02_dirty_heartbeat",
+            "process": "Audition Noise Reduction (75%, 30dB)",
+            "used_in": [
+                "S03_Phase2_Sculpt"
+            ],
+            "virtual": true
+        },
+        "S03_alice_sculpted": {
+            "id": "S03_alice_sculpted",
+            "description": "S03 塑形后的输出 (演示中临时生成)",
+            "input": "S02_heartbeat_cleaned_demo",
+            "process": "Audition Stretch (135%) + Pitch (-4st) + Preserve Speech",
+            "used_in": [
+                "S04_Phase3_Space",
+                "S05_Phase4_Position"
+            ],
+            "virtual": true
+        },
+        "S04_alice_wet": {
+            "id": "S04_alice_wet",
+            "description": "S04 加混响后的输出 (演示中临时生成)",
+            "input": "S03_alice_sculpted",
+            "process": "Audition Convolution Reverb (Size 150%, Mix 75%, Pre-delay 80ms)",
+            "used_in": [
+                "S05_Phase4_Position"
+            ],
+            "virtual": true
+        }
+    }
+}

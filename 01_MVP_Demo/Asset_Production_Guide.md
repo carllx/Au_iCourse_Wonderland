@@ -2,7 +2,9 @@
 
 **更新日期**: 2026-01-26
 **架构版本**: 1.2 (Modular + v12 真实粉红噪音)
-**参见**: `01_MVP_Demo/ARCHITECTURE_GUIDE.md` (详细命名规范)
+**参见**: 
+- `01_MVP_Demo/ARCHITECTURE_GUIDE.md` (详细命名规范)
+- `02_Visuals/README.md` (视觉资产生产与 AI 生成指南)
 
 ## 1. 资产清单 (Asset Manifest)
 

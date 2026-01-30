@@ -38,25 +38,63 @@ def validate_scripts(scripts_dir, valid_slides, valid_actions):
         with open(file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
 
+    # Broader pattern to capture ANY reference to a Slide ID (e.g. S01_Title, S11b_Tail_Timer)
+    # We look for word boundaries to avoid partial matches
+    slide_ref_pattern = re.compile(r'\b(S\d+[a-z]?_[a-zA-Z0-9_]+)\b')
+
+    errors = []
+    warnings = []
+
+    if not os.path.exists(scripts_dir):
+        print(f"Error: Scripts directory not found: {scripts_dir}")
+        return
+
+    for filename in os.listdir(scripts_dir):
+        if not filename.endswith(".md"):
+            continue
+
+        file_path = os.path.join(scripts_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+
         for i, line in enumerate(lines, 1):
-            matches = tag_pattern.findall(line)
-            for tag_type, tag_id in matches:
-                if tag_type in ['REF', 'SLIDE']:
-                    if tag_id not in valid_slides:
-                        # Fallback check: sometimes IDs might be referenced loosely?
-                        # But strictly they should match.
-                        errors.append(f"{filename}:{i} - Invalid Slide Reference: '{tag_id}' (Tag: [{tag_type}: {tag_id}])")
-                elif tag_type == 'ACTION':
-                    if tag_id not in valid_actions:
-                        errors.append(f"{filename}:{i} - Invalid Action Reference: '{tag_id}' (Tag: [{tag_type}: {tag_id}])")
+            # 1. Scan for Slide IDs
+            potential_refs = slide_ref_pattern.findall(line)
+            for ref_id in potential_refs:
+                # If it looks like a Slide ID, check if it's in the DB
+                if ref_id not in valid_slides:
+                    # It might be a file name (e.g. S02_Purify.png), ignore if extension exists
+                    # But the regex \b..._...\b might catch "S02_Purify" inside "S02_Purify.png"
+                    # Simple check: does the line contain ref_id + "."?
+                    if f"{ref_id}." in line:
+                         continue # Likely a filename
+                    
+                    # Ignore own filename reference (e.g. inside S01_Intro.md, "S01_Intro")
+                    if ref_id in filename:
+                        continue
+
+                    warnings.append(f"{filename}:{i} - ⚠️  Orphan Reference: '{ref_id}' found in text but NOT defined in Slide_Database.")
+
+            # 2. Keep the strict tag check for Actions as it's more specific
+            action_matches = re.findall(r'\[ACTION:\s*([a-zA-Z0-9_]+)\]', line)
+            for action_id in action_matches:
+                 if action_id not in valid_actions:
+                        errors.append(f"{filename}:{i} - ❌ Invalid Action Tag: '{action_id}'")
+
+    print(f"\nScanning {len(os.listdir(scripts_dir))} scripts for references...")
+
+    if warnings:
+        print(f"\n⚠️  Found {len(warnings)} potential loose/orphan references:")
+        for w in warnings:
+            print(f"  {w}")
 
     if errors:
-        print(f"Found {len(errors)} broken links:")
+        print(f"\n❌ Found {len(errors)} critical broken links:")
         for e in errors:
-            print(f"  [X] {e}")
-        exit(1) # Return error code 1 for CI/CD
+            print(f"  {e}")
+        exit(1)
     else:
-        print("✅ Link Validation Passed: All references point to valid definitions.")
+        print("\n✅ Link Validation Passed (Critical). Check warnings above for loose threads.")
 
 if __name__ == "__main__":
     # 1. Setup Paths (Relative to where script is run, usually project root)

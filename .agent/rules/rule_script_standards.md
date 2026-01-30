@@ -42,6 +42,7 @@ globs: 03_Scripts/*.md
 
 ## 3. 语速与留白 (Pacing & Gaps)
 
+*   **术语规范**: 严禁随意翻译。涉及 Audition 专有名词（如 Reverb, Decay, Threshold）时，**必须** 遵循 `.agent/knowledge/Glossary_Audition_CN.md` 中的定义。
 *   **黄金语速**: **180 - 220 字/分 (CN Char)**。
     *   教育类内容必须低于日常语速 (240+)，给大脑留出“认知带宽”。
 *   **留白 (Gaps)**:
