@@ -17,6 +17,7 @@
 *   `03_Scripts/`: 课程逐字稿 (Markdown)
 *   `02_Visuals/`: PPT 视觉数据库
 *   `01_MVP_Demo/`: 演示操作映射表 (架构规范见 `ARCHITECTURE_GUIDE.md`)
+*   `04_Delivery/`: H5 交互式预览系统 (React + Vite)
 *   `.agent/`: **[核心] 智能体工程**
     *   `executors/`: 提示词装配工厂 (`build_factory.py`)
     *   `rules/`: 行为准则 (`workflow_protocol.md`)
@@ -49,8 +50,12 @@
 3.  **Produce**: 用 PS 成品覆盖生成的灰盒 PNG。素材(Raw)请加 `src_` 前缀放入同级目录。
 
 ### 场景 B: 添加新音/资产 (Audio Workflow)
-1.  **Define**: 在 `01_MVP_Demo/00_Design_Spec_Alice.md` 里定义参数。
 2.  **Generate**: 编写/运行 `01_MVP_Demo/_Pipeline` 下的 Python 脚本生成 `.wav`。
+
+### 场景 C: 交互式预览 (Interactive Preview)
+**原则**: H5 是验证脚本、音频与视觉契合度的 **终极手段**。
+1.  **Sync**: 运行 `npm run sync` 解析脚本与检测素材。
+2.  **Preview**: 运行 `npm run dev` 在浏览器中实时查看课程效果。
 
 ## 🧰 常用工具箱 (Project Toolkit)
 
@@ -63,7 +68,7 @@
     # ⏱️ 此时长检查
     python .agent/skills/validation-suite/scripts/validate_script_length.py
 
-    # 📝 提取纯文本 (用于 TTS/字幕)
+    # 📝 提取纯文本 (自动保存至 03_Scripts/tts/*.txt)
     python .agent/skills/validation-suite/scripts/validate_script_length.py --dump-text
     ```
 
@@ -88,9 +93,28 @@
     python .agent/skills/validation-suite/scripts/validate_project.py
     ```
 
+### 5. 📱 H5 预览系统 (Interactive Preview)
+*   **用途**: 提供“所见即所得”的课程预览，支持音频/字幕/PPT同步播放，自动回落灰盒布局。
+*   **指令**:
+    ```bash
+    cd 04_Delivery/h5_preview && npm run sync && npm run dev
+    ```
+
+### 6. 🎬 Script-to-Timeline 自动化 (New v1.3)
+*   **用途**: 自动对齐 TTS 音频与脚本，生成精确时间轴与视频占位符。无需人工打点。
+*   **指令**:
+    ```bash
+    # 1. 注入时间轴
+    python 04_Delivery/h5_preview/scripts/build_timeline.py [Section_ID] (e.g. S03)
+    
+    # 2. 生成占位视频
+    python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Section_ID] (e.g. S03)
+    ```
+
 ## 当前状态
 *   ✅ **策略升级**: 引入 "Deep Listening" (深听) 策略，填补时长缺口。
 *   ✅ **资产重构**: 视觉资产已完成 "Greybox" 灰盒化与模块化迁移。
+*   ✅ **交互升级**: H5 预览系统上线 (React + Vite)，支持物理素材热重载。
 *   🔄 **执行中**: S02-S05 脚本重构中。
 
 ## 常用的prompt

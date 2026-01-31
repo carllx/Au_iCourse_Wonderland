@@ -57,3 +57,12 @@ ls -l 01_MVP_Demo/_Library/S[MODULE]_[NAME_GROUP]/
 
 ## 4. Documentation
 Update `01_MVP_Demo/Asset_Production_Guide.md` to include the new file in the Manifest table.
+
+## 5. Timeline Sync (Optional)
+If this asset fundamentally changes the timing of the chapter (e.g. a new narration file):
+
+```bash
+# Update Timeline
+python 04_Delivery/h5_preview/scripts/build_timeline.py S[MODULE]
+```
+

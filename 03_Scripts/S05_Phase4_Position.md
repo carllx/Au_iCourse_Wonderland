@@ -13,6 +13,7 @@
 > **[VISUAL]**
 > *   **Scene**: 全黑画面。
 > *   **Action**: [ACT: Black_Screen] 屏幕中央出现一个白色的光点。
+> *   **Ref**: `[SLIDE: S05_Blumlein_Walking]`
 > *   **Metaphor**: 随着声音描述，光点开始疯狂旋转，画出复杂的 3D 轨迹。
 > *   **Sound**: 配合最后一声拍手，光点瞬间炸开。
 
@@ -45,6 +46,8 @@
 > *   **Scene**: Audition 多轨会话界面 (Multitrack Session)。
 > *   **Action**: [ACT: Show_Tracks] 依次高亮 Track 1-6。
 > *   **Graphic**: 将六个轨道框选，标注为 "Force Field" (力场)。
+> *   **Graphic**: 将六个轨道框选，标注为 "Force Field" (力场)。
+> *   **Ref**: `[SLIDE: S05_Fantasound_Layout]`
 > *   **Reference**: Disney *Fantasasia* (1940) 的 "Fantasound" 扬声器布局图。
 
 > [!NOTE]
@@ -100,6 +103,8 @@
 > **[VISUAL]**
 > *   **Scene**: Track 6 (Consciousness) 独奏。
 > *   **Action**: [ACT: Import_Asset] 导入 `asset_S05_conscious_voice.wav`。
+> *   **Action**: [ACT: Import_Asset] 导入 `asset_S05_conscious_voice.wav`。
+> *   **Ref**: `[SLIDE: S05_Jungian_Shadow]`
 > *   **Graphic**: 引用 "Jungian Shadow" (荣格阴影) 概念 - 一个人背后的黑色投影。
 > *   **Concept tag**: "Cocktail Party Effect Reversal" (鸡尾酒会效应反转)。
 
@@ -141,6 +146,8 @@
 
 > **[VISUAL]**
 > *   **Scene**: Track 4 Automation 面板。
+> *   **Scene**: Track 4 Automation 面板。
+> *   **Ref**: `[SLIDE: S05_UI_The_Wall]`
 > *   **Action**: [ACT: Draw_Filter] 绘制 Low Pass Filter 曲线：50Hz -> 5000Hz。
 > *   **Concept**: **ILD (Interaural Level Difference)** - 高频更容易被头部阻挡，产生强烈的方向感；低频则像水一样包围我们。
 
@@ -170,6 +177,8 @@
 
 > **[VISUAL]**
 > *   **Scene**: Track 5 Pan Automation 面板。
+> *   **Scene**: Track 5 Pan Automation 面板。
+> *   **Ref**: `[SLIDE: S05_UI_The_Needle]`
 > *   **Action**: [ACT: Draw_Pan] 手绘 Pan 曲线：正弦波 (Sine Wave)，幅度从 0 到 100，频率呈指数级加快。
 > *   **Action**: [ACT: Add_Doppler] 微调 Pitch Automation (高-低-高)。
 > *   **Knowledge**: **Cone of Confusion (混淆锥)** - 你的大脑分不清正前方和正后方，除非有音调变化。
@@ -201,6 +210,8 @@
 > **[VISUAL]**
 > *   **Scene**: FX Bus (FX1) 的 Stereo Expander。
 > *   **Action**: [ACT: Max_Width] 将 FX1 上 Reverb 的 Stereo Width 瞬间推至 **150%**。
+> *   **Action**: [ACT: Max_Width] 将 FX1 上 Reverb 的 Stereo Width 瞬间推至 **150%**。
+> *   **Ref**: `[SLIDE: S05_Azimuth_Coordinator]`
 > *   **Ref**: Pink Floyd *Dark Side of the Moon* 的 **Azimuth Co-ordinator** (方位协调器)。
 
 **[AUDIO]**
@@ -234,6 +245,8 @@
 
 > **[VISUAL]**
 > *   **Scene**: 黑色背景中，所有声音的轨迹（墙的直线、刺的螺旋、影子的点）组成了一个复杂的几何结构。
+> *   **Scene**: 黑色背景中，所有声音的轨迹（墙的直线、刺的螺旋、影子的点）组成了一个复杂的几何结构。
+> *   **Ref**: `[SLIDE: S05_Geometry_Loneliness]`
 > *   **Text**: "The Geometry of Loneliness" (孤独的几何学)。
 
 **[AUDIO]**

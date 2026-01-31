@@ -1,0 +1,1018 @@
+{
+  "version": "1.1",
+  "generated": "2026-01-31T12:57:05.917016",
+  "sections": [
+    {
+      "id": "S01_Intro",
+      "title": "导入",
+      "slides": [
+        {
+          "type": "Motion Graphic",
+          "text": "声音的魔术师：Audition 混响与特效实战",
+          "sub": "智慧课程《数字音频处理》第五章 (Part 2) | 主讲：林昕",
+          "list": [],
+          "visual": "Audition Logo + Glowing Soundwave.",
+          "caption": "",
+          "concept": "",
+          "id": "S01_Title",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.35,
+                "w": 0.8,
+                "h": 0.15
+              },
+              {
+                "name": "SUBTITLE",
+                "x": 0.2,
+                "y": 0.55,
+                "w": 0.6,
+                "h": 0.08
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.3,
+                "y": 0.7,
+                "w": 0.4,
+                "h": 0.15
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S01_Intro/S01_Title.png"
+        },
+        {
+          "type": "Diagram",
+          "text": "空间建模三要素",
+          "sub": "",
+          "list": [],
+          "visual": "",
+          "caption": "",
+          "concept": "",
+          "id": "S03_Concept_Source_Space_Ear",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.08,
+                "w": 0.8,
+                "h": 0.1
+              },
+              {
+                "name": "DIAGRAM",
+                "x": 0.1,
+                "y": 0.22,
+                "w": 0.8,
+                "h": 0.55
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.15,
+                "y": 0.82,
+                "w": 0.7,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S01_Intro/S03_Concept_Source_Space_Ear.png"
+        }
+      ],
+      "audio": "tts/S01_Intro.aac",
+      "srt": "tts/S01_Intro.srt"
+    },
+    {
+      "id": "S02_Phase1_Purify",
+      "title": "净化",
+      "slides": [
+        {
+          "type": "Diagram/Historical",
+          "text": "\"The 1/f Law: Nature's Heartbeat\".",
+          "sub": "",
+          "list": [],
+          "visual": "Pink Noise spectrum vs Bach Concerto spectrum.",
+          "caption": "",
+          "concept": "1/f 噪音",
+          "id": "S02_Voss_Clarke",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        }
+      ],
+      "audio": "tts/S02_Phase1_Purify.aac",
+      "srt": "tts/S02_Phase1_Purify.srt"
+    },
+    {
+      "id": "S03_Phase2_Sculpt",
+      "title": "塑形",
+      "slides": [
+        {
+          "type": "Metaphor",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Tiny waveform in a vast black void.",
+          "caption": "The Ugly Duckling: High-pitched, No Body, Nervous.",
+          "concept": "声音的尸体",
+          "id": "S07b_Ugly_Duckling",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Animation",
+          "text": "Speed ↑ = Pitch ↑ = Time ↓",
+          "sub": "",
+          "list": [],
+          "visual": "Old Reel-to-Reel Tape machine spinning erratically.",
+          "caption": "",
+          "concept": "克洛诺斯的诅咒 (Time/Pitch)",
+          "id": "S08b_Tape_Machine",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S03_Phase2_Sculpt/S08b_Tape_Machine.png"
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "\"Acousmatic: The sound one hears without seeing the causes behind it.\"",
+          "sub": "",
+          "list": [],
+          "visual": "Photo of Pierre Schaeffer (1948) operating turntables.",
+          "caption": "",
+          "concept": "声音对象 (Sound Object)",
+          "id": "S08c_Pierre_Schaeffer",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S03_Phase2_Sculpt/S08c_Pierre_Schaeffer.png"
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Photo of Ross Bagdasarian (1958) with Alvin and the Chipmunks.",
+          "caption": "Warning: The Chipmunk Trap.",
+          "concept": "花栗鼠效应",
+          "id": "S08d_Chipmunk",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S03_Phase2_Sculpt/S08d_Chipmunk.png"
+        },
+        {
+          "type": "Diagram",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Split image. Left: Vocal Folds (Strings). Right: Cello Body (Vocal Tract).",
+          "caption": "",
+          "concept": "共振峰 (Formant)",
+          "id": "S08e_Cello_Body",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.08,
+                "w": 0.8,
+                "h": 0.1
+              },
+              {
+                "name": "DIAGRAM",
+                "x": 0.1,
+                "y": 0.22,
+                "w": 0.8,
+                "h": 0.55
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.15,
+                "y": 0.82,
+                "w": 0.7,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S03_Phase2_Sculpt/S08e_Cello_Body.png"
+        },
+        {
+          "type": "Text/Minimalist",
+          "text": "Body vs Soul.",
+          "sub": "",
+          "list": [],
+          "visual": "Pure Black Screen.",
+          "caption": "",
+          "concept": "深听时刻",
+          "id": "S08f_Deep_Listening_Body_Soul",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S03_Phase2_Sculpt/S08f_Deep_Listening_Body_Soul.png"
+        }
+      ],
+      "audio": "tts/S03_Phase2_Sculpt.aac",
+      "srt": "tts/S03_Phase2_Sculpt.srt"
+    },
+    {
+      "id": "S04_Phase3_Space",
+      "title": "置景",
+      "slides": [
+        {
+          "type": "Diagram/Comparison",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Split Screen.",
+          "caption": "",
+          "concept": "空间的迷思",
+          "id": "S10_Concept_Dry_Wet",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S04_Phase3_Space/S10_Concept_Dry_Wet.png"
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "\"The Inchindown Limit\".",
+          "sub": "",
+          "list": [],
+          "visual": "Photo of the Inchindown Oil Tanks interior (Endless Tunnel).",
+          "caption": "World Record: 112 Seconds of Reverb.",
+          "concept": "混响极限",
+          "id": "S04_Inchindown_Tanks",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Diagram",
+          "text": "\"Impulse Response: The DNA of Space\".",
+          "sub": "",
+          "list": [],
+          "visual": "Hand-drawn diagram of a balloon exploding in a cave, showing reflection paths.",
+          "caption": "",
+          "concept": "脉冲响应 (IR)",
+          "id": "S11c_Balloon_Cave",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.08,
+                "w": 0.8,
+                "h": 0.1
+              },
+              {
+                "name": "DIAGRAM",
+                "x": 0.1,
+                "y": 0.22,
+                "w": 0.8,
+                "h": 0.55
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.15,
+                "y": 0.82,
+                "w": 0.7,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S04_Phase3_Space/S11c_Balloon_Cave.png"
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "\"I am sitting in a room...\"",
+          "sub": "",
+          "list": [],
+          "visual": "Photo of Alvin Lucier sitting in a room with a microphone.",
+          "caption": "",
+          "concept": "空间作为乐器",
+          "id": "S04_Alvin_Lucier",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Photo/Band",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Einstürzende Neubauten banging on metal pipes in a highway underpass.",
+          "caption": "Finding tone in the industrial noise.",
+          "concept": "工业深渊",
+          "id": "S04_Neubauten",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Chart",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Frequency Response Curve collapsing at high frequencies (Low Pass).",
+          "caption": "",
+          "concept": "高频阻尼 (Physics)",
+          "id": "S12_Damping_Curve",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S04_Phase3_Space/S12_Damping_Curve.png"
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "\"Dissolution\".",
+          "sub": "",
+          "list": [],
+          "visual": "Multitrack Envelope Automation.",
+          "caption": "",
+          "concept": "灵魂出窍",
+          "id": "S13_Automation_Dissolution",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S04_Phase3_Space/S13_Automation_Dissolution.png"
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Hard Limiter Panel.",
+          "caption": "",
+          "concept": "安全网",
+          "id": "S04_UI_HardLimiter",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Concept Art",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Alice floating in a vast, dark, cylindrical tank (The Oil Tank).",
+          "caption": "All knobs serve the 80ms of terror.",
+          "concept": "听见深渊",
+          "id": "S04_Conclusion_Abyss",
+          "layout": {
+            "zones": [
+              {
+                "name": "VISUAL (Full Bleed)",
+                "x": 0.0,
+                "y": 0.0,
+                "w": 1.0,
+                "h": 0.85
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.1,
+                "y": 0.87,
+                "w": 0.8,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          }
+        }
+      ],
+      "audio": "tts/S04_Phase3_Space.aac",
+      "srt": "tts/S04_Phase3_Space.srt"
+    },
+    {
+      "id": "S05_Phase4_Position",
+      "title": "定位",
+      "slides": [
+        {
+          "type": "Photo/Historical",
+          "text": "\"Testing Presence, not just Wire.\"",
+          "sub": "",
+          "list": [],
+          "visual": "Alan Blumlein walking in front of a microphone pair at Abbey Road (1933).",
+          "caption": "",
+          "concept": "立体声行走",
+          "id": "S05_Blumlein_Walking",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Diagram",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "The 1940 Fantasound Speaker Layout + The \"Tadpole\" optical track.",
+          "caption": "The Ancestor of Automation.",
+          "concept": "原始的自动化",
+          "id": "S05_Fantasound_Layout",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.08,
+                "w": 0.8,
+                "h": 0.1
+              },
+              {
+                "name": "DIAGRAM",
+                "x": 0.1,
+                "y": 0.22,
+                "w": 0.8,
+                "h": 0.55
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.15,
+                "y": 0.82,
+                "w": 0.7,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          }
+        },
+        {
+          "type": "Concept Art",
+          "text": "\"The Shadow: The rejected self.\"",
+          "sub": "",
+          "list": [],
+          "visual": "A silhouette of a person casting a shadow that is a different monster/shape.",
+          "caption": "",
+          "concept": "荣格阴影",
+          "id": "S05_Jungian_Shadow",
+          "layout": {
+            "zones": [
+              {
+                "name": "VISUAL (Full Bleed)",
+                "x": 0.0,
+                "y": 0.0,
+                "w": 1.0,
+                "h": 0.85
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.1,
+                "y": 0.87,
+                "w": 0.8,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          }
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Automation Lane for Low Pass Filter.",
+          "caption": "",
+          "concept": "压迫之墙 (ILD)",
+          "id": "S05_UI_The_Wall",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Automation Lane for Pan + Pitch.",
+          "caption": "",
+          "concept": "焦虑之刺 (Doppler)",
+          "id": "S05_UI_The_Needle",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Photo of the joystick device used by Pink Floyd.",
+          "caption": "Surround Sound in 1972.",
+          "concept": "方位协调器",
+          "id": "S05_Azimuth_Coordinator",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          }
+        },
+        {
+          "type": "Concept Art",
+          "text": "\"The Geometry of Loneliness.\"",
+          "sub": "",
+          "list": [],
+          "visual": "Abstract geometry connecting the Wall, the Needle, and the Void.",
+          "caption": "",
+          "concept": "孤独的几何学",
+          "id": "S05_Geometry_Loneliness",
+          "layout": {
+            "zones": [
+              {
+                "name": "VISUAL (Full Bleed)",
+                "x": 0.0,
+                "y": 0.0,
+                "w": 1.0,
+                "h": 0.85
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.1,
+                "y": 0.87,
+                "w": 0.8,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          }
+        }
+      ],
+      "audio": "tts/S05_Phase4_Position.aac",
+      "srt": "tts/S05_Phase4_Position.srt"
+    },
+    {
+      "id": "S06_Summary",
+      "title": "总结",
+      "slides": [
+        {
+          "type": "Diagram",
+          "text": "每一个参数，都是一种立场。",
+          "sub": "",
+          "list": [],
+          "visual": "",
+          "caption": "",
+          "concept": "剧场谢幕",
+          "id": "S16_Summary_Loop",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.08,
+                "w": 0.8,
+                "h": 0.1
+              },
+              {
+                "name": "DIAGRAM",
+                "x": 0.1,
+                "y": 0.22,
+                "w": 0.8,
+                "h": 0.55
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.15,
+                "y": 0.82,
+                "w": 0.7,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S06_Summary/S16_Summary_Loop.png"
+        },
+        {
+          "type": "Diagram",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A Pyramid Diagram.",
+          "caption": "",
+          "concept": "剪辑六法则 (Philosophy)",
+          "id": "S19_Murch_Rule_of_Six",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.08,
+                "w": 0.8,
+                "h": 0.1
+              },
+              {
+                "name": "DIAGRAM",
+                "x": 0.1,
+                "y": 0.22,
+                "w": 0.8,
+                "h": 0.55
+              },
+              {
+                "name": "CAPTION",
+                "x": 0.15,
+                "y": 0.82,
+                "w": 0.7,
+                "h": 0.1
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S06_Summary/S19_Murch_Rule_of_Six.png"
+        }
+      ],
+      "audio": "tts/S06_Summary.aac",
+      "srt": "tts/S06_Summary.srt"
+    }
+  ]
+}

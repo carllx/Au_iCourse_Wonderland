@@ -9,8 +9,8 @@
 ### 完整流程
 
 ```
-1️⃣ Define   →   2️⃣ Greybox   →   3️⃣ Collect   →   4️⃣ Produce   →   5️⃣ Replace
-在Database     生成灰盒占位     搜索/生成素材     合成成品        覆盖灰盒
+1️⃣ Define  →  2️⃣ Greybox  →  3️⃣ Collect  →  4️⃣ Produce  →  5️⃣ Replace  →  6️⃣ Preview
+在Database    生成灰盒占位    搜索/生成素材    合成成品       覆盖灰盒      H5交互验证
 中添加条目
 ```
 
@@ -127,13 +127,34 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 
 ---
 
-## ✅ 验证
+## 📱 Step 6: Interactive Preview (交互式预览)
+
+静态图片只是第一步，**必须**在 H5 系统中验证素材与音频、字幕的契合度。
+
+### 方式 A: 一键启动 (推荐)
+双击项目根目录下的 **`start_preview.command`**。
+它会自动同步数据并打开浏览器。
+
+### 方式 B: 命令行启动
+```bash
+cd 04_Delivery/h5_preview
+npm run sync && npm run dev
+```
+
+**验证清单**:
+1.  **布局 (Layout)**: 图片主体是否被字幕遮挡？
+2.  **起止 (Timing)**: 画面出现和消失的时机是否配合语音节奏？
+3.  **色彩 (Color)**: 在暗色 UI 背景下，图片是否过于刺眼或融入看不清？
+
+---
+
+## ✅ 验证 (Validation)
 
 ```bash
 # 检查链接完整性
 python .agent/skills/validation-suite/scripts/validate_links.py
 
-# 重新生成缺失的灰盒
+# 重新生成缺失的灰盒 (仅当 H5 显示空白时使用)
 python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 ```
 

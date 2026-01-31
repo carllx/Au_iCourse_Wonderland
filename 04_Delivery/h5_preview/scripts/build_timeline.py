@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+"""
+Build Timeline Engine - Script-to-Timeline 核心实现
+用法: python build_timeline.py <Section_ID> (e.g. S03)
+
+流程:
+1. Parse Anchors from 03_Scripts/Sxx.md
+2. Transcribe Audio 03_Scripts/tts/Sxx.mp3 using stable-ts
+3. Build Char-Time Map
+4. Fuzzy Match Anchors -> Get Start Time
+5. Update 04_Delivery/h5_preview/public/slides.json
+"""
+
+import sys
+import json
+import re
+import difflib
+import stable_whisper
+from pathlib import Path
+
+# 导入 parse_anchors
+sys.path.append(str(Path(__file__).parent))
+from parse_anchors import parse_anchors
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+SLIDES_JSON_PATH = PROJECT_ROOT / "04_Delivery/h5_preview/public/slides.json"
+SCRIPTS_DIR = PROJECT_ROOT / "03_Scripts"
+AUDIO_DIR = PROJECT_ROOT / "03_Scripts/tts"
+
+def normalize_text(text):
+    """简单的文本标准化: 去除标点和空格，转小写"""
+    return re.sub(r"[^\w]", "", text).lower()
+
+def build_timeline(section_id):
+    # 1. 确定文件路径
+    # 查找匹配的脚本文件 (S03_Phase2_Sculpt.md)
+    script_files = list(SCRIPTS_DIR.glob(f"{section_id}_*.md"))
+    if not script_files:
+        print(f"❌ Script not found for {section_id}")
+        return
+    script_path = script_files[0]
+    
+    # 查找匹配的音频文件 (mp3/wav)
+    audio_files = list(AUDIO_DIR.glob(f"{section_id}_*.mp3")) + list(AUDIO_DIR.glob(f"{section_id}_*.wav"))
+    if not audio_files:
+        print(f"❌ Audio not found for {section_id}")
+        return
+    audio_path = audio_files[0]
+    
+    print(f"📜 Script: {script_path.name}")
+    print(f"🔊 Audio:  {audio_path.name}")
+    
+    # 2. 解析锚点
+    print("🔍 Parsing anchors...")
+    anchors = parse_anchors(script_path)
+    if not anchors:
+        print("⚠️ No anchors found in script.")
+        return
+    print(f"   Found {len(anchors)} anchors.")
+    
+    # 3. 转录音频
+    print("🤖 Transcribing & Aligning (this may take a while)...")
+    # 使用 base 模型, 强制简体中文
+    model = stable_whisper.load_model('base')
+    result = model.transcribe(str(audio_path), language='zh', regroup=False, initial_prompt="以下是简体中文的内容。")
+    
+    # 4. 构建 Char-Time Map
+    # stable-ts 的 result 包含 segments -> words
+    # 我们将所有文字展平，建立 index -> timestamp 映射
+    
+    full_text = ""
+    char_time_map = [] # list of start_times corresponding to full_text characters
+    
+    # 注意: stable-ts base model 可能不输出 words 详情，除非 spec 变了
+    # 如果没有 words，回退到 segment 插值
+    
+    for segment in result.segments:
+        # 如果有 word_timestamps
+        if segment.words:
+            for word in segment.words:
+                w_text = word.word
+                w_start = word.start
+                w_end = word.end
+                w_duration = w_end - w_start
+                if not w_text: continue
+                
+                # 简单分配: 每个字符平分 word duration (不够精确但够用)
+                clean_word = w_text.strip()
+                if not clean_word: continue
+                
+                char_duration = w_duration / len(clean_word)
+                for i, char in enumerate(clean_word):
+                    full_text += char
+                    char_time_map.append(w_start + (i * char_duration))
+        else:
+            # Fallback: Segment Level Interpolation
+             s_text = segment.text
+             # 去除标点
+             clean_text = normalize_text(s_text)
+             if not clean_text: continue
+             
+             s_duration = segment.end - segment.start
+             char_duration = s_duration / len(clean_text)
+             for i, char in enumerate(clean_text):
+                 full_text += char
+                 char_time_map.append(segment.start + (i * char_duration))
+                 
+    # 5. 匹配锚点
+    print("🔗 Matching anchors...")
+    
+    match_results = {} # slide_id -> start_time
+    
+    # 在 Full Text 中搜索 Anchor Text (Normalize 后)
+    normalized_full_text = normalize_text(full_text)
+    
+    for anchor in anchors:
+        anchor_raw = anchor['anchor_text']
+        anchor_norm = normalize_text(anchor_raw)
+        slide_id = anchor['slide_id']
+        
+        if not anchor_norm: continue
+        
+        # 使用 sequence matcher 找最佳匹配位置
+        matcher = difflib.SequenceMatcher(None, normalized_full_text, anchor_norm)
+        match = matcher.find_longest_match(0, len(normalized_full_text), 0, len(anchor_norm))
+        
+        # 简单阈值：匹配长度要足够大
+        if match.size > len(anchor_norm) * 0.6: # 匹配度 > 60%
+            start_idx = match.a
+            timestamp = char_time_map[start_idx] if start_idx < len(char_time_map) else 0
+            match_results[slide_id] = round(timestamp, 2)
+            print(f"   ✅ {slide_id}: {timestamp:.2f}s (Match: {normalized_full_text[match.a:match.a+match.size]})")
+        else:
+            print(f"   ❌ {slide_id}: Match failed (Anchor: {anchor_norm[:10]}...)")
+            
+    # 6. 更新 slides.json
+    print("💾 Updating slides.json...")
+    if not SLIDES_JSON_PATH.exists():
+        print("Error: slides.json not found")
+        return
+
+    try:
+         with open(SLIDES_JSON_PATH, 'r', encoding='utf-8') as f:
+             manifest = json.load(f)
+             
+         # 遍历 manifest 找到对应的 section
+         target_section = None
+         for section in manifest.get('sections', []):
+             # 简单匹配 ID (假设文件名包含 ID)
+             if section_id in section.get('id', '') or section_id in section.get('title', ''):
+                  target_section = section
+                  break
+             # 或者尝试从 slide items 里看
+             if section.get('slides') and len(section['slides']) > 0:
+                 first_slide_id = section['slides'][0].get('id', '')
+                 if first_slide_id.startswith(section_id):
+                     target_section = section
+                     break
+                     
+         if target_section:
+             slides = target_section.get('slides', [])
+             updated_count = 0
+             for slide in slides:
+                 sid = slide.get('id')
+                 if sid in match_results:
+                     slide['startTime'] = match_results[sid]
+                     updated_count += 1
+             
+             print(f"   Updated {updated_count} slides in section {target_section.get('title')}")
+             
+             with open(SLIDES_JSON_PATH, 'w', encoding='utf-8') as f:
+                 json.dump(manifest, f, indent=2, ensure_ascii=False)
+         else:
+             print(f"   ⚠️ Section {section_id} not found in slides.json")
+             
+    except Exception as e:
+        print(f"Error updating JSON: {e}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python build_timeline.py <Section_ID>")
+        sys.exit(1)
+        
+    build_timeline(sys.argv[1])

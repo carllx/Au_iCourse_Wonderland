@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sync": "python3 scripts/parse_slides.py",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

@@ -78,7 +78,20 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 *   **结果**: 生成带有 ID 和 Type 颜色编码的 1920x1080 PNG。
 *   **目的**: 立即打通剪辑管线，确保 `validate_links.py` 通过。
 
-### Step 3: Production (生产)
+### Step 3: Timeline (时间轴)
+**必须在 TTS 生成后、视觉生产前运行。**
+```bash
+# 1. 强制对齐 (Script -> Time)
+python 04_Delivery/h5_preview/scripts/build_timeline.py [Module_ID]
+
+# 2. 生成动态占位 (For missing assets)
+python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Module_ID]
+```
+*   **输入**: `03_Scripts/Sxx.md` + `03_Scripts/tts/Sxx.mp3`
+*   **输出**: 更新 `slides.json` (startTime) + 生成 `visuals/.../*.mp4`
+
+
+### Step 4: Production (生产)
 美术/后期制作最终素材。
 *   **成品**: 直接**覆盖** Step 2 生成的 `Sxx_ID.png`。
 *   **素材**: 命名为 `src_...` 放入同级目录。

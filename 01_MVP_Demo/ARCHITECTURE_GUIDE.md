@@ -25,6 +25,11 @@
 │   │
 │   └── S0X_Shared/          # Reusable assets across modules
 │       └── asset_S0X_[Name].wav
+│
+├── 04_Delivery/             # The "Stage" - Presentation only.
+│   └── h5_preview/          # React + Vite Interactive Preview System
+│       ├── public/visuals/  # Symlink to 02_Visuals/assets
+│       └── src/             # Frontend Logic (SlideRenderer, AudioPlayer)
 ```
 
 ## 3. Naming Conventions (命名规范)
@@ -40,6 +45,7 @@ AI Agents **MUST** validate file names against these Regex patterns before savin
 
 ### B. Assets (`_Library`)
 *   **Assets**: `^asset_S\d{2}_[a-z0-9_]+\.(wav|mp3|mp4)$`
+    *   **Note**: `.wav` is preferred for high-quality source assets.
     *   Example: `asset_S02_heartbeat_subtle.wav`
 *   **Object-Based Naming (New in v1.1)**:
     *   For dynamic assets (moving in 3D space), name by **Character/Texture** (e.g., `_pressure`, `_anxiety`), NOT by location (`_L`, `_R`).

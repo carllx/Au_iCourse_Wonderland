@@ -37,8 +37,9 @@
 **(Pause: 3s)**
 
 > **[VISUAL]**
-> *   **Scene**: 屏幕上叠加一张半透明的宇宙深空图（粉红噪音可视化）。
-> *   **Graphic**: 引用文字出现 "Voss & Clarke (1975): 1/f 噪音"。
+> *   **Ref**: `[SLIDE: S02_Voss_Clarke]`
+> *   **Visual**: 引用 Voss & Clarke (1975). Pink Noise vs Bach.
+> *   **Graphic**: 屏幕中央浮现 "1/f" 公式与星云图。
 
 **[AUDIO]**
 (温和转折，带有哲学意味)

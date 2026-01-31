@@ -33,9 +33,12 @@ OUTPUT_DIR = PROJECT_ROOT / "01_MVP_Demo" / "_Media" / "previews"
 FFMPEG_PATH = "/opt/homebrew/bin/ffmpeg"
 
 # 视频参数
-VIDEO_WIDTH = 1280
-VIDEO_HEIGHT = 720
+VIDEO_WIDTH = 1920
+VIDEO_HEIGHT = 1080
 VIDEO_FPS = 30
+
+# 字体路径 (macOS 系统字体)
+FONT_PATH = "/System/Library/Fonts/PingFang.ttc"
 
 
 def find_section_assets(section_id: str) -> dict:
@@ -56,14 +59,16 @@ def find_section_assets(section_id: str) -> dict:
         "script": None,
     }
     
-    # 查找 TTS 音频和字幕
-    audio_path = TTS_DIR / f"{section_id}.wav"
+    # 查找 TTS 音频和字幕 (优先 mp3，回退 wav)
+    audio_path = TTS_DIR / f"{section_id}.mp3"
+    if not audio_path.exists():
+        audio_path = TTS_DIR / f"{section_id}.wav"
     srt_path = TTS_DIR / f"{section_id}.srt"
     
     if audio_path.exists():
         assets["audio"] = audio_path
     else:
-        print(f"⚠️  未找到 TTS 音频: {audio_path}")
+        print(f"⚠️  未找到 TTS 音频: {TTS_DIR / section_id}.[mp3|wav]")
     
     if srt_path.exists():
         assets["srt"] = srt_path
@@ -136,22 +141,70 @@ def get_audio_duration(audio_path: Path) -> float:
         return 0.0
 
 
-def render_preview(assets: dict, output_path: Path) -> bool:
+def generate_title_background(section_id: str, duration: float, output_path: Path) -> Path:
+    """
+    生成带标题的渐变背景视频（无视觉素材时的回退方案）
+    
+    使用 FFmpeg lavfi 生成：
+    - 深蓝到紫色的渐变背景
+    - 居中显示 Section ID 标题
+    """
+    temp_bg = output_path.parent / f"_bg_{section_id}.mp4"
+    
+    # 格式化标题：S01_Intro -> S01 · Intro
+    title = section_id.replace("_", " · ")
+    
+    # 使用 FFmpeg lavfi 生成渐变背景 + 标题
+    # gradients: 深蓝 (#1a1a2e) 到紫色 (#4a0080)
+    cmd = [
+        FFMPEG_PATH, "-y",
+        "-f", "lavfi",
+        "-i", f"color=c=#1a1a2e:s={VIDEO_WIDTH}x{VIDEO_HEIGHT}:d={duration:.3f}:r={VIDEO_FPS}",
+        "-vf", (
+            f"drawtext=fontfile='{FONT_PATH}':"
+            f"text='{title}':"
+            f"fontsize=72:fontcolor=white:"
+            f"x=(w-text_w)/2:y=(h-text_h)/2,"
+            f"drawtext=fontfile='{FONT_PATH}':"
+            f"text='🎧 数字音频编辑 · Audition':"
+            f"fontsize=36:fontcolor=#888888:"
+            f"x=(w-text_w)/2:y=h-100"
+        ),
+        "-c:v", "libx264",
+        "-preset", "ultrafast",
+        "-pix_fmt", "yuv420p",
+        "-t", str(duration),
+        str(temp_bg)
+    ]
+    
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode != 0:
+            print(f"❌ 生成背景失败: {result.stderr}")
+            return None
+        return temp_bg
+    except Exception as e:
+        print(f"❌ 生成背景失败: {e}")
+        return None
+
+
+def render_preview(assets: dict, output_path: Path, fast_mode: bool = False) -> bool:
     """
     使用 FFmpeg 生成预览视频
     
     策略:
-    1. 如果只有一张图片: 循环显示整个音频时长
-    2. 如果有多张图片: 均匀分配时长
-    3. 添加字幕 (如有 SRT)
+    1. 如果无视觉素材: 生成带标题的渐变背景
+    2. 如果只有一张图片: 循环显示整个音频时长
+    3. 如果有多张图片: 均匀分配时长
+    4. 添加字幕 (如有 SRT)
     """
     if not assets["audio"]:
         print("❌ 无法生成预览: 缺少 TTS 音频")
         return False
     
-    if not assets["visuals"]:
-        print("❌ 无法生成预览: 缺少视觉素材")
-        return False
+    preset = "ultrafast" if fast_mode else "medium"
+    use_generated_bg = False
+    temp_bg_path = None
     
     duration = get_audio_duration(assets["audio"])
     if duration <= 0:
@@ -159,13 +212,34 @@ def render_preview(assets: dict, output_path: Path) -> bool:
         return False
     
     print(f"📊 音频时长: {duration:.2f}s")
-    print(f"🖼️  视觉素材: {len(assets['visuals'])} 张")
     
     # 确保输出目录存在
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
+    # 如果无视觉素材，生成标题背景
+    if not assets["visuals"]:
+        print(f"⚠️  无视觉素材，生成标题背景...")
+        temp_bg_path = generate_title_background(assets["section_id"], duration, output_path)
+        if not temp_bg_path:
+            return False
+        use_generated_bg = True
+    else:
+        print(f"🖼️  视觉素材: {len(assets['visuals'])} 张")
+    
     # 构建 FFmpeg 命令
-    if len(assets["visuals"]) == 1:
+    if use_generated_bg:
+        # 已生成背景视频模式: 合并音频
+        cmd = [
+            FFMPEG_PATH, "-y",
+            "-i", str(temp_bg_path),
+            "-i", str(assets["audio"]),
+            "-c:v", "copy",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-shortest",
+            str(output_path)
+        ]
+    elif len(assets["visuals"]) == 1:
         # 单图模式: 循环显示
         cmd = [
             FFMPEG_PATH, "-y",
@@ -173,6 +247,7 @@ def render_preview(assets: dict, output_path: Path) -> bool:
             "-i", str(assets["visuals"][0]),
             "-i", str(assets["audio"]),
             "-c:v", "libx264",
+            "-preset", preset,
             "-tune", "stillimage",
             "-c:a", "aac",
             "-b:a", "192k",
@@ -202,6 +277,7 @@ def render_preview(assets: dict, output_path: Path) -> bool:
             "-i", str(concat_file),
             "-i", str(assets["audio"]),
             "-c:v", "libx264",
+            "-preset", preset,
             "-c:a", "aac",
             "-b:a", "192k",
             "-pix_fmt", "yuv420p",
@@ -211,14 +287,23 @@ def render_preview(assets: dict, output_path: Path) -> bool:
         ]
     
     # 如果有字幕，添加字幕滤镜
-    if assets["srt"]:
-        # 在 vf 中添加 subtitles
+    if assets["srt"] and not use_generated_bg:
+        # 在 vf 中添加 subtitles（仅非生成背景模式）
         for i, arg in enumerate(cmd):
             if arg == "-vf":
                 cmd[i+1] = cmd[i+1] + f",subtitles='{assets['srt']}':force_style='FontSize=24,Alignment=2'"
                 break
+    elif assets["srt"] and use_generated_bg:
+        # 生成背景模式需要重新编码以添加字幕
+        final_output = output_path
+        temp_nosub = output_path.parent / f"_nosub_{assets['section_id']}.mp4"
+        cmd[-1] = str(temp_nosub)
+        
+        # 先生成无字幕版本，稍后添加字幕
+        print(f"🎬 正在生成预览视频 (将添加字幕)...")
     
-    print(f"🎬 正在生成预览视频...")
+    if not (assets["srt"] and use_generated_bg):
+        print(f"🎬 正在生成预览视频...")
     print(f"   输出: {output_path}")
     
     try:
@@ -227,8 +312,31 @@ def render_preview(assets: dict, output_path: Path) -> bool:
             print(f"❌ FFmpeg 错误:\n{result.stderr}")
             return False
         
+        # 如果是生成背景模式且有字幕，添加字幕
+        if assets["srt"] and use_generated_bg:
+            temp_nosub = output_path.parent / f"_nosub_{assets['section_id']}.mp4"
+            subtitle_cmd = [
+                FFMPEG_PATH, "-y",
+                "-i", str(temp_nosub),
+                "-vf", f"subtitles='{assets['srt']}':force_style='FontSize=28,Alignment=2,PrimaryColour=&Hffffff&'",
+                "-c:v", "libx264",
+                "-preset", preset,
+                "-c:a", "copy",
+                str(output_path)
+            ]
+            print(f"   添加字幕...")
+            sub_result = subprocess.run(subtitle_cmd, capture_output=True, text=True)
+            if sub_result.returncode != 0:
+                print(f"⚠️  字幕添加失败，使用无字幕版本: {sub_result.stderr[:200]}")
+                temp_nosub.rename(output_path)
+            else:
+                temp_nosub.unlink()
+        
         # 清理临时文件
-        if len(assets["visuals"]) > 1:
+        if use_generated_bg and temp_bg_path and temp_bg_path.exists():
+            temp_bg_path.unlink()
+        
+        if not use_generated_bg and len(assets["visuals"]) > 1:
             concat_file = output_path.parent / f"_concat_{assets['section_id']}.txt"
             if concat_file.exists():
                 concat_file.unlink()
@@ -250,7 +358,7 @@ def main():
     parser.add_argument(
         "--section", "-s",
         type=str,
-        required=True,
+        required=False,
         help="Section ID (如 S01_Intro, S02_Phase1_Purify)"
     )
     
@@ -267,6 +375,18 @@ def main():
         help="列出可用的 Section 和资产"
     )
     
+    parser.add_argument(
+        "--all", "-a",
+        action="store_true",
+        help="批量处理所有 TTS 文件"
+    )
+    
+    parser.add_argument(
+        "--fast", "-f",
+        action="store_true",
+        help="使用快速编码 (ultrafast preset)"
+    )
+    
     args = parser.parse_args()
     
     if args.list:
@@ -280,6 +400,50 @@ def main():
             print(f"   (目录不存在: {TTS_DIR})")
         return
     
+    # 批量处理模式
+    if args.all:
+        if not TTS_DIR.exists():
+            print(f"❌ TTS 目录不存在: {TTS_DIR}")
+            sys.exit(1)
+        
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        
+        # 查找所有 TTS 音频文件 (优先 mp3)
+        sections = []
+        for f in sorted(TTS_DIR.glob("*.mp3")):
+            sections.append(f.stem)
+        if not sections:
+            for f in sorted(TTS_DIR.glob("*.wav")):
+                sections.append(f.stem)
+        
+        print(f"🎯 找到 {len(sections)} 个章节待处理")
+        success_count = 0
+        
+        for section_id in sections:
+            print(f"\n{'='*50}")
+            print(f"📹 处理: {section_id}")
+            print(f"{'='*50}")
+            
+            assets = find_section_assets(section_id)
+            output_path = OUTPUT_DIR / f"preview_{section_id}.mp4"
+            
+            if render_preview(assets, output_path, fast_mode=args.fast):
+                success_count += 1
+        
+        print(f"\n{'='*50}")
+        print(f"✅ 完成: {success_count}/{len(sections)} 个视频生成成功")
+        print(f"📁 输出目录: {OUTPUT_DIR}")
+        
+        if success_count < len(sections):
+            sys.exit(1)
+        return
+    
+    # 单个章节模式
+    if not args.section:
+        print("❌ 请指定 --section 或使用 --all")
+        parser.print_help()
+        sys.exit(1)
+    
     # 查找资产
     assets = find_section_assets(args.section)
     
@@ -291,7 +455,7 @@ def main():
         output_path = OUTPUT_DIR / f"preview_{args.section}.mp4"
     
     # 生成预览
-    success = render_preview(assets, output_path)
+    success = render_preview(assets, output_path, fast_mode=args.fast)
     
     if not success:
         sys.exit(1)

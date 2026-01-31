@@ -262,10 +262,22 @@ def main():
 
         if args.dump_text:
             if stats['text_lines']:
-                print(f"--- TEXT EXTRACT: {filename} ---")
-                for line in stats['text_lines']:
-                    print(line)
-                print("\n")
+                # Construct output path: 03_Scripts/tts/<SectionID>.txt
+                base_name = os.path.splitext(filename)[0]
+                # Ensure tts directory exists (should exist based on project structure)
+                tts_dir = os.path.join(script_dir, "tts")
+                if not os.path.exists(tts_dir):
+                    os.makedirs(tts_dir)
+                
+                output_path = os.path.join(tts_dir, f"{base_name}.txt")
+                
+                try:
+                    with open(output_path, 'w', encoding='utf-8') as out_f:
+                        for line in stats['text_lines']:
+                            out_f.write(line + "\n")
+                    print(f"✅ Text extracted to: {output_path}")
+                except Exception as e:
+                    print(f"❌ Failed to write {output_path}: {e}")
         else:
             # Duration Calc
             speech_sec = (stats['cn'] / AVG_CN_CPM * 60) + (stats['en'] / AVG_EN_WPM * 60)

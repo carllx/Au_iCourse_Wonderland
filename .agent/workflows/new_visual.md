@@ -33,6 +33,17 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 *   **Result**: 脚本会自动识别您的新定义 `S08`，并根据结构图将其放入正确的文件夹（如 `02_Visuals/assets/S03_Phase2_Sculpt/S08_Doppler_Effect.png`）。
 *   **Color**: 因为 Type 是 `[Diagram]`，生出的图会是 **土黄色** 背景。
 
+## 3.5 时间轴同步 (Timeline Sync)
+有了灰盒图片后，立即运行对齐引擎，生成视频占位符。
+
+```bash
+# S08 属于 S03 章节 (假设)
+python 04_Delivery/h5_preview/scripts/build_timeline.py S03
+python 04_Delivery/h5_preview/scripts/gen_placeholders.py S03
+```
+*   **Result**: 你的 H5 预览中，S08 变成了一个倒计时视频，你可以感觉它的时长了(Pacing)。
+
+
 ## 4. 生产阶段 (Production)
 现在整个项目已经“编译通过”了。您可以把这张黄色的 PNG 拖进 Premiere。
 当您（或美术）最终画好了这张图，只需：

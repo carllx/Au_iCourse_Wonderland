@@ -227,3 +227,92 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Title**: 课后挑战：逃离麦克风 (Escape the Mic)
 *   **Task**: 录制一段干声，利用四步法（净化-塑形-置景-定位）将其“异化”。
 *   **Requirement**: 提交 MP3 + 200字创作说明（解释你的导演决策）。
+
+---
+
+## S02_Voss_Clarke
+*   **Type**: [Diagram/Historical]
+*   **Concept**: 1/f 噪音
+*   **Visual**: Pink Noise spectrum vs Bach Concerto spectrum.
+*   **Text**: "The 1/f Law: Nature's Heartbeat".
+*   **Graphic**: Correlation graph from Voss & Clarke (1975).
+
+## S04_Inchindown_Tanks
+*   **Type**: [Photo/Historical]
+*   **Concept**: 混响极限
+*   **Visual**: Photo of the Inchindown Oil Tanks interior (Endless Tunnel).
+*   **Caption**: "World Record: 112 Seconds of Reverb."
+*   **Text**: "The Inchindown Limit".
+
+## S04_Alvin_Lucier
+*   **Type**: [Photo/Historical]
+*   **Concept**: 空间作为乐器
+*   **Visual**: Photo of Alvin Lucier sitting in a room with a microphone.
+*   **Text**: "I am sitting in a room..."
+
+## S04_Neubauten
+*   **Type**: [Photo/Band]
+*   **Concept**: 工业深渊
+*   **Visual**: Einstürzende Neubauten banging on metal pipes in a highway underpass.
+*   **Caption**: "Finding tone in the industrial noise."
+
+## S04_UI_HardLimiter
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 安全网
+*   **Visual**: Hard Limiter Panel.
+*   **Settings**: Max Amplitude = -0.1dB.
+*   **Overlay**: Green text "SAFE".
+
+## S04_Conclusion_Abyss
+*   **Type**: [Concept Art]
+*   **Concept**: 听见深渊
+*   **Visual**: Alice floating in a vast, dark, cylindrical tank (The Oil Tank).
+*   **Caption**: "All knobs serve the 80ms of terror."
+
+## S05_Blumlein_Walking
+*   **Type**: [Photo/Historical]
+*   **Concept**: 立体声行走
+*   **Visual**: Alan Blumlein walking in front of a microphone pair at Abbey Road (1933).
+*   **Text**: "Testing Presence, not just Wire."
+
+## S05_Fantasound_Layout
+*   **Type**: [Diagram]
+*   **Concept**: 原始的自动化
+*   **Visual**: The 1940 Fantasound Speaker Layout + The "Tadpole" optical track.
+*   **Caption**: "The Ancestor of Automation."
+
+## S05_UI_The_Wall
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 压迫之墙 (ILD)
+*   **Visual**: Automation Lane for Low Pass Filter.
+*   **Curve**: Rising from 50Hz to 5000Hz (Opening the gate).
+
+## S05_UI_The_Needle
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 焦虑之刺 (Doppler)
+*   **Visual**: Automation Lane for Pan + Pitch.
+*   **Curve**: Pan = Fast Sine Wave; Pitch = Tiny dip (-50 cents) at center.
+
+## S05_Jungian_Shadow
+*   **Type**: [Concept Art]
+*   **Concept**: 荣格阴影
+*   **Visual**: A silhouette of a person casting a shadow that is a different monster/shape.
+*   **Text**: "The Shadow: The rejected self."
+
+## S05_Azimuth_Coordinator
+*   **Type**: [Photo/Historical]
+*   **Concept**: 方位协调器
+*   **Visual**: Photo of the joystick device used by Pink Floyd.
+*   **Caption**: "Surround Sound in 1972."
+
+## S05_Janet_Cardiff
+*   **Type**: [Photo/Art]
+*   **Concept**: 声音雕塑
+*   **Visual**: The 40 Speakers arranged in an oval for "The Forty Part Motet".
+*   **Text**: "Sound as Sculpture."
+
+## S05_Geometry_Loneliness
+*   **Type**: [Concept Art]
+*   **Concept**: 孤独的几何学
+*   **Visual**: Abstract geometry connecting the Wall, the Needle, and the Void.
+*   **Text**: "The Geometry of Loneliness."

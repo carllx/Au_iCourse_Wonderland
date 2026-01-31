@@ -1,7 +1,7 @@
 # 本地音频资产生产指南 (Audio Asset Production Guide)
 
-**更新日期**: 2026-01-26
-**架构版本**: 1.2 (Modular + v12 真实粉红噪音)
+**更新日期**: 2026-01-30
+**架构版本**: 1.3 (Modular + TTS Video Preview)
 **参见**: 
 - `01_MVP_Demo/ARCHITECTURE_GUIDE.md` (详细命名规范)
 - `02_Visuals/README.md` (视觉资产生产与 AI 生成指南)
@@ -121,6 +121,74 @@ python 01_MVP_Demo/_Pipeline/generators/gen_S05_panning_assets.py
 python 01_MVP_Demo/_Pipeline/renderers/render_S05_panning_visual.py
 ```
 
+### 场景 7: 全课程 H5 交互式预览 (Interactive Preview)
+这是验证脚本、音频与视觉契合度的 **终极手段**。
+
+```bash
+# 1. 切换到预览目录
+cd 04_Delivery/h5_preview
+
+# 2. 同步最新数据 (解析 Structure_Map & Slide_Database)
+npm run sync
+
+# 3. 启动预览服务器
+npm run dev
+```
+
+**验证重点**:
+- **灰盒匹配**: 检查虚线框是否符合预期的画面占比。
+- **声音对齐**: 听 TTS 语音是否与字幕、Slide 切换点步调一致。
+- **素材覆盖**: 确保放入 `02_Visuals/assets` 的图片能够正确显示。
+
+### 场景 8: TTS 视频预览生成 (MP4 Output)
+将 `03_Scripts/tts` 目录下的音频和字幕合成为预览视频。
+
+**注意**: 自 v1.4 起，推荐使用 **.wav** 格式以获得更好的兼容性。
+
+#### 1. 提取 TTS 文本
+```bash
+# 从 markdown 脚本中提取纯文本到 03_Scripts/tts/*.txt
+python .agent/skills/validation-suite/scripts/validate_script_length.py --dump-text
+```
+
+#### 2. 生成预览
+```bash
+# 批量生成所有章节的预览视频 (快速模式)
+python 01_MVP_Demo/_Pipeline/composers/render_preview.py --all --fast
+
+# 生成单个章节
+python 01_MVP_Demo/_Pipeline/composers/render_preview.py --section S01_Intro --fast
+
+# 列出可用的 TTS 文件
+python 01_MVP_Demo/_Pipeline/composers/render_preview.py --list
+```
+
+**功能特性**:
+- **自动回退**: 无视觉素材时生成渐变背景 + 标题（非黑屏）
+- **字幕嵌入**: 自动读取同名 `.srt` 文件并烧录字幕
+- **快速编码**: `--fast` 使用 ultrafast 预设，大幅加速渲染
+- **格式支持**: 优先查找 `.wav` > `.mp3` > `.aac`
+
+**输出位置**: `01_MVP_Demo/_Media/previews/preview_Sxx.mp4`
+
+### 场景 9: Script-to-Timeline 自动化 (Timeline & Placeholders)
+这是 **v1.3 新增** 的核心管线，用于自动化处理时间轴和占位符。
+
+```bash
+# 1. 自动对齐时间轴 (Force Alignment)
+# 解析脚本锚点 -> 听音频 -> 计算精确时间 -> 更新 slides.json
+python 04_Delivery/h5_preview/scripts/build_timeline.py S03
+
+# 2. 生成动态占位视频
+# 读取时间轴 -> 生成对应时长的倒计时视频 -> 更新 slides.json
+python 04_Delivery/h5_preview/scripts/gen_placeholders.py S03
+```
+
+**功能特性**:
+- **无需人工打点**: 只要在 Markdown 里写好 `[SLIDE: ID]`，时间轴自动生成。
+- **动态占位**: 对于暂缺的素材，自动生成 MP4 视频占位，时长精确到毫秒。
+
+
 ---
 
 ## 3. S02 心跳素材技术说明
@@ -178,6 +246,7 @@ python 01_MVP_Demo/_Pipeline/renderers/render_S05_panning_visual.py
 - [ ] 运行 `verify_noise_reduction.py` 能验证降噪效果。
 - [ ] 运行 `render_S02_spectrum.py` 能成功播放或渲染。
 - [ ] 生成的音频在 Audition 中频谱图看起来自然。
+- [ ] 运行 `render_preview.py --all --fast` 能批量生成所有章节预览视频。
 
 ---
 
