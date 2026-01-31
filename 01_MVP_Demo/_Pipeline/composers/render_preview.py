@@ -84,9 +84,9 @@ def find_section_assets(section_id: str) -> dict:
     # 映射 Section ID 到模块目录
     module_dir = VISUALS_DIR / section_id
     if module_dir.exists():
-        # 收集所有 Sxx_*.png 文件 (排除 src_, ref_, doc_)
+        # 收集所有 Sxx_*.png 文件 (排除 ref_, doc_)
         for f in sorted(module_dir.glob("S*.png")):
-            if not f.name.startswith(("src_", "ref_", "doc_")):
+            if not f.name.startswith(("ref_", "doc_")):
                 assets["visuals"].append(f)
     
     return assets

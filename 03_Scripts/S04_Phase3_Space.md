@@ -11,7 +11,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 纯白背景 vs 纯黑背景的对比图。
-> *   **Ref**: `[SLIDE: S10_Concept_Dry_Wet]`
+> *   **Ref**: `[SLIDE: S04_Concept_Dry_Wet]`
 > *   **Asset**: 左侧是 `S04_Concept_Dry.png` (干声爱丽丝，贴在屏幕表面)，右侧是 `S04_Concept_Wet.png` (湿声爱丽丝，坠入屏幕深处)。
 > *   **Text**: "Dry: Proximity (近)" vs "Wet: Infinity (远)".
 
@@ -51,7 +51,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 手绘图解：一只气球在一个巨大的黑暗洞穴中爆炸。
-> *   **Ref**: `[SLIDE: S11c_Balloon_Cave]`
+> *   **Ref**: `[SLIDE: S04_Balloon_Cave]`
 > *   **Asset**: 动态展示声波撞击墙壁折返的路径图。
 > *   **Graphic**: 爆炸瞬间的脉冲波形被提取出来，标注为 "Impulse Response (IR)".
 > *   **Metaphor**: 标为 "The DNA of Space" (空间的基因)。
@@ -226,7 +226,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 频率响应曲线 (Frequency Response)。
-> *   **Ref**: `[SLIDE: S12_Damping_Curve]`
+> *   **Ref**: `[SLIDE: S04_Damping_Curve]`
 > *   **Action**: 看着高频部分随着滑块的移动而塌陷。
 > *   **Metaphor**: 就像潜水员下潜深海，红色的光最先消失，最后只剩下无尽的蓝黑。
 
@@ -294,7 +294,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: **多轨编辑器 (Multitrack Editor)** 中的自动化曲线绘制界面 (Automation Lane)。
-> *   **Ref**: `[SLIDE: S13_Automation_Dissolution]`
+> *   **Ref**: `[SLIDE: S04_Automation_Dissolution]`
 > *   **Action**: [ACT: Draw_Automation] 绘制一条从 0% 缓慢爬升到 75% 的蓝色曲线。
 > *   **Text**: "Dissolution" (消融).
 

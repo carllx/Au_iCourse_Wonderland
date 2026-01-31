@@ -214,17 +214,17 @@ def render_diagnosis_video(fs, t, audio, hum_track, click_track, output_video_pa
 
 if __name__ == "__main__":
     print("--- 🩺 Generating High-Contrast Diagnosis Assets ---")
-    src_clean = os.path.join(OUTPUT_DIR, "asset_S0X_dry_voice_clean.wav")
+    source_clean = os.path.join(OUTPUT_DIR, "asset_S0X_dry_voice_clean.wav")
     dst_dirty = os.path.join(OUTPUT_DIR, "asset_S0X_bad_case_demo.wav")
     dst_video = os.path.join(OUTPUT_DIR, "video_bad_case_diagnosis.mp4")
     
-    if not os.path.exists(src_clean):
+    if not os.path.exists(source_clean):
         # Generate placeholder if missing
         fs = 48000
         t = np.linspace(0, 5, 5*fs)
         voice = np.sin(2*np.pi*440*t) * np.exp(-t)
-        wavfile.write(src_clean, fs, (voice * 30000).astype(np.int16))
+        wavfile.write(source_clean, fs, (voice * 30000).astype(np.int16))
 
-    fs, t, dirty, hum_tr, click_tr, hiss_tr = generate_context_aware_artifacts(src_clean, dst_dirty)
+    fs, t, dirty, hum_tr, click_tr, hiss_tr = generate_context_aware_artifacts(source_clean, dst_dirty)
     render_diagnosis_video(fs, t, dirty, hum_tr, click_tr, dst_video, dst_dirty)
     print("--- Complete ---")

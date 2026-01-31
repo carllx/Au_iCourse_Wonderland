@@ -16,6 +16,31 @@ def parse_definitions(file_path, id_pattern):
                 ids.add(m)
     return ids
 
+def get_slide_types(db_path):
+    """
+    Parses Slide_Database.md to extract {slide_id: slide_type}.
+    """
+    types = {}
+    if not os.path.exists(db_path):
+        return types
+        
+    current_id = None
+    with open(db_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            # Match Header: ## Sxx_ID
+            id_match = re.match(r'^##\s+(S[a-zA-Z0-9]+_[a-zA-Z0-9_]+)', line)
+            if id_match:
+                current_id = id_match.group(1)
+                continue
+            
+            # Match Type: * **Type**: [Concept Art]
+            if current_id:
+                type_match = re.search(r'\*\s+\*\*Type\*\*:\s+\[(.*?)\]', line)
+                if type_match:
+                    types[current_id] = type_match.group(1)
+                    current_id = None # Check complete for this ID
+    return types
+
 def validate_scripts(scripts_dir, valid_slides, valid_actions):
     """Scans scripts for tags and validates them against known IDs."""
 
@@ -130,26 +155,82 @@ if __name__ == "__main__":
 
     validate_scripts(scripts_dir, valid_slides, valid_actions)
 
-    # 4. Physical Asset Validation (New Feature)
-    print("\n🔍 Validating Physical Assets...")
+    # 4. Physical Asset Validation (New Feature v2.0)
+    print("\n🔍 Validating Physical Assets (ID-Centric)...")
+    
+    # 4.1 Audio Assets (from Design Spec)
     missing_assets = []
-
-    # Scan Design Spec for "assets/..." references
     with open(Design_Spec_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
-            # Look for: `_Library/...` references or `../02_Visuals/...`
-            # Regex captures: _Library/S02_Purify/asset_name.wav
             match = re.search(r'(_Library/[a-zA-Z0-9_/-]+\.\w+)', line)
             if match:
                 relative_path = match.group(1)
                 full_path = os.path.join(base_dir, "01_MVP_Demo", relative_path)
                 if not os.path.exists(full_path):
-                    missing_assets.append(f"Design_Spec.md:{line_num} - Missing Asset: {relative_path}")
+                    missing_assets.append(f"Design_Spec.md:{line_num} - Missing Audio: {relative_path}")
 
-    if missing_assets:
-        print(f"❌ Found {len(missing_assets)} missing physical assets:")
+    # 4.2 Visual Assets (from Slide Database)
+    # Logic: For every Slide ID, is there a file starting with "ID"  in 02_Visuals/assets?
+    visuals_root = os.path.join(base_dir, "02_Visuals", "assets")
+    if not os.path.exists(visuals_root):
+        print(f"Error: Visuals directory not found: {visuals_root}")
+        exit(1)
+
+    # Load Slide Types for exemption logic
+    slide_types = get_slide_types(slide_db_path)
+
+    # 1. Collect all filenames in 02_Visuals/assets recursively
+    all_files = []
+    for root, dirs, files in os.walk(visuals_root):
+        for file in files:
+            if file.startswith('.'): continue
+            all_files.append(file)
+            
+    # 2. Check each slide
+    visual_errors = []
+    
+    # Track verified assets for reporting
+    verified_count = 0
+    exempt_count = 0
+    
+    for slide_id in valid_slides:
+        # Check exemption
+        slide_type = slide_types.get(slide_id, "Unknown")
+        if slide_type == "Live Demo":
+            # Live Demo is rendered dynamically by code (H5), so physical asset is optional.
+            # We skip specific file check for it.
+            exempt_count += 1
+            continue
+            
+        # Rule: A match exists if ANY file starts with "{slide_id}"
+        # AND followed by a separator or dot (to avoid S01 matching S010)
+        
+        found = False
+        pattern_prefix = slide_id
+        
+        for fname in all_files:
+            # Check plain prefix (Sxx_Name...)
+            # Case insensitive check for Zero-Copy support
+            lower_fname = fname.lower()
+            lower_prefix = pattern_prefix.lower()
+            
+            if lower_fname.startswith(lower_prefix + ".") or lower_fname.startswith(lower_prefix + "_"):
+                found = True
+                break
+            
+
+                
+        if not found:
+            visual_errors.append(f"Missing Visual Asset for ID: {slide_id} (Type: {slide_type})")
+        else:
+            verified_count += 1
+
+    if missing_assets or visual_errors:
+        print(f"\n❌ Validation Failed with {len(missing_assets) + len(visual_errors)} errors:")
         for m in missing_assets:
-            print(f"  [X] {m}")
+            print(f"  [Audio] {m}")
+        for v in visual_errors:
+            print(f"  [Visual] {v}")
         exit(1)
     else:
-        print("✅ Asset Validation Passed: All referenced audio files exist.")
+        print(f"✅ Asset Validation Passed: {verified_count} assets verified, {exempt_count} Live Demos exempt.")

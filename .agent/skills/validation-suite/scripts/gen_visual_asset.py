@@ -185,12 +185,13 @@ def save_image(image_data: bytes, slide_id: str, module: str, deploy: bool = Fal
     
     # 生成文件名
     timestamp = datetime.now().strftime("%H%M%S")
-    src_filename = f"src_{slide_id.lower()}_ai_{timestamp}.png"
-    src_path = module_dir / src_filename
+    # New Standard: Sxx_[Name]_ai_[Timestamp].png
+    asset_filename = f"{slide_id}_ai_{timestamp}.png"
+    asset_path = module_dir / asset_filename
     
     # 保存原图
-    src_path.write_bytes(image_data)
-    print(f"✅ 原图已保存: {src_path.relative_to(PROJECT_ROOT)}")
+    asset_path.write_bytes(image_data)
+    print(f"✅ 原图已保存: {asset_path.relative_to(PROJECT_ROOT)}")
     
     if deploy:
         # 覆盖灰盒
@@ -200,7 +201,7 @@ def save_image(image_data: bytes, slide_id: str, module: str, deploy: bool = Fal
         print(f"✅ 已覆盖灰盒: {final_path.relative_to(PROJECT_ROOT)}")
         return final_path
     
-    return src_path
+    return asset_path
 
 
 def generate_single(slide_id: str, prompt: str = None, deploy: bool = False, size: str = DEFAULT_SIZE):

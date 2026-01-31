@@ -141,7 +141,7 @@
         *   `composers/`: 课程级合成 (NEW)
     2.  **TTS 标准路径**: `03_Scripts/tts/Sxx_Name.wav|srt`
     3.  **录屏标准路径**: `01_MVP_Demo/_Media/recordings/`
-    4.  **接口 vs 实现**: 剪辑引用 `Sxx.png` (接口)，可随时替换 `src_Sxx...` (实现)
+    4.  **Interface vs Implementation**: Edit quotes `Sxx.png` (Interface), always resolves to the latest asset.
 *   **执行的变更**: 
     *   创建 `03_Scripts/tts/`
     *   创建 `01_MVP_Demo/_Pipeline/composers/`

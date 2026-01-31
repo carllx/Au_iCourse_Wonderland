@@ -93,8 +93,7 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 ├── S01_Intro/                (模块 1)
 ├── S02_Phase1_Purify/        (模块 2)
 │   ├── S06_Ghost_Math.png         ← 最终成品
-│   ├── src_S06_ghost_bird_ai.png  ← 文生图原图
-│   └── src_S06_diagram_web.jpg    ← 网络搜索
+
 └── ...
 ```
 
@@ -103,20 +102,7 @@ python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 | 前缀 | 含义 | 示例 |
 |:---|:---|:---|
 | `Sxx_` | **最终成品** | `S06_Ghost_Math.png` |
-| `src_` | **原始素材** | `src_S06_ghost_bird_ai.png` |
 | `ref_` | **参考图** | `ref_S06_inspo.jpg` |
-
-### 来源后缀 (用于 `src_` 文件)
-
-| 后缀 | 含义 |
-|:---|:---|
-| `_ai` | 文生图 |
-| `_web` | 网络搜索 |
-| `_cap` | 截图 |
-| `_rec` | 录屏 |
-| `_photo` | 实拍 |
-
-**完整格式**: `src_Sxx_[描述]_[来源].ext`
 
 ---
 
@@ -189,7 +175,7 @@ API_MODEL=gemini-3-pro-image
 # 列出所有可生成的 Slide
 python .agent/skills/validation-suite/scripts/gen_visual_asset.py --list
 
-# 生成单个 Slide (保存为 src_..._ai.png)
+# 生成单个 Slide (保存为 S06_Ghost_Math_ai_....png)
 python .agent/skills/validation-suite/scripts/gen_visual_asset.py S06_Ghost_Math
 
 # 生成并自动覆盖灰盒 (Deploy Mode)

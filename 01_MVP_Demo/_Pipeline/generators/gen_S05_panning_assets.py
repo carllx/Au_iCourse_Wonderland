@@ -110,15 +110,15 @@ def generate_anxiety_source(duration_sec, fs=48000):
     metallic = (s1 + s2) * 0.5
     return metallic * 0.2
 
-def process_shadow_self(src_path, duration_sec, fs=48000):
+def process_shadow_self(source_path, duration_sec, fs=48000):
     """
     Shadow Self: 反向 + 降调 (Tape Style).
     """
-    if not os.path.exists(src_path):
+    if not os.path.exists(source_path):
         print("  Warning: Source voice not found.")
         return np.zeros(int(fs * duration_sec))
         
-    fs_v, voice = wavfile.read(src_path)
+    fs_v, voice = wavfile.read(source_path)
     if len(voice.shape) > 1: voice = voice[:, 0]
     if voice.dtype != np.float32: 
         voice = voice.astype(np.float32) / 32768.0 if voice.dtype == np.int16 else voice.astype(np.float32)
@@ -149,14 +149,14 @@ def process_shadow_self(src_path, duration_sec, fs=48000):
     
     return voice_rev[:target_samples]
 
-def process_conscious_voice(src_path, duration_sec, fs=48000):
+def process_conscious_voice(source_path, duration_sec, fs=48000):
     """
     Conscious Voice: Dry + Bone Conduction EQ (Low End Boost).
     """
-    if not os.path.exists(src_path):
+    if not os.path.exists(source_path):
         return np.zeros(int(fs * duration_sec))
     
-    fs_v, voice = wavfile.read(src_path)
+    fs_v, voice = wavfile.read(source_path)
     if len(voice.shape) > 1: voice = voice[:, 0]
     if voice.dtype != np.float32:
         voice = voice.astype(np.float32) / 32768.0 if voice.dtype == np.int16 else voice.astype(np.float32)

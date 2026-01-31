@@ -262,7 +262,7 @@ Track 3 是镜中阴影，同样位于 Center。
 (播放: `demo_S05_spiral_mix.wav`)
 
 > **[VISUAL]**
-> *   **Ref**: `[SLIDE: S08f_Deep_Listening_Body_Soul]`
+> *   **Ref**: `[SLIDE: S03_Deep_Listening]`
 > *   **Note**: Use a static black screen to force deep listening (No ornamental visualizations).
 
 (Silence: 10s)

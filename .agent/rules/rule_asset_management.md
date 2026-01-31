@@ -28,23 +28,22 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 
 | 前缀 | 全称 | 定义 | 示例 | 处理方式 |
 | :--- | :--- | :--- | :--- | :--- |
-| **`Sxx_`** | **Slide (Final)** | **[交付物]** 最终出现在屏幕上的画面（或其灰盒/分镜占位）。 | `S07_Demonstration.png` | 放入 Timeline |
-| **`Dxx_`** | **Demo (Opt)** | **[可选]** 若演示文件需独立命名，建议使用 D 前缀，但推荐统一使用 Sxx。 | `D05_Filter_Action.mp4` | 放入 Timeline |
-| **`src_`** | **Source (Raw)** | **[原料]** 原始素材（截图、录屏、实拍）。 | `src_S07_AuditionPanel.png` | 用于合成 Sxx |
+| **`Sxx_`** | **Slide (Asset)** | **[核心]** 任何以 Sxx 开头的文件（无论后缀）都会被 H5 自动识别关联。 | `S07_Demonstration.png` <br> `S05_UI_The_Wall_src.png` | 放入 Timeline / H5 显示 |
 | **`ref_`** | **Reference** | **[参考]** 灵感图、网图（仅参考）。 | `ref_S11_Balloon_DIY.png` | 仅供美术参考 |
 | **`doc_`** | **Document** | **[文档]** 相关的研发笔记、技术说明。 | `doc_S11_Balloon_DIY_Note.md` | 知识库 |
+*   **注意**: 必须严格使用 `Sxx_` 前缀，废弃任何 `src_` 前缀。文件名包含 Slide ID 且以 `Sxx_` 开头即可。
 
 ### 3.2 来源后缀系统 (Source Suffix)
-原始素材 (`src_`) 必须标注来源,格式为 `src_Sxx_[描述]_[来源].ext`:
+原始素材必须标注来源,格式为 `Sxx_[描述]_[来源].ext`:
 
 | 后缀 | 含义 | 示例 |
 | :--- | :--- | :--- |
-| `_ai` | 文生图 (AI Generated) | `src_S06_ghost_bird_ai.png` |
-| `_web` | 网络搜索下载 | `src_S06_gabor_diagram_web.jpg` |
-| `_cap` | 截图 (Screen Capture) | `src_S07_audition_panel_cap.png` |
-| `_rec` | 录屏 (Screen Recording) | `src_S07_demo_rec.mp4` |
-| `_photo` | 实拍照片 | `src_S11_balloon_photo.jpg` |
-| `_sb` | **分镜 (Storyboard)** | `src_S05_Act_Filter_sb.png` |
+| `_ai` | 文生图 (AI Generated) | `S06_ghost_bird_ai.png` |
+| `_web` | 网络搜索下载 | `S06_gabor_diagram_web.jpg` |
+| `_cap` | 截图 (Screen Capture) | `S07_audition_panel_cap.png` |
+| `_rec` | 录屏 (Screen Recording) | `S07_demo_rec.mp4` |
+| `_photo` | 实拍照片 | `S11_balloon_photo.jpg` |
+| `_sb` | **分镜 (Storyboard)** | `S05_Act_Filter_sb.png` |
 
 ### 3.3 目录结构 (Directory Structure)
 严禁使用“状态文件夹”（如 `pending`, `done`, `proxies`）。
@@ -56,7 +55,7 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 ├── S01_Intro/            (Module 1)
 ├── S02_Phase1_Purify/    (Module 2)
 │   ├── S06_Ghost_Math.png         (The Dish)
-│   └── src_S06_Spectrum.png       (The Ingredient)
+│   └── S06_Spectrum.png       (The Ingredient)
 └── ...
 ```
 
@@ -72,34 +71,25 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 ### Step 1: Define (意图)
 在 `Slide_Database.md` 中创建条目，指定 `Type`（如 `[Concept Art]`, `[UI Graphic]`）。
 
-### Step 2: Greybox (灰盒)
-运行自动化脚本生成占位符（Placeholder）：
-```bash
-python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
-```
-*   **结果**: 生成带有 ID 和 Type 颜色编码的 1920x1080 PNG。
-*   **目的**: 立即打通剪辑管线，确保 `validate_links.py` 通过。
+### Step 2: Live Greybox (动态分镜)
+**不再需要运行物理生成脚本。**
+1.  在 `Slide_Database.md` 中定义 Slide。
+2.  启动 H5 预览器。
+3.  **结果**: H5 自动根据布局 (`layout`) 生成带虚线框、操作指令 (`action`) 和视觉要求 (`visual`) 的动态占位图。
 
 ### Step 3: Timeline (时间轴)
-**必须在 TTS 生成后、视觉生产前运行。**
+**必须在 TTS 生成后、正式录制前运行。**
 ```bash
-# 1. 强制对齐 (Script -> Time)
+# 强制对齐 (Script -> Time)
 python 04_Delivery/h5_preview/scripts/build_timeline.py [Module_ID]
-
-# 2. 生成动态占位 (For missing assets)
-python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Module_ID]
 ```
-*   **输入**: `03_Scripts/Sxx.md` + `03_Scripts/tts/Sxx.mp3`
-*   **输出**: 更新 `slides.json` (startTime) + 生成 `visuals/.../*.mp4`
+*   **目的**: 让 H5 预览器知道什么时候切换哪张 Slide。
 
-
-### Step 4: Production (生产)
-美术/后期制作最终素材。
-### Step 4: Production (生产)
-美术/后期制作最终素材。
-*   **Visual**: 直接**覆盖** Step 2 生成的 `Sxx_ID.png`。
-*   **Demo**: 讲师根据 Database 中的 `Action` 描述录制视频，保存为 `src_Sxx_...mp4`。
-*   **素材**: 命名为 `src_...` 放入同级目录。
+### Step 4: Production (生产与替换)
+美术/讲师制作素材。
+*   **命名**: 必须以 `Sxx_` 为前缀 (例如 `S05_UI_The_Wall_rec.mp4`)。
+*   **位置**: 放入 `02_Visuals/assets/[Module]/`。
+*   **即时查看**: 运行 `parse_slides.py`，刷新 H5。素材将自动覆盖动态灰盒。不需要手动改名为纯 `Sxx.png`。
 
 ## 5. 质量保证 (Quality Assurance)
 
@@ -125,17 +115,7 @@ python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Module_ID]
 
 ## 附录：扩展规范 (Extended Specifications)
 
-### 3.5 接口 vs 实现 (Interface vs Implementation)
-*   **原理**: `Sxx_ID.png` 是 **接口 (Interface)**，剪辑软件链接到它。`src_Sxx_...` 是 **实现 (Implementation)**，可随时替换。
-*   **好处**: 更换素材时，只需覆盖 `Sxx` 文件，无需重新链接时间轴。
-*   **示例**:
-    ```
-    S06_Ghost_Math.png          <- 剪辑软件链接此文件 (稳定指针)
-    src_S06_ghost_bird_ai.png   <- 当前使用的 AI 生成图 (可替换)
-    src_S06_ghost_bird_v2_ai.png <- 未来可能的替代版本
-    ```
-
-### 3.6 屏幕录制规范 (Screen Recording)
+### 3.5 屏幕录制规范 (Screen Recording)
 *   **存放位置**: `01_MVP_Demo/_Media/recordings/`
 *   **命名格式**: `Sxx_[描述]_demo.mp4`
 *   **技术要求**:
@@ -149,7 +129,7 @@ python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Module_ID]
     └── S04_reverb_automation_demo.mp4
     ```
 
-### 3.7 AI 生成工具 (AI Generation)
+### 3.6 AI 生成工具 (AI Generation)
 *   **指定工具**: `.agent/skills/validation-suite/scripts/gen_visual_asset.py`
 *   **使用方式**:
     ```bash
@@ -161,7 +141,7 @@ python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Module_ID]
     ```
 *   **禁止**: 使用其他 AI 工具生成素材后手动命名。
 
-### 3.8 TTS 资产规范 (TTS Assets)
+### 3.7 TTS 资产规范 (TTS Assets)
 *   **存放位置**: `03_Scripts/tts/`
 *   **命名格式**: `Sxx_Name.wav`, `Sxx_Name.srt`
 *   **示例**:

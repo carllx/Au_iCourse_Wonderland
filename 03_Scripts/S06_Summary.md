@@ -1,14 +1,14 @@
 # S06_Summary (总结：无形(声音)空间秩序的导演的谢幕)
 
 > **Context**: 75:00 - 80:00
-> **Ref**: [SLIDE: S16_Summary_Loop], [SLIDE: S19_Murch_Rule_of_Six]
+> **Ref**: [SLIDE: S06_Summary_Loop], [SLIDE: S06_Murch_Rule_of_Six]
 
 **(镜头：林昕老师摘下耳机，挂在脖子上，回到开场时的轻松状态)**
 
 呼——大家感觉怎么样？
 刚刚我们一起完成了一次“大逃亡”。
 
-**(PPT: S19_Murch_Rule_of_Six - 金字塔图，顶端是 Emotion 51%)**
+**(PPT: S06_Murch_Rule_of_Six - 金字塔图，顶端是 Emotion 51%)**
 
 在结束之前，我想引用奥斯卡多届得主、电影剪辑教父 **Walter Murch** 的 **"The Rule of Six" (六法则)**。
 在电影剪辑中，他认为完美的剪辑可以放弃一切，甚至放弃画面连贯性，但必须遵守优先级的金字塔。
@@ -33,7 +33,7 @@
 我们正在经历从 **Stereo (立体声)** 到 **Immersive (沉浸式)** 的巨大变革。
 未来，声音不再是被动的“配乐”，它将是**唯一的叙事主体**。
 
-**(PPT: S17_Homework [REF: S17_Homework])**
+**(PPT: S06_Homework [REF: S06_Homework])**
 
 今天的作业很有意思：
 **“逃离麦克风”**

@@ -41,13 +41,11 @@
 ## 🛠️ 协作者指南 (Contributor's Guide)
 
 ### 场景 A: 添加新图 (Visuals Workflow)
-**原则**: Spec-First (先定义，再生成，后覆盖)
-1.  **Define**: 在 `02_Visuals/Slide_Database.md` 里新起一行，定义 `ID`, `Type` 和 `Concept`。
-2.  **Generate**: 运行自动化脚本生成 **"灰盒占位图"** (Greybox)。
-    ```bash
-    python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
-    ```
-3.  **Produce**: 用 PS 成品覆盖生成的灰盒 PNG。素材(Raw)请加 `src_` 前缀放入同级目录。
+**原则**: Spec-First (先定义，再生产)
+1.  **Define**: 在 `02_Visuals/Slide_Database.md` 里定义 Slide。
+2.  **Preview**: 启动 H5 预览 (`npm run dev`)，查看系统生成的 **Live Greybox**（包含布局和指令）。
+3.  **Produce**: 制作素材，命名为 `Sxx_...` 放入同级目录。
+4.  **Verify**: H5 会自动检测并显示新素材，替代动态灰盒。
 
 ### 场景 B: 添加新音/资产 (Audio Workflow)
 2.  **Generate**: 编写/运行 `01_MVP_Demo/_Pipeline` 下的 Python 脚本生成 `.wav`。

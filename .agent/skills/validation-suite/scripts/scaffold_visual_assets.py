@@ -16,10 +16,27 @@
     # 强制重新生成指定 Slide
     python scaffold_visual_assets.py --force S01_Title S02_BadCase
 """
+[DEPRECATED] 视觉资产脚手架 (Visual Asset Scaffolder)
+
+⚠️  DEPRECATION NOTICE (2026-01-31):
+This script is NO LONGER REQUIRED for the new "Live Greybox" workflow.
+The H5 Preview system now dynamically renders greyboxes based on Slide_Database.md.
+You should NOT generate physical PNG placeholders anymore.
+
+Visual assets should be produced directly as `Sxx_...` files.
+"""
 
 import os
 import re
 import argparse
+from pathlib import Path
+
+def main():
+    print("\n⚠️  [WARNING] This script is DEPRECATED.")
+    print("   Please use the H5 Preview (npm run dev) to see Live Greyboxes.")
+    print("   You do not need to generate physical PNG files anymore.\n")
+    # continue execution if user really wants to... or maybe we should exit?
+    # Let's allow it for legacy reasons but warn heavily.
 from PIL import Image, ImageDraw, ImageFont
 from typing import Dict, List, Optional, Tuple
 

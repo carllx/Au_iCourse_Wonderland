@@ -11,7 +11,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: Audition 波形编辑器 (Waveform Editor)。
-> *   **Ref**: `[SLIDE: S07b_Ugly_Duckling]`
+> *   **Ref**: `[SLIDE: S02_Ugly_Duckling]`
 > *   **Asset**: 屏幕上是一个极短、极细的波形 `demo_S03_ugly_duckling.wav`。
 > *   **Action**: [ACT: Zoom_Out] 缩小视图，让波形在巨大的黑色背景中显得无比渺小。
 > *   **Graphic**: 引用文字 "The Ugly Duckling" (丑小鸭)。
@@ -51,7 +51,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 全黑画面，中央出现一盘旋转的**老式开盘磁带 (Reel-to-Reel Tape)**。
-> *   **Ref**: `[SLIDE: S08b_Tape_Machine]`
+> *   **Ref**: `[SLIDE: S03_Tape_Machine]`
 > *   **Animation**: 磁带转速忽快忽慢。
 > *   **Graphic**: 公式 `Speed ↑ = Pitch ↑ = Time ↓`。
 
@@ -81,7 +81,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 全黑画面，中央出现一张老照片：**Pierre Schaeffer** 在 1948 年的巴黎工作室操作唱机。
-> *   **Ref**: `[SLIDE: S08c_Pierre_Schaeffer]`
+> *   **Ref**: `[SLIDE: S03_Pierre_Schaeffer]`
 > *   **Graphic**: 并不是波形，而是一个被切断了脐带的、悬浮在空中的发光球体。
 > *   **Text**: "Acousmatic: The sound one hears without seeing the causes behind it." (听觉化：只闻其声，不见其源)。
 
@@ -114,7 +114,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: Audition `Effects > Time and Pitch > Stretch and Pitch` 面板。
-> *   **Ref**: `[SLIDE: S08d_Chipmunk]`
+> *   **Ref**: `[SLIDE: S03_Chipmunk]`
 > *   **Action**: [ACT: Set_Pitch_Only] 仅将 Pitch 设为 +3，不勾选 Preserve Speech Characteristics。
 > *   **Graphic**: 屏幕右下角浮现 1958年 **Ross Bagdasarian** 和三只卡通花栗鼠的黑白照片。
 
@@ -184,7 +184,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 剖面解剖图。左边是声带 (Vocal Folds)，右边是声道 (Vocal Tract)。
-> *   **Ref**: `[SLIDE: S08e_Cello_Body]` (S08_Visual_Alice_Drink as secondary)
+> *   **Ref**: `[SLIDE: S03_Cello_Body]` (S03_Visual_Alice_Drink as secondary)
 > *   **Metaphor**: 图像渐变。声带变成了**琴弦**，声道变成了**大提琴的共鸣箱 (Body)**。
 > *   **Highlight**: 高亮 "Formant" (共振峰)。
 
@@ -257,7 +257,7 @@
 
 > **[VISUAL]**
 > *   **Scene**: 屏幕全黑。只有两个单词隐约浮现：**Body** vs **Soul**。
-> *   **Ref**: `[SLIDE: S08f_Deep_Listening_Body_Soul]`
+> *   **Ref**: `[SLIDE: S03_Deep_Listening]`
 > *   **Gap**: `(Silence: 10s)`
 > *   **Action**: [ACT: Toggle_Bypass] 快速切换 A/B 对比（开/关效果）。
 

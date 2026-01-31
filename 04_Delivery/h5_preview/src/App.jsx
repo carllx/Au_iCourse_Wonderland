@@ -66,7 +66,7 @@ function SlideRenderer({ slide, subtitles, currentTime }) {
         {/* 如果有最终素材图片/视频，显示 */}
         {slide.image ? (
           <div className="slide-image-container">
-            {slide.image.endsWith('.mp4') ? (
+            {(slide.image.endsWith('.mp4') || slide.image.endsWith('.mov') || slide.image.endsWith('.webm')) ? (
               <video
                 src={`/${slide.image}`}
                 className="slide-image"
@@ -79,12 +79,15 @@ function SlideRenderer({ slide, subtitles, currentTime }) {
               <img src={`/${slide.image}`} alt={slide.id} className="slide-image" />
             )}
           </div>
-        ) : (
-          /* 如果没有素材，显示灰盒布局 zones (虚线框提示) */
+        ) : null}
+
+        {/* 动态占位层 (当没有图片时，或作为底层参考) */}
+        {(!slide.image || slide.type === 'Live Demo') && (
           slide.layout?.zones?.map((zone, idx) => (
             <div
               key={idx}
               className="layout-zone"
+              data-zone={zone.name}
               style={{
                 left: `${zone.x * 100}%`,
                 top: `${zone.y * 100}%`,
@@ -93,6 +96,10 @@ function SlideRenderer({ slide, subtitles, currentTime }) {
               }}
             >
               <span className="layout-zone-label">{zone.name}</span>
+              {/* 如果是动作占位区且没有图片，显示动作文字 */}
+              {!slide.image && (zone.name === 'ACTION_SCENE' || zone.name === 'STORYBOARD_ACTION') && (
+                <div className="demo-action-text">{slide.action}</div>
+              )}
             </div>
           ))
         )}
@@ -105,6 +112,14 @@ function SlideRenderer({ slide, subtitles, currentTime }) {
 
         {/* Slide ID */}
         <span className="slide-id">{slide.id}</span>
+
+        {/* Demo 元数据徽章 */}
+        {slide.type === 'Live Demo' && (
+          <div className="demo-meta-badges">
+            {slide.target && <span className="demo-badge target">OBJ: {slide.target}</span>}
+            {slide.duration && <span className="demo-badge duration">DUR: {slide.duration}</span>}
+          </div>
+        )}
 
         <div className="slide-content-v-center">
           {/* 主标题 */}
@@ -124,21 +139,15 @@ function SlideRenderer({ slide, subtitles, currentTime }) {
 
           {/* 视觉描述提示 (当没有图片时显示) */}
           {!slide.image && slide.visual && (
-            <div className="slide-visual-hint">
-              🎨 {slide.visual}
-            </div>
+            <div className="slide-visual-hint">🎨 {slide.visual}</div>
           )}
         </div>
 
         {/* 概念标签 */}
-        {slide.concept && (
-          <div className="slide-concept">{slide.concept}</div>
-        )}
+        {slide.concept && <div className="slide-concept">{slide.concept}</div>}
 
         {/* 固定引用文本 */}
-        {slide.caption && (
-          <p className="slide-caption">"{slide.caption}"</p>
-        )}
+        {slide.caption && <p className="slide-caption">"{slide.caption}"</p>}
 
         {/* 交互式字幕 (最上层) */}
         {subtitles && (

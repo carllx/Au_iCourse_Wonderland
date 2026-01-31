@@ -75,6 +75,16 @@ LAYOUT_TEMPLATES = {
             {'name': 'SOURCE', 'x': 0.2, 'y': 0.85, 'w': 0.6, 'h': 0.08},
         ],
         'is_centered': True
+    },
+    'Live Demo': {
+        'zones': [
+            {'name': 'TITLE', 'x': 0.05, 'y': 0.05, 'w': 0.9, 'h': 0.1},
+            {'name': 'TARGET', 'x': 0.05, 'y': 0.18, 'w': 0.4, 'h': 0.08},
+            {'name': 'DURATION', 'x': 0.5, 'y': 0.18, 'w': 0.45, 'h': 0.08},
+            {'name': 'ACTION_SCENE', 'x': 0.05, 'y': 0.3, 'w': 0.9, 'h': 0.5},
+            {'name': 'CAPTION', 'x': 0.1, 'y': 0.82, 'w': 0.8, 'h': 0.1},
+        ],
+        'is_centered': False
     }
 }
 
@@ -122,6 +132,9 @@ def parse_slide_block(lines: list) -> dict:
         "visual": "",
         "caption": "",
         "concept": "",
+        "action": "",
+        "target": "",
+        "duration": "",
     }
     
     content = "\n".join(lines)
@@ -171,7 +184,22 @@ def parse_slide_block(lines: list) -> dict:
     concept_match = re.search(r"\*\s+\*\*Concept\*\*:?\s*(.+?)(?:\n|$)", content)
     if concept_match:
         data["concept"] = concept_match.group(1).strip()
-    
+
+    # 提取 Action (Demo)
+    action_match = re.search(r"\*\s+\*\*Action\*\*:?\s*(.+?)(?:\n|$)", content)
+    if action_match:
+        data["action"] = action_match.group(1).strip()
+
+    # 提取 Target (Demo)
+    target_match = re.search(r"\*\s+\*\*Target\*\*:?\s*(.+?)(?:\n|$)", content)
+    if target_match:
+        data["target"] = target_match.group(1).strip()
+
+    # 提取 Duration (Demo)
+    duration_match = re.search(r"\*\s+\*\*Duration\*\*:?\s*(.+?)(?:\n|$)", content)
+    if duration_match:
+        data["duration"] = duration_match.group(1).strip()
+
     return data
 
 
@@ -233,20 +261,43 @@ def get_tts_assets(section_id: str) -> dict:
     }
 
 def find_visual_asset(slide_id: str, section_id: str) -> str:
-    """在 02_Visuals/assets/Section/Slide_ID.png 中查找物理资产"""
+    """
+    智能资产查找逻辑: 
+    基于 ID 前缀匹配，不再寻找硬编码文件名。
+    """
     assets_dir = PROJECT_ROOT / "02_Visuals" / "assets"
     
-    # 常见的存放位置：对应章节目录或 _Global 目录
+    # 搜索范围: 对应章节目录 -> 全局目录
     search_dirs = [section_id, "_Global"]
     
-    for d in search_dirs:
-        # 检测是否有最终 PNG (非灰盒)
-        # 规则：Sxx_ID.png
-        # 排除 src_, ref_, doc_
-        target = assets_dir / d / f"{slide_id}.png"
-        if target.exists():
-            # 这里返回相对于 public 的路径 (我们需要在构建时把 assets 链接/复制过去)
-            return f"visuals/{d}/{slide_id}.png"
+    # 支持的扩展名
+    EXTENSIONS = ('.png', '.jpg', '.jpeg', '.mp4', '.mov', '.webp', '.webm')
+    
+    for d_name in search_dirs:
+        dir_path = assets_dir / d_name
+        if not dir_path.exists():
+            continue
+            
+        # 获取目录下所有匹配 slide_id 开头的文件
+        # 例如 S05_UI_The_Wall -> 匹配 S05_UI_The_Wall.png, S05_UI_The_Wall_src.jpg 等
+
+        for file in dir_path.iterdir():
+            # Case insensitive matching
+            f_lower = file.name.lower()
+            id_lower = slide_id.lower()
+
+            # Standard Sxx_...
+            match_standard = f_lower.startswith(f"{id_lower}_") or f_lower == f"{id_lower}.png" or f_lower == f"{id_lower}.mp4"
+            
+            if match_standard:
+                if file.suffix.lower() in EXTENSIONS:
+                    # 排除特定前缀 (如果是灰盒逻辑下残余的图，但原则上 ID 匹配优先)
+                    # 找到第一个匹配的就作为该 ID 的代表素材
+                    return f"visuals/{d_name}/{file.name}"
+            
+            # 特殊处理：有些 ID 本身不带后缀，如 S05_Jungian_Shadow
+            if file.stem == slide_id and file.suffix.lower() in EXTENSIONS:
+                return f"visuals/{d_name}/{file.name}"
             
     return None
 

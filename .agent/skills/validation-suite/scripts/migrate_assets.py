@@ -50,7 +50,7 @@ def migrate_assets(base_dir):
     moved_count = 0
     
     # helper to move file
-    def smart_move(src_path, filename, slide_id):
+    def smart_move(source_path, filename, slide_id):
         nonlocal moved_count
         
         # Determine Destination Module
@@ -63,7 +63,7 @@ def migrate_assets(base_dir):
         dest_path = os.path.join(dest_dir, filename)
         
         # Move (Overwrite if exists in dest, to ensure latest proxy)
-        shutil.move(src_path, dest_path)
+        shutil.move(source_path, dest_path)
         print(f"Moved: {filename} -> {module_name}/")
         moved_count += 1
 
@@ -75,9 +75,9 @@ def migrate_assets(base_dir):
             
             # Extract ID from filename (S01_Title.png -> S01_Title)
             slide_id = os.path.splitext(filename)[0]
-            src_path = os.path.join(proxies_dir, filename)
+            source_path = os.path.join(proxies_dir, filename)
             
-            smart_move(src_path, filename, slide_id)
+            smart_move(source_path, filename, slide_id)
         
         # Cleanup empty proxies dir
         try:

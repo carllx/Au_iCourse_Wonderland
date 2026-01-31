@@ -57,7 +57,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
     *   Click (爆音) -> 6.6.5
     *   **Hiss (宽频底噪) -> 6.6.2 (Today's Focus)**
 *   **Visual**: A waveform with red circles highlighting the "dirty" parts.
-    *   **Ref**: ![S02_Purify_75pct_NR](./assets/S02_Phase1_Purify/S02_Purify_75pct_NR.png)
+    *   **Ref**: ![S02_Purify_75pct_NR](./assets/S02_Phase1_Purify/S02_AuditionPanel_70pct.png)
 
 
 ## S02b_Toolbox_Flash
@@ -78,7 +78,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 
 
-## S06_Ghost_Math (Metaphor)
+## S02_Ghost_Math (Metaphor)
 *   **Type**: [Concept Art]
 *   **Concept**: 修复的代价 (Musical Noise)
 *   **Visual**: 一个半透明的、充满噪点的幽灵鸟（Birdies/Artifacts）漂浮在纯黑的背景中。隐喻：过度降噪产生的“数字幽灵”。
@@ -88,7 +88,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Caption**: "过度寻求纯净，会召唤出'数字幽灵' (Musical Noise)。"
 *   **Metaphor**: 那些被误删的声音灵魂。
 
-## S07_Demonstration (Action)
+## S02_Demonstration (Action)
 *   **Type**: [UI Composite]
 *   **Concept**: 降噪参数组合拳 (The Combo)
 *   **Visual**: Split Screen Design.
@@ -96,7 +96,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
     *   **Right**: Dennis Gabor's Information Diagram (Hand-drawn style).
 *   **Caption**: "在 4096 个频率切片中，寻找信号与噪声的边界。"
 
-## S08_Visual_Alice_Drink (Metaphor)
+## S03_Visual_Alice_Drink (Metaphor)
 *   **Type**: [Concept Art]
 *   **Concept**: 塑形与变形 (Sculpt)
 *   **Visual**: 爱丽丝喝下药水后身体开始变形的瞬间,音频波形与身体轮廓融合
@@ -105,89 +105,91 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Ref Image**: *Alice in Wonderland* (1951 or 2010), Alice drinking the potion / Giant Alice.
 *   **Caption**: "通过变调 (Pitch)，我们改变的不是声音，是角色的物理形态。"
 
-## S07b_Ugly_Duckling
+## S02_Ugly_Duckling
 *   **Type**: [Metaphor]
 *   **Concept**: 声音的尸体
 *   **Visual**: Tiny waveform in a vast black void.
 *   **Caption**: "The Ugly Duckling: High-pitched, No Body, Nervous."
 
-## S08b_Tape_Machine
+## S03_Tape_Machine
 *   **Type**: [Animation]
 *   **Concept**: 克洛诺斯的诅咒 (Time/Pitch)
 *   **Visual**: Old Reel-to-Reel Tape machine spinning erratically.
 *   **Text**: Speed ↑ = Pitch ↑ = Time ↓
 
-## S08c_Pierre_Schaeffer
+## S03_Pierre_Schaeffer
 *   **Type**: [Photo/Historical]
 *   **Concept**: 声音对象 (Sound Object)
 *   **Visual**: Photo of Pierre Schaeffer (1948) operating turntables.
 *   **Text**: "Acousmatic: The sound one hears without seeing the causes behind it."
 
-## S08d_Chipmunk
+## S03_Chipmunk
 *   **Type**: [Photo/Historical]
 *   **Concept**: 花栗鼠效应
 *   **Visual**: Photo of Ross Bagdasarian (1958) with Alvin and the Chipmunks.
 *   **Caption**: "Warning: The Chipmunk Trap."
 
-## S08e_Cello_Body
+## S03_Cello_Body
 *   **Type**: [Diagram]
 *   **Concept**: 共振峰 (Formant)
 *   **Visual**: Split image. Left: Vocal Folds (Strings). Right: Cello Body (Vocal Tract).
 *   **Highlight**: The "Body" remains constant while "Strings" stretch.
 
-## S08f_Deep_Listening_Body_Soul
+## S03_Deep_Listening
 *   **Type**: [Text/Minimalist]
 *   **Concept**: 深听时刻
 *   **Visual**: Pure Black Screen.
 *   **Text**: Body vs Soul.
 
-## S11_Visual_RabbitHole (Metaphor)
+## S04_Visual_RabbitHole (Metaphor)
 *   **Type**: [Concept Art]
 *   **Concept**: 空间置景 (Space)
 *   **Ref Image**: Alice falling down the deep rabbit hole.
 *   **Caption**: "混响定义了‘无底深渊’的深度。"
 
-## S11b_Tail_Timer (Visual Aid)
+## S04_Tail_Timer (Visual Aid)
 *   **Type**: [Motion Graphic]
 *   **Concept**: 捕捉尾音 (Catching the Tail)
 *   **Visual**: A high-contrast "Stopwatch" or Digital Counter.
 *   **Action**: Counts up from 0s to 5s... then fades out as the sound disappears.
 *   **Goal**: Visualize the decay time for the audience.
 
-## S10_Concept_Dry_Wet
+## S04_Concept_Dry_Wet
 *   **Type**: [Diagram/Comparison]
 *   **Concept**: 空间的迷思
 *   **Visual**: Split Screen.
     *   Left: "Dry: Proximity" (Alice stuck on screen surface).
     *   Right: "Wet: Infinity" (Alice falling into screen depth).
 
-## S11c_Balloon_Cave
+## S04_Balloon_Cave
 *   **Type**: [Diagram]
 *   **Concept**: 脉冲响应 (IR)
 *   **Visual**: Hand-drawn diagram of a balloon exploding in a cave, showing reflection paths.
 *   **Text**: "Impulse Response: The DNA of Space".
 
-## S12_Damping_Curve
+## S04_Damping_Curve
 *   **Type**: [Chart]
 *   **Concept**: 高频阻尼 (Physics)
 *   **Visual**: Frequency Response Curve collapsing at high frequencies (Low Pass).
 *   **Metaphor**: Diver diving deep, red light disappearing.
 
-## S13_Automation_Dissolution
+## S04_Automation_Dissolution
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 灵魂出窍
 *   **Visual**: Multitrack Envelope Automation.
 *   **Curve**: Blue line rising from 0% to 75%.
 *   **Text**: "Dissolution".
 
-## S14_Visual_Inception (Metaphor)
-*   **Type**: [Stock/Reference]
+## S05_Visual_Inception (Metaphor)
+*   **Type**: [Concept Art]
 *   **Concept**: 空间折叠/定位 (Position)
-*   **Ref Image**: *Inception* (City folding up).
+*   **Visual**: A surreal cityscape folding upwards on both sides (Inception style), representing the "Stereo Expand" effect wrapping reality around the listener.
+*   **Dimensions**: 1920x1080 (16:9)
+*   **AI_Prompt**: `Cinematic shot of a city folding onto itself, inception movie style bending reality, architectural surrealism, dark moody atmosphere, deep teal and orange color grading, wide angle lens, 8k resolution, highly detailed, dramatic lighting, volumetric fog, symmetry`
 *   **Caption**: "立体声扩展 (Stereo Expand) 让现实扭曲，创造包裹感。"
 *   **Overlay**: Animated headphone icon + Radial Spectrum extending left/right.
 
-## S16_Summary_Loop
+## S06_Summary_Loop
 *   **Type**: [Diagram]
 *   **Concept**: 剧场谢幕
 *   **Diagram**: Circle Flow
@@ -198,7 +200,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Text**: 每一个参数，都是一种立场。
 
 
-## S19_Murch_Rule_of_Six
+## S06_Murch_Rule_of_Six
 *   **Type**: [Diagram]
 *   **Concept**: 剪辑六法则 (Philosophy)
 *   **Visual**: A Pyramid Diagram.
@@ -210,7 +212,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
     6.  **3D Space (4%)**
 *   **Highlight**: "Emotion" is the biggest block.
 
-## S17_Homework
+## S06_Homework
 *   **Type**: [Task Card]
 *   **Title**: 课后挑战：逃离麦克风 (Escape the Mic)
 *   **Task**: 录制一段干声，利用四步法（净化-塑形-置景-定位）将其“异化”。
