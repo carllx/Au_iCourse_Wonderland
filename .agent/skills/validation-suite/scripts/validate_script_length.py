@@ -17,7 +17,7 @@ DEFAULT_ACTION_DELAY = 5
 def strip_markdown(text):
     """Removes common markdown symbols for pure text extraction."""
     # Remove bold/italic markers
-    text = re.sub(r'(\*\*|__|\*|_)', '', text)
+    text = re.sub(r'(\*\*|__|\*)', '', text)
     # Remove code ticks
     text = re.sub(r'`', '', text)
     # Remove link URLs [text](url) -> text
@@ -32,100 +32,7 @@ def parse_time_str(text):
         return int(match.group(1))
     return 0
 
-def analyze_file(file_path, extract_text=False):
 
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-
-    # Stats
-    cn_count = 0
-    en_count = 0
-    visual_action_count = 0
-    pacing_seconds = 0
-    visual_seconds = 0
-    
-    in_visual_block = False
-    in_pacing_block = False
-    
-    for line in lines:
-        line_stripped = line.strip()
-        
-        # 0. Detect Blocks
-        if line.startswith(">"):
-            # Check for Pacing Block
-            if "[PACING]" in line:
-                in_pacing_block = True
-                in_visual_block = False
-                continue
-            # Check for Visual Block (if not pacing)
-            elif not in_pacing_block:
-                in_visual_block = True
-            
-            # --- Inside Block Logic ---
-            if in_pacing_block:
-                # Extract time from Pacing lines
-                # e.g. "* 停顿 2秒。" or "Wait 5s"
-                t = parse_time_str(line_stripped)
-                if t > 0:
-                    pacing_seconds += t
-            
-            elif in_visual_block:
-                # Check for Actions [ACT:...]
-                if "[ACT:" in line:
-                    visual_action_count += 1
-                    # weighted action check
-                    # If action explicitly mentions time (e.g. Deep Listening 30s)
-                    t = parse_time_str(line)
-                    if t > 0:
-                         visual_seconds += t
-                    else:
-                         visual_seconds += DEFAULT_ACTION_DELAY
-
-            continue # Don't count words in ANY block
-        else:
-            in_visual_block = False
-            in_pacing_block = False
-
-        # 1. Skip Headers & Metadata & Separators
-        if line.startswith("#") or line.startswith("---"):
-            continue
-            
-        # 2. Skip Explicit Audio Headers or Role Names
-        # e.g. **[AUDIO]** or **林昕**:
-        # But allow **(Pause: 3s)**
-        if re.match(r'^\*\*.*?\*\*[:]?$', line_stripped) and not parse_time_str(line_stripped):
-            continue
-
-        # 3. Filter Stage Directions (e.g. (严肃地...) or **(Pause: 3s)**)
-        # Remove entire lines that are just parenthesized, optionally bolded
-        # Strip ** first
-        clean_line = line_stripped.replace('*', '')
-        if re.match(r'^\(.*\)$', clean_line):
-            # Try to grab time if it says (Pause: 3s)
-            t = parse_time_str(clean_line)
-            if t > 0:
-                pacing_seconds += t
-            continue
-
-        # 4. Count Speech Text
-        # Filter out inline stage directions if any left: **(...)** or (...)
-        clean_text = re.sub(r'\*\*\(.*?\)\*\*', '', line_stripped)
-        clean_text = re.sub(r'\(.*?\)', '', clean_text) # inline (laugh)
-        
-        if clean_text:
-            # Count CN
-            cn_count += len(re.findall(r'[\u4e00-\u9fff]', clean_text))
-            # Count EN
-            en_count += len(re.findall(r'[a-zA-Z0-9]+', clean_text))
-
-    return {
-        "cn": cn_count,
-        "en": en_count,
-        "actions": visual_action_count,
-        "pacing_sec": pacing_seconds,
-        "visual_sec": visual_seconds,
-        "text_lines": [] # Initialized in loop now
-    }
 
 def analyze_file(file_path, extract_text=False):
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -195,7 +102,7 @@ def analyze_file(file_path, extract_text=False):
         # Remove entire lines that are just parenthesized, optionally bolded
         # Strip ** first
         clean_line = line_stripped.replace('*', '')
-        if re.match(r'^\(.*\)$', clean_line):
+        if re.match(r'^[\(\（].*?[\)\）]$', clean_line):
             # Try to grab time if it says (Pause: 3s)
             t = parse_time_str(clean_line)
             if t > 0:
@@ -205,7 +112,7 @@ def analyze_file(file_path, extract_text=False):
         # 4. Count Speech Text
         # Filter out inline stage directions if any left: **(...)** or (...)
         clean_text = re.sub(r'\*\*\(.*?\)\*\*', '', line_stripped)
-        clean_text = re.sub(r'\(.*?\)', '', clean_text) # inline (laugh)
+        clean_text = re.sub(r'[\(\（].*?[\)\）]', '', clean_text) # inline (laugh)
         
         if clean_text:
             # Count CN

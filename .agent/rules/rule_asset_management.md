@@ -13,12 +13,12 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 *   **Decoupled Pipelines**: 艺术创作（Art）与工程实现（Code/Script）必须解耦，通过 **Greyboxing (灰盒)** 机制实现非阻塞并行。
 
 ## 2. 单一事实来源 (SSOT)
-*   **Visuals**: `02_Visuals/Slide_Database.md`
-    *   这是所有视觉内容的唯一真理。
-    *   PPT 文字内容 (Text/List) 必须存储于此，而非“烧录”在图片中。
+*   **Visuals & Demos**: `02_Visuals/Slide_Database.md`
+    *   这是所有屏幕内容（包括静态 Visuals 和动态 Live Demos）的唯一真理。
+    *   PPT 文字内容、**实操动作指令** 必须存储于此。
 *   **Audio (Tech)**: `01_MVP_Demo/00_Design_Spec_Alice.md`
     *   这是所有音频参数（如 Reverb Decay, Pitch Shift）的唯一真理。
-*   **Actions**: `03_Scripts/00_Structure_Map.md`
+*   **Structure**: `03_Scripts/00_Structure_Map.md`
     *   这是所有课程结构与节奏的唯一真理。
 
 ## 3. 命名与目录规范 (Naming & Taxonomy)
@@ -28,7 +28,8 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 
 | 前缀 | 全称 | 定义 | 示例 | 处理方式 |
 | :--- | :--- | :--- | :--- | :--- |
-| **`Sxx_`** | **Slide (Final)** | **[交付物]** 最终出现在屏幕上的画面（或其灰盒占位）。 | `S07_Demonstration.png` | 放入 Timeline |
+| **`Sxx_`** | **Slide (Final)** | **[交付物]** 最终出现在屏幕上的画面（或其灰盒/分镜占位）。 | `S07_Demonstration.png` | 放入 Timeline |
+| **`Dxx_`** | **Demo (Opt)** | **[可选]** 若演示文件需独立命名，建议使用 D 前缀，但推荐统一使用 Sxx。 | `D05_Filter_Action.mp4` | 放入 Timeline |
 | **`src_`** | **Source (Raw)** | **[原料]** 原始素材（截图、录屏、实拍）。 | `src_S07_AuditionPanel.png` | 用于合成 Sxx |
 | **`ref_`** | **Reference** | **[参考]** 灵感图、网图（仅参考）。 | `ref_S11_Balloon_DIY.png` | 仅供美术参考 |
 | **`doc_`** | **Document** | **[文档]** 相关的研发笔记、技术说明。 | `doc_S11_Balloon_DIY_Note.md` | 知识库 |
@@ -43,6 +44,7 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 | `_cap` | 截图 (Screen Capture) | `src_S07_audition_panel_cap.png` |
 | `_rec` | 录屏 (Screen Recording) | `src_S07_demo_rec.mp4` |
 | `_photo` | 实拍照片 | `src_S11_balloon_photo.jpg` |
+| `_sb` | **分镜 (Storyboard)** | `src_S05_Act_Filter_sb.png` |
 
 ### 3.3 目录结构 (Directory Structure)
 严禁使用“状态文件夹”（如 `pending`, `done`, `proxies`）。
@@ -93,7 +95,10 @@ python 04_Delivery/h5_preview/scripts/gen_placeholders.py [Module_ID]
 
 ### Step 4: Production (生产)
 美术/后期制作最终素材。
-*   **成品**: 直接**覆盖** Step 2 生成的 `Sxx_ID.png`。
+### Step 4: Production (生产)
+美术/后期制作最终素材。
+*   **Visual**: 直接**覆盖** Step 2 生成的 `Sxx_ID.png`。
+*   **Demo**: 讲师根据 Database 中的 `Action` 描述录制视频，保存为 `src_Sxx_...mp4`。
 *   **素材**: 命名为 `src_...` 放入同级目录。
 
 ## 5. 质量保证 (Quality Assurance)

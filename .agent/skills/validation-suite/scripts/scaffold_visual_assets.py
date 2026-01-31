@@ -42,6 +42,7 @@ BG_COLORS = {
     'Concept Art': (50, 30, 60),
     'Stock/Reference': (50, 40, 30),
     'Task Card': (40, 40, 40),
+    'Live Demo': (60, 30, 30), # Reddish for Action
     'Unknown': (25, 25, 25)
 }
 
@@ -110,6 +111,16 @@ def get_layout_template(slide_type: str) -> Dict:
                 {'name': 'SOURCE', 'x': 0.2, 'y': 0.85, 'w': 0.6, 'h': 0.08},
             ],
             'is_centered': True
+        },
+        'Live Demo': {
+            'zones': [
+                {'name': 'HEADER', 'x': 0.05, 'y': 0.05, 'w': 0.9, 'h': 0.1},
+                {'name': 'TARGET', 'x': 0.05, 'y': 0.18, 'w': 0.4, 'h': 0.08},
+                {'name': 'DURATION', 'x': 0.5, 'y': 0.18, 'w': 0.45, 'h': 0.08},
+                {'name': 'STORYBOARD_ACTION', 'x': 0.05, 'y': 0.3, 'w': 0.9, 'h': 0.5},
+                {'name': 'CAPTION', 'x': 0.1, 'y': 0.82, 'w': 0.8, 'h': 0.1},
+            ],
+            'is_centered': False
         }
     }
     return templates.get(slide_type, templates['UI Graphic'])
@@ -149,7 +160,10 @@ def parse_slide_database(db_path: str) -> List[Dict]:
                     'sub': '',
                     'list': [],
                     'visual': '',
-                    'caption': ''
+                    'caption': '',
+                    'action': '',
+                    'target': '',
+                    'duration': ''
                 }
                 in_list = False
                 continue
@@ -187,9 +201,28 @@ def parse_slide_database(db_path: str) -> List[Dict]:
                 continue
             
             # Visual (单行描述)
-            visual_match = re.search(r'\*\s+\*\*Visual\*\*:\s*(.+)', stripped)
-            if visual_match:
                 current_slide['visual'] = visual_match.group(1).strip()
+                in_list = False
+                continue
+
+            # Action (Demo)
+            action_match = re.search(r'\*\s+\*\*Action\*\*:\s*(.+)', stripped)
+            if action_match:
+                current_slide['action'] = action_match.group(1).strip()
+                in_list = False
+                continue
+
+            # Target (Demo)
+            target_match = re.search(r'\*\s+\*\*Target\*\*:\s*(.+)', stripped)
+            if target_match:
+                current_slide['target'] = target_match.group(1).strip()
+                in_list = False
+                continue
+
+            # Duration (Demo)
+            duration_match = re.search(r'\*\s+\*\*Duration\*\*:\s*(.+)', stripped)
+            if duration_match:
+                current_slide['duration'] = duration_match.group(1).strip()
                 in_list = False
                 continue
             
@@ -346,6 +379,34 @@ def render_greybox(slide: Dict, output_path: str, fonts: Dict):
             if slide.get('visual'):
                 desc = slide['visual'][:50] + "..." if len(slide.get('visual', '')) > 50 else slide.get('visual', '')
                 draw.text((x1 + 20, y2 - 40), desc, fill=LABEL_COLOR, font=fonts['label'])
+
+        elif 'storyboard_action' in zone_name_lower:
+             # Draw Action Box
+            center_x = (x1 + x2) // 2
+            center_y = (y1 + y2) // 2
+            draw.line([(x1, y1), (x2, y2)], fill=ZONE_COLOR, width=1)
+            draw.line([(x2, y1), (x1, y2)], fill=ZONE_COLOR, width=1)
+            
+            # Action Text
+            if slide.get('action'):
+                action_text = f"ACTION:\n{slide['action']}"
+                # Simple wrap
+                if len(action_text) > 40:
+                     parts = [action_text[i:i+40] for i in range(0, len(action_text), 40)]
+                     action_text = "\n".join(parts)
+                
+                draw.text((x1 + 20, y1 + 20), action_text, fill=(255, 200, 200), font=fonts['body'])
+
+        elif 'header' in zone_name_lower:
+            # Combined Header
+             title = slide.get('text') or slide.get('id')
+             draw.text((x1 + 20, y1 + 20), title, fill=TITLE_COLOR, font=fonts['title'])
+
+        elif 'target' in zone_name_lower and slide.get('target'):
+             draw.text((x1 + 10, y1 + 10), f"TARGET: {slide['target']}", fill=TEXT_COLOR, font=fonts['label'])
+
+        elif 'duration' in zone_name_lower and slide.get('duration'):
+             draw.text((x1 + 10, y1 + 10), f"DURATION: {slide['duration']}", fill=(255, 255, 0), font=fonts['label'])
     
     # 底部信息栏
     info_y = CANVAS_HEIGHT - 45

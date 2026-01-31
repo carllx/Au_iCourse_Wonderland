@@ -110,7 +110,7 @@
 只有听过错误的深渊，你们才能认出真正的深渊。
 
 **(Try 1: The Closet)**
-首先，加载 `_Library/S04_Space/contrast_IR_small_closet.wav`。
+首先，加载 "Small Closet" (小衣柜) IR (文件: `contrast_IR_small_closet.wav`)。
 (播放音频：极其闷堵的声音)
 感觉也要吗？
 很闷，很近，像是被关在了棺材里，或者被绑架到了谁家的衣柜里。
@@ -118,7 +118,7 @@
 它没有梦境的“飘渺感”。这是一个死胡同。
 
 **(Try 2: The Hall)**
-再试一个。加载 `_Library/S04_Space/contrast_IR_large_hall.wav`。
+再试一个。加载 "Large Hall" (大厅) IR (文件: `contrast_IR_large_hall.wav`)。
 (播放音频：宽敞明亮的歌剧院感)
 这个呢？
 很好听，很宽敞。像她在维也纳演歌剧。
@@ -142,7 +142,7 @@
 > *   `[SLIDE: S04_Neubauten]`
 > *   爱丽丝的深渊，也必须是这样的：它充满了生锈的管道、滴水声和未知的恐惧。
 
-加载 **`asset_S04_void_ir.wav`**。
+加载 **"The Void" (虚无) IR** (文件: `asset_S04_void_ir.wav`)。
 这是一个特殊的 IR。它采集自一个巨大的废弃蓄水池，有着极其漫长且黑暗的尾音。
 
 我们来听听看。

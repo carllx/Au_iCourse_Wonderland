@@ -85,8 +85,8 @@
 *   **Story**: 在深渊底部，爱丽丝不仅要面对"孤独"(Width)，还要面对"围剿"(Motion)。
 *   **Action (多轨构建)**:
     *   [ ] **Track 1 (Voice)**: 愛麗絲。**Center**。
-    *   [ ] **Track 2 (Heart)**: `asset_S05_heartbeat_visceral.wav`。
-        *   **Width**: 强制设为 Mono **0%** (死寂的点)。
+    *   [ ] **Track 2 (Heart)**: `asset_S05_heartbeat_visceral.wav` (Concept: **The Nail/Spatial Anchor**)。
+        *   **Width**: 强制设为 Mono **0%** (死寂的点，定海神针)。
     *   [ ] **Track 3 (Shadow)**: `asset_S05_shadow_self.wav`。
         *   *Sound*: **Reverse + Pitch Shift (-3 semitones)**。
         *   *Pan*: **Center**。它是心魔，不应该有位置偏倚。

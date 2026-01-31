@@ -15,6 +15,17 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
 *   ❌ **禁止**: "将 Reverb Decay 设为 3000ms。"
 *   ✅ **允许**: "为了营造深渊的无底感 (Story)，我们将 Decay 设为 3000ms (Action)，这代表声音永远无法触底 (Reason)。"
 
+## 1.1 文件名引用规范 (File Reference Protocol)
+
+**"No Naked Filenames" (禁止裸读文件名)**。
+在 `[AUDIO]` (口语脚本) 部分，严禁直接朗读带有下划线、扩展名的原始文件名（如 `asset_v1_final.wav`）。
+
+*   **原则**: 旁白必须说人话。
+*   **格式**: 自然语言描述 + (技术备注/文件索引)。
+*   ❌ **禁止**: "导入 asset_S05_threat_pressure.wav。"
+*   ✅ **允许**: "导入名为 'Pressure' (压迫) 的素材 **(文件: asset_S05_threat_pressure.wav)**。"
+*   ✅ **允许**: "导入那段代表压迫感的低频音效。 **(Note: Use asset_S05_threat_pressure.wav)**"
+
 ## 2. 结构化范式 (The Triad Structure)
 
 所有教学单元必须遵循 **STA结构**：

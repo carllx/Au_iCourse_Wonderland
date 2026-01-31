@@ -1,6 +1,6 @@
 {
   "version": "1.1",
-  "generated": "2026-01-31T12:57:05.917016",
+  "generated": "2026-01-31T17:26:11.013513",
   "sections": [
     {
       "id": "S01_Intro",
@@ -696,7 +696,7 @@
           "sub": "",
           "list": [],
           "visual": "Alan Blumlein walking in front of a microphone pair at Abbey Road (1933).",
-          "caption": "",
+          "caption": "On this day in 1931, EMI engineer Alan Dower Blumlein filed a patent for a two-channel audio system, or what we now know as ‘Stereo’.",
           "concept": "立体声行走",
           "id": "S05_Blumlein_Walking",
           "layout": {
@@ -724,7 +724,46 @@
               }
             ],
             "is_centered": false
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Blumlein_Walking.png",
+          "startTime": 0.16
+        },
+        {
+          "type": "Motion Graphic",
+          "text": "动态声像 (Dynamic Panning)",
+          "sub": "",
+          "list": [],
+          "visual": "一个简约的 UI 滑块 (Slider) 组件在屏幕中央。滑块柄部 (Knob) 在左右两极之间平滑往复滑动，路径拖出微弱的光影残影，象征声像的动态位移。",
+          "caption": "",
+          "concept": "动态声像 (Dynamic Panning)",
+          "id": "S05_Dynamic_Panning_Title",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.35,
+                "w": 0.8,
+                "h": 0.15
+              },
+              {
+                "name": "SUBTITLE",
+                "x": 0.2,
+                "y": 0.55,
+                "w": 0.6,
+                "h": 0.08
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.3,
+                "y": 0.7,
+                "w": 0.4,
+                "h": 0.15
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Dynamic_Panning_Title.png"
         },
         {
           "type": "Diagram",
@@ -760,7 +799,9 @@
               }
             ],
             "is_centered": true
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Fantasound_Layout.png",
+          "startTime": 54.46
         },
         {
           "type": "Concept Art",
@@ -789,7 +830,9 @@
               }
             ],
             "is_centered": true
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Jungian_Shadow.png",
+          "startTime": 161.52
         },
         {
           "type": "UI/Screenshot",
@@ -825,7 +868,9 @@
               }
             ],
             "is_centered": false
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_UI_The_Wall.png",
+          "startTime": 268.16
         },
         {
           "type": "UI/Screenshot",
@@ -861,7 +906,9 @@
               }
             ],
             "is_centered": false
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_UI_The_Needle.png",
+          "startTime": 341.24
         },
         {
           "type": "Photo/Historical",
@@ -897,7 +944,84 @@
               }
             ],
             "is_centered": false
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Azimuth_Coordinator.png",
+          "startTime": 415.64
+        },
+        {
+          "type": "Motion Graphic",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "动态频谱图。不是冷冰冰的线条，而是像极光的流动。",
+          "caption": "",
+          "concept": "听见真空 (Visualizing Silence)",
+          "id": "S05b_Spectrum",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.1,
+                "y": 0.35,
+                "w": 0.8,
+                "h": 0.15
+              },
+              {
+                "name": "SUBTITLE",
+                "x": 0.2,
+                "y": 0.55,
+                "w": 0.6,
+                "h": 0.08
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.3,
+                "y": 0.7,
+                "w": 0.4,
+                "h": 0.15
+              }
+            ],
+            "is_centered": true
+          },
+          "image": "visuals/S05_Phase4_Position/S05b_Spectrum.png"
+        },
+        {
+          "type": "Photo/Art",
+          "text": "\"Sound as Sculpture.\"",
+          "sub": "",
+          "list": [],
+          "visual": "The 40 Speakers arranged in an oval for \"The Forty Part Motet\".",
+          "caption": "",
+          "concept": "声音雕塑",
+          "id": "S05_Janet_Cardiff",
+          "layout": {
+            "zones": [
+              {
+                "name": "TITLE",
+                "x": 0.05,
+                "y": 0.05,
+                "w": 0.9,
+                "h": 0.12
+              },
+              {
+                "name": "LIST",
+                "x": 0.05,
+                "y": 0.2,
+                "w": 0.45,
+                "h": 0.6
+              },
+              {
+                "name": "VISUAL",
+                "x": 0.52,
+                "y": 0.2,
+                "w": 0.43,
+                "h": 0.6
+              }
+            ],
+            "is_centered": false
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Janet_Cardiff.png",
+          "startTime": 503.42
         },
         {
           "type": "Concept Art",
@@ -926,7 +1050,9 @@
               }
             ],
             "is_centered": true
-          }
+          },
+          "image": "visuals/S05_Phase4_Position/S05_Geometry_Loneliness.png",
+          "startTime": 527.7
         }
       ],
       "audio": "tts/S05_Phase4_Position.aac",

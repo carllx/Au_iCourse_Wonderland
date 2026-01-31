@@ -10,7 +10,10 @@
 
 | 字段 | 必填 | 说明 |
 |:---|:---|:---|
-| `Type` | ✅ | 类型标签: `[Concept Art]`, `[UI Graphic]`, `[Motion Graphic]`, `[Stock/Reference]`, `[Diagram]` |
+| `Type` | ✅ | 类型标签: `[Concept Art]`, `[UI Graphic]`, `[Motion Graphic]`, `[Live Demo]`, `[Stock/Reference]`, `[Diagram]` |
+| `Action` | 🎬 | **(Demo Only)** 具体操作步骤指令 (Storyboard) |
+| `Target` | 🎬 | **(Demo Only)** 操作对象 (e.g. "Track 4 Automation Lane") |
+| `Duration`| 🎬 | **(Demo Only)** 预计时长 (e.g. "~5s") |
 | `Concept` | ✅ | 概念关键词 (中英文) |
 | `Visual` | ✅ | 视觉描述 (中文,用于理解) |
 | `Search` | 🔍 | 网络搜索关键词 (英文) |
@@ -41,10 +44,10 @@ glitch art style, 8K, cinematic lighting, centered composition"
 ---
 
 ## S01_Title
-*   **Type**: [Motion Graphic]
+*   **Type**: [UI Graphic]
 *   **Text**: 声音的魔术师：Audition 混响与特效实战
 *   **Sub**: 智慧课程《数字音频处理》第五章 (Part 2) | 主讲：林昕
-*   **Visual**: Audition Logo + Glowing Soundwave.
+*   **Visual**: Audition Logo + Static Soundwave (No Animation).
 
 ## S02_BadCase
 *   **Type**: [UI Graphic]
@@ -73,22 +76,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
     *   `[Sound Source/Actor]` ---> `[Box/Space]` ---> `[Ear/Listener]`
 *   **Metaphor**: 声音是演员，混响是舞台，声像的观众席。
 
-## S05_Visual_Matrix (Metaphor)
-*   **Type**: [Concept Art]
-*   **Concept**: 绝对的纯净 (Purify)
-*   **Visual**: 极简主义数据艺术。左侧是混乱的粉红噪音粒子（像沙尘暴），右侧是清晰的心跳波形（像发光山脉）。背景是宇宙深空的深蓝色。
-*   **Search**: `pink noise visualization vs clean heartbeat waveform, dark blue cosmic background, data art`
-*   **AI_Prompt**: `Split screen digital art: LEFT chaotic pink noise particles like sandstorm, RIGHT clean glowing heartbeat waveform like luminous mountain range, deep cosmic blue background, minimalist data visualization style, 8K, cinematic lighting, symmetrical composition`
-*   **Ref Image**: *The Matrix* Construct Scene (Neo in white space).
-*   **Caption**: "降噪不仅是修复，更是为声音创造纯白画布。"
 
-## S05b_Spectrum (Visual Aid)
-*   **Type**: [Motion Graphic]
-*   **Concept**: 听见真空 (Visualizing Silence)
-*   **Visual**: 动态频谱图。不是冷冰冰的线条，而是像极光的流动。
-*   **Overlay**: A 30s Countdown Timer in the center.
-*   **Tagline**: "The Pulse of Silence"
-*   **Motion**: The spectrum should be flat (showing silence) or showing specific noise frequencies, keeping user attention during the listening blackout.
 
 ## S06_Ghost_Math (Metaphor)
 *   **Type**: [Concept Art]
@@ -274,6 +262,9 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 立体声行走
 *   **Visual**: Alan Blumlein walking in front of a microphone pair at Abbey Road (1933).
 *   **Text**: "Testing Presence, not just Wire."
+*   **Caption**: "On this day in 1931, EMI engineer Alan Dower Blumlein filed a patent for a two-channel audio system, or what we now know as ‘Stereo’."
+
+
 
 ## S05_Fantasound_Layout
 *   **Type**: [Diagram]
@@ -286,18 +277,24 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 压迫之墙 (ILD)
 *   **Visual**: Automation Lane for Low Pass Filter.
 *   **Curve**: Rising from 50Hz to 5000Hz (Opening the gate).
+*   **Ref**: ![S05_UI_The_Wall](./assets/S05_Phase4_Position/S05_UI_The_Wall.png)
+
 
 ## S05_UI_The_Needle
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 焦虑之刺 (Doppler)
 *   **Visual**: Automation Lane for Pan + Pitch.
 *   **Curve**: Pan = Fast Sine Wave; Pitch = Tiny dip (-50 cents) at center.
+*   **Ref**: ![S05_UI_The_Needle](./assets/S05_Phase4_Position/S05_UI_The_Needle.png)
+
 
 ## S05_Jungian_Shadow
 *   **Type**: [Concept Art]
 *   **Concept**: 荣格阴影
 *   **Visual**: A silhouette of a person casting a shadow that is a different monster/shape.
 *   **Text**: "The Shadow: The rejected self."
+*   **Ref**: ![S05_Jungian_Shadow](./assets/S05_Phase4_Position/S05_Jungian_Shadow.png)
+
 
 ## S05_Azimuth_Coordinator
 *   **Type**: [Photo/Historical]
@@ -316,3 +313,34 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 孤独的几何学
 *   **Visual**: Abstract geometry connecting the Wall, the Needle, and the Void.
 *   **Text**: "The Geometry of Loneliness."
+*   **Ref**: ![S05_Geometry_Loneliness](./assets/S05_Phase4_Position/S05_Geometry_Loneliness.png)
+
+
+## S05_Act_Draw_Filter
+*   **Type**: [Live Demo]
+*   **Target**: Track 4 Automation Lane (Parametric EQ)
+*   **Action**: 绘制 Low Pass Filter 曲线 (Approaching Wedge)。频率从 50Hz (潜意识) 平滑上升至 5000Hz (现实逼近)。
+*   **Duration**: ~10s
+*   **Caption**: "The Wall is opening."
+
+## S05_Act_Perform_Pan
+*   **Type**: [Live Demo]
+*   **Target**: Track 5 Pan Automation Lane
+*   **Action**: (Write Mode) 随着节奏疯狂、不规则地左右摇摆声像旋钮，模拟焦虑的心电图。
+*   **Duration**: ~10s
+*   **Caption**: "Anxiety is not a Sine Wave."
+
+## S05_Act_Add_Doppler
+*   **Type**: [Live Demo]
+*   **Target**: Track 5 Pitch Automation Lane
+*   **Action**: 微调 Pitch 曲线。当 Pan 穿过 Center 时，Pitch 每个周期下降 -50 cents 再回弹。
+*   **Duration**: ~5s
+*   **Caption**: "Doppler Effect: The sound is flying OVER you."
+
+## S05_Act_Max_Width
+*   **Type**: [Live Demo]
+*   **Target**: FX Bus (The Void) - Stereo Expander
+*   **Action**: 将 Stereo Width 瞬间从 100% 推至 150%。
+*   **Duration**: ~2s (Impact)
+*   **Caption**: "Geometric Collapse."
+

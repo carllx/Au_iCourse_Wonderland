@@ -41,7 +41,7 @@ def build_timeline(section_id):
     script_path = script_files[0]
     
     # 查找匹配的音频文件 (mp3/wav)
-    audio_files = list(AUDIO_DIR.glob(f"{section_id}_*.mp3")) + list(AUDIO_DIR.glob(f"{section_id}_*.wav"))
+    audio_files = list(AUDIO_DIR.glob(f"{section_id}_*.mp3")) + list(AUDIO_DIR.glob(f"{section_id}_*.wav")) + list(AUDIO_DIR.glob(f"{section_id}_*.aac"))
     if not audio_files:
         print(f"❌ Audio not found for {section_id}")
         return
@@ -58,52 +58,85 @@ def build_timeline(section_id):
         return
     print(f"   Found {len(anchors)} anchors.")
     
-    # 3. 转录音频
-    print("🤖 Transcribing & Aligning (this may take a while)...")
-    # 使用 base 模型, 强制简体中文
-    model = stable_whisper.load_model('base')
-    result = model.transcribe(str(audio_path), language='zh', regroup=False, initial_prompt="以下是简体中文的内容。")
-    
-    # 4. 构建 Char-Time Map
-    # stable-ts 的 result 包含 segments -> words
-    # 我们将所有文字展平，建立 index -> timestamp 映射
+    # 3. 检查 SRT 是否存在
+    srt_files = list(Path(AUDIO_DIR).glob(f"{section_id}_*.srt"))
     
     full_text = ""
-    char_time_map = [] # list of start_times corresponding to full_text characters
+    char_time_map = []
     
-    # 注意: stable-ts base model 可能不输出 words 详情，除非 spec 变了
-    # 如果没有 words，回退到 segment 插值
-    
-    for segment in result.segments:
-        # 如果有 word_timestamps
-        if segment.words:
-            for word in segment.words:
-                w_text = word.word
-                w_start = word.start
-                w_end = word.end
-                w_duration = w_end - w_start
-                if not w_text: continue
+    if srt_files:
+        srt_path = srt_files[0]
+        print(f"📄 Found SRT: {srt_path.name}")
+        
+        # Parse SRT manually
+        with open(srt_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        blocks = re.split(r'\n\s*\n', content.strip())
+        for block in blocks:
+            lines = block.split('\n')
+            if len(lines) < 3: continue
+            
+            times = lines[1]
+            if '-->' not in times: continue
+            
+            start_str, end_str = times.split(' --> ')
+            
+            def to_sec(t_str):
+                h, m, s = t_str.replace(',', '.').split(':')
+                return int(h) * 3600 + int(m) * 60 + float(s)
+            
+            try:
+                start = to_sec(start_str.strip())
+                end = to_sec(end_str.strip())
+            except:
+                continue
+            
+            text = " ".join(lines[2:])
+            clean_text = normalize_text(text)
+            
+            if not clean_text: continue
+            
+            s_duration = end - start
+            char_duration = s_duration / len(clean_text)
+            
+            for i, char in enumerate(clean_text):
+                full_text += char
+                char_time_map.append(start + (i * char_duration))
                 
-                # 简单分配: 每个字符平分 word duration (不够精确但够用)
-                clean_word = w_text.strip()
-                if not clean_word: continue
-                
-                char_duration = w_duration / len(clean_word)
-                for i, char in enumerate(clean_word):
-                    full_text += char
-                    char_time_map.append(w_start + (i * char_duration))
-        else:
-            # Fallback: Segment Level Interpolation
-             s_text = segment.text
-             # 去除标点
-             clean_text = normalize_text(s_text)
-             if not clean_text: continue
-             
-             s_duration = segment.end - segment.start
-             char_duration = s_duration / len(clean_text)
-             for i, char in enumerate(clean_text):
-                 full_text += char
-                 char_time_map.append(segment.start + (i * char_duration))
+    else:
+        print("🤖 Transcribing & Aligning (this may take a while)...")
+        # 使用 base 模型, 强制简体中文
+        model = stable_whisper.load_model('base')
+        result = model.transcribe(str(audio_path), language='zh', regroup=False, initial_prompt="以下是简体中文的内容。")
+        
+        for segment in result.segments:
+            # 如果有 word_timestamps
+            if segment.words:
+                for word in segment.words:
+                     # ... (Keep existing logic if prefer fallback, but simplicity suggests focusing on SRT)
+                     w_text = word.word
+                     w_start = word.start
+                     w_end = word.end
+                     w_duration = w_end - w_start
+                     if not w_start: continue
+                     
+                     clean_word = w_text.strip()
+                     if not clean_word: continue
+                     
+                     char_duration = w_duration / len(clean_word)
+                     for i, char in enumerate(clean_word):
+                         full_text += char
+                         char_time_map.append(w_start + (i * char_duration))
+            else:
+                 s_text = segment.text
+                 clean_text = normalize_text(s_text)
+                 if not clean_text: continue
+                 s_duration = segment.end - segment.start
+                 char_duration = s_duration / len(clean_text)
+                 for i, char in enumerate(clean_text):
+                     full_text += char
+                     char_time_map.append(segment.start + (i * char_duration))
                  
     # 5. 匹配锚点
     print("🔗 Matching anchors...")
