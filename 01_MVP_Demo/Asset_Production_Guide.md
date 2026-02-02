@@ -148,6 +148,7 @@ npm run dev
 #### 1. 提取 TTS 文本
 ```bash
 # 从 markdown 脚本中提取纯文本到 03_Scripts/tts/*.txt
+# Tip: 此脚本已升级 (Smart Middleware)，会自动保留 [TEACHING MOMENT] 和 [WARNING] 内容，同时剥离所有视觉指令。
 python .agent/skills/validation-suite/scripts/validate_script_length.py --dump-text
 ```
 

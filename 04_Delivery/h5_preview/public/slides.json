@@ -1,6 +1,6 @@
 {
-  "version": "1.1",
-  "generated": "2026-01-31T22:11:23.730136",
+  "version": "1.4",
+  "generated": "2026-02-02T14:32:56.645065",
   "sections": [
     {
       "id": "S01_Intro",
@@ -18,33 +18,9 @@
           "target": "",
           "duration": "",
           "id": "S01_Title",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S01_Intro/S01_Title_background_ai.png"
+          "template": "Layout_Content",
+          "image": "visuals/S01_Intro/S01_Title_background_ai.png",
+          "startTime": 0.16
         },
         {
           "type": "Diagram",
@@ -58,32 +34,8 @@
           "target": "",
           "duration": "",
           "id": "S03_Concept_Source_Space_Ear",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.1,
-                "y": 0.08,
-                "w": 0.8,
-                "h": 0.1
-              },
-              {
-                "name": "DIAGRAM",
-                "x": 0.1,
-                "y": 0.22,
-                "w": 0.8,
-                "h": 0.55
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.15,
-                "y": 0.82,
-                "w": 0.7,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          }
+          "template": "Layout_Content",
+          "startTime": 27.14
         }
       ],
       "audio": "tts/S01_Intro.aac",
@@ -93,6 +45,27 @@
       "id": "S02_Phase1_Purify",
       "title": "净化",
       "slides": [
+        {
+          "type": "UI Graphic",
+          "text": "常见的声音瑕疵",
+          "sub": "",
+          "list": [
+            "Hum (嗡嗡声) -> 6.6.7",
+            "Click (爆音) -> 6.6.5",
+            "**Hiss (宽频底噪) -> 6.6.2 (Today's Focus)**",
+            "**Ref**: ![S02_Purify_75pct_NR](./assets/S02_Phase1_Purify/S02_AuditionPanel_70pct.png)"
+          ],
+          "visual": "A waveform with red circles highlighting the \"dirty\" parts.",
+          "caption": "",
+          "concept": "",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S02_BadCase",
+          "template": "Layout_Content",
+          "image": "visuals/S02_Phase1_Purify/S02_BadCase.png",
+          "startTime": 0.14
+        },
         {
           "type": "Diagram/Historical",
           "text": "\"The 1/f Law: Nature's Heartbeat\".",
@@ -105,33 +78,41 @@
           "target": "",
           "duration": "",
           "id": "S02_Voss_Clarke",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S02_Phase1_Purify/S02_Voss_Clarke.png"
+          "template": "Layout_Split",
+          "image": "visuals/S02_Phase1_Purify/S02_Voss_Clarke.png",
+          "startTime": 55.12
+        },
+        {
+          "type": "UI Composite",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Split Screen Design.",
+          "caption": "在 4096 个频率切片中，寻找信号与噪声的边界。",
+          "concept": "降噪参数组合拳 (The Combo)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S02_Demonstration",
+          "template": "Layout_Split",
+          "image": "visuals/S02_Phase1_Purify/S02_Demonstration.png",
+          "startTime": 205.52
+        },
+        {
+          "type": "Concept Art",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "一个半透明的、充满噪点的幽灵鸟（Birdies/Artifacts）漂浮在纯黑的背景中。隐喻：过度降噪产生的“数字幽灵”。",
+          "caption": "过度寻求纯净，会召唤出'数字幽灵' (Musical Noise)。",
+          "concept": "修复的代价 (Musical Noise)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S02_Ghost_Math",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S02_Phase1_Purify/S02_Ghost_Math_ai_224534.png",
+          "startTime": 308.74
         }
       ],
       "audio": "tts/S02_Phase1_Purify.aac",
@@ -153,32 +134,8 @@
           "target": "",
           "duration": "",
           "id": "S02_Ugly_Duckling",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          }
+          "template": "Layout_FullBleed",
+          "startTime": 0.18
         },
         {
           "type": "Animation",
@@ -192,33 +149,9 @@
           "target": "",
           "duration": "",
           "id": "S03_Tape_Machine",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S03_Phase2_Sculpt/S03_Tape_Machine.png"
+          "template": "Layout_Cinema",
+          "image": "visuals/S03_Phase2_Sculpt/S03_Tape_Machine.png",
+          "startTime": 55.6
         },
         {
           "type": "Photo/Historical",
@@ -232,33 +165,9 @@
           "target": "",
           "duration": "",
           "id": "S03_Pierre_Schaeffer",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S03_Phase2_Sculpt/S03_Pierre_Schaeffer.png"
+          "template": "Layout_Content",
+          "image": "visuals/S03_Phase2_Sculpt/S03_Pierre_Schaeffer.png",
+          "startTime": 109.24
         },
         {
           "type": "Photo/Historical",
@@ -272,33 +181,9 @@
           "target": "",
           "duration": "",
           "id": "S03_Chipmunk",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S03_Phase2_Sculpt/S03_Chipmunk_placeholder.mp4"
+          "template": "Layout_Content",
+          "image": "visuals/S03_Phase2_Sculpt/S03_Chipmunk_placeholder.mp4",
+          "startTime": 159.02
         },
         {
           "type": "Diagram",
@@ -312,33 +197,9 @@
           "target": "",
           "duration": "",
           "id": "S03_Cello_Body",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.1,
-                "y": 0.08,
-                "w": 0.8,
-                "h": 0.1
-              },
-              {
-                "name": "DIAGRAM",
-                "x": 0.1,
-                "y": 0.22,
-                "w": 0.8,
-                "h": 0.55
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.15,
-                "y": 0.82,
-                "w": 0.7,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
-          "image": "visuals/S03_Phase2_Sculpt/S03_Cello_Body.png"
+          "template": "Layout_Content",
+          "image": "visuals/S03_Phase2_Sculpt/S03_Cello_Body.png",
+          "startTime": 284.52
         },
         {
           "type": "Text/Minimalist",
@@ -352,33 +213,9 @@
           "target": "",
           "duration": "",
           "id": "S03_Deep_Listening",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S03_Phase2_Sculpt/S03_Deep_Listening.png"
+          "template": "Layout_Title",
+          "image": "visuals/S03_Phase2_Sculpt/S03_Deep_Listening.png",
+          "startTime": 402.64
         }
       ],
       "audio": "tts/S03_Phase2_Sculpt.aac",
@@ -400,33 +237,9 @@
           "target": "",
           "duration": "",
           "id": "S04_Concept_Dry_Wet",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S04_Phase3_Space/S04_Concept_Dry_Wet.png"
+          "template": "Layout_Split",
+          "image": "visuals/S04_Phase3_Space/S04_Concept_Dry_Wet.png",
+          "startTime": 0.16
         },
         {
           "type": "Photo/Historical",
@@ -440,33 +253,9 @@
           "target": "",
           "duration": "",
           "id": "S04_Inchindown_Tanks",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S04_Phase3_Space/S04_Inchindown_Tanks.png"
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_Inchindown_Tanks.png",
+          "startTime": 35.82
         },
         {
           "type": "Diagram",
@@ -480,33 +269,9 @@
           "target": "",
           "duration": "",
           "id": "S04_Balloon_Cave",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.1,
-                "y": 0.08,
-                "w": 0.8,
-                "h": 0.1
-              },
-              {
-                "name": "DIAGRAM",
-                "x": 0.1,
-                "y": 0.22,
-                "w": 0.8,
-                "h": 0.55
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.15,
-                "y": 0.82,
-                "w": 0.7,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
-          "image": "visuals/S04_Phase3_Space/S04_Balloon_Cave.png"
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_Balloon_Cave.png",
+          "startTime": 45.76
         },
         {
           "type": "Photo/Historical",
@@ -520,33 +285,9 @@
           "target": "",
           "duration": "",
           "id": "S04_Alvin_Lucier",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S04_Phase3_Space/S04_Alvin_Lucier.png"
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_Alvin_Lucier.png",
+          "startTime": 145.24
         },
         {
           "type": "Photo/Band",
@@ -560,32 +301,7 @@
           "target": "",
           "duration": "",
           "id": "S04_Neubauten",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
+          "template": "Layout_FullBleed",
           "image": "visuals/S04_Phase3_Space/S04_Neubauten.png"
         },
         {
@@ -600,33 +316,9 @@
           "target": "",
           "duration": "",
           "id": "S04_Damping_Curve",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S04_Phase3_Space/S04_Damping_Curve.png"
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_Damping_Curve.png",
+          "startTime": 378.18
         },
         {
           "type": "UI/Screenshot",
@@ -640,33 +332,9 @@
           "target": "",
           "duration": "",
           "id": "S04_Automation_Dissolution",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S04_Phase3_Space/S04_Automation_Dissolution.png"
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_Automation_Dissolution.png",
+          "startTime": 494.96
         },
         {
           "type": "UI/Screenshot",
@@ -680,33 +348,9 @@
           "target": "",
           "duration": "",
           "id": "S04_UI_HardLimiter",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S04_Phase3_Space/S04_UI_HardLimiter.png"
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_HardLimiter.png",
+          "startTime": 547.3
         },
         {
           "type": "Concept Art",
@@ -720,25 +364,7 @@
           "target": "",
           "duration": "",
           "id": "S04_Conclusion_Abyss",
-          "layout": {
-            "zones": [
-              {
-                "name": "VISUAL (Full Bleed)",
-                "x": 0.0,
-                "y": 0.0,
-                "w": 1.0,
-                "h": 0.85
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.87,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
+          "template": "Layout_FullBleed",
           "image": "visuals/S04_Phase3_Space/S04_Conclusion_Abyss.png"
         }
       ],
@@ -761,33 +387,25 @@
           "target": "",
           "duration": "",
           "id": "S05_Blumlein_Walking",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S05_Phase4_Position/S05_Blumlein_Walking_web.webm"
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_Blumlein_Walking_web.webm",
+          "startTime": 0.18
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "New Multitrack Session dialog selecting \"5.1\".",
+          "caption": "",
+          "concept": "建立笼子",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_Surround_NewSession",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_Surround_NewSession_cap.png",
+          "startTime": 55.6
         },
         {
           "type": "Diagram",
@@ -801,106 +419,105 @@
           "target": "",
           "duration": "",
           "id": "S05_Fantasound_Layout",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.1,
-                "y": 0.08,
-                "w": 0.8,
-                "h": 0.1
-              },
-              {
-                "name": "DIAGRAM",
-                "x": 0.1,
-                "y": 0.22,
-                "w": 0.8,
-                "h": 0.55
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.15,
-                "y": 0.82,
-                "w": 0.7,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
-          "image": "visuals/S05_Phase4_Position/S05_Fantasound_Layout_web.jpg"
-        },
-        {
-          "type": "Concept Art",
-          "text": "\"The Shadow: The rejected self.\"",
-          "sub": "",
-          "list": [],
-          "visual": "A silhouette of a person casting a shadow that is a different monster/shape.",
-          "caption": "",
-          "concept": "荣格阴影",
-          "action": "",
-          "target": "",
-          "duration": "",
-          "id": "S05_Jungian_Shadow",
-          "layout": {
-            "zones": [
-              {
-                "name": "VISUAL (Full Bleed)",
-                "x": 0.0,
-                "y": 0.0,
-                "w": 1.0,
-                "h": 0.85
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.87,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
-          "image": "visuals/S05_Phase4_Position/S05_Jungian_Shadow_ai.png"
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_Fantasound_Layout_web.jpg",
+          "startTime": 78.74
         },
         {
           "type": "UI/Screenshot",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "Automation Lane for Low Pass Filter.",
+          "visual": "Multitrack View showing \"Add Stereo Bus Track\" menu action.",
           "caption": "",
-          "concept": "压迫之墙 (ILD)",
+          "concept": "创建总线",
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S05_UI_The_Wall",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S05_Phase4_Position/S05_UI_The_Wall_cap.png"
+          "id": "S05_Setup_Bus_Creation",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_Bus_Creation_cap.png",
+          "startTime": 112.12
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Mixer View showing Sends to \"The Void\" at -3dB.",
+          "caption": "",
+          "concept": "发送路由",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_Sends_Routing",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_Sends_Routing_cap.png",
+          "startTime": 129.12
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Track Panner: Radius 0, Stereo Spread 30 degrees.",
+          "caption": "",
+          "concept": "心脏声像 (Diffusion)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Heart_Panner_Settings_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Heart_Panner_Settings_cap.png",
+          "startTime": 161.07
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Parametric EQ: Low Pass 200Hz (48dB/Oct). Only sub-bass remains.",
+          "caption": "",
+          "concept": "极致孤独 EQ",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Heart_EQ_Settings_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Heart_EQ_Settings_cap.png",
+          "startTime": 188.22
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Parametric EQ at 2000Hz / -40dB (Muffled, distant).",
+          "caption": "",
+          "concept": "墙在远方",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Wall_EQ_Start",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Wall_EQ_Start_cap.png",
+          "startTime": 199.74
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Parametric EQ at 20,000Hz / +36dB (Impact, piercing).",
+          "caption": "",
+          "concept": "墙在眼前 (刺破)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Wall_EQ_End",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Wall_EQ_End_cap.png",
+          "startTime": 232.38
         },
         {
           "type": "Live Demo",
@@ -908,370 +525,78 @@
           "sub": "",
           "list": [],
           "visual": "",
-          "caption": "The Wall is opening.",
+          "caption": "Drawing the Anxiety with Splines.",
           "concept": "",
-          "action": "绘制 Low Pass Filter 曲线 (Approaching Wedge)。频率从 50Hz (潜意识) 平滑上升至 5000Hz (现实逼近)。",
-          "target": "Track 4 Automation Lane (Parametric EQ)",
-          "duration": "~10s",
-          "id": "S05_Act_Draw_Filter",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.1
-              },
-              {
-                "name": "TARGET",
-                "x": 0.05,
-                "y": 0.18,
-                "w": 0.4,
-                "h": 0.08
-              },
-              {
-                "name": "DURATION",
-                "x": 0.5,
-                "y": 0.18,
-                "w": 0.45,
-                "h": 0.08
-              },
-              {
-                "name": "ACTION_SCENE",
-                "x": 0.05,
-                "y": 0.3,
-                "w": 0.9,
-                "h": 0.5
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.82,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": false
-          }
-        },
-        {
-          "type": "UI/Screenshot",
-          "text": "",
-          "sub": "",
-          "list": [],
-          "visual": "Automation Lane for Pan + Pitch.",
-          "caption": "",
-          "concept": "焦虑之刺 (Doppler)",
-          "action": "",
-          "target": "",
-          "duration": "",
-          "id": "S05_UI_The_Needle",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S05_Phase4_Position/S05_UI_The_Needle_cap.png"
-        },
-        {
-          "type": "Live Demo",
-          "text": "",
-          "sub": "",
-          "list": [],
-          "visual": "",
-          "caption": "Anxiety is not a Sine Wave.",
-          "concept": "",
-          "action": "(Write Mode) 随着节奏疯狂、不规则地左右摇摆声像旋钮，模拟焦虑的心电图。",
-          "target": "Track 5 Pan Automation Lane",
-          "duration": "~10s",
+          "action": "(Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间随机跳跃，Radius 逐渐减小。",
+          "target": "Track 3 Pan Automation Lane (Angle & Radius)",
+          "duration": "~15s",
           "id": "S05_Act_Perform_Pan",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.1
-              },
-              {
-                "name": "TARGET",
-                "x": 0.05,
-                "y": 0.18,
-                "w": 0.4,
-                "h": 0.08
-              },
-              {
-                "name": "DURATION",
-                "x": 0.5,
-                "y": 0.18,
-                "w": 0.45,
-                "h": 0.08
-              },
-              {
-                "name": "ACTION_SCENE",
-                "x": 0.05,
-                "y": 0.3,
-                "w": 0.9,
-                "h": 0.5
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.82,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": false
-          }
+          "template": "Layout_Demo",
+          "startTime": 291.7
         },
         {
-          "type": "Live Demo",
+          "type": "UI/Screenshot",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "",
-          "caption": "Doppler Effect: The sound is flying OVER you.",
-          "concept": "",
-          "action": "微调 Pitch 曲线。当 Pan 穿过 Center 时，Pitch 每个周期下降 -50 cents 再回弹。",
-          "target": "Track 5 Pitch Automation Lane",
-          "duration": "~5s",
-          "id": "S05_Act_Add_Doppler",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.1
-              },
-              {
-                "name": "TARGET",
-                "x": 0.05,
-                "y": 0.18,
-                "w": 0.4,
-                "h": 0.08
-              },
-              {
-                "name": "DURATION",
-                "x": 0.5,
-                "y": 0.18,
-                "w": 0.45,
-                "h": 0.08
-              },
-              {
-                "name": "ACTION_SCENE",
-                "x": 0.05,
-                "y": 0.3,
-                "w": 0.9,
-                "h": 0.5
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.82,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": false
-          }
-        },
-        {
-          "type": "Live Demo",
-          "text": "",
-          "sub": "",
-          "list": [],
-          "visual": "",
-          "caption": "Geometric Collapse.",
-          "concept": "",
-          "action": "将 Stereo Width 瞬间从 100% 推至 150%。",
-          "target": "FX Bus (The Void) - Stereo Expander",
-          "duration": "~2s (Impact)",
-          "id": "S05_Act_Max_Width",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.1
-              },
-              {
-                "name": "TARGET",
-                "x": 0.05,
-                "y": 0.18,
-                "w": 0.4,
-                "h": 0.08
-              },
-              {
-                "name": "DURATION",
-                "x": 0.5,
-                "y": 0.18,
-                "w": 0.45,
-                "h": 0.08
-              },
-              {
-                "name": "ACTION_SCENE",
-                "x": 0.05,
-                "y": 0.3,
-                "w": 0.9,
-                "h": 0.5
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.82,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": false
-          }
-        },
-        {
-          "type": "Photo/Historical",
-          "text": "",
-          "sub": "",
-          "list": [],
-          "visual": "Photo of the joystick device used by Pink Floyd.",
-          "caption": "Surround Sound in 1972.",
-          "concept": "方位协调器",
-          "action": "",
-          "target": "",
-          "duration": "",
-          "id": "S05_Azimuth_Coordinator",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S05_Phase4_Position/S05_Azimuth_Coordinator_web.jpg"
-        },
-        {
-          "type": "Text/Minimalist",
-          "text": "Body vs Soul.",
-          "sub": "",
-          "list": [],
-          "visual": "Pure Black Screen.",
+          "visual": "Setup showing Pan Angle and Radius envelopes enabled for Track 3.",
           "caption": "",
-          "concept": "深听时刻",
+          "concept": "焦虑之刺 (Setup)",
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S03_Deep_Listening",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          }
+          "id": "S05_Needle_Automation_Setup_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Needle_Automation_Setup_cap.png",
+          "startTime": 328.4
         },
         {
-          "type": "Photo/Art",
-          "text": "\"Sound as Sculpture.\"",
+          "type": "UI/Screenshot",
+          "text": "",
           "sub": "",
           "list": [],
-          "visual": "The 40 Speakers arranged in an oval for \"The Forty Part Motet\".",
+          "visual": "Pan Angle envelope moving from -180 to +180 degrees.",
           "caption": "",
-          "concept": "声音雕塑",
+          "concept": "360度环绕",
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S05_Janet_Cardiff",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.05,
-                "y": 0.05,
-                "w": 0.9,
-                "h": 0.12
-              },
-              {
-                "name": "LIST",
-                "x": 0.05,
-                "y": 0.2,
-                "w": 0.45,
-                "h": 0.6
-              },
-              {
-                "name": "VISUAL",
-                "x": 0.52,
-                "y": 0.2,
-                "w": 0.43,
-                "h": 0.6
-              }
-            ],
-            "is_centered": false
-          },
-          "image": "visuals/S05_Phase4_Position/S05_Janet_Cardiff_web.webp"
+          "id": "S05_Needle_Pan_Angle_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Angle_cap.png",
+          "startTime": 337.01
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Pan Radius envelope dropping from 96% to 20%.",
+          "caption": "",
+          "concept": "螺旋逼近",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Needle_Pan_Radius_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Radius_cap.png",
+          "startTime": 353.59
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Spline curves showing chaotic/random pan movement.",
+          "caption": "",
+          "concept": "随机不规则环绕",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Needle_Pan_Random_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Random_cap.png",
+          "startTime": 400.22
         },
         {
           "type": "Concept Art",
@@ -1285,26 +610,57 @@
           "target": "",
           "duration": "",
           "id": "S05_Geometry_Loneliness",
-          "layout": {
-            "zones": [
-              {
-                "name": "VISUAL (Full Bleed)",
-                "x": 0.0,
-                "y": 0.0,
-                "w": 1.0,
-                "h": 0.85
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.1,
-                "y": 0.87,
-                "w": 0.8,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
-          "image": "visuals/S05_Phase4_Position/S05_Geometry_Loneliness_ai.png"
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Geometry_Loneliness_ai.png",
+          "startTime": 421.16
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Photo of the joystick device used by Pink Floyd.",
+          "caption": "Surround Sound in 1972.",
+          "concept": "方位协调器",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Azimuth_Coordinator",
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_Azimuth_Coordinator_web.jpg",
+          "startTime": 472.06
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Stereo Expander set to 150 (Extra Wide).",
+          "caption": "",
+          "concept": "150% 宽度",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Void_Expander_Settings",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Void_Expander_Settings_cap.png",
+          "startTime": 483.34
+        },
+        {
+          "type": "Photo/Art",
+          "text": "\"Sound as Sculpture.\"",
+          "sub": "",
+          "list": [],
+          "visual": "The 40 Speakers arranged in an oval for \"The Forty Part Motet\".",
+          "caption": "",
+          "concept": "声音雕塑",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Janet_Cardiff",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Janet_Cardiff_web.webp",
+          "startTime": 502.58
         }
       ],
       "audio": "tts/S05_Phase4_Position.aac",
@@ -1326,33 +682,9 @@
           "target": "",
           "duration": "",
           "id": "S06_Summary_Loop",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.1,
-                "y": 0.08,
-                "w": 0.8,
-                "h": 0.1
-              },
-              {
-                "name": "DIAGRAM",
-                "x": 0.1,
-                "y": 0.22,
-                "w": 0.8,
-                "h": 0.55
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.15,
-                "y": 0.82,
-                "w": 0.7,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
-          "image": "visuals/S06_Summary/S06_Summary_Loop.png"
+          "template": "Layout_Content",
+          "image": "visuals/S06_Summary/S06_Summary_Loop.png",
+          "startTime": 0.03
         },
         {
           "type": "Diagram",
@@ -1366,32 +698,7 @@
           "target": "",
           "duration": "",
           "id": "S06_Murch_Rule_of_Six",
-          "layout": {
-            "zones": [
-              {
-                "name": "TITLE",
-                "x": 0.1,
-                "y": 0.08,
-                "w": 0.8,
-                "h": 0.1
-              },
-              {
-                "name": "DIAGRAM",
-                "x": 0.1,
-                "y": 0.22,
-                "w": 0.8,
-                "h": 0.55
-              },
-              {
-                "name": "CAPTION",
-                "x": 0.15,
-                "y": 0.82,
-                "w": 0.7,
-                "h": 0.1
-              }
-            ],
-            "is_centered": true
-          },
+          "template": "Layout_Content",
           "image": "visuals/S06_Summary/S06_Murch_Rule_of_Six.png"
         }
       ],

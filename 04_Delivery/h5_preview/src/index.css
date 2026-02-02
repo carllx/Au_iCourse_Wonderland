@@ -1,22 +1,78 @@
 :root {
-  /* 暗色主题调色板 */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #12121a;
-  --bg-card: #1a1a25;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0b0;
-  --text-muted: #606070;
-  --accent: #6366f1;
-  --accent-glow: rgba(99, 102, 241, 0.3);
-  --border: #2a2a3a;
+  /* ============================================================ 
+     WONDERLAND UI SYSTEM - DESIGN TOKENS
+     ============================================================ */
 
-  /* 字体 */
+  /* 1. Color Palette (Dark Mode) */
+  --color-bg-base: #0a0a0f;
+  /* Deep Space Black */
+  --color-bg-surface: #1a1a25;
+  /* Panel Grey */
+  --color-bg-card: #20202e;
+  /* Card/Elevated */
+
+  --color-primary: #6366f1;
+  /* Indigo */
+  --color-primary-glow: rgba(99, 102, 241, 0.4);
+  --color-accent: #8b5cf6;
+  /* Violet */
+  --color-success: #34d399;
+  /* Emerald */
+  --color-warning: #fbbf24;
+  /* Amber */
+  --color-error: #f87171;
+  /* Red */
+
+  --color-text-main: #ffffff;
+  --color-text-secondary: #a0a0b0;
+  --color-text-muted: #606070;
+
+  --color-border: #2a2a3a;
+  --color-border-hover: #3f3f4f;
+
+  /* Legacy Compat (Aliasing) */
+  --bg-primary: var(--color-bg-base);
+  --bg-secondary: var(--color-bg-surface);
+  --bg-card: var(--color-bg-card);
+  --text-primary: var(--color-text-main);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+  --accent: var(--color-primary);
+  --accent-glow: var(--color-primary-glow);
+  --border: var(--color-border);
+
+  /* 2. Typography Scale (Responsive) */
   --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 
-  /* 尺寸 */
+  --font-size-xs: 0.75rem;
+  /* 12px */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-lg: 1.125rem;
+  /* 18px */
+  --font-size-xl: 1.25rem;
+  /* 20px */
+  --font-size-2xl: 1.5rem;
+  /* 24px */
+  --font-size-3xl: 2rem;
+  /* 32px */
+
+  /* 3. Spacing & Layout */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --container-padding: clamp(16px, 5vw, 32px);
   --slide-aspect: 16 / 9;
-  --control-height: 80px;
+
+  /* Safe Area */
+  --safe-area-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 * {
@@ -27,53 +83,72 @@
 
 body {
   font-family: var(--font-display);
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--color-bg-base);
+  color: var(--color-text-main);
   line-height: 1.6;
   min-height: 100vh;
+  /* Prevent rubber-banding on iOS */
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide Scrollbar Globally */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ============================================================
-   布局容器
+   布局容器 (Grid Layout)
    ============================================================ */
 
 .app-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  /* Slide Area (Flexible) | Controls (Fixed) */
+  grid-template-areas:
+    "stage"
+    "controls";
   height: 100vh;
+  height: 100dvh;
+  /* Dynamic Viewport Height for iOS */
+  width: 100vw;
   overflow: hidden;
+  background: var(--color-bg-base);
 }
 
 .main-content {
-  flex: 1;
+  /* Deprecated in new layout, kept for compat if needed */
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
-  overflow: hidden;
 }
 
 /* ============================================================
-   Slide 显示区
+   Slide 显示区 (Stage)
    ============================================================ */
 
 .slide-area {
-  flex: 1;
+  grid-area: stage;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-secondary);
-  border-radius: 12px;
+  padding: var(--container-padding);
+  background: var(--color-bg-base);
   overflow: hidden;
   position: relative;
-  padding: 20px;
-  /* 给边缘留点呼吸感 */
+  z-index: 1;
+  /* CRITICAL: Prevent Grid Item from overflowing parent */
+  min-width: 0;
+  min-height: 0;
 }
 
 /* ============================================================
@@ -81,21 +156,44 @@ body {
    ============================================================ */
 
 .slide-container {
-  /* 强制 16:9 核心逻辑 */
-  width: 100%;
-  height: auto;
+  /* 强制 16:9 核心逻辑 - 响应式重构 (Media Query Approach) */
   aspect-ratio: 16 / 9;
-  max-height: 100%;
-  max-width: calc((100vh - 250px) * 16 / 9);
-  /* 动态计算最大宽度，防止垂直溢出 */
-
-  background: var(--bg-card);
+  background: var(--color-bg-card);
   border-radius: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   overflow: hidden;
+
+  /* Default (Landscape/Desktop): Height constrained, Width auto */
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+/* 
+   CASE A: Viewport is TALLER than 16:9 (Portrait Mobile/Tablet)
+   Slide should be width-constrained (100% width), Height auto.
+*/
+@media (min-aspect-ratio: 1/10) and (max-aspect-ratio: 16/9) {
+  .slide-container {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+}
+
+/* 
+   CASE B: Viewport is WIDER than 16:9 (Ultrawide/Landscape Phone)
+   Slide should be height-constrained (100% height), Width auto.
+   (Already covered by default, but ensuring specificity if needed)
+*/
+@media (min-aspect-ratio: 16/9) {
+  .slide-container {
+    height: 100%;
+    width: auto;
+  }
 }
 
 /* 视觉背景层 (图片 & 灰盒) */
@@ -112,7 +210,7 @@ body {
   background: rgba(255, 255, 255, 0.03);
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: var(--space-2);
   box-sizing: border-box;
   animation: fadeIn 0.5s ease;
   overflow: hidden;
@@ -127,7 +225,7 @@ body {
 
 .layout-zone-label {
   font-size: 10px;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 4px;
@@ -142,7 +240,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-secondary);
+  background: var(--color-bg-surface);
 }
 
 .slide-image {
@@ -184,12 +282,12 @@ body {
 /* Slide 类型样式 */
 .slide-type-tag {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: var(--space-4);
+  left: var(--space-4);
   padding: 0.25rem 0.75rem;
-  background: var(--accent);
+  background: var(--color-primary);
   color: white;
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   border-radius: 4px;
   text-transform: uppercase;
@@ -198,15 +296,15 @@ body {
 
 .slide-id {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: var(--text-muted);
+  top: var(--space-4);
+  right: var(--space-4);
+  color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
 }
 
 .slide-text {
-  font-size: 2.5rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
   text-align: center;
   max-width: 80%;
@@ -214,9 +312,9 @@ body {
 }
 
 .slide-sub {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  margin-top: 1rem;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-4);
   text-align: center;
 }
 
@@ -263,17 +361,20 @@ body {
 }
 
 .demo-badge.target {
-  color: #fbbf24; /* Amber */
+  color: #fbbf24;
+  /* Amber */
   border-color: rgba(251, 191, 36, 0.3);
 }
 
 .demo-badge.duration {
-  color: #34d399; /* Emerald */
+  color: #34d399;
+  /* Emerald */
   border-color: rgba(52, 211, 153, 0.3);
 }
 
 .demo-action-text {
-  color: #fda4af; /* Rose */
+  color: #fda4af;
+  /* Rose */
   font-size: 1rem;
   margin-top: 1rem;
   line-height: 1.5;
@@ -518,4 +619,347 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ============================================================
+   NEW COMPONENT STYLES (Refactor 1.2)
+   ============================================================ */
+
+/* --- Control Hub (Refactored) --- */
+.controls-hub {
+  grid-area: controls;
+  position: relative;
+  /* Static/Relative flow in Grid */
+  width: 100%;
+  background: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) var(--container-padding);
+
+  /* Dynamic Safe Area Padding */
+  padding-bottom: calc(var(--space-4) + var(--safe-area-bottom));
+
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Landscape Optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .controls-hub {
+    padding: var(--space-2) var(--container-padding);
+    gap: var(--space-2);
+  }
+
+  /* Hide badges or secondary info to save space */
+  .demo-meta-badges {
+    display: none;
+  }
+}
+
+.playback-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* --- Enhanced Timeline Bar --- */
+.timeline-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 40px;
+  /* Interaction area height */
+}
+
+.timeline-bar {
+  width: 100%;
+  height: 12px;
+  /* Visual height increased */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: height 0.2s ease;
+}
+
+.timeline-bar:hover {
+  height: 14px;
+}
+
+.timeline-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 6px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.timeline-marker:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: var(--accent);
+}
+
+/* Tooltip */
+.marker-tooltip {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-marker:hover .marker-tooltip {
+  opacity: 1;
+}
+
+.timeline-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* --- Layout: Content (Standard) --- */
+.layout-content .grid-content {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "left right";
+  grid-template-columns: 40% 60%;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  width: 100%;
+  padding: var(--space-8);
+  gap: var(--space-4);
+}
+
+/* We use Flexbox fallback/wrapper in the component, let's target classes */
+.layout-grid-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-8) var(--space-6);
+  gap: var(--space-4);
+}
+
+.layout-grid-content .area-title {
+  flex: 0 0 auto;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.layout-grid-content .area-left {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.layout-grid-content .area-right {
+  position: absolute;
+  right: 3rem;
+  top: 20%;
+  bottom: 3rem;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Layout: Split --- */
+.layout-grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.area-title-split {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.area-split-left,
+.area-split-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.split-image-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- Layout: Full Bleed --- */
+.layout-full-bleed .slide-visual-layer.full-bleed {
+  width: 100%;
+  height: 100%;
+}
+
+.full-bleed-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.full-bleed-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+}
+
+.full-bleed-text-area {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  right: 3rem;
+  text-align: left;
+}
+
+.slide-text.shadow {
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  background: transparent;
+}
+
+/* --- Layout: Title --- */
+.layout-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-center-content {
+  text-align: center;
+  z-index: 10;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(120deg, #fff, #a5b4fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-decoration-line {
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/* --- Layout: Cinema --- */
+.layout-cinema .cinema-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* ============================================================
+   TIMELINE MARKER VARIANTS
+   ============================================================ */
+
+/* Default */
+.marker-type-default {
+  background: #fff;
+}
+
+/* Demo / Action - Prominent Orange */
+.marker-type-demo {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+
+/* Art / Concept / Metaphor - Elegant Purple */
+.marker-type-art {
+  background: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
+/* Video / Motion - Attention Red (but filled) */
+.marker-type-video {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+/* Diagram / Chart - Informative Blue */
+.marker-type-diagram {
+  background: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+/* MISSING ASSET INDICATOR - Hollow Red with Cross */
+.marker-missing {
+  background: transparent !important;
+  /* Override type color */
+  border: 2px solid #ef4444;
+  width: 14px;
+  height: 14px;
+  box-shadow: none !important;
+}
+
+/* Optional: Cross to indicate missing */
+.marker-missing::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #ef4444;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Tooltip Warning Text */
+.tooltip-warning {
+  display: block;
+  color: #ef4444;
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  text-transform: uppercase;
 }

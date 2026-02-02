@@ -3,7 +3,7 @@
 > **Context**: 00:00 - 05:00
 > **Ref**: [SLIDE: S01_Title], [SLIDE: S03_Concept_Source_Space_Ear]
 
-**(镜头：林昕老师戴着监听耳机，专注于屏幕上的波形，手指轻轻敲击空格键)**
+> [VISUAL] 林昕老师戴着监听耳机，专注于屏幕上的波形，手指轻轻敲击空格键
 
 **[AUDIO]**
 (声音低沉，有质感)
@@ -11,7 +11,7 @@
 我是林昕。
 欢迎来到 Audition 的声音处理课程。
 
-**(镜头：切回软件界面)**
+> [VISUAL] 切回软件界面
 
 在之前的课程里，陈嘉源老师带大家掌握了声音的**物理秩序**——振幅 (Amplitude)、压限 (Limiting) 与 延迟 (Delay)。
 你们已经学会了如何控制**信号 (Signal)**本身的强弱。
@@ -20,7 +20,7 @@
 你将学习如何处理 **空间的秩序**。
 
 
-**(PPT: S03_Concept_Source_Space_Ear)**
+> [REF] S03_Concept_Source_Space_Ear
 
 今天，我们要完成一个大胆的**声音剧场实验**：
 我们要致敬经典，用声音重构 **《爱丽丝梦游仙境》** 中坠落兔洞的那一幕。
@@ -36,9 +36,9 @@
 但在此之前，所有伟大的手术都始于同一个动作：
 **消毒**。
 
-**(播放: 03_Scripts/_assets/sset_S02_dirty_heartbeat.wav [未经处理的原始干声])**
+> [REF] Play: 03_Scripts/_assets/asset_S02_dirty_heartbeat.wav [未经处理的原始干声]
 
-(Silence: 10s)
+> [PACING] Silence: 10s
 
 听到了吗？底噪、电流、现实的嘈杂。
 甚至，如果你听得够仔细，在底噪之下，还有一个微弱的、不该被抹杀的**心跳声**。

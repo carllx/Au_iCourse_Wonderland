@@ -34,7 +34,7 @@ def parse_time_str(text):
 
 
 
-def analyze_file(file_path, extract_text=False):
+def analyze_file(file_path, extract_text=False, blind_mode=False):
     with open(file_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
@@ -52,76 +52,105 @@ def analyze_file(file_path, extract_text=False):
     for line in lines:
         line_stripped = line.strip()
         
-        # 0. Detect Blocks
-        if line.startswith(">"):
-            # Check for Pacing Block
-            if "[PACING]" in line:
-                in_pacing_block = True
-                in_visual_block = False
-                continue
-            # Check for Visual Block (if not pacing)
-            elif not in_pacing_block:
-                in_visual_block = True
-            
-            # --- Inside Block Logic ---
-            if in_pacing_block:
-                # Extract time from Pacing lines
-                # e.g. "* 停顿 2秒。" or "Wait 5s"
-                t = parse_time_str(line_stripped)
-                if t > 0:
-                    pacing_seconds += t
-            
-            elif in_visual_block:
-                # Check for Actions [ACT:...]
-                if "[ACT:" in line:
-                    visual_action_count += 1
-                    # weighted action check
-                    # If action explicitly mentions time (e.g. Deep Listening 30s)
-                    t = parse_time_str(line)
-                    if t > 0:
-                         visual_seconds += t
-                    else:
-                         visual_seconds += DEFAULT_ACTION_DELAY
+        # 0. Smart Middleware: Detect & Unmask Semantic Audio Blocks
+        # Handle nested blockquotes (e.g. "* > [WARNING]")
+        # We strip leading list markers (*, -, 1.) to see if the content is a quote.
+        content_part = re.sub(r'^[\s\*\-\d\.]+', '', line).strip()
+        is_quote = content_part.startswith(">")
 
-            continue # Don't count words in ANY block
-        else:
-            in_visual_block = False
-            in_pacing_block = False
+        if is_quote:
+            # Check for Allowlist Tags (Class A: Narrative Anchors, Class B: Technical Bridges)
+            # We check if the line *contains* the key phrases.
+            # Whitelist: [STORY TIME], [PHILOSOPHY], [CULTURAL REF], [TEACHING MOMENT]
+            #            [TECH NOTE], [DID YOU KNOW], [WARNING]
+            semantic_tags = [
+                "[STORY TIME]", "[PHILOSOPHY]", "[CULTURAL REF]", "[TEACHING MOMENT]",
+                "[TECH NOTE]", "[DID YOU KNOW]", "[WARNING]", "WARNING]"
+            ]
+            
+            if any(tag in line for tag in semantic_tags):
+                 # Unmask: Remove the ">" and the tag itself
+                 # Clean up the specific GitHub Alert syntax if present
+                 line_stripped = line_stripped.replace(">", "").strip()
+                 line_stripped = re.sub(r'\[!.*?WARNING.*?\]', '', line_stripped) 
+                 # Remove all known tags from the line content
+                 for tag in semantic_tags:
+                     line_stripped = line_stripped.replace(tag, "")
+                 # Also remove potential colon
+                 line_stripped = re.sub(r'^:\s*', '', line_stripped)
+                 # PROCEED as normal text
+            else:
+                # Handle Standard Visual/Pacing Blocks (Ignored from Speech)
+                if "[PACING]" in line:
+                    in_pacing_block = True
+                    in_visual_block = False
+                elif not in_pacing_block:
+                    in_visual_block = True
+                
+                # --- Inside Block Logic ---
+                if in_pacing_block:
+                    t = parse_time_str(line_stripped)
+                    if t > 0:
+                        pacing_seconds += t
+                
+                elif in_visual_block:
+                    if "[ACT:" in line:
+                        visual_action_count += 1
+                        t = parse_time_str(line)
+                        if t > 0:
+                             visual_seconds += t
+                        else:
+                             visual_seconds += DEFAULT_ACTION_DELAY
+    
+                continue # Skip speech counting for these blocks
+
+        # Reset block flags for normal text (or unmasked text)
+        in_visual_block = False
+        in_pacing_block = False
 
         # 1. Skip Headers & Metadata & Separators
-        if line.startswith("#") or line.startswith("---"):
+        if line_stripped.startswith("#") or line_stripped.startswith("---"):
             continue
             
         # 2. Skip Explicit Audio Headers or Role Names
-        # e.g. **[AUDIO]** or **林昕**:
-        # But allow **(Pause: 3s)**
+        # Loose check: Only skip if it looks like a header (short, no punctuation)
         if re.match(r'^\*\*.*?\*\*[:]?$', line_stripped) and not parse_time_str(line_stripped):
-            continue
+             # Exception: If it ends with punctuation like 。 or ？, it's likely emphatic speech
+             if line_stripped.endswith('。') or line_stripped.endswith('？') or line_stripped.endswith('?'):
+                 pass
+             else:
+                 continue
 
-        # 3. Filter Stage Directions (e.g. (严肃地...) or **(Pause: 3s)**)
-        # Remove entire lines that are just parenthesized, optionally bolded
-        # Strip ** first
+        # 3. Filter Stage Directions
         clean_line = line_stripped.replace('*', '')
         if re.match(r'^[\(\（].*?[\)\）]$', clean_line):
-            # Try to grab time if it says (Pause: 3s)
             t = parse_time_str(clean_line)
             if t > 0:
                 pacing_seconds += t
             continue
 
         # 4. Count Speech Text
-        # Filter out inline stage directions if any left: **(...)** or (...)
+        # Filter out inline stage directions
         clean_text = re.sub(r'\*\*\(.*?\)\*\*', '', line_stripped)
-        clean_text = re.sub(r'[\(\（].*?[\)\）]', '', clean_text) # inline (laugh)
+        clean_text = re.sub(r'[\(\（].*?[\)\）]', '', clean_text) 
         
         if clean_text:
             # Count CN
             cn_count += len(re.findall(r'[\u4e00-\u9fff]', clean_text))
             # Count EN
             en_count += len(re.findall(r'[a-zA-Z0-9]+', clean_text))
+            
             if extract_text and clean_text.strip():
-                # Clean Markdown for human-readable output
+                # Clean Markdown
                 pure_text = strip_markdown(clean_text)
+                
+                # BLIND MODE STRICT FILTER
+                # If blind mode is on, we double check for any leaked visual cues
+                if blind_mode:
+                    # Fail-safe: if line still looks like a Ref or Action
+                    if "Ref:" in pure_text or "[VISUAL]" in pure_text:
+                        continue
+                
                 if pure_text.strip():
                      text_lines.append(pure_text.strip())
 
@@ -147,7 +176,12 @@ def main():
 
     parser = argparse.ArgumentParser(description="Validate script length and optionally extract text.")
     parser.add_argument("--dump-text", action="store_true", help="Extract and print pure spoken text.")
+    parser.add_argument("--blind-mode", action="store_true", help="Strictly remove all visual cues for Audio-Only review.")
     args = parser.parse_args()
+    
+    # Enable dump_text automatically if blind_mode is on
+    if args.blind_mode:
+        args.dump_text = True
 
     # Header
     if not args.dump_text:
@@ -165,18 +199,18 @@ def main():
         if "Structure_Map" in filename:
             continue
         path = os.path.join(script_dir, filename)
-        stats = analyze_file(path, extract_text=args.dump_text)
+        stats = analyze_file(path, extract_text=args.dump_text, blind_mode=args.blind_mode)
 
         if args.dump_text:
             if stats['text_lines']:
-                # Construct output path: 03_Scripts/tts/<SectionID>.txt
+                # Construct output path
                 base_name = os.path.splitext(filename)[0]
-                # Ensure tts directory exists (should exist based on project structure)
                 tts_dir = os.path.join(script_dir, "tts")
                 if not os.path.exists(tts_dir):
                     os.makedirs(tts_dir)
                 
-                output_path = os.path.join(tts_dir, f"{base_name}.txt")
+                suffix = "_blind" if args.blind_mode else ""
+                output_path = os.path.join(tts_dir, f"{base_name}{suffix}.txt")
                 
                 try:
                     with open(output_path, 'w', encoding='utf-8') as out_f:
@@ -211,6 +245,7 @@ def main():
              print(f"::warning title=Duration Long::Total {format_time(total_secs)} exceeds 75m limit.")
         else:
              print(f"::notice title=Duration Perfect::Total {format_time(total_secs)} is within standard.")
+
 
 if __name__ == "__main__":
     main()

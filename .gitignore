@@ -7,10 +7,19 @@
 .hypothesis/
 .pytest_cache/
 .ruff_cache/
+__pycache__/
+*.py[cod]
+*$py.class
 
 # Virtual Environments
 venv/
 migration_scripts/venv/
+.venv/
+
+# Node.js
+node_modules/
+dist/
+.npm/
 
 # Adobe Backups
 Backup/

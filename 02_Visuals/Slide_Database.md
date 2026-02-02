@@ -273,29 +273,97 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 原始的自动化
 *   **Visual**: The 1940 Fantasound Speaker Layout + The "Tadpole" optical track.
 *   **Caption**: "The Ancestor of Automation."
+*   **Ref**: ![S05_Fantasound_Layout](./assets/S05_Phase4_Position/S05_Fantasound_Layout_cap.png)
 
-## S05_UI_The_Wall
+## S05_Setup_Surround_NewSession
 *   **Type**: [UI/Screenshot]
-*   **Concept**: 压迫之墙 (ILD)
-*   **Visual**: Automation Lane for Low Pass Filter.
-*   **Curve**: Rising from 50Hz to 5000Hz (Opening the gate).
-*   **Ref**: ![S05_UI_The_Wall](./assets/S05_Phase4_Position/S05_UI_The_Wall.png)
+*   **Concept**: 5.1 环境设置
+*   **Visual**: New Multitrack Session Dialog with "5.1 Surround" highlighted.
+*   **Ref**: ![S05_Setup_Surround_NewSession](./assets/S05_Phase4_Position/S05_Setup_Surround_NewSession_cap.png)
 
-
-## S05_UI_The_Needle
+## S05_Setup_Bus_Creation
 *   **Type**: [UI/Screenshot]
-*   **Concept**: 焦虑之刺 (Doppler)
-*   **Visual**: Automation Lane for Pan + Pitch.
-*   **Curve**: Pan = Fast Sine Wave; Pitch = Tiny dip (-50 cents) at center.
-*   **Ref**: ![S05_UI_The_Needle](./assets/S05_Phase4_Position/S05_UI_The_Needle.png)
+*   **Concept**: 创建总线
+*   **Visual**: Multitrack View showing "Add Stereo Bus Track" menu action.
+*   **Ref**: ![S05_Setup_Bus_Creation](./assets/S05_Phase4_Position/S05_Setup_Bus_Creation_cap.png)
+
+## S05_Setup_Track_Naming
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 轨道命名与布局
+*   **Visual**: Track list showing The Void (Bus), T1-Heart (Mono, BoneEQ), T2-Wall, T3-Needle.
+*   **Ref**: ![S05_Setup_Track_Naming](./assets/S05_Phase4_Position/S05_Setup_Track_Naming_cap.png)
+
+## S05_Setup_Sends_Routing
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 发送路由
+*   **Visual**: Mixer View showing Sends to "The Void" at -3dB.
+*   **Ref**: ![S05_Setup_Sends_Routing](./assets/S05_Phase4_Position/S05_Setup_Sends_Routing_cap.png)
+
+## S05_Setup_Surround_NewSession
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 建立笼子
+*   **Visual**: New Multitrack Session dialog selecting "5.1".
+*   **Ref**: ![S05_Setup_Surround_NewSession](./assets/S05_Phase4_Position/S05_Setup_Surround_NewSession_cap.png)
+
+## S05_Wall_EQ_Start
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 墙在远方
+*   **Visual**: Parametric EQ at 50Hz / -40dB (Muffled, distant).
+*   **Ref**: ![S05_Wall_EQ_Start](./assets/S05_Phase4_Position/S05_Wall_EQ_Start_cap.png)
+
+## S05_Automation_Curve
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 蝌蚪的后裔
+*   **Visual**: Close-up of an automation envelope line with keyframes, looking like a "tadpole" or biological curve.
+*   **Ref**: ![S05_Automation_Curve](./assets/S05_Phase4_Position/S05_Automation_Curve_cap.png)
+
+## S05_Wall_EQ_End
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 墙在眼前 (刺破)
+*   **Visual**: Parametric EQ at 20,000Hz / +36dB (Impact, piercing).
+*   **Ref**: ![S05_Wall_EQ_End](./assets/S05_Phase4_Position/S05_Wall_EQ_End_cap.png)
+
+
+## S05_Needle_Automation_Setup_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 焦虑之刺 (Setup)
+*   **Visual**: Setup showing Pan Angle and Radius envelopes enabled for Track 3.
+*   **Ref**: ![S05_Needle_Automation_Setup_cap](./assets/S05_Phase4_Position/S05_Needle_Automation_Setup_cap.png)
+
+## S05_Needle_Pan_Angle_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 360度环绕
+*   **Visual**: Pan Angle envelope moving from -180 to +180 degrees.
+*   **Ref**: ![S05_Needle_Pan_Angle_cap](./assets/S05_Phase4_Position/S05_Needle_Pan_Angle_cap.png)
+
+## S05_Needle_Pan_Radius_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 螺旋逼近
+*   **Visual**: Pan Radius envelope dropping from 96% to 20%.
+*   **Ref**: ![S05_Needle_Pan_Radius_cap](./assets/S05_Phase4_Position/S05_Needle_Pan_Radius_cap.png)
+
+## S05_Needle_Pan_Random_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 随机不规则环绕
+*   **Visual**: Spline curves showing chaotic/random pan movement.
+*   **Ref**: ![S05_Needle_Pan_Random_cap](./assets/S05_Phase4_Position/S05_Needle_Pan_Random_cap.png)
 
 
 ## S05_Jungian_Shadow
-*   **Type**: [Concept Art]
+*   **Type**: [Extension]
 *   **Concept**: 荣格阴影
 *   **Visual**: A silhouette of a person casting a shadow that is a different monster/shape.
 *   **Text**: "The Shadow: The rejected self."
-*   **Ref**: ![S05_Jungian_Shadow](./assets/S05_Phase4_Position/S05_Jungian_Shadow.png)
+*   **Ref**: ![S05_Jungian_Shadow](./assets/S05_Phase4_Position/Extension/S05_Jungian_Shadow_ai.png)
+
+
+
+
+## S05_Ext_Shadow_Panner_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 阴影的位置 (Behind Head)
+*   **Visual**: Pan Angle -179, Radius 17.
+*   **Ref**: ![S05_Ext_Shadow_Panner_cap](./assets/S05_Phase4_Position/Extension/S05_Ext_Shadow_Panner_cap.png)
 
 
 ## S05_Azimuth_Coordinator
@@ -320,21 +388,21 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 ## S05_Act_Draw_Filter
 *   **Type**: [Live Demo]
-*   **Target**: Track 4 Automation Lane (Parametric EQ)
+*   **Target**: Track 2 Automation Lane (Parametric EQ)
 *   **Action**: 绘制 Low Pass Filter 曲线 (Approaching Wedge)。频率从 50Hz (潜意识) 平滑上升至 5000Hz (现实逼近)。
 *   **Duration**: ~10s
 *   **Caption**: "The Wall is opening."
 
 ## S05_Act_Perform_Pan
 *   **Type**: [Live Demo]
-*   **Target**: Track 5 Pan Automation Lane
-*   **Action**: (Write Mode) 随着节奏疯狂、不规则地左右摇摆声像旋钮，模拟焦虑的心电图。
-*   **Duration**: ~10s
-*   **Caption**: "Anxiety is not a Sine Wave."
+*   **Target**: Track 3 Pan Automation Lane (Angle & Radius)
+*   **Action**: (Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间随机跳跃，Radius 逐渐减小。
+*   **Duration**: ~15s
+*   **Caption**: "Drawing the Anxiety with Splines."
 
 ## S05_Act_Add_Doppler
 *   **Type**: [Live Demo]
-*   **Target**: Track 5 Pitch Automation Lane
+*   **Target**: Track 3 Pitch Automation Lane
 *   **Action**: 微调 Pitch 曲线。当 Pan 穿过 Center 时，Pitch 每个周期下降 -50 cents 再回弹。
 *   **Duration**: ~5s
 *   **Caption**: "Doppler Effect: The sound is flying OVER you."
@@ -346,3 +414,39 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Duration**: ~2s (Impact)
 *   **Caption**: "Geometric Collapse."
 
+## S05_Void_EQ_Settings
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 深渊EQ设置
+*   **Visual**: Parametric EQ settings for The Void bus.
+*   **Ref**: ![S05_Void_EQ_Settings](./assets/S05_Phase4_Position/S05_Void_EQ_Settings_cap.png)
+
+## S05_Void_Expander_Location
+*   **Type**: [Extension]
+*   **Concept**: Expander 效果器位置
+*   **Visual**: Rack menu showing Stereo Imaging > Stereo Expander.
+*   **Ref**: ![S05_Void_Expander_Location](./assets/S05_Phase4_Position/S05_Void_Expander_Location_cap.png)
+
+## S05_Void_Expander_Settings
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 150% 宽度
+*   **Visual**: Stereo Expander set to 150 (Extra Wide).
+*   **Ref**: ![S05_Void_Expander_Settings](./assets/S05_Phase4_Position/S05_Void_Expander_Settings_cap.png)
+
+
+## S05_Heart_EQ_Settings_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 极致孤独 EQ
+*   **Visual**: Parametric EQ: Low Pass 200Hz (48dB/Oct). Only sub-bass remains.
+*   **Ref**: ![S05_Heart_EQ_Settings_cap](./assets/S05_Phase4_Position/S05_Heart_EQ_Settings_cap.png)
+
+## S05_Heart_Panner_Settings_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 心脏声像 (Diffusion)
+*   **Visual**: Track Panner: Radius 0, Stereo Spread 30 degrees.
+*   **Ref**: ![S05_Heart_Panner_Settings_cap](./assets/S05_Phase4_Position/S05_Heart_Panner_Settings_cap.png)
+
+## S05_Ext_Shadow_Panner_cap
+*   **Type**: [Extension/Screenshot]
+*   **Concept**: 脑后低语 (Behind Head)
+*   **Visual**: Track Panner: Angle -179, Radius 17 (Very Close).
+*   **Ref**: ![S05_Ext_Shadow_Panner_cap](./assets/S05_Phase4_Position/S05_Ext_Shadow_Panner_cap.png)

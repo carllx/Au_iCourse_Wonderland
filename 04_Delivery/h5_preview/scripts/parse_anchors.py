@@ -60,6 +60,49 @@ def parse_anchors(script_path: Path):
             # 先去除 Markdown (如 加粗) 以便进行元数据检测
             clean_line = re.sub(r"\*\*|__", "", line).strip()
             
+            # --- Robustness Improvements (2026-02-02) ---
+            # 1. Strip List Markers ("1. ", "2. ")
+            clean_line = re.sub(r"^\d+\.\s*", "", clean_line)
+            
+            # 2. Strip Metadata Prefixes ("Technique: ", "Step: ", "Note: ")
+            # If the line starts with these, it's likely metadata, not dialogue.
+            # But if we strip it, we might be left with the content. 
+            # Strategy: If it looks like metadata, skip the whole line? 
+            # Or assume the content is spoken? 
+            # For "Technique: 偷梁换柱", likely not spoken if it's a title.
+            if re.match(r"^(Technique|Step|Note|Scene|Action):", clean_line, re.IGNORECASE):
+                continue
+
+            # 3. Strip Parenthetical Notes at end of line (e.g. " (End: Piercing)")
+            # or within the text if they look like notes ?
+            # Let's just remove anything in (...) if it's at the end, or maybe globally?
+            # "S05_Needle_Pan_Radius_cap" had "2. 半径 (Radius): ..."
+            # We want "半径: ..."
+            clean_line = re.sub(r"\([^\)]+\)", "", clean_line).strip()
+            
+            # 4. Remove trailing colons/punctuation commonly used in headers
+            clean_line = re.sub(r"[:：]$", "", clean_line).strip()
+            # -----------------------------------------------
+            
+            # -----------------------------------------------
+            # [PATCH 2026-02-02] Support Class A/B Semantic Tags (Spoken Content)
+            # Check for > [TAG] pattern before skipping metadata
+            semantic_spoken_match = re.match(r"^\s*>\s*\[(STORY TIME|PHILOSOPHY|CULTURAL REF|TEACHING MOMENT|TECH NOTE|DID YOU KNOW|WARNING)[^\]]*\]:?\s*(.*)", clean_line, re.IGNORECASE)
+            if semantic_spoken_match:
+                # Extract the content after the tag
+                content_after_tag = semantic_spoken_match.group(2).strip()
+                if content_after_tag:
+                   # Treat as valid spoken anchor
+                   anchor_text = content_after_tag
+                   anchor_text = re.sub(r"\*\*|__", "", anchor_text)
+                   anchors.append({
+                       "slide_id": pending_slide,
+                       "anchor_text": anchor_text,
+                       "line_no": i + 1
+                   })
+                   pending_slide = None
+                   continue
+
             # 跳过元数据行 (空行, 语气提示, 引用, 分割线, 镜头指示)
             # 现在 checks clean_line, 所以 **(镜头)** 变成了 (镜头), 可以被 ^\( 匹配
             if meta_pattern.match(clean_line):

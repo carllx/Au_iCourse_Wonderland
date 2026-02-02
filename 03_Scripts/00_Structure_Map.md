@@ -80,9 +80,11 @@
 
 | Timeline | Topic | Key Content / Director's Note | Visual Ref (PPT) | Action Ref (Design Spec) |
 | :--- | :--- | :--- | :--- | :--- |
-| **65-68'** | Theory (O) | 声音是有形状的。**Width** 是宽度，**Pan** 是轨迹。介绍 "Object-Based Audio" 概念：不是把声音放在左边，而是让声音**走**到左边。 | `[SLIDE: S05_Visual_Inception]` (动态螺旋雷达图示意) | N/A |
-| **68-70'** | **Guided Listening** | **深听时刻 (30s)**：戴耳机。闭眼感受两股力量：<br>1. **The Wall**: 从正前方压过来的低频墙。<br>2. **The Needle**: 在头顶盘旋的高频刺。 | `[SLIDE: S05_Visual_Inception]` | `[Spec > Phase 4 > Listening]` |
-| **70-75'** | Demonstration | 执行 Automation。<br>1. **Consciousness**: 骨导 EQ (主角 0.7)。<br>2. **Shadow**: 反向 + 降调 (回声 0.25, 延迟 0.5s)。<br>3. **Needle**: 绘制 360° 螺旋线 (Doppler)。<br>4. **Wall**: 绘制 Low Pass Filter 打开曲线 (Approaching)。<br>**高潮时刻**: 当 Needle 刺入眉心时，Width 瞬间炸开至 150%。 | `[SLIDE: S05_Visual_Inception]` | `[Spec > Phase 4 > ACT_07/08]` |
+| **65-68'** | Theory (History) | **引入 Fantasound (1940)**：从 Blumlein 的脚步到迪士尼的“蝌蚪”控制轨。自动化不仅是技术，是声音的生命线。 | `[SLIDE: S05_Blumlein_Walking]` <br> `[SLIDE: S05_Fantasound_Layout]` | N/A |
+| **68-69'** | Practice (Setup) | **建立力场 (Force Field)**: 5.1 环绕声设置。Routing Check.Bus "The Void" (Omnibus). | `[SLIDE: S05_Setup_Surround_NewSession]` <br> `[SLIDE: S05_Setup_Bus_Creation]` | N/A |
+| **69-72'** | Practice (The Wall) | **压迫之墙 (ILD)**: 低频绕射 vs 高频遮蔽。画出 Low Pass Filter 曲线，像一扇缓慢关闭的门。 | `[SLIDE: S05_Wall_EQ_Start]` <br> `[SLIDE: S05_Wall_EQ_End]` | `[ACTION: S05_Act_Draw_Filter]` |
+| **72-74'** | Practice (The Needle) | **焦虑之刺 (Doppler)**: 声音的螺旋。Confusing the brain. 只有动起来的声音才是可怕的。 | `[SLIDE: S05_Needle_Automation_Setup_cap]` <br> `[SLIDE: S05_Needle_Pan_Random_cap]` | `[ACTION: S05_Act_Perform_Pan]` |
+
 
 ---
 

@@ -290,10 +290,6 @@ def main():
     hb = generate_visceral_heartbeat(DUR, FS)
     save_wav(os.path.join(OUT_DIR, "asset_S05_heartbeat_visceral.wav"), hb)
     
-    print("  1.2 Shadow Self (Reverse Voice)")
-    shadow = process_shadow_self(SRC_VOICE, DUR, FS)
-    save_wav(os.path.join(OUT_DIR, "asset_S05_shadow_self.wav"), shadow)
-    
     print("  1.3 Pressure Source (The Wall)")
     pressure_src = generate_pressure_source(DUR, FS)
     save_wav(os.path.join(OUT_DIR, "asset_S05_threat_pressure.wav"), pressure_src)

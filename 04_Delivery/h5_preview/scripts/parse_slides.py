@@ -22,71 +22,38 @@ SLIDE_DB_PATH = PROJECT_ROOT / "02_Visuals" / "Slide_Database.md"
 STRUCTURE_MAP_PATH = PROJECT_ROOT / "03_Scripts" / "00_Structure_Map.md"
 SCRIPTS_DIR = PROJECT_ROOT / "03_Scripts"
 TTS_DIR = SCRIPTS_DIR / "tts"
+TIMELINE_JSON_PATH = PROJECT_ROOT / "03_Scripts/timeline.json"
 OUTPUT_PATH = PROJECT_ROOT / "04_Delivery" / "h5_preview" / "public" / "slides.json"
 
 # ============================================================
-# 布局模板 (Layout Templates) - 移植自 scaffold_visual_assets.py
+# 布局模板映射 (Template Mapping)
 # ============================================================
 
-LAYOUT_TEMPLATES = {
-    'Motion Graphic': {
-        'zones': [
-            {'name': 'TITLE', 'x': 0.1, 'y': 0.35, 'w': 0.8, 'h': 0.15},
-            {'name': 'SUBTITLE', 'x': 0.2, 'y': 0.55, 'w': 0.6, 'h': 0.08},
-            {'name': 'VISUAL', 'x': 0.3, 'y': 0.7, 'w': 0.4, 'h': 0.15},
-        ],
-        'is_centered': True
-    },
-    'UI Graphic': {
-        'zones': [
-            {'name': 'TITLE', 'x': 0.05, 'y': 0.05, 'w': 0.9, 'h': 0.12},
-            {'name': 'LIST', 'x': 0.05, 'y': 0.2, 'w': 0.45, 'h': 0.6},
-            {'name': 'VISUAL', 'x': 0.52, 'y': 0.2, 'w': 0.43, 'h': 0.6},
-        ],
-        'is_centered': False
-    },
-    'UI Composite': {
-        'zones': [
-            {'name': 'TITLE', 'x': 0.05, 'y': 0.05, 'w': 0.9, 'h': 0.1},
-            {'name': 'LEFT PANEL', 'x': 0.05, 'y': 0.18, 'w': 0.43, 'h': 0.6},
-            {'name': 'RIGHT PANEL', 'x': 0.52, 'y': 0.18, 'w': 0.43, 'h': 0.6},
-            {'name': 'CAPTION', 'x': 0.1, 'y': 0.82, 'w': 0.8, 'h': 0.1},
-        ],
-        'is_centered': False
-    },
-    'Diagram': {
-        'zones': [
-            {'name': 'TITLE', 'x': 0.1, 'y': 0.08, 'w': 0.8, 'h': 0.1},
-            {'name': 'DIAGRAM', 'x': 0.1, 'y': 0.22, 'w': 0.8, 'h': 0.55},
-            {'name': 'CAPTION', 'x': 0.15, 'y': 0.82, 'w': 0.7, 'h': 0.1},
-        ],
-        'is_centered': True
-    },
-    'Concept Art': {
-        'zones': [
-            {'name': 'VISUAL (Full Bleed)', 'x': 0.0, 'y': 0.0, 'w': 1.0, 'h': 0.85},
-            {'name': 'CAPTION', 'x': 0.1, 'y': 0.87, 'w': 0.8, 'h': 0.1},
-        ],
-        'is_centered': True
-    },
-    'Stock/Reference': {
-        'zones': [
-            {'name': 'IMAGE', 'x': 0.1, 'y': 0.1, 'w': 0.8, 'h': 0.7},
-            {'name': 'SOURCE', 'x': 0.2, 'y': 0.85, 'w': 0.6, 'h': 0.08},
-        ],
-        'is_centered': True
-    },
-    'Live Demo': {
-        'zones': [
-            {'name': 'TITLE', 'x': 0.05, 'y': 0.05, 'w': 0.9, 'h': 0.1},
-            {'name': 'TARGET', 'x': 0.05, 'y': 0.18, 'w': 0.4, 'h': 0.08},
-            {'name': 'DURATION', 'x': 0.5, 'y': 0.18, 'w': 0.45, 'h': 0.08},
-            {'name': 'ACTION_SCENE', 'x': 0.05, 'y': 0.3, 'w': 0.9, 'h': 0.5},
-            {'name': 'CAPTION', 'x': 0.1, 'y': 0.82, 'w': 0.8, 'h': 0.1},
-        ],
-        'is_centered': False
-    }
+TEMPLATE_MAPPING = {
+    'UI Graphic': 'Layout_Content',       # 经典图文 (上标题+左文+右图)
+    'UI Composite': 'Layout_Split',       # 左右分屏 (对比/组合)
+    'Diagram': 'Layout_Content',          # 图表通常也是图文结构
+    'Concept Art': 'Layout_FullBleed',    # 全屏艺术图
+    'Motion Graphic': 'Layout_Cinema',    # 全屏视频
+    'Video': 'Layout_Cinema',             # 全屏视频
+    'Live Demo': 'Layout_Demo',           # 演示专用
+    'Stock/Reference': 'Layout_FullBleed',# 参考图全屏
+    'Title': 'Layout_Title',              # 标题页
+    'Metaphor': 'Layout_FullBleed',       # 隐喻通常是全屏图
+    'Photo/Historical': 'Layout_Content', # 历史照片通常配文
+    'Photo/Band': 'Layout_FullBleed',     # 乐队通常全屏
+    'Photo/Art': 'Layout_FullBleed',      # 艺术作品全屏
+    'Chart': 'Layout_Content',            #通过图文展示
+    'Task Card': 'Layout_Title',          # 任务卡片类似标题页
+    'Animation': 'Layout_Cinema',         # 动画即视频
+    'Text/Minimalist': 'Layout_Title',    # 极简文字
+    'Diagram/Historical': 'Layout_Split', # 历史图表左右对比
+    'Diagram/Comparison': 'Layout_Split', # 对比图左右对比
+    'UI/Screenshot': 'Layout_FullBleed',  # 界面截图通常全屏
 }
+
+# 默认回退模板
+DEFAULT_TEMPLATE = 'Layout_Content'
 
 # ============================================================
 # 解析器
@@ -139,8 +106,13 @@ def parse_slide_block(lines: list) -> dict:
     
     content = "\n".join(lines)
     
-    # 提取 Type: \*\*Type\*\*: \[(.*?)\]
+    # 提取 Type: \*\*Type\*\*:\s*\[(.*?)\]
+    # Note: Regex slightly adjusted to be robust
     type_match = re.search(r"\*\s+\*\*Type\*\*:\s*\[(.*?)\]", content)
+    if not type_match:
+         # Try with space
+         type_match = re.search(r"\*\s+\*\*Type\*\*\s*:\s*\[(.*?)\]", content)
+
     if type_match:
         data["type"] = type_match.group(1)
     
@@ -307,8 +279,17 @@ def build_manifest() -> dict:
     slides_db = parse_slide_database(SLIDE_DB_PATH)
     sections = parse_structure_map(STRUCTURE_MAP_PATH)
     
+    # [NEW] 读取持久化时间轴数据
+    timeline_data = {} 
+    if TIMELINE_JSON_PATH.exists():
+        try:
+            with open(TIMELINE_JSON_PATH, "r", encoding="utf-8") as f:
+                timeline_data = json.load(f)
+        except Exception as e:
+            print(f"⚠️ Warning: Failed to read timeline.json: {e}")
+
     manifest = {
-        "version": "1.1",
+        "version": "1.4", # Architecture Refactor
         "generated": "",
         "sections": []
     }
@@ -335,24 +316,48 @@ def build_manifest() -> dict:
                 slide_info = slides_db[slide_id].copy()
                 slide_info["id"] = slide_id
                 
-                # 注入布局模板
+                # 注入模板 (Template) 而不是 Layout Zones
                 stype = slide_info.get("type", "Unknown")
-                slide_info["layout"] = LAYOUT_TEMPLATES.get(stype, LAYOUT_TEMPLATES['UI Graphic'])
+                # 模糊匹配逻辑：如果 type 包含 'Graphic'，优先匹配
+                # 这里要做简单的 key 查找
+                mapped_template = DEFAULT_TEMPLATE
+                
+                # 精确/模糊匹配策略
+                if stype in TEMPLATE_MAPPING:
+                    mapped_template = TEMPLATE_MAPPING[stype]
+                else:
+                    # 尝试前缀匹配 (e.g. "Diagram/Historical" -> "Layout_Split")
+                    for k, v in TEMPLATE_MAPPING.items():
+                        if k in stype: # 简单的子串匹配
+                            mapped_template = v
+                            break
+                            
+                slide_info["template"] = mapped_template
                 
                 # 查找物理资产 (图片)
                 img_path = find_visual_asset(slide_id, section_id)
                 if img_path:
                     slide_info["image"] = img_path
                 
+                # [FIX] 注入保留的时间戳 (From timeline.json)
+                # Key is just slide_id now
+                if slide_id in timeline_data:
+                    slide_info["startTime"] = timeline_data[slide_id]
+
                 section_data["slides"].append(slide_info)
             else:
                 # 未定义的 slide，创建简单占位
-                section_data["slides"].append({
+                placeholder = {
                     "id": slide_id,
                     "type": "Placeholder",
                     "text": slide_id,
-                    "layout": LAYOUT_TEMPLATES['UI Graphic']
-                })
+                    "template": "Layout_Title" # 占位符默认由 Title 样式承载
+                }
+                # [FIX] 注入保留的时间戳 (From timeline.json)
+                if slide_id in timeline_data:
+                    placeholder["startTime"] = timeline_data[slide_id]
+                
+                section_data["slides"].append(placeholder)
         
         manifest["sections"].append(section_data)
     

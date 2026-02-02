@@ -80,29 +80,31 @@
 
 ## Phase 4: 定位 (Position) — 动态的几何学
 > *Technical Reference: Multitrack Session > Effects > Stereo Imagery > Stereo Expander & Automation*
-> *ACT_ID: [ACT_07_Multitrack_Setup], [ACT_08_Dynamic_Shape]*
+> *ACT_ID: [ACT_07_Multitrack_Setup], [ACT_08_Dynamic_Shape], [S05_Act_Draw_Filter], [S05_Act_Perform_Pan]*
 
 *   **Story**: 在深渊底部，爱丽丝不仅要面对"孤独"(Width)，还要面对"围剿"(Motion)。
 *   **Action (多轨构建)**:
     *   [ ] **Track 1 (Voice)**: 愛麗絲。**Center**。
     *   [ ] **Track 2 (Heart)**: `asset_S05_heartbeat_visceral.wav` (Concept: **The Nail/Spatial Anchor**)。
-        *   **Width**: 强制设为 Mono **0%** (死寂的点，定海神针)。
+        *   **Width**: **Stereo Spread 30° (Radius 0)**. 虽在中心，但保留微弱弥散感。
+        *   **EQ**: **Low Pass 200Hz (48dB/Oct)**. 极致骨导。
+        *   **Gain**: **-3dB** (Safety: Prevent Resonance Clipping).
     *   [ ] **Track 3 (Shadow)**: `asset_S05_shadow_self.wav`。
         *   *Sound*: **Reverse + Pitch Shift (-3 semitones)**。
-        *   *Pan*: **Center**。它是心魔，不应该有位置偏倚。
+        *   *Pan*: **Angle -179° (Behind Head)**, **Radius 17**, **Spread 30°**. (Extension: 荣格阴影)。
         *   *Mix*: **0.25** (背景回声)，延迟 0.5s 开始。
     *   [ ] **Track 4 (The Wall)**: `asset_S05_threat_pressure.wav`。
         *   *Movement*: **Approaching** (逼近)。
-        *   *Tech*: Low Pass Filter 逐渐打开 (50Hz -> 5000Hz) + 立体声宽度从窄变宽。
+        *   *Tech*: **High Shelf Trick** (Simulating LPF) to avoid "Zipper Noise".
+            *   Freq: 2000Hz -> 20kHz.
+            *   Gain: -40dB -> **+12dB** (Safety Limit).
         *   *Feeling*: 一堵墙正迎面压过来。
     *   [ ] **Track 5 (The Needle)**: `asset_S05_threat_anxiety.wav`。
         *   *Movement*: **Spiral** (螺旋)。
-        *   *Tech*: 360° Panning Automation + Doppler Effect (Pitch Shift)。
+        *   *Tech*: **Draw Keyframes** (Spline Curves). Angle -180/+180 Random jump. Radius **96% -> 20%**.
+        *   *Doppler*: Pitch Shift 配合 Pan 穿越中点时微调。
         *   *Feeling*: 一根刺在头顶疯狂盘旋。
-    *   [ ] **Track 6 (Consciousness)**: `asset_S05_conscious_voice.wav`。
-        *   *Sound*: **Dry + Bone Conduction EQ** (极干 + 骨导温暖)。
-        *   *Pan*: **Center**。它是"我"的主体性位置。
-        *   *Mix*: **0.7** (主角声音)。
+
     *   [ ] **Width Automation**:
         *   当 Track 4 & 5 逼近高潮时，将全局 Reverb 的 Width 推至 **150%**。
         *   *Experience*: 极端动态的物理压迫 vs 极端空旷的心理荒野。

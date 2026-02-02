@@ -23,19 +23,44 @@
 *   **规则**: 脚本中提到的参数值，必须与 `01_MVP_Demo/00_Design_Spec_Alice.md` 完全一致。
 *   **例如**: 如果 Map 里是 `-2 Semitones`，脚本里不能说 "降低一个八度"。
 
-### 4. 数据一致性校验 (Consistency Check)
+### 4. 语义清晰度审查 (Semantic Clarity)
+*   **规则**: 核心教学隐喻与重要技术警告，必须使用 `> [TEACHING MOMENT]` 或 `> [WARNING]` 显式标记。
+*   **Fail**: 将关键的“拉链噪音”警告隐藏在无标签的引用块中（会被系统视为视觉备注而被剥离）。
+*   **Fail**: 将 "Bus is Rain" 这种核心隐喻写在普通正文里，没有视觉高亮。
+
+### 5. 数据一致性校验 (Consistency Check)
 *   **规则**: 脚本中出现的所有数值与操作 (e.g. +5 Semitones, 75% Reduction) 必须与Prompt中的 `00_Design_Spec_Alice.md` 完全锁定。
 *   **Fail**: Design Spec 说 +5，脚本里写 +3。 (这是严重的技术错误，必须 REJECT)。
 *   **Fail**: Design Spec 说 "Abyss IR"，脚本里用 "Plate Reverb"。
+
+### 6. 认知压力测试 (Cognitive Stress Test)
+*   **A. 颗粒化复述 (Granular Retelling)**:
+    *   **要求**: 必须检查脚本中的操作链路是否连续。
+    *   **Fail**: 如果某两步之间存在逻辑断层 ("为什么突然要做这一步?")，必须标注 **[Fault Line]**。
+*   **B. 费曼审查 (Feynman Check)**:
+    *   **要求**: 所有的声学概念必须有通俗的物理隐喻 (e.g. 堵车 vs 频率遮蔽)。
+    *   **Fail**: 如果只有术语没有隐喻，标记为 **[Semantics Suspended]** (悬浮)。
+*   **C. 脆弱性提问 (Vulnerability Question)**:
+    *   **要求**: 每一章必须有一个拷问核心价值的问题。
+    *   **Fail**: 如果用户只听不做就没有任何收获，则通过率为 0。
 
 ## 执行指令 (Instructions)
 作为一个 Auditor，请阅读目标文件，并输出一份 **Audit Report**：
 
 ```markdown
 ## Audit Report for [Filename]
+
+### Part A: Narrative Integrity (INI Check)
+* [✅/❌] Invisible Instructions: (引用 Linter 结果)
+
+### Part B: Pedagogy & Cognitive Check
 * [✅/❌] Director's Voice: (评语)
 * [✅/❌] Deep Listening: (评语，指出留白位置)
 * [✅/❌] Technical Accuracy: (评语)
-* [✅/❌] Design Spec Consistency: (评语，是否所有参数都与Alice的设计规范一致)
+* [✅/❌] Cognitive Stress Test:
+    * **Granular Logic**: (是否存在断层?)
+    * **Feynman Metaphor**: (隐喻是否通俗?)
+    * **Value**: (用户只听不做能学到什么?)
+
 * **Conclusion**: (PASS / REJECT)
 ```

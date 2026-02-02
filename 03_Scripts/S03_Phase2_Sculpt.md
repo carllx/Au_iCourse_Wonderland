@@ -9,7 +9,7 @@
 
 ### Segment 0: 引入 - 声音的尸体 (The Corpse)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: Audition 波形编辑器 (Waveform Editor)。
 > *   **Ref**: `[SLIDE: S02_Ugly_Duckling]`
 > *   **Asset**: 屏幕上是一个极短、极细的波形 `demo_S03_ugly_duckling.wav`。
@@ -21,13 +21,13 @@
 上一节课，我们杀死了所有的噪音，得到了一片纯净的真空。
 但代价是什么？
 
-(停顿)
-(停顿)
+> [PACING] Pause
+> [PACING] Pause
 爱丽丝为了进入这个数字世界，喝下了缩小的药水。
 **这药水不仅压缩了她的时间，也压扁了她的喉咙。**
 我们要面对的，是**共鸣腔体 (Resonance)** 的全面坍塌。
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Action**: [ACT: Play_Audio] 播放原始 `demo_S03_ugly_duckling.wav`。
 > *   **Subtitle**: "Original Audio: High-pitched, No Body, Nervous" (原声：尖锐、无体量、神经质)。
 
@@ -49,7 +49,7 @@
 
 ### Segment 1: 物理学 - 克洛诺斯的诅咒 (Cronos & Tape)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 全黑画面，中央出现一盘旋转的**老式开盘磁带 (Reel-to-Reel Tape)**。
 > *   **Ref**: `[SLIDE: S03_Tape_Machine]`
 > *   **Animation**: 磁带转速忽快忽慢。
@@ -62,7 +62,7 @@
 但这也意味着，声音的长度变短了，时间流逝变快了。
 就像希腊神话里的 **Cronos (时间之神)**，他为了维持秩序，必须吞噬自己的孩子。
 
-(停顿)
+> [PACING] Pause
 (严肃地补充)
 这也是为什么我们必须检查**采样率 (Sample Rate)**。
 如果你的素材依然是 44.1kHz，当你把速度拉慢，原本的高频信息会不够用，声音会出现金属般的**数字伪影 (Aliasing)**。
@@ -72,14 +72,14 @@
 你听，音调 (Pitch) 和 时间 (Time)，曾是一对被锁死的双胞胎。
 你想飞得高，生命就得燃烧得快。
 
-> **[CULTURAL REF]**:
+> [CULTURAL REF]:
 > *   **HAL 9000 (2001: A Space Odyssey)**: 在被拔除记忆模块时，HAL 唱起了《Daisy Bell》。随着意识的消亡，声音越来越低，越来越慢。那是影史上最著名的 Pitch/Time 联动——**降调即死亡**。
 
 ---
 
 ### Segment 2: 哲学 - 声音的分离 (L'Objet Sonore)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 全黑画面，中央出现一张老照片：**Pierre Schaeffer** 在 1948 年的巴黎工作室操作唱机。
 > *   **Ref**: `[SLIDE: S03_Pierre_Schaeffer]`
 > *   **Graphic**: 并不是波形，而是一个被切断了脐带的、悬浮在空中的发光球体。
@@ -93,7 +93,7 @@
 但舍费尔做了一个手术：他切断了声音与源头的联系。
 他提出了 **"Sound Object" (声音对象)** 的概念。
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Action**: [ACT: Zoom_In] 镜头拉近到波形。
 > *   **Metaphor**: 波形变成了一块大理石。
 
@@ -112,7 +112,7 @@
 
 ### Segment 3: 错误的诱惑 - 花栗鼠效应 (The Chipmunk Trap)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: Audition `Effects > Time and Pitch > Stretch and Pitch` 面板。
 > *   **Ref**: `[SLIDE: S03_Chipmunk]`
 > *   **Action**: [ACT: Set_Pitch_Only] 仅将 Pitch 设为 +3，不勾选 Preserve Speech Characteristics。
@@ -135,14 +135,14 @@
 我们要的是**悲剧 (Tragedy)**，它需要重量，需要低频的支撑。
 所以，请立刻停止这种简单的升调。
 
-> **[CULTURAL REF]**:
+> [CULTURAL REF]:
 > *   **Fred Moten (Resisting Object)**: 为什么这个简单的处理听起来这么刺耳？正如学者 Fred Moten 所说，这是一个 **"Resisting Object" (抵抗的客体)**。它拒绝被简单地消费，拒绝被平庸地修复。这个声音里有它自己的意志，如果你粗暴地对待它，它就会发出滑稽的尖叫来嘲笑你。
 
 ---
 
 ### Segment 4: 时间膨胀 - 盗梦空间的慢镜头 (Inception)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 面板参数特写。
 > *   **Action**: [ACT: Set_Algorithm] 选择算法 **iZotope Radius**。
 > *   **Action**: [ACT: Set_Stretch] 输入 **135%**。
@@ -175,14 +175,14 @@
 在这个案例里，是 135%。
 我们要强制让时间在她的喉咙里慢下来，以此来对抗她变小的身体。
 
-> **[CULTURAL REF]**:
+> [CULTURAL REF]:
 > *   **Burial (Untrue)**: 这位隐匿的英国制作人，通过极度拉伸的 Vocal Sample (Time Stretch) 制造出一种“幽灵在城市上空游荡”的悲伤感 (Hauntology)。
 
 ---
 
 ### Segment 5: 身体的隐喻 - 大提琴与教堂 (The Cello Body)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 剖面解剖图。左边是声带 (Vocal Folds)，右边是声道 (Vocal Tract)。
 > *   **Ref**: `[SLIDE: S03_Cello_Body]` (S03_Visual_Alice_Drink as secondary)
 > *   **Metaphor**: 图像渐变。声带变成了**琴弦**，声道变成了**大提琴的共鸣箱 (Body)**。
@@ -207,12 +207,12 @@
 这是爱丽丝的骨架。调高它，爱丽丝会变薄（精灵）；调低它，爱丽丝会变老（巨人）。我们要的是 20 岁的她，不多，不少。
 这是一种**“人造的神性”**。
 
-> **[CULTURAL REF]**:
+> [CULTURAL REF]:
 > *   **Her (Samantha)**: 记得电影《她》里的萨曼莎吗？她没有身体 (No Body)，但斯嘉丽·约翰逊的声音却通过这种特质，创造了一种 **"Hyper-presence" (超在场)**。我们现在做的，就是为爱丽丝构建这样一个“看不见的身体”。
 > *   **Prince ("Camille")**: 1986年，Prince 通过调节磁带速度和共振峰，创造了一个邪恶、雌雄同体的分身 "Camille"。他不是在变声，他是在**创造另一个自我**。
 > *   **Frank Ocean ("Nikes")**: 用 Formant Shift 制造了两个 Frank。一个是现实中低沉的成年人，一个是高亢的、纯真的“内在小孩”。
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Action**: [ACT: Set_Pitch] Pitch Shift 输入 **-4** semitones。
 > *   **Action**: [ACT: Check_Preserve] **务必勾选** `Preserve Speech Characteristics`。
 > *   **Popup**: 提示框出现 "Formant Correction: ON"。
@@ -233,7 +233,7 @@
 
 ### Segment 5.5: 抛光 - 磨去噪点 (Polishing the Statue)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 波形细部检查。
 > *   **Action**: [ACT: Highlight] 放大波形本来平直的静音部分，现在上面布满了毛刺。
 > *   **Metaphor**: 雕像表面吸附了灰尘。
@@ -255,7 +255,7 @@
 
 ### Segment 6: 深听时刻 (Deep Listening)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 屏幕全黑。只有两个单词隐约浮现：**Body** vs **Soul**。
 > *   **Ref**: `[SLIDE: S03_Deep_Listening]`
 > *   **Gap**: `(Silence: 10s)`
@@ -266,7 +266,7 @@
 现在，闭上眼睛。
 我们来听听这 20 分钟手术的结果。
 
-(播放处理后的声音)
+> [REF] Play processed sound
 
 听到了吗？
 不再是那個尖叫的小鸭子了。
@@ -276,7 +276,7 @@
 这就是**塑形**。
 不是还原真实，而是创造比真实更深刻的谎言。
 
-**(Pause: 5s)**
+> [PACING] Pause: 5s
 
 好了，灵魂已经准备好了。
 下一步，我们要把它扔进那个无底的洞穴里。

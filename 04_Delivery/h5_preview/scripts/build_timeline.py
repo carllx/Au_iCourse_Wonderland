@@ -15,7 +15,10 @@ import sys
 import json
 import re
 import difflib
-import stable_whisper
+try:
+    import stable_whisper
+except ImportError:
+    stable_whisper = None
 from pathlib import Path
 
 # 导入 parse_anchors
@@ -23,7 +26,7 @@ sys.path.append(str(Path(__file__).parent))
 from parse_anchors import parse_anchors
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
-SLIDES_JSON_PATH = PROJECT_ROOT / "04_Delivery/h5_preview/public/slides.json"
+TIMELINE_JSON_PATH = PROJECT_ROOT / "03_Scripts/timeline.json"
 SCRIPTS_DIR = PROJECT_ROOT / "03_Scripts"
 AUDIO_DIR = PROJECT_ROOT / "03_Scripts/tts"
 
@@ -106,6 +109,10 @@ def build_timeline(section_id):
                 
     else:
         print("🤖 Transcribing & Aligning (this may take a while)...")
+        if stable_whisper is None:
+             print("❌ stable-ts not installed and no SRT found. Skipping.")
+             return
+
         # 使用 base 模型, 强制简体中文
         model = stable_whisper.load_model('base')
         result = model.transcribe(str(audio_path), language='zh', regroup=False, initial_prompt="以下是简体中文的内容。")
@@ -166,48 +173,26 @@ def build_timeline(section_id):
         else:
             print(f"   ❌ {slide_id}: Match failed (Anchor: {anchor_norm[:10]}...)")
             
-    # 6. 更新 slides.json
-    print("💾 Updating slides.json...")
-    if not SLIDES_JSON_PATH.exists():
-        print("Error: slides.json not found")
-        return
+    # 6. 更新 timeline.json (Persistent Storage)
+    print("💾 Updating timeline.json...")
+    
+    current_timings = {}
+    if TIMELINE_JSON_PATH.exists():
+        try:
+            with open(TIMELINE_JSON_PATH, 'r', encoding='utf-8') as f:
+                current_timings = json.load(f)
+        except Exception as e:
+            print(f"⚠️ Failed to read existing timeline.json: {e}")
 
+    # 合并新数据
+    current_timings.update(match_results)
+    
     try:
-         with open(SLIDES_JSON_PATH, 'r', encoding='utf-8') as f:
-             manifest = json.load(f)
-             
-         # 遍历 manifest 找到对应的 section
-         target_section = None
-         for section in manifest.get('sections', []):
-             # 简单匹配 ID (假设文件名包含 ID)
-             if section_id in section.get('id', '') or section_id in section.get('title', ''):
-                  target_section = section
-                  break
-             # 或者尝试从 slide items 里看
-             if section.get('slides') and len(section['slides']) > 0:
-                 first_slide_id = section['slides'][0].get('id', '')
-                 if first_slide_id.startswith(section_id):
-                     target_section = section
-                     break
-                     
-         if target_section:
-             slides = target_section.get('slides', [])
-             updated_count = 0
-             for slide in slides:
-                 sid = slide.get('id')
-                 if sid in match_results:
-                     slide['startTime'] = match_results[sid]
-                     updated_count += 1
-             
-             print(f"   Updated {updated_count} slides in section {target_section.get('title')}")
-             
-             with open(SLIDES_JSON_PATH, 'w', encoding='utf-8') as f:
-                 json.dump(manifest, f, indent=2, ensure_ascii=False)
-         else:
-             print(f"   ⚠️ Section {section_id} not found in slides.json")
-             
+        with open(TIMELINE_JSON_PATH, 'w', encoding='utf-8') as f:
+            json.dump(current_timings, f, indent=2, sort_keys=True)
+        print(f"   ✅ Saved {len(match_results)} timestamps to 03_Scripts/timeline.json")
     except Exception as e:
-        print(f"Error updating JSON: {e}")
+        print(f"Error saving JSON: {e}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

@@ -9,7 +9,8 @@
 
 ### Segment 0: 观念重塑 (驱逐)
 
-> **[VISUAL]**
+> [VISUAL]
+> *   **Ref**: `[SLIDE: S02_BadCase]`
 > *   **Scene**: Audition 波形编辑器视图。显示为混乱的初始波形。
 > *   **Asset**: 已加载 `asset_S02_dirty_heartbeat.wav`。
 > *   **Action**: [ACT: Zoom_In] 鼠标滚轮极度放大，展示波形上杂乱无章的锯齿（底噪）。
@@ -20,10 +21,10 @@
 拿到一段录音，第一步做什么？早在大家开口之前，我就听到了标准答案：“老师，降噪。”
 就像回家要扫地、做饭要洗菜一样，例行公事，对吗？
 
-> **[PACING]**
+> [PACING]
 > *   停顿 2秒。给观众反思的时间。
 
-但在爱丽丝的声音剧场里，我们换一个词。
+> [STORY TIME] 但在爱丽丝的声音剧场里，我们换一个词。
 不要叫它“降噪” (Noise Reduction)。
 叫它 **“驱逐” (Expulsion)**。
 
@@ -36,7 +37,7 @@
 
 **(Pause: 3s)**
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Ref**: `[SLIDE: S02_Voss_Clarke]`
 > *   **Visual**: 引用 Voss & Clarke (1975). Pink Noise vs Bach.
 > *   **Graphic**: 屏幕中央浮现 "1/f" 公式与星云图。
@@ -44,7 +45,7 @@
 **[AUDIO]**
 (温和转折，带有哲学意味)
 但在动手之前，请保持敬畏。
-1975年，物理学家 Voss 和 Clarke 提出了一种诗意的类比：
+> [TECH NOTE] 1975年，物理学家 Voss 和 Clarke 提出了一种诗意的类比：
 他们发现自然界最舒适的背景声（粉红噪音）和巴赫的协奏曲，都遵循着相似的 **1/f 规律**。
 
 这意味着，这层我们即将剥离的“尘埃”，在听感本质上，其实是宇宙的另一种心跳。
@@ -54,7 +55,7 @@
 
 ### Segment 1: 采样与法医鉴定 (法医样本)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 波形视图。
 > *   **Action**: [ACT: Select_Range] 鼠标在大波峰（心跳）之间，极其小心地选中一段平坦区域（约 0.5s）。
 > *   **Callout**: 高亮选区，标注 "仅噪音印记 (指纹)"。
@@ -69,14 +70,14 @@
 现在，我们做一件**生死攸关**的事：
 在波形中，选中一段**绝对没有心跳波峰**的区域，至少 0.5 秒。
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Action**: [ACT: Key_Shift_P] 按下快捷键，弹出 "Noise Print Captured" (已捕获噪音印记) 对话框。
 > *   **Action**: [ACT: Click_OK] 确认捕获。
 
 **[AUDIO]**
 按 `Shift + P`，捕获它。
 
-> **[PACING]**
+> [PACING]
 > *   放慢语速，强调后果的严重性。
 
 (警示)
@@ -88,7 +89,7 @@
 
 ### Segment 1.5: 深听时刻 (Deep Listening)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 全黑画面 (Blackout)。
 > *   **Graphic**: 屏幕中央出现一个极简的白色倒计时圆环，中间是数字 **"30s"**。
 > *   **Visual**: 随着倒计时，背景隐约浮现动态的频谱流（极光状），象征着看不见的声音。
@@ -130,7 +131,8 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 
 ### Segment 2: 制造真空与电子鸟 (The Ghost in the Machine)
 
-> **[VISUAL]**
+> [VISUAL]
+> *   **Ref**: `[SLIDE: S02_Demonstration]`
 > *   **Action**: [ACT: Select_All] **Ctrl + A** (全选音频)。 *Critical Step: Must apply to the whole file.*
 > *   **Action**: [ACT: Menu_Effects] Effects > Noise Reduction > Noise Reduction (process)。
 > *   **Scene**: 降噪面板弹出。
@@ -167,7 +169,8 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 当你贪婪地想要切除 100% 的噪音时，数学公式会在真空中留下奇怪的残留物。
 它们听起来像金属制造的鸟叫声，学名叫 **"Musical Noise" (音乐噪声/电子鸟)**。
 
-> **[VISUAL]**
+> [VISUAL]
+> *   **Ref**: `[SLIDE: S02_Ghost_Math]`
 > *   **Demonstration**: 快速掩饰一个 100% / 100dB 的错误设置，让观众听到那个可怕的声音。
 > *   **Graphic**: 屏幕中央浮现一只由噪点组成的“半透明幽灵鸟”，随后被 "75% / 30dB" 的参数组合击碎。
 > *   **Action**: [ACT: Check_OutputNoiseOnly] 勾选 **Output Noise Only** (仅输出噪音)。这是一道“验尸”程序。
@@ -190,7 +193,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 
 ### Segment 2.5: 手术台细节 (The Surgeon's Knife)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 降噪面板频谱图。取消勾选 Output Noise Only。
 > *   **Highlight**: 解释红、黄、绿粒子。
 > *   **Action**: [ACT: Click_Point] 在蓝色曲线 (Noise Reduction Curve) 调节。
@@ -207,7 +210,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 而中间那些跳动的**绿色 (Green)**，才是真正的**警戒线 (Threshold)**。
 任何落在绿色下方的声音，都会被当作死刑犯处决。
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Action**: [ACT: Drag_Curve] 
 >     1. 左侧（低频）拉低，低于红色粒子。
 >     2. 右侧（高频）维持或微抬。
@@ -234,7 +237,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 
 ### Segment 2.6: 愈合伤口 (Smoothing)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 降噪面板特写。
 > *   **Action**: [ACT: Change_Value] 将 Smoothing 从 1 改为 2。
 
@@ -255,7 +258,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 
 ### Segment 3: 测不准原理 (The Uncertainty Principle)
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 降噪面板的高级设置区 (Advanced Settings)。
 > *   **Highlight**: 高亮 "FFT Size: 4096"。
 > *   **Graphic**: Dennis Gabor 的 "信息图解 (Information Diagram)" (网格图) 叠加。
@@ -270,7 +273,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 他认为声音是由无数个微小的 **“声量子” (Acoustical Quanta)** 组成的。
 就像量子物理一样，你无法同时看清声音的**时间**和**频率**。
 
-> **[PACING]**
+> [PACING]
 > *   给两个极端选项留出想象空间。
 
 *   如果你选 **Small FFT (比如 512)**：时间极快，心跳会像拳头一样硬。但这会让底噪听起来像破碎的玻璃渣。
@@ -280,7 +283,7 @@ Cage 顿悟了一个真理：**“只要你还活着，真正的寂静就不存�
 我们在“真实的力度”与“梦境的模糊”之间，取了一个中间值。
 我们保留了心跳作为生命的冲击力，同时也让现实的尘埃被柔顺地剥离。
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Action**: [ACT: Click_Apply] 点击应用。波形瞬间变干净。
 > *   **Scene**: 变干净的波形全屏展示。
 

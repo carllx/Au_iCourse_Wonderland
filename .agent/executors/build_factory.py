@@ -100,6 +100,31 @@ def build_writer_prompt(section):
 
 ## 4. IMMEDIATE EXECUTION TRIGGER (立即执行指令)
 > 请为章节 **{section}** 编写完整的、逐字的讲稿。
+
+## 5. CRITICAL PROTOCOLS (核心协议)
+### 1. The Radio Play Protocol (广播剧法则)
+*   **假设**: 听众看不见屏幕。
+*   **规则**: **No Invisible Mechanics**. 任何在 `> [VISUAL]` 中发生的动作 (Click, Drag, Set)，必须在 `[AUDIO]` 中有对应的口播描述。
+*   **Example**:
+    *   ❌ Visual: `Drag Slider` | Audio: "听，声音变了。" (Bad)
+    *   ✅ Visual: `Drag Slider` | Audio: "**向下拖动滑块**，听，声音变了。" (Good)
+
+### 2. Semantic Bridge (语义桥接)
+*   要说: 隐喻 (Story) -> 听感 (Target) -> 参数 (Action)。
+
+### 3. Anti-Ghosting Protocol (防幻影锚点)
+*   **规则**: 所有的 Slide 引用 (`> **Ref**: ...`) 必须包裹在 `> [VISUAL]` 块内部。
+*   **禁止**: 严禁在两个 Visual 块之间、或者 Blockquote 之外书写孤立的 `Ref`。
+*   **Reason**: 构建系统需要将 Slide 锚定到最近的 Visual Header 上。孤立的 Ref 会导致构建失败。
+
+## 6. SELF-VERIFICATION PROTOCOL (自我验证协议)
+在输出最终脚本前，请执行以下 **Chain-of-Self-Verification**:
+1.  **Scan**: 检查每一个 `> [VISUAL]` 标签。
+2.  **Check**: 它包含动作吗？(Click, Drag, Press, Set, Select)
+3.  **Verify**: 下一句 `[AUDIO]` 里包含该动作的动词吗？
+4.  **Correct**: 如果没有，**立即重写 Audio**，把动作加进去。
+5.  **Final Output**: 仅输出经过自我修正后的完美脚本。
+
 > **关键约束**：
 > 1. **语言**：必须严格使用 **简体中文**。
 > 2. **风格**：严格遵循 "LinXin_Voice" (林昕) 的导演口吻。

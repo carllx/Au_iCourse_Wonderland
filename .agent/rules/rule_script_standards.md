@@ -17,20 +17,25 @@ globs: 03_Scripts/*.md
 
 每个段落 (Segment) 必须包含：
 
-1.  **视觉轨 (Visual Track)**: 使用 `>` 引用块，以 `**[VISUAL]**` 开头。
+1.  **视觉轨 (Visual Track)**: 使用 `>` 引用块，以 `> [VISUAL]` 或 `> [REF]` 开头。
 2.  **音频轨 (Audio Track)**: 使用普通文本，以 `**[AUDIO]**` (或角色名) 开头。
+    *   **Class A (叙事锚点)**: `> [STORY TIME]`, `> [PHILOSOPHY]`, `> [TEACHING MOMENT]`. (TTS 将朗读)
+    *   **Class B (技术桥梁)**: `> [TECH NOTE]`, `> [WARNING]`. (TTS 将朗读)
 
 ```markdown
 ### Segment X: [Title]
 
-> **[VISUAL]**
+> [VISUAL]
 > *   **Scene**: 屏幕显示 Audition 波形视图。
 > *   **Asset**: 打开 `asset_01_demo.wav`。
-> *   **Action**: [ACT: Select_Range] 鼠标选中 0-5s 区域。
+> *   **Action**: 鼠标选中 0-5s 区域。
 
 **[AUDIO]**
 (温和而坚定)
 同学们看，这就是我们今天要处理的“罪证”。
+
+> [TEACHING MOMENT]
+> 噪音不是你的敌人，它是信号的影子。我们不是要消灭它，而是要分离它。
 ```
 
 ## 2. 视觉锚点法则 (Visual Anchors)
@@ -38,7 +43,7 @@ globs: 03_Scripts/*.md
 *   **Asset Linking**: 视觉描述中涉及素材时，必须使用**行内代码**标注文件名。
     *   ✅ `打开 asset_S02_heartbeat.wav`
     *   ❌ `打开那个心跳文件`
-*   **Atomic Actions**: 操作演示必须使用 `[ACT: Action_Name]` 标签。**注意**：这是给**演示机器人/录屏**的指令，不是给学生的指令。由讲师执行。
+*   **Director's Cues**: 操作演示可使用 `> [VISUAL]` 详细描述。**注意**：这是给**演示机器人/录屏**的指令，不是给学生的指令。由讲师执行。
 
 ## 3. 语速与留白 (Pacing & Gaps)
 

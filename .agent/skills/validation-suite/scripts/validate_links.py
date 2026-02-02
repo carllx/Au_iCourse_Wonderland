@@ -142,9 +142,9 @@ if __name__ == "__main__":
     valid_slides = parse_definitions(slide_db_path, slide_id_pattern)
     print(f"Loaded {len(valid_slides)} Visual Slides.")
 
-    # Actions: Defined in Design Spec via > *ACT_ID: [ACT_01], [ACT_02]*
-    # Regex looks for [ACT_...]
-    action_id_pattern = re.compile(r'\[(ACT_[a-zA-Z0-9_]+)\]')
+    # Actions: Defined in Design Spec via > *ACT_ID: [ACT_01], [ACT_02]* or [S05_Act_...]
+    # Relaxed Regex to capture any ID inside brackets on the definition line
+    action_id_pattern = re.compile(r'\[([a-zA-Z0-9_]+)\]')
     valid_actions = parse_definitions(Design_Spec_path, action_id_pattern)
     print(f"Loaded {len(valid_actions)} MVP Actions.")
 

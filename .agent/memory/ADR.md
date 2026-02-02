@@ -170,7 +170,43 @@
         *   顶层：物理资产（PNG）自动检测。如果 `02_Visuals/assets/` 下存在对应的 `Sxx.png`，则自动隐藏灰盒并显示真实素材。
     3.  **单向数据流 (Manifest-Driven)**: 由 `parse_slides.py` 作为 SSOT 解析器，将 `Structure_Map`、`Slide_Database` 和物理文件路径整合为唯一的 `slides.json`。
 *   **后果**: 
-    *   (+) 极大的存储效率：不再需要数千张临时 PNG。
     *   (+) 即时预览：修改脚本后运行 `npm run sync` 即可刷新 H5 看到最新布局。
     *   (+) 真实感：支持音频播放与 SRT 字幕同步，接近最终课程形态。
     *   (-) 增加了 Node.js/Vite 环境依赖。
+
+---
+
+## ADR-011: 手术刀协议与隐形指令悖论 (The Scalpel Protocol)
+*   **状态**: Accepted (2026-02-02)
+*   **来源**: S05 脚本认知压力测试
+*   **背景**: 
+    *   为了维护“造境者”的高级感，Writer 曾倾向于将所有“机械操作”（点击、菜单、参数设置）隐藏在 Markdown 的元数据标签中（如 `(Action: ...)`）。
+    *   这种做法导致了 **“隐形指令悖论”**：视觉读者能看懂，但纯听觉用户（Audio-Only）完全不知道应该在什么时候点击什么。
+*   **决策**: 
+    1.  **新公理**: **"If it moves the mouse, it must be spoken." (只要动鼠标，就得说出来)**。
+    2.  **手术刀协议 (The Scalpel Protocol)**: 将技术指令重新定义为“外科手术仪式”，使其在林昕的“物理/临床”人设中合法化。
+    3.  **三要素**: 指令必须包含 Anchor (工具名) -> Action (动作) -> Reason (隐喻)。
+*   **后果**: 
+    *   (+) **听觉完整性 (Audio-Completeness)**: 听众不再需要看屏幕也能完成基本操作。
+    *   (+) **风格统一**: 消除“机械指令”与“诗意叙事”的对立。
+    *   (-) 脚本字数略微增加。
+
+---
+
+## ADR-012: 语义标签分类学 (Semantic Tag Taxonomy)
+*   **状态**: Accepted (2026-02-02)
+*   **来源**: S05 协议升级 (Protocol Upgrade)
+*   **背景**: 
+    *   脚本中混杂了 `> [TIP]`, `(Action: ...)`, `### [TEACHING MOMENT]` 等多种标记风格。
+    *   "Instructional" (教学) 标记与 "Narrative" (叙事) 标记边界模糊，导致 TTS 引擎无法区分哪些该读，哪些是元数据。
+*   **决策**: 
+    1.  **废弃**: `(Action: ...)` (隐形机制), `> [TIP]` (工具书语气)。
+    2.  **采用**: 三级分类学 (Class A/B/C)。
+        *   **Class A (Narrative Anchors)**: `[STORY TIME]`, `[PHILOSOPHY]`, `[TEACHING MOMENT]`. (必须朗读)
+        *   **Class B (Technical Bridges)**: `[TECH NOTE]`, `[WARNING]`. (必须朗读)
+        *   **Class C (Director's Cues)**: `[VISUAL]`, `[PACING]`. (静默)
+    3.  **技术实现**: 修补 `parse_anchors.py` 以支持提取引用块中的语音内容。
+*   **后果**: 
+    *   (+) **机器可读性**: 明确的白名单使自动化审计和 H5 生成成为可能。
+    *   (+) **风格一致性**: 强制 Writer 思考每条指令是属于 "林昕" (Narrator) 还是 "导演" (Director)。
+
