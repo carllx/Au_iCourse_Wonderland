@@ -1,0 +1,89 @@
+# Visual System Constitution (视觉系统宪法)
+# SSOT: Single Source of Truth for Project Wonderland
+# Style: CINE-BAUHAUS (Dark, Minimalist, Geometric)
+
+meta:
+  version: "1.0.0"
+  last_updated: "2026-02-04"
+  maintainer: "Antigravity Agent"
+
+# 1. 全局风格定义 (用于 AI 生成 Prompt)
+style:
+  # 核心风格词
+  keywords: "Bauhaus geometry style, ultra-clean, high contrast, minimalist, constructivist, vector aesthetic"
+  # 环境氛围
+  atmosphere: "pitch black void background, cinematic lighting, sharp focus, 8k resolution"
+  # 否定词 (避免出现的内容)
+  negative_prompt: "text, watermark, blurry, noise, grain, low resolution, realistic photo, complex background"
+
+# 2. 也是 H5 和 Python 的颜色定义
+palette:
+  # 基础色 (Dark Mode)
+  bg_base: "#0a0a0f"      # Deep Space Black (App Background)
+  bg_surface: "#1a1a25"   # Panel Grey (Card Background)
+  bg_highlight: "#20202e" # Elevated Elements
+
+  # 品牌色
+  primary: "#6366f1"      # Indigo (Focus, Active)
+  primary_glow: "rgba(99, 102, 241, 0.4)" 
+  
+  # 语义色
+  accent: "#8b5cf6"       # Violet (Creative)
+  success: "#34d399"      # Emerald (Correct, Safe)
+  warning: "#fbbf24"      # Amber (Attention, Highlight)
+  error: "#f87171"        # Red (Danger, Clipping)
+  
+  # 文本色
+  text_main: "#ffffff"
+  text_secondary: "#a0a0b0"
+  text_muted: "#606070"
+  
+  # 边框
+  border: "#2a2a3a"
+
+# 3. 尺寸与比例标准
+dimensions:
+  # 默认 UI 幻灯片
+  ui_slide:
+    ratio: "16:9"
+    width: 1920
+    height: 1080
+    suffix: "software interface mockup"
+  
+  # 概念图 / 插画
+  concept_art:
+    ratio: "16:9"
+    width: 1920
+    height: 1080
+    suffix: "cinematic concept art"
+  
+  # 科学图示 / 图标 (正方形)
+  diagram:
+    ratio: "1:1"
+    width: 1080
+    height: 1080
+    suffix: "minimalist scientific diagram"
+    
+  icon:
+    ratio: "1:1"
+    width: 512
+    height: 512
+    suffix: "minimalist abstract icon"
+
+# 4. Matplotlib 特定设置 (Python Only)
+matplotlib:
+  # 默认线宽
+  linewidth: 2.0
+  # 字体
+  font_family: "sans-serif"
+  font_sans_serif: ["Inter", "Arial", "Helvetica"]
+  # 网格
+  grid_alpha: 0.2
+  grid_linestyle: "--"
+  # 颜色循环 (用于多线条绘制)
+  color_cycle:
+    - "#6366f1" # Indigo
+    - "#34d399" # Emerald
+    - "#fbbf24" # Amber
+    - "#f87171" # Red
+    - "#8b5cf6" # Violet

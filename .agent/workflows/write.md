@@ -20,4 +20,42 @@ description: 启动 Writer Agent 为指定章节撰写逐字稿 (使用 INI 框�
     *   **阅读**: 仔细阅读上一步 Console 输出的 `SYSTEM PROMPT`。
     *   **思考**: 这里的关键约束是 **"No Invisible Mechanics"** (双重记账)。
     *   **生成**: 创建或覆盖 `03_Scripts/$1_Transcript.md` (或根据上下文判断合适的文件名)。
+    *   **Localization**: 确保严格遵守 `rule_localization.md` (叙事纯中文，术语留锚点)。
+
+    **Step 2.5: The Blindfold Simulation (由 Agent 自主执行)**
+    *   **负空间法则 (Negative Space Rule)**: 忽略所有 `[AUDIO]` 标签的存在与否。任何**不是**引用块 (`>`) 且**不是**标题 (`#`) 的正文，全部视为**旁白**。
+    *   **EXCEPTION**: 以 Class A 标签 (如 `> [TEACHING MOMENT]`) 开头的引用块，**必须**视为旁白处理。
+    *   **盲视测试**: 暂时“甚至”掉所有的 `> [VISUAL]` 块。仅阅读正文。
+        *   ❌ **Fail**: "看这里" (哪里?) / "把这个参数拉大" (哪个?)
+        *   ✅ **Pass**: "找到频率旋钮 (What)，把它拉大 (Action)..."
+    *   **修正**: 如果发现依赖视觉的“隐形指令”，立即重写为“双重记账”格式。
+
+    **Step 2.6: The Sync Check (视觉时序检查)**
+    *   **时序法则**: 任何 `> [VISUAL]` 或 `> [Ref]` 块，必须出现在描述它的正文**之前** (Pre-load)，严禁出现在之后 (Lag)。
+        *   ❌ **Fail**: "这是一只猫。 > [Slide: Cat]" (听众先听到猫，才看到图)
+        *   ✅ **Pass**: "> [Slide: Cat] ... 请看屏幕，这是一只猫。" (画面先就绪)
+
     *   **检查**: 在输出最后，附上一个简单的 "Self-Verification Checklist"，确认所有 Visual Action 都已在 Audio 中体现。
+
+3.  **Automated Verification Gate (自动化校验门禁)**
+    // turbo
+    在提交给用户之前，**必须**运行以下命令进行自我审计。如果报错，必须修正直到通过。
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_narrative_integrity.py 03_Scripts/$1_Transcript.md
+    ```
+    
+    *   **Fail Condition**: 如果 Linter 返回 `❌ Failed`，禁止提交给用户。
+    *   **Fix Loop**: 阅读错误日志 -> 修改脚本 -> 重新运行 Linter。
+
+    // turbo
+    同时运行以下命令，确保没有使用 " > " 导航路径或 "1." 序号列表（需改为口语化连接词）：
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_syntax.py 03_Scripts/$1_Transcript.md
+    ```
+
+4.  **Final Polish (自检)**
+    // turbo
+    运行以下命令确保没有 "Ghost Anchors" (幻影锚点) 且结构有效：
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_anchors.py 03_Scripts/$1_Transcript.md
+    ```

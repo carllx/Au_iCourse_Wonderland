@@ -1,0 +1,197 @@
+[
+  {
+    "slide_id": "S05_Blumlein_Walking",
+    "anchor_text": "请看屏幕：早在 1933 年，当立体声之父 Alan Blumlein 在录音棚拍摄那部著名的测试短片 \"Walking and Talking\" 时，他并没有坐在调音台后。",
+    "line_no": 29
+  },
+  {
+    "slide_id": "S05_Setup_Surround_NewSession",
+    "anchor_text": "请看屏幕，点击顶部的 File 菜单，选择 New，然后建立一个新的 Multitrack Session。",
+    "line_no": 70
+  },
+  {
+    "slide_id": "S05_Setup_HardLimiter_Path",
+    "anchor_text": "注意看 Mix 轨道的效果架。",
+    "line_no": 87
+  },
+  {
+    "slide_id": "S05_Setup_HardLimiter",
+    "anchor_text": "挂载完成后，请看弹出的窗口。",
+    "line_no": 95
+  },
+  {
+    "slide_id": "S05_Fantasound_Layout",
+    "anchor_text": "请看屏幕上的这张照片：这不仅是历史，这是 Fantasound。",
+    "line_no": 106
+  },
+  {
+    "slide_id": "S05_Automation_Curve",
+    "anchor_text": "现在回到我们的屏幕。请点击轨道下方的“显示包络线”按钮。",
+    "line_no": 115
+  },
+  {
+    "slide_id": "S05_Setup_Import_Tracks",
+    "anchor_text": "请看屏幕，我们将三位“演员”依次拖入时间线",
+    "line_no": 128
+  },
+  {
+    "slide_id": "S05_Preview_Heart_Raw",
+    "anchor_text": "听，它是脆弱的，清晰的。",
+    "line_no": 147
+  },
+  {
+    "slide_id": "S05_Preview_Wall_Raw",
+    "anchor_text": "其次，请听压力。",
+    "line_no": 154
+  },
+  {
+    "slide_id": "S05_Preview_Needle_Raw",
+    "anchor_text": "听，它是沉闷的，像一堵无法穿透的墙。",
+    "line_no": 162
+  },
+  {
+    "slide_id": "S05_Preview_Needle_Raw",
+    "anchor_text": "听，它是尖锐的，神经质的。",
+    "line_no": 172
+  },
+  {
+    "slide_id": "S05_Add_Bus_RightClick",
+    "anchor_text": "在任意轨道的空白位置点击右键，在 Track  弹出的菜单中选择 Add Bus Track，新建一条 Bus Track。",
+    "line_no": 183
+  },
+  {
+    "slide_id": "S05_Setup_Bus_Reverb",
+    "anchor_text": "请点击 Bus 轨的效果架，加载 Convolution Reverb 。",
+    "line_no": 191
+  },
+  {
+    "slide_id": "S05_Setup_IR_Detail",
+    "anchor_text": "请看 这个卷积混响效果器 窗口，我们需要加载一个采样文件。",
+    "line_no": 201
+  },
+  {
+    "slide_id": "S05_Setup_Sends_Routing",
+    "anchor_text": "现在，请务必只选中 Track 2 压力声  和 Track 3 尖锐的焦虑声 。",
+    "line_no": 218
+  },
+  {
+    "slide_id": "S05_Icon_Heart",
+    "anchor_text": "首先，请看屏幕中央那个绝对静止的红点。",
+    "line_no": 241
+  },
+  {
+    "slide_id": "S05_Heart_Panner_Open",
+    "anchor_text": "首先，请双击 Track Header 上的圆盘小图标，打开 Track 1 的 Track Panner  面板。",
+    "line_no": 250
+  },
+  {
+    "slide_id": "S05_Heart_Panner_Settings",
+    "anchor_text": "请看此时声像面板上的参数变化",
+    "line_no": 260
+  },
+  {
+    "slide_id": "S05_Heart_EQ_Add",
+    "anchor_text": "请看屏幕，在 Track 1 的效果器（Effects Rack）里，找到 Filter and EQ  分类，加载 Parametric EQ 。",
+    "line_no": 277
+  },
+  {
+    "slide_id": "S05_Heart_EQ_Settings_cap",
+    "anchor_text": "打开 EQ 后，我们使用 Low Pass ，将频率极其凶狠地切到 200Hz 以下。",
+    "line_no": 283
+  },
+  {
+    "slide_id": "S05_Diff_Material_Preview",
+    "anchor_text": "现在，请播放它。",
+    "line_no": 293
+  },
+  {
+    "slide_id": "S05_Icon_Wall",
+    "anchor_text": "现在的视线离开中心。看那个从上方压下来的巨大灰色体块。",
+    "line_no": 310
+  },
+  {
+    "slide_id": "S05_Wall_EQ_Start",
+    "anchor_text": "在这里，我们有一堵低频的音墙。",
+    "line_no": 320
+  },
+  {
+    "slide_id": "S05_EQ_Automation_Setup_cap",
+    "anchor_text": "点击轨道头部的 Show Envelopes  小三角。",
+    "line_no": 337
+  },
+  {
+    "slide_id": "S05_EQ_Automation_Curve_cap",
+    "anchor_text": "现在，请看屏幕。我们在坐标系上找到 Band 5 的那个控制点。",
+    "line_no": 350
+  },
+  {
+    "slide_id": "S05_Pan_Radius_Toggle_cap",
+    "anchor_text": "让 Radius 从 100%  逐渐缩小到 50% 。",
+    "line_no": 364
+  },
+  {
+    "slide_id": "S05_Pan_Radius_Curve_cap",
+    "anchor_text": "感受一下",
+    "line_no": 368
+  },
+  {
+    "slide_id": "S05_Preview_Wall_Final",
+    "anchor_text": "现在，让我们停下来听一听最终的效果。",
+    "line_no": 381
+  },
+  {
+    "slide_id": "S05_Icon_Anxiety",
+    "anchor_text": "最后，看这团白色的乱线。",
+    "line_no": 397
+  },
+  {
+    "slide_id": "S05_Needle_Automation_Setup_cap",
+    "anchor_text": "请看轨道头部，点击 Show Envelopes 按钮 ，或者在菜单中选择 Show Automation Lanes。",
+    "line_no": 415
+  },
+  {
+    "slide_id": "S05_Act_Perform_Pan",
+    "anchor_text": "我们来制造这场空袭。这就需要两个步骤：螺旋逼近与随机盘旋。",
+    "line_no": 422
+  },
+  {
+    "slide_id": "S05_Needle_Pan_Angle_cap",
+    "anchor_text": "第一，在 Angle  轨道上，画出剧烈的锯齿，让它在 -180° 到 +180° 之间快速旋转。",
+    "line_no": 424
+  },
+  {
+    "slide_id": "S05_Needle_Pan_Radius_cap",
+    "anchor_text": "第二，在 Radius  轨道上，让它从 96%  逼近到 20% 。",
+    "line_no": 426
+  },
+  {
+    "slide_id": "S05_Needle_Pan_Random_cap",
+    "anchor_text": "第三，赋予生命。右键点击这些关键帧，选择 Spline Curves ，让它像正弦波一样扭曲。",
+    "line_no": 429
+  },
+  {
+    "slide_id": "S05_Preview_Needle_Final",
+    "anchor_text": "再次停下来，观看演示，检查我们的“针”。",
+    "line_no": 445
+  },
+  {
+    "slide_id": "S05_Geometry_Loneliness",
+    "anchor_text": "现在，让我们把这三个元素放在一起。",
+    "line_no": 459
+  },
+  {
+    "slide_id": "S05_Azimuth_Coordinator",
+    "anchor_text": "在这场几何防御战的最后，当那堵墙  压到眼前，当那根刺  转到极速——",
+    "line_no": 473
+  },
+  {
+    "slide_id": "S05_Void_Expander_Settings",
+    "anchor_text": "请看 Bus 轨。点击打开那个 Convolution Reverb 效果器的窗口。",
+    "line_no": 481
+  },
+  {
+    "slide_id": "S05_Janet_Cardiff",
+    "anchor_text": "就像艺术家 Janet Cardiff 的传世名作 《四十声部经文歌》 。",
+    "line_no": 497
+  }
+]

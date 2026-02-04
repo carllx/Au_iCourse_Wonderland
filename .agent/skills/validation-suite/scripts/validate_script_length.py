@@ -1,8 +1,19 @@
 
+
 import os
 import re
 import sys
 import argparse
+from pathlib import Path
+
+# Add commons directory to sys.path
+current_file = Path(__file__).resolve()
+project_root = current_file.parents[4] # .agent/skills/validation-suite/scripts -> ROOT
+commons_dir = project_root / "01_MVP_Demo" / "_Pipeline" / "commons"
+sys.path.append(str(commons_dir))
+
+from markdown_parser import WonderlandScriptParser, BlockType
+
 
 # Smart Course Standards
 # Target: 60 minutes total.
@@ -46,113 +57,39 @@ def analyze_file(file_path, extract_text=False, blind_mode=False):
     visual_seconds = 0
     text_lines = []
     
-    in_visual_block = False
-    in_pacing_block = False
+    parser = WonderlandScriptParser()
+    blocks = parser.parse(lines)
     
-    for line in lines:
-        line_stripped = line.strip()
-        
-        # 0. Smart Middleware: Detect & Unmask Semantic Audio Blocks
-        # Handle nested blockquotes (e.g. "* > [WARNING]")
-        # We strip leading list markers (*, -, 1.) to see if the content is a quote.
-        content_part = re.sub(r'^[\s\*\-\d\.]+', '', line).strip()
-        is_quote = content_part.startswith(">")
-
-        if is_quote:
-            # Check for Allowlist Tags (Class A: Narrative Anchors, Class B: Technical Bridges)
-            # We check if the line *contains* the key phrases.
-            # Whitelist: [STORY TIME], [PHILOSOPHY], [CULTURAL REF], [TEACHING MOMENT]
-            #            [TECH NOTE], [DID YOU KNOW], [WARNING]
-            semantic_tags = [
-                "[STORY TIME]", "[PHILOSOPHY]", "[CULTURAL REF]", "[TEACHING MOMENT]",
-                "[TECH NOTE]", "[DID YOU KNOW]", "[WARNING]", "WARNING]"
-            ]
-            
-            if any(tag in line for tag in semantic_tags):
-                 # Unmask: Remove the ">" and the tag itself
-                 # Clean up the specific GitHub Alert syntax if present
-                 line_stripped = line_stripped.replace(">", "").strip()
-                 line_stripped = re.sub(r'\[!.*?WARNING.*?\]', '', line_stripped) 
-                 # Remove all known tags from the line content
-                 for tag in semantic_tags:
-                     line_stripped = line_stripped.replace(tag, "")
-                 # Also remove potential colon
-                 line_stripped = re.sub(r'^:\s*', '', line_stripped)
-                 # PROCEED as normal text
-            else:
-                # Handle Standard Visual/Pacing Blocks (Ignored from Speech)
-                if "[PACING]" in line:
-                    in_pacing_block = True
-                    in_visual_block = False
-                elif not in_pacing_block:
-                    in_visual_block = True
-                
-                # --- Inside Block Logic ---
-                if in_pacing_block:
-                    t = parse_time_str(line_stripped)
-                    if t > 0:
-                        pacing_seconds += t
-                
-                elif in_visual_block:
-                    if "[ACT:" in line:
-                        visual_action_count += 1
-                        t = parse_time_str(line)
-                        if t > 0:
-                             visual_seconds += t
-                        else:
-                             visual_seconds += DEFAULT_ACTION_DELAY
-    
-                continue # Skip speech counting for these blocks
-
-        # Reset block flags for normal text (or unmasked text)
-        in_visual_block = False
-        in_pacing_block = False
-
-        # 1. Skip Headers & Metadata & Separators
-        if line_stripped.startswith("#") or line_stripped.startswith("---"):
-            continue
-            
-        # 2. Skip Explicit Audio Headers or Role Names
-        # Loose check: Only skip if it looks like a header (short, no punctuation)
-        if re.match(r'^\*\*.*?\*\*[:]?$', line_stripped) and not parse_time_str(line_stripped):
-             # Exception: If it ends with punctuation like 。 or ？, it's likely emphatic speech
-             if line_stripped.endswith('。') or line_stripped.endswith('？') or line_stripped.endswith('?'):
-                 pass
-             else:
-                 continue
-
-        # 3. Filter Stage Directions
-        clean_line = line_stripped.replace('*', '')
-        if re.match(r'^[\(\（].*?[\)\）]$', clean_line):
-            t = parse_time_str(clean_line)
-            if t > 0:
-                pacing_seconds += t
-            continue
-
-        # 4. Count Speech Text
-        # Filter out inline stage directions
-        clean_text = re.sub(r'\*\*\(.*?\)\*\*', '', line_stripped)
-        clean_text = re.sub(r'[\(\（].*?[\)\）]', '', clean_text) 
-        
-        if clean_text:
-            # Count CN
+    for block in blocks:
+        if block.block_type == BlockType.AUDIO:
+            clean_text = block.content
+             # Count CN
             cn_count += len(re.findall(r'[\u4e00-\u9fff]', clean_text))
             # Count EN
             en_count += len(re.findall(r'[a-zA-Z0-9]+', clean_text))
             
             if extract_text and clean_text.strip():
-                # Clean Markdown
                 pure_text = strip_markdown(clean_text)
                 
-                # BLIND MODE STRICT FILTER
-                # If blind mode is on, we double check for any leaked visual cues
                 if blind_mode:
-                    # Fail-safe: if line still looks like a Ref or Action
                     if "Ref:" in pure_text or "[VISUAL]" in pure_text:
                         continue
                 
                 if pure_text.strip():
                      text_lines.append(pure_text.strip())
+                     
+        elif block.block_type == BlockType.VISUAL:
+            if "[ACT:" in block.content:
+                visual_action_count += 1
+                t = parse_time_str(block.content)
+                if t > 0:
+                     visual_seconds += t
+                else:
+                     visual_seconds += DEFAULT_ACTION_DELAY
+
+        elif block.block_type == BlockType.PACING:
+            t = parse_time_str(block.content)
+            pacing_seconds += t
 
     return {
         "cn": cn_count,

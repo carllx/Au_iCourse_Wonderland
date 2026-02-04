@@ -70,6 +70,7 @@ def build_writer_prompt(section):
     knowledge_index = read_file(os.path.join(KNOWLEDGE_DIR, "Textbook_Index.md"))
     structure = read_file(os.path.join(SCRIPTS_DIR, "00_Structure_Map.md"))
     design_spec = read_file(os.path.join(DEMO_DIR, "00_Design_Spec_Alice.md"))
+    rule_localization = read_file(os.path.join(RULES_DIR, "rule_localization.md"))
 
     # 2. [Safe Slice] Extract Specific Section
     # Fix V-03: Only inject the relevant section of the structure map
@@ -102,6 +103,8 @@ def build_writer_prompt(section):
 > 请为章节 **{section}** 编写完整的、逐字的讲稿。
 
 ## 5. CRITICAL PROTOCOLS (核心协议)
+{rule_localization}
+
 ### 1. The Radio Play Protocol (广播剧法则)
 *   **假设**: 听众看不见屏幕。
 *   **规则**: **No Invisible Mechanics**. 任何在 `> [VISUAL]` 中发生的动作 (Click, Drag, Set)，必须在 `[AUDIO]` 中有对应的口播描述。
@@ -112,7 +115,15 @@ def build_writer_prompt(section):
 ### 2. Semantic Bridge (语义桥接)
 *   要说: 隐喻 (Story) -> 听感 (Target) -> 参数 (Action)。
 
-### 3. Anti-Ghosting Protocol (防幻影锚点)
+### 3. The Bridge Mandate (桥接强制令)
+*   **规则**: 在每一个 `> [VISUAL]` 块之后，紧接的 `[AUDIO]` 必须以**指示性动作词**开头。
+*   **Keywords**: "现在...", "请看...", "点击...", "找到...", "注意...".
+*   **目的**: 打破“专家盲区”，强制连接画面与声音。
+*   **Example**:
+    *   ❌ Visual: `[Slide]` | Audio: "这个概念基于..." (断层)
+    *   ✅ Visual: `[Slide]` | Audio: "**请看屏幕**，这个概念基于..." (连接)
+
+### 4. Anti-Ghosting Protocol (防幻影锚点)
 *   **规则**: 所有的 Slide 引用 (`> **Ref**: ...`) 必须包裹在 `> [VISUAL]` 块内部。
 *   **禁止**: 严禁在两个 Visual 块之间、或者 Blockquote 之外书写孤立的 `Ref`。
 *   **Reason**: 构建系统需要将 Slide 锚定到最近的 Visual Header 上。孤立的 Ref 会导致构建失败。
@@ -141,6 +152,7 @@ def build_auditor_prompt(target_file):
     
     # [Fix V-02] Load Truth Sources
     design_spec = read_file(os.path.join(DEMO_DIR, "00_Design_Spec_Alice.md"))
+    rule_localization = read_file(os.path.join(RULES_DIR, "rule_localization.md"))
 
     # 2. Load Target Content
     target_content = read_file(target_file)

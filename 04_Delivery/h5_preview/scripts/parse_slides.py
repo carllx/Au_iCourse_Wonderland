@@ -172,6 +172,16 @@ def parse_slide_block(lines: list) -> dict:
     if duration_match:
         data["duration"] = duration_match.group(1).strip()
 
+    # [NEW] 提取 MediaStart
+    m_start = re.search(r"\*\s+\*\*MediaStart\*\*:?\s*(.+?)(?:\n|$)", content)
+    if m_start:
+        data["mediaStart"] = m_start.group(1).strip()
+
+    # [NEW] 提取 MediaEnd
+    m_end = re.search(r"\*\s+\*\*MediaEnd\*\*:?\s*(.+?)(?:\n|$)", content)
+    if m_end:
+        data["mediaEnd"] = m_end.group(1).strip()
+
     return data
 
 
@@ -234,42 +244,55 @@ def get_tts_assets(section_id: str) -> dict:
 
 def find_visual_asset(slide_id: str, section_id: str) -> str:
     """
-    智能资产查找逻辑: 
-    基于 ID 前缀匹配，不再寻找硬编码文件名。
+    智能资产查找逻辑 (Refined): 
+    1. 递归搜索 (rglob) 以支持子目录 (Extension/)
+    2. 优先匹配完全一致的文件名
+    3. 支持扩展名优先级
     """
     assets_dir = PROJECT_ROOT / "02_Visuals" / "assets"
     
     # 搜索范围: 对应章节目录 -> 全局目录
     search_dirs = [section_id, "_Global"]
     
-    # 支持的扩展名
-    EXTENSIONS = ('.png', '.jpg', '.jpeg', '.mp4', '.mov', '.webp', '.webm')
+    # 支持的扩展名 (优先级顺序)
+    # 视频优先，因为如果是动图/Demo，通常需要展示 mp4
+    EXTENSIONS = ['.mp4', '.mov', '.webm', '.png', '.jpg', '.jpeg', '.webp']
     
     for d_name in search_dirs:
         dir_path = assets_dir / d_name
         if not dir_path.exists():
             continue
             
-        # 获取目录下所有匹配 slide_id 开头的文件
-        # 例如 S05_UI_The_Wall -> 匹配 S05_UI_The_Wall.png, S05_UI_The_Wall_src.jpg 等
+        # 递归获取所有文件
+        all_files = list(dir_path.rglob("*"))
+        
+        # 1. 尝试精确匹配 ID (e.g. S05_Jungian_Shadow.png)
+        for ext in EXTENSIONS:
+            target_name = f"{slide_id}{ext}"
+            for f in all_files:
+                if f.name.lower() == target_name.lower():
+                    # 构造相对于 public/visuals 的路径
+                    # 注意：需要保留从 d_name 开始的相对路径
+                    rel_path = f.relative_to(assets_dir)
+                    return f"visuals/{rel_path}"
 
-        for file in dir_path.iterdir():
-            # Case insensitive matching
-            f_lower = file.name.lower()
+        # 2. 尝试前缀匹配 (e.g. S05_Jungian_Shadow_ai.png)
+        # 收集所有匹配前缀的候选项
+        candidates = []
+        for f in all_files:
+            f_lower = f.name.lower()
             id_lower = slide_id.lower()
-
-            # Standard Sxx_...
-            match_standard = f_lower.startswith(f"{id_lower}_") or f_lower == f"{id_lower}.png" or f_lower == f"{id_lower}.mp4"
             
-            if match_standard:
-                if file.suffix.lower() in EXTENSIONS:
-                    # 排除特定前缀 (如果是灰盒逻辑下残余的图，但原则上 ID 匹配优先)
-                    # 找到第一个匹配的就作为该 ID 的代表素材
-                    return f"visuals/{d_name}/{file.name}"
-            
-            # 特殊处理：有些 ID 本身不带后缀，如 S05_Jungian_Shadow
-            if file.stem == slide_id and file.suffix.lower() in EXTENSIONS:
-                return f"visuals/{d_name}/{file.name}"
+            # 必须是以 ID_ 开头，防止 S05_1 匹配 S05_10
+            if f_lower.startswith(f"{id_lower}_") and f.suffix.lower() in EXTENSIONS:
+                candidates.append(f)
+        
+        if candidates:
+            # 按扩展名优先级排序
+            candidates.sort(key=lambda x: EXTENSIONS.index(x.suffix.lower()) if x.suffix.lower() in EXTENSIONS else 99)
+            best_match = candidates[0]
+            rel_path = best_match.relative_to(assets_dir)
+            return f"visuals/{rel_path}"
             
     return None
 

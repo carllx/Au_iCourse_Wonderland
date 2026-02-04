@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
 import SliderFactory from './components/SliderFactory'
 import TimelineBar from './components/TimelineBar'
@@ -149,6 +149,35 @@ function App() {
     }
   }
 
+  // [NEW] Allow explicit control from child components (e.g., Layouts requesting pause)
+  // [FIX] Identity stability: No dependencies to prevent infinite re-render loops in children
+  const setMediaPlaying = useCallback((shouldPlay) => {
+    if (!audioRef.current) return;
+
+    if (shouldPlay) {
+      if (audioRef.current.paused) {
+        console.log("[App] setMediaPlaying: Resuming TTS Audio...");
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch(e => {
+              console.warn("[App] TTS Play blocked:", e);
+              setIsPlaying(false);
+            });
+        }
+      }
+    } else {
+      if (!audioRef.current.paused) {
+        console.log("[App] setMediaPlaying: Pausing TTS Audio...");
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  }, []); // TRULY STABLE IDENTITY
+
   const seekTo = (time) => {
     // If NaN or undefined, ignore
     if (!Number.isFinite(time)) return;
@@ -229,6 +258,7 @@ function App() {
             slide={currentSlide}
             subtitles={subtitles}
             currentTime={currentTime}
+            onGlobalControl={setMediaPlaying}
           />
         ) : (
           <div className="empty-state">

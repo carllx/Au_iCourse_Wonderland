@@ -111,6 +111,11 @@ def scan_script(file_path):
                     if not next_line:
                         continue
                         
+                    # [Patch] Ignore meta-comments (e.g., "(Action)", "(切回界面)")
+                    # These break the visual-audio link if counted as "audio text" but don't contain verbs.
+                    if next_line.startswith("(") and next_line.endswith(")"):
+                        continue
+                        
                     # Stop if we hit structure markers
                     if next_line.startswith("#") or next_line.startswith("---"):
                         break

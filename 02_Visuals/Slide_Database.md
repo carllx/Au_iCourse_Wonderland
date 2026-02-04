@@ -21,6 +21,8 @@
 | `Caption` | 可选 | PPT 上显示的引用/注释 |
 | `Text` | 可选 | PPT 上的主标题 |
 | `List` | 可选 | PPT 上的列表内容 |
+| `MediaStart`| 🎬 | (Video) 开始时间 (seconds) |
+| `MediaEnd`  | 🎬 | (Video) 结束时间 (seconds) |
 
 ### 🎨 AI_Prompt 模板
 
@@ -265,6 +267,56 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Alan Blumlein walking in front of a microphone pair at Abbey Road (1933).
 *   **Text**: "Testing Presence, not just Wire."
 *   **Caption**: "On this day in 1931, EMI engineer Alan Dower Blumlein filed a patent for a two-channel audio system, or what we now know as ‘Stereo’."
+*   **Ref**: ![S05_Blumlein_Walking](./assets/S05_Phase4_Position/S05_Blumlein_Walking_web.webm)
+
+## S05_Diff_Material_Preview
+*   **Type**: [Video]
+*   **Concept**: 深听测试 (Deep Listening)
+*   **MediaStart**: 6.82
+*   **MediaEnd**: 21.715
+*   **Visual**: Screen recording of the audio process.
+*   **Ref**: ![S05_Diff_Material_Preview](./assets/S05_Phase4_Position/S05_Diff_Material_Preview_rec.mp4)
+
+## S05_Audition_Check
+*   **Type**: [UI/Icon]
+*   **Concept**: 听觉检查
+*   **Visual**: Minimalist icon of an ear or headphones, pulsating slightly.
+*   **Text**: "Audition Check"
+*   **Caption**: "Don't look. Listen."
+*   **Ref**: ![S05_Audition_Check](./assets/S05_Phase4_Position/S05_Audition_Check_icon.png)
+*   **AI_Prompt**: `minimalist icon design, listening ear symbol, glowing cyan lines on black background, hud interface style, 8k`
+
+## S05_Preview_Heart_Raw
+*   **Type**: [Video]
+*   **Concept**: 心跳原声预览
+*   **Visual**: Screen recording of playing the raw Heartbeat audio.
+*   **Ref**: ![S05_Preview_Heart_Raw](./assets/S05_Phase4_Position/S05_Preview_Heart_Raw_rec.mp4)
+
+## S05_Preview_Wall_Raw
+*   **Type**: [Video]
+*   **Concept**: 压力原声预览
+*   **Visual**: Screen recording of playing the raw Pressure audio.
+*   **Ref**: ![S05_Preview_Wall_Raw](./assets/S05_Phase4_Position/S05_Preview_Wall_Raw_rec.mp4)
+
+## S05_Preview_Needle_Raw
+*   **Type**: [Video]
+*   **Concept**: 焦虑原声预览
+*   **Visual**: Screen recording of playing the raw Anxiety audio.
+*   **Ref**: ![S05_Preview_Needle_Raw](./assets/S05_Phase4_Position/S05_Preview_Needle_Raw_rec.mp4)
+
+## S05_Preview_Wall_Final
+*   **Type**: [Video]
+*   **Concept**: 墙体最终效果预览
+*   **Visual**: Screen recording of the processed Wall audio impact.
+*   **Ref**: ![S05_Preview_Wall_Final](./assets/S05_Phase4_Position/S05_Preview_Wall_Final_rec.mp4)
+
+## S05_Preview_Needle_Final
+*   **Type**: [Video]
+*   **Concept**: 针刺最终效果预览
+*   **Visual**: Screen recording of the processed Needle audio flyover.
+*   **Ref**: ![S05_Preview_Needle_Final](./assets/S05_Phase4_Position/S05_Preview_Needle_Final_rec.mp4)
+
+
 
 
 
@@ -273,7 +325,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 原始的自动化
 *   **Visual**: The 1940 Fantasound Speaker Layout + The "Tadpole" optical track.
 *   **Caption**: "The Ancestor of Automation."
-*   **Ref**: ![S05_Fantasound_Layout](./assets/S05_Phase4_Position/S05_Fantasound_Layout_cap.png)
+*   **Ref**: ![S05_Fantasound_Layout](./assets/S05_Phase4_Position/S05_Fantasound_Layout_cap.jpg)
 
 ## S05_Setup_Surround_NewSession
 *   **Type**: [UI/Screenshot]
@@ -281,17 +333,37 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: New Multitrack Session Dialog with "5.1 Surround" highlighted.
 *   **Ref**: ![S05_Setup_Surround_NewSession](./assets/S05_Phase4_Position/S05_Setup_Surround_NewSession_cap.png)
 
+## S05_Add_Bus_RightClick
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 右键添加总线
+*   **Visual**: 在轨道空白处右键弹出菜单，显示 Track > Add Stereo Bus Track 的操作路径。
+*   **Ref**: ![S05_Add_Bus_RightClick](./assets/S05_Phase4_Position/S05_Add_Bus_RightClick_cap.png)
+
 ## S05_Setup_Bus_Creation
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 创建总线
 *   **Visual**: Multitrack View showing "Add Stereo Bus Track" menu action.
 *   **Ref**: ![S05_Setup_Bus_Creation](./assets/S05_Phase4_Position/S05_Setup_Bus_Creation_cap.png)
 
-## S05_Setup_Track_Naming
+## S05_Setup_Bus_Reverb
 *   **Type**: [UI/Screenshot]
-*   **Concept**: 轨道命名与布局
-*   **Visual**: Track list showing The Void (Bus), T1-Heart (Mono, BoneEQ), T2-Wall, T3-Needle.
-*   **Ref**: ![S05_Setup_Track_Naming](./assets/S05_Phase4_Position/S05_Setup_Track_Naming_cap.png)
+*   **Concept**: 加载混响
+*   **Visual**: Effect Rack on "The Void" bus showing Convolution Reverb loaded.
+*   **Ref**: ![S05_Setup_Bus_Reverb](./assets/S05_Phase4_Position/S05_Setup_Bus_Reverb_cap.png)
+
+## S05_Setup_IR_Detail
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 加载脉冲响应
+*   **Visual**: Action of dragging/loading `asset_S04_void_ir.wav` into the plugin.
+*   **Ref**: ![S05_Setup_IR_Detail](./assets/S05_Phase4_Position/S05_Setup_IR_Detail_cap.png)
+
+## S05_Setup_Import_Tracks
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 导入素材与布局
+*   **Visual**: Project showing the 3 actors (Heart, Wall, Needle) imported onto tracks.
+*   **Ref**: ![S05_Setup_Import_Tracks](./assets/S05_Phase4_Position/S05_Setup_Import_Tracks_cap.png)
+
+
 
 ## S05_Setup_Sends_Routing
 *   **Type**: [UI/Screenshot]
@@ -308,7 +380,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 ## S05_Wall_EQ_Start
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 墙在远方
-*   **Visual**: Parametric EQ at 50Hz / -40dB (Muffled, distant).
+*   **Visual**: Parametric EQ at 2000Hz / -40dB (Muffled, distant).
 *   **Ref**: ![S05_Wall_EQ_Start](./assets/S05_Phase4_Position/S05_Wall_EQ_Start_cap.png)
 
 ## S05_Automation_Curve
@@ -320,8 +392,9 @@ glitch art style, 8K, cinematic lighting, centered composition"
 ## S05_Wall_EQ_End
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 墙在眼前 (刺破)
-*   **Visual**: Parametric EQ at 20,000Hz / +36dB (Impact, piercing).
+*   **Visual**: Parametric EQ at 20,000Hz / +12dB (Impact, piercing).
 *   **Ref**: ![S05_Wall_EQ_End](./assets/S05_Phase4_Position/S05_Wall_EQ_End_cap.png)
+
 
 
 ## S05_Needle_Automation_Setup_cap
@@ -365,6 +438,36 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Pan Angle -179, Radius 17.
 *   **Ref**: ![S05_Ext_Shadow_Panner_cap](./assets/S05_Phase4_Position/Extension/S05_Ext_Shadow_Panner_cap.png)
 
+## S05_EQ_Automation_Setup_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 自动化曲线设置
+*   **Visual**: Show Envelopes menu with "Band 5 Freq" and "Band 5 Gain" selected.
+*   **Ref**: ![S05_EQ_Automation_Setup_cap](./assets/S05_Phase4_Position/S05_EQ_Automation_Setup_cap.png)
+
+## S05_EQ_Automation_Curve_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 绘制滤波器曲线
+*   **Visual**: Two automation lines: Freq rising from 2k to 20k, Gain rising from -40 to +12dB.
+*   **Ref**: ![S05_EQ_Automation_Curve_cap](./assets/S05_Phase4_Position/S05_EQ_Automation_Curve_cap.png)
+
+## S05_EQ_Final_View_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 最终EQ视图
+*   **Visual**: The resulting automation curves on the track.
+*   **Ref**: ![S05_EQ_Final_View_cap](./assets/S05_Phase4_Position/S05_EQ_Final_View_cap.png)
+
+## S05_Pan_Radius_Toggle_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 启用半径参数
+*   **Visual**: Show Envelopes menu with "Radius" selected for Track Panner.
+*   **Ref**: ![S05_Pan_Radius_Toggle_cap](./assets/S05_Phase4_Position/S05_Pan_Radius_Toggle_cap.png)
+
+## S05_Pan_Radius_Curve_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 墙体逼近
+*   **Visual**: Radius automation curve dropping from high to low (Wall closing in).
+*   **Ref**: ![S05_Pan_Radius_Curve_cap](./assets/S05_Phase4_Position/S05_Pan_Radius_Curve_cap.png)
+
 
 ## S05_Azimuth_Coordinator
 *   **Type**: [Photo/Historical]
@@ -400,14 +503,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Duration**: ~15s
 *   **Caption**: "Drawing the Anxiety with Splines."
 
-## S05_Act_Add_Doppler
-*   **Type**: [Live Demo]
-*   **Target**: Track 3 Pitch Automation Lane
-*   **Action**: 微调 Pitch 曲线。当 Pan 穿过 Center 时，Pitch 每个周期下降 -50 cents 再回弹。
-*   **Duration**: ~5s
-*   **Caption**: "Doppler Effect: The sound is flying OVER you."
 
-## S05_Act_Max_Width
 *   **Type**: [Live Demo]
 *   **Target**: FX Bus (The Void) - Stereo Expander
 *   **Action**: 将 Stereo Width 瞬间从 100% 推至 150%。
@@ -433,13 +529,25 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Ref**: ![S05_Void_Expander_Settings](./assets/S05_Phase4_Position/S05_Void_Expander_Settings_cap.png)
 
 
+## S05_Heart_EQ_Add
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 加载参数均衡器
+*   **Visual**: 在 Track 1 的效果组合中加载 Parametric EQ 的菜单路径。
+*   **Ref**: ![S05_Heart_EQ_Add](./assets/S05_Phase4_Position/S05_Heart_EQ_Add_cap.png)
+
 ## S05_Heart_EQ_Settings_cap
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 极致孤独 EQ
 *   **Visual**: Parametric EQ: Low Pass 200Hz (48dB/Oct). Only sub-bass remains.
 *   **Ref**: ![S05_Heart_EQ_Settings_cap](./assets/S05_Phase4_Position/S05_Heart_EQ_Settings_cap.png)
 
-## S05_Heart_Panner_Settings_cap
+## S05_Heart_Panner_Open
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 打开声像面板
+*   **Visual**: 轨道控制区 T1-心跳，圆点图标被紫色圆圈圈住，标注“双击”。同时展示声像面板及其参数含义（Angle, Spread, Radius, Center, LFE）。
+*   **Ref**: ![S05_Heart_Panner_Open](./assets/S05_Phase4_Position/S05_Heart_Panner_Open_cap.png)
+
+## S05_Heart_Panner_Settings
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 心脏声像 (Diffusion)
 *   **Visual**: Track Panner: Radius 0, Stereo Spread 30 degrees.
@@ -450,3 +558,53 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 脑后低语 (Behind Head)
 *   **Visual**: Track Panner: Angle -179, Radius 17 (Very Close).
 *   **Ref**: ![S05_Ext_Shadow_Panner_cap](./assets/S05_Phase4_Position/S05_Ext_Shadow_Panner_cap.png)
+## S05_Setup_HardLimiter
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 物理保险 (Hard Limiter)
+*   **Visual**: Hard Limiter panel on Mix track, set to -3.0 dB Maximum Amplitude.
+*   **Ref**: ![S05_Setup_HardLimiter](./assets/S05_Phase4_Position/S05_Setup_HardLimiter_cap.png)
+## S05_Setup_HardLimiter_Path
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 效果架路径 (Rack Effect Path)
+*   **Visual**: Dropdown menu: Amplitude and Compression > Hard Limiter on the Mix track.
+*   **Ref**: ![S05_Setup_HardLimiter_Path](./assets/S05_Phase4_Position/S05_Setup_HardLimiter_Path_cap.png)
+
+## S05_Icon_Heart
+*   **Type**: [Concept Art]
+*   **Concept**: 核心锚点 (The Anchor)
+*   **Visual**: A 1:1 square diagram. A single solid red dot in the absolute center of a black void. Minimalist geometric style.
+*   **AI_Prompt**: `minimalist abstract graphic design, a single glowing red dot in the center of a black square, bauhaus style, geometric, 8k, flat design, high contrast`
+*   **Caption**: "The Heart: The Static Center."
+
+## S05_Icon_Wall
+*   **Type**: [Concept Art]
+*   **Concept**: 压迫之墙 (The Wall)
+*   **Visual**: A 1:1 square diagram. A massive grey block descending from the top, occupying the upper 50% of the square.
+*   **AI_Prompt**: `minimalist abstract graphic design, a massive heavy grey concrete block pressing down from the top, filling half the black square, sense of weight and pressure, claustrophobic, bauhaus style, geometric, 8k`
+*   **Caption**: "The Wall: The Crushing Environment."
+
+## S05_Icon_Anxiety
+*   **Type**: [Concept Art]
+*   **Concept**: 焦虑螺旋 (The Needle)
+*   **Visual**: A 1:1 square diagram. A chaotic, jagged white scratchy spiral line spinning frantically around the center.
+*   **AI_Prompt**: `minimalist abstract graphic design, a chaotic jagged white scribble line spiraling frantically in a black square, nervous energy, messy, scratchy texture, bauhaus style, geometric, 8k`
+*   **Caption**: "The Needle: The Chaotic Threat."
+
+## S05_ILD_Diagram
+*   **Type**: [Diagram]
+*   **Concept**: 双耳声级差 (ILD)
+*   **Visual**: A 1:1 square diagram. Top-down view of a human head (minimalist circle). Long, wavy low-frequency waves wrapping around the head (cyan). Short, straight high-frequency waves being blocked by one side of the head (white).
+*   **AI_Prompt**: `minimalist scientific diagram, top-down view of a simple circle representing a head, long curved cyan waves flowing around it, short sharp white lines hitting one side and stopping, pitch black background, bauhaus geometry, 8k, ultra-clean`
+*   **Caption**: "ILD: Why high frequencies define position."
+
+## S05_Setup_Sends_Editor
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 轨道区发送设置
+*   **Visual**: Editor View showing the circular "Sends" toggle button (highlighted) and the Send 1 target set to "The Void" for Track 2 and 3.
+*   **Ref**: ![S05_Setup_Sends_Editor](./assets/S05_Phase4_Position/S05_Setup_Sends_Editor_cap.png)
+## S05_Visual_Guests
+*   **Type**: [Diagram]
+*   **Concept**: 客人与主人 (Spatial Logic)
+*   **Visual**: A 1:1 square diagram. Central red dot (Heart/Dry) isolated from a surrounding blue hazy sphere (The Void/Wet). Inside the sphere are the Wall (grey block) and Needle (white spiral).
+*   **Ref**: ![S05_Visual_Guests](./assets/S05_Phase4_Position/S05_Visual_Guests_ai.png)
+*   **Caption**: "谁是客人，谁在门外？"

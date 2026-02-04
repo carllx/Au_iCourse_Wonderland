@@ -31,7 +31,20 @@ SCRIPTS_DIR = PROJECT_ROOT / "03_Scripts"
 AUDIO_DIR = PROJECT_ROOT / "03_Scripts/tts"
 
 def normalize_text(text):
-    """简单的文本标准化: 去除标点和空格，转小写"""
+    """
+    Robust Normalization:
+    1. Strip Markdown links/bold (Basic)
+    2. Strip Parentheticals (English/Chinese) to match TTS logic
+    3. Remove punctuation/spaces/case
+    """
+    # 1. Strip Markdown links [text](url) -> text
+    text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
+    
+    # 2. Strip Parentheticals (Crucial for matching rich MD with clean TTS)
+    # Remove (...) and （...）
+    text = re.sub(r'[\(\（].*?[\)\）]', '', text)
+    
+    # 3. Strip Non-Alphanumeric (standard normalization)
     return re.sub(r"[^\w]", "", text).lower()
 
 def build_timeline(section_id):

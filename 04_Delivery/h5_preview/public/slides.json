@@ -1,6 +1,6 @@
 {
   "version": "1.4",
-  "generated": "2026-02-02T14:32:56.645065",
+  "generated": "2026-02-04T01:21:37.350851",
   "sections": [
     {
       "id": "S01_Intro",
@@ -182,7 +182,7 @@
           "duration": "",
           "id": "S03_Chipmunk",
           "template": "Layout_Content",
-          "image": "visuals/S03_Phase2_Sculpt/S03_Chipmunk_placeholder.mp4",
+          "image": "visuals/S03_Phase2_Sculpt/S03_Chipmunk.png",
           "startTime": 159.02
         },
         {
@@ -389,7 +389,7 @@
           "id": "S05_Blumlein_Walking",
           "template": "Layout_Content",
           "image": "visuals/S05_Phase4_Position/S05_Blumlein_Walking_web.webm",
-          "startTime": 0.18
+          "startTime": 10.18
         },
         {
           "type": "UI/Screenshot",
@@ -405,7 +405,39 @@
           "id": "S05_Setup_Surround_NewSession",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_Surround_NewSession_cap.png",
-          "startTime": 55.6
+          "startTime": 63.58
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Dropdown menu: Amplitude and Compression > Hard Limiter on the Mix track.",
+          "caption": "",
+          "concept": "效果架路径 (Rack Effect Path)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_HardLimiter_Path",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_HardLimiter_Path_cap.png",
+          "startTime": 100.96
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Hard Limiter panel on Mix track, set to -3.0 dB Maximum Amplitude.",
+          "caption": "",
+          "concept": "物理保险 (Hard Limiter)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_HardLimiter",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_HardLimiter_cap.png",
+          "startTime": 112.78
         },
         {
           "type": "Diagram",
@@ -420,24 +452,136 @@
           "duration": "",
           "id": "S05_Fantasound_Layout",
           "template": "Layout_Content",
-          "image": "visuals/S05_Phase4_Position/S05_Fantasound_Layout_web.jpg",
-          "startTime": 78.74
+          "image": "visuals/S05_Phase4_Position/S05_Fantasound_Layout_ai.png",
+          "startTime": 129.3
         },
         {
           "type": "UI/Screenshot",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "Multitrack View showing \"Add Stereo Bus Track\" menu action.",
+          "visual": "Close-up of an automation envelope line with keyframes, looking like a \"tadpole\" or biological curve.",
           "caption": "",
-          "concept": "创建总线",
+          "concept": "蝌蚪的后裔",
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S05_Setup_Bus_Creation",
+          "id": "S05_Automation_Curve",
           "template": "Layout_FullBleed",
-          "image": "visuals/S05_Phase4_Position/S05_Setup_Bus_Creation_cap.png",
-          "startTime": 112.12
+          "image": "visuals/S05_Phase4_Position/S05_Automation_Curve_cap.png",
+          "startTime": 156.98
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Project showing the 3 actors (Heart, Wall, Needle) imported onto tracks.",
+          "caption": "",
+          "concept": "导入素材与布局",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_Import_Tracks",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_Import_Tracks_cap.png",
+          "startTime": 182.34
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of playing the raw Heartbeat audio.",
+          "caption": "",
+          "concept": "心跳原声预览",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Preview_Heart_Raw",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Preview_Heart_Raw_rec.mp4",
+          "startTime": 200.64
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of playing the raw Pressure audio.",
+          "caption": "",
+          "concept": "压力原声预览",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Preview_Wall_Raw",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Preview_Wall_Raw_rec.mp4",
+          "startTime": 205.64
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of playing the raw Anxiety audio.",
+          "caption": "",
+          "concept": "焦虑原声预览",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Preview_Needle_Raw",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Preview_Needle_Raw_rec.mp4",
+          "startTime": 211.56
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "在轨道空白处右键弹出菜单，显示 Track > Add Stereo Bus Track 的操作路径。",
+          "caption": "",
+          "concept": "右键添加总线",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Add_Bus_RightClick",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Add_Bus_RightClick_cap.png",
+          "startTime": 225.8
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Effect Rack on \"The Void\" bus showing Convolution Reverb loaded.",
+          "caption": "",
+          "concept": "加载混响",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_Bus_Reverb",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_Bus_Reverb_cap.png",
+          "startTime": 236.74
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Action of dragging/loading `asset_S04_void_ir.wav` into the plugin.",
+          "caption": "",
+          "concept": "加载脉冲响应",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_IR_Detail",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_IR_Detail_cap.png",
+          "startTime": 249.78
         },
         {
           "type": "UI/Screenshot",
@@ -453,7 +597,39 @@
           "id": "S05_Setup_Sends_Routing",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_Sends_Routing_cap.png",
-          "startTime": 129.12
+          "startTime": 281.6
+        },
+        {
+          "type": "Concept Art",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A 1:1 square diagram. A single solid red dot in the absolute center of a black void. Minimalist geometric style.",
+          "caption": "The Heart: The Static Center.",
+          "concept": "核心锚点 (The Anchor)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Icon_Heart",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Icon_Heart_ai.png",
+          "startTime": 339.48
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "轨道控制区 T1-心跳，圆点图标被紫色圆圈圈住，标注“双击”。同时展示声像面板及其参数含义（Angle, Spread, Radius, Center, LFE）。",
+          "caption": "",
+          "concept": "打开声像面板",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Heart_Panner_Open",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Heart_Panner_Open_cap.png",
+          "startTime": 347.2
         },
         {
           "type": "UI/Screenshot",
@@ -466,10 +642,26 @@
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S05_Heart_Panner_Settings_cap",
+          "id": "S05_Heart_Panner_Settings",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Heart_Panner_Settings_cap.png",
-          "startTime": 161.07
+          "startTime": 374.54
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "在 Track 1 的效果组合中加载 Parametric EQ 的菜单路径。",
+          "caption": "",
+          "concept": "加载参数均衡器",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Heart_EQ_Add",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Heart_EQ_Add_cap.png",
+          "startTime": 404.8
         },
         {
           "type": "UI/Screenshot",
@@ -485,7 +677,41 @@
           "id": "S05_Heart_EQ_Settings_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Heart_EQ_Settings_cap.png",
-          "startTime": 188.22
+          "startTime": 413.5
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of the audio process.",
+          "caption": "",
+          "concept": "深听测试 (Deep Listening)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "mediaStart": "6.82",
+          "mediaEnd": "21.715",
+          "id": "S05_Diff_Material_Preview",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Diff_Material_Preview_rec.mp4",
+          "startTime": 437.72
+        },
+        {
+          "type": "Concept Art",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A 1:1 square diagram. A massive grey block descending from the top, occupying the upper 50% of the square.",
+          "caption": "The Wall: The Crushing Environment.",
+          "concept": "压迫之墙 (The Wall)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Icon_Wall",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Icon_Wall_ai.png",
+          "startTime": 451.8
         },
         {
           "type": "UI/Screenshot",
@@ -501,38 +727,103 @@
           "id": "S05_Wall_EQ_Start",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Wall_EQ_Start_cap.png",
-          "startTime": 199.74
+          "startTime": 464.62
         },
         {
           "type": "UI/Screenshot",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "Parametric EQ at 20,000Hz / +36dB (Impact, piercing).",
+          "visual": "Show Envelopes menu with \"Band 5 Freq\" and \"Band 5 Gain\" selected.",
           "caption": "",
-          "concept": "墙在眼前 (刺破)",
+          "concept": "自动化曲线设置",
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S05_Wall_EQ_End",
+          "id": "S05_EQ_Automation_Setup_cap",
           "template": "Layout_FullBleed",
-          "image": "visuals/S05_Phase4_Position/S05_Wall_EQ_End_cap.png",
-          "startTime": 232.38
+          "image": "visuals/S05_Phase4_Position/S05_EQ_Automation_Setup_cap.png",
+          "startTime": 486.8
         },
         {
-          "type": "Live Demo",
+          "type": "UI/Screenshot",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "",
-          "caption": "Drawing the Anxiety with Splines.",
-          "concept": "",
-          "action": "(Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间随机跳跃，Radius 逐渐减小。",
-          "target": "Track 3 Pan Automation Lane (Angle & Radius)",
-          "duration": "~15s",
-          "id": "S05_Act_Perform_Pan",
-          "template": "Layout_Demo",
-          "startTime": 291.7
+          "visual": "Two automation lines: Freq rising from 2k to 20k, Gain rising from -40 to +12dB.",
+          "caption": "",
+          "concept": "绘制滤波器曲线",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_EQ_Automation_Curve_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_EQ_Automation_Curve_cap.png",
+          "startTime": 513.44
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Show Envelopes menu with \"Radius\" selected for Track Panner.",
+          "caption": "",
+          "concept": "启用半径参数",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Pan_Radius_Toggle_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Pan_Radius_Toggle_cap.png",
+          "startTime": 553.0
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Radius automation curve dropping from high to low (Wall closing in).",
+          "caption": "",
+          "concept": "墙体逼近",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Pan_Radius_Curve_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Pan_Radius_Curve_cap.png",
+          "startTime": 557.7
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of the processed Wall audio impact.",
+          "caption": "",
+          "concept": "墙体最终效果预览",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Preview_Wall_Final",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Preview_Wall_Final_rec.mp4",
+          "startTime": 570.48
+        },
+        {
+          "type": "Concept Art",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A 1:1 square diagram. A chaotic, jagged white scratchy spiral line spinning frantically around the center.",
+          "caption": "The Needle: The Chaotic Threat.",
+          "concept": "焦虑螺旋 (The Needle)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Icon_Anxiety",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Icon_Anxiety_ai.png",
+          "startTime": 587.8
         },
         {
           "type": "UI/Screenshot",
@@ -548,7 +839,22 @@
           "id": "S05_Needle_Automation_Setup_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Automation_Setup_cap.png",
-          "startTime": 328.4
+          "startTime": 622.46
+        },
+        {
+          "type": "Live Demo",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "",
+          "caption": "Drawing the Anxiety with Splines.",
+          "concept": "",
+          "action": "(Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间随机跳跃，Radius 逐渐减小。",
+          "target": "Track 3 Pan Automation Lane (Angle & Radius)",
+          "duration": "~15s",
+          "id": "S05_Act_Perform_Pan",
+          "template": "Layout_Demo",
+          "startTime": 636.14
         },
         {
           "type": "UI/Screenshot",
@@ -564,7 +870,7 @@
           "id": "S05_Needle_Pan_Angle_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Angle_cap.png",
-          "startTime": 337.01
+          "startTime": 641.84
         },
         {
           "type": "UI/Screenshot",
@@ -580,7 +886,7 @@
           "id": "S05_Needle_Pan_Radius_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Radius_cap.png",
-          "startTime": 353.59
+          "startTime": 650.58
         },
         {
           "type": "UI/Screenshot",
@@ -596,7 +902,23 @@
           "id": "S05_Needle_Pan_Random_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Random_cap.png",
-          "startTime": 400.22
+          "startTime": 665.96
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of the processed Needle audio flyover.",
+          "caption": "",
+          "concept": "针刺最终效果预览",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Preview_Needle_Final",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Preview_Needle_Final_rec.mp4",
+          "startTime": 692.48
         },
         {
           "type": "Concept Art",
@@ -612,7 +934,7 @@
           "id": "S05_Geometry_Loneliness",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Geometry_Loneliness_ai.png",
-          "startTime": 421.16
+          "startTime": 699.96
         },
         {
           "type": "Photo/Historical",
@@ -628,7 +950,7 @@
           "id": "S05_Azimuth_Coordinator",
           "template": "Layout_Content",
           "image": "visuals/S05_Phase4_Position/S05_Azimuth_Coordinator_web.jpg",
-          "startTime": 472.06
+          "startTime": 746.46
         },
         {
           "type": "UI/Screenshot",
@@ -644,7 +966,7 @@
           "id": "S05_Void_Expander_Settings",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Void_Expander_Settings_cap.png",
-          "startTime": 483.34
+          "startTime": 752.94
         },
         {
           "type": "Photo/Art",
@@ -660,7 +982,7 @@
           "id": "S05_Janet_Cardiff",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Janet_Cardiff_web.webp",
-          "startTime": 502.58
+          "startTime": 787.24
         }
       ],
       "audio": "tts/S05_Phase4_Position.aac",

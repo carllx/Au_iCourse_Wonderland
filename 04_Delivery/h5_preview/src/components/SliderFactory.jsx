@@ -24,7 +24,7 @@ function UnknownLayout({ slide }) {
     );
 }
 
-export default function SliderFactory({ slide, subtitles, currentTime }) {
+export default function SliderFactory({ slide, subtitles, currentTime, onGlobalControl }) {
     if (!slide) return null;
 
     const LayoutComponent = COMPONENT_MAP[slide.template] || Layout_Content; // Default to Content
@@ -34,6 +34,7 @@ export default function SliderFactory({ slide, subtitles, currentTime }) {
             slide={slide}
             subtitles={subtitles}
             currentTime={currentTime}
+            onGlobalControl={onGlobalControl}
         />
     );
 }
