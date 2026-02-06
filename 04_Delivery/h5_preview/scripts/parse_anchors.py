@@ -57,18 +57,7 @@ def parse_anchors(script_path: Path):
                     })
                     processed_slides.add(target_slide)
 
-    # Re-evaluating the usage of parser output.
-    # The parser returns blocks.
-    # ScriptBlock has .slide_id field.
-    # If the parser logic correctly assigned slide_id to AUDIO blocks, we just need to filter and map.
-    
-    for block in blocks:
-        if block.block_type == BlockType.AUDIO and block.slide_id:
-             anchors.append({
-                "slide_id": block.slide_id,
-                "anchor_text": block.content,
-                "line_no": block.line_no
-            })
+
             
     return anchors
 

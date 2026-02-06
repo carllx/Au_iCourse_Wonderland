@@ -9,26 +9,21 @@
 ### 完整流程
 
 ```
-1️⃣ Define  →  2️⃣ Greybox  →  3️⃣ Collect  →  4️⃣ Produce  →  5️⃣ Replace  →  6️⃣ Preview
-在Database    生成灰盒占位    搜索/生成素材    合成成品       覆盖灰盒      H5交互验证
-中添加条目
+1️⃣ Define  →  2️⃣ Sync Style  →  3️⃣ Produce  →  4️⃣ Replace  →  5️⃣ Preview
+在Database    同步视觉定义的    生成符合Bauhaus    合成成品       H5交互验证
+中添加条目    CSS和配置         风格的素材
+(Yaml SSOT)   (Visual Director)  (AI Gen)
 ```
 
 ---
 
 ## 📋 Step 1: Define (定义)
 
-在 `Slide_Database.md` 中添加条目:
+### 1-A. 滑块与素材定义
+在 `02_Visuals/Slide_Database.md` 中添加条目。
 
-```markdown
-## S06_Ghost_Math
-*   **Type**: [Concept Art]
-*   **Concept**: 修复的代价 (Musical Noise)
-*   **Visual**: 一个半透明幽灵鸟漂浮在纯黑背景中
-*   **Search**: `glitch ghost bird digital artifacts, transparent, pure black void`
-*   **AI_Prompt**: `A translucent ghost bird made of digital noise artifacts, floating in pure black void, glitch art style, 8K, cinematic lighting`
-*   **Caption**: "过度降噪会召唤出'数字幽灵'"
-```
+### 1-B. 风格与配色定义 (SSOT)
+在 `.agent/standards/visual_system.yaml` 中定义全局风格。
 
 ### 必填字段
 
@@ -47,39 +42,27 @@
 
 ---
 
-## 🔲 Step 2: Greybox (生成灰盒)
+## 🎨 Step 2: Visual Director (风格同步)
+
+**这是确保 H5 和 Python 渲染器风格统一的关键步骤。**
 
 ```bash
-python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
+# 同步 CSS 和 Matplotlib 配置
+python .agent/skills/visual-director/scripts/sync_style.py
 ```
-
-**结果**: 自动在 `assets/Sxx_Module/` 下生成 1920x1080 灰盒占位图
-
-**作用**: 让剪辑管线不阻塞,可以先用灰盒拼视频
 
 ---
 
-## 🔍 Step 3: Collect (获取素材)
+## 🤖 Step 3: Produce (AI 素材生成)
 
-### 方式 A: 网络搜索
+使用 **Visual Director** 的增强生成器，它会自动读取 YAML 宪法注入 "Bauhaus/Minimalist" 风格。
 
-使用 `Search` 字段中的关键词在以下网站搜索:
-- [Unsplash](https://unsplash.com) (免费高清)
-- [Pexels](https://pexels.com) (免费商用)
-- [Freepik](https://freepik.com) (需标注来源)
-- Google Images (注意版权)
+```bash
+# 生成素材 (自动应用 CINE-BAUHAUS 风格)
+python .agent/skills/visual-director/scripts/gen_visual_asset.py S06_Ghost_Math
+```
 
-### 方式 B: 文生图
-
-使用 `AI_Prompt` 字段中的 Prompt:
-- [Midjourney](https://midjourney.com)
-- [DALL-E](https://openai.com/dall-e)
-- [Stable Diffusion](https://stability.ai)
-
-### 方式 C: 截图/录屏
-
-- Audition 界面截图
-- 操作过程录屏
+**⚠️ 旧版注意**: 请勿再使用 `validation-suite` 下的旧生成脚本。
 
 ---
 
@@ -143,55 +126,6 @@ python .agent/skills/validation-suite/scripts/validate_links.py
 # 重新生成缺失的灰盒 (仅当 H5 显示空白时使用)
 python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
 ```
-
----
-
-## 🤖 AI 自动生成工具 (AI Asset Generator)
-
-使用 `gen_visual_asset.py` 可以根据 Slide_Database 中的 AI_Prompt 自动生成图片。
-
-### 1. 环境配置 (Setup)
-
-**A. 安装依赖**:
-```bash
-pip install google-generativeai
-```
-
-**B. 配置 API Key**:
-在项目根目录创建 `.env` 文件 (不要上传到 Git):
-
-```ini
-# Private Configuration
-API_BASE_URL=http://127.0.0.1:8045/v1
-API_KEY=sk-your-key-here
-API_MODEL=gemini-3-pro-image
-```
-
-### 2. 使用方法 (Usage)
-
-脚本位置: `.agent/skills/validation-suite/scripts/gen_visual_asset.py`
-
-```bash
-# 列出所有可生成的 Slide
-python .agent/skills/validation-suite/scripts/gen_visual_asset.py --list
-
-# 生成单个 Slide (保存为 S06_Ghost_Math_ai_....png)
-python .agent/skills/validation-suite/scripts/gen_visual_asset.py S06_Ghost_Math
-
-# 生成并自动覆盖灰盒 (Deploy Mode)
-python .agent/skills/validation-suite/scripts/gen_visual_asset.py S06 --deploy
-
-# 自定义 Prompt 生成
-python .agent/skills/validation-suite/scripts/gen_visual_asset.py S06 --prompt "A ghost bird"
-
-# 批量生成所有有 Prompt 的 Slide
-python .agent/skills/validation-suite/scripts/gen_visual_asset.py --all
-```
-
-**⚠️ 注意**: 
-- 需要在 `Slide_Database.md` 中为 Slide 添加 `AI_Prompt` 字段。
-- 确保本地 Antigravity API 服务 (端口 8045) 已启动。
-- 确保 API 后台 ("External Providers") 已配置 Google API Key。
 
 ---
 

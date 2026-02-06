@@ -112,7 +112,6 @@ export default function Layout_Cinema({ slide, subtitles, currentTime, onGlobalC
                             playsInline
                             onTimeUpdate={handleTimeUpdate}
                             onLoadedMetadata={handleLoadedMetadata}
-                            style={{ zIndex: 60, position: 'relative' }}
                         />
                     ) : (
                         <img src={`/${slide.image}`} alt={slide.id} className="cinema-media" />

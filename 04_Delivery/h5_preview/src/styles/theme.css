@@ -1,0 +1,34 @@
+:root {
+  /* Core Colors from visual_system.yaml */
+  --color-bg-base: #0a0a0f;
+  --color-bg-surface: #1a1a25;
+  --color-bg-card: #20202e;
+  --color-primary: #6366f1;
+  --color-primary-glow: rgba(99, 102, 241, 0.4);
+  --color-accent: #8b5cf6;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-text-main: #ffffff;
+  --color-text-secondary: #a0a0b0;
+  --color-text-muted: #606070;
+  --color-border: #2a2a3a;
+
+  /* Spacing Scale Extension */
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Consistency Aliases (Used across index.css) */
+  --bg-primary: var(--color-bg-base);
+  --bg-secondary: var(--color-bg-surface);
+  --text-primary: var(--color-text-main);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+  --accent: var(--color-accent);
+  --accent-glow: var(--color-primary-glow);
+  --border: var(--color-border);
+  --primary: var(--color-primary);
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --error: var(--color-error);
+}

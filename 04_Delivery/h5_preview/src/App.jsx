@@ -110,6 +110,21 @@ function App() {
     };
   }, [isPlaying]);
 
+  // [NEW] Keyboard Interaction (Spacebar to Play/Pause on Hover)
+  const [isHoveringPlayer, setIsHoveringPlayer] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === 'Space' && isHoveringPlayer) {
+        e.preventDefault(); // Prevent scrolling
+        togglePlay();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isHoveringPlayer, isPlaying]); // Re-bind when state changes to get fresh togglePlay closure
+
   // 4. Auto-Sync Logic: Time -> Slide
   useEffect(() => {
     if (!manifest || userSeeking) return; // Disable auto-switch when seeking
@@ -268,7 +283,11 @@ function App() {
       </div>
 
       {/* Bottom Control Hub */}
-      <div className="controls-hub">
+      <div
+        className="controls-hub"
+        onMouseEnter={() => setIsHoveringPlayer(true)}
+        onMouseLeave={() => setIsHoveringPlayer(false)}
+      >
         {/* Section Tabs */}
         <div className="section-selector compact">
           {manifest.sections.map((sec, idx) => (

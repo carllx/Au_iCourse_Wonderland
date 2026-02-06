@@ -13,6 +13,13 @@ globs: 03_Scripts/*.md
 
 脚本必须按照 **“先画后音”** 的顺序编写。严禁出现没有任何视觉描述的“干讲”。
 
+### 1.1 视觉先行原则 (Visual-First Logic)
+*   **默认原则**: 静态 Slide 必须在 Audio 之前 (预加载环境)。
+*   **EXCEPTION (交互例外)**: 动态演示 (Video/Demo) 允许遵循 **IAA 模式**:
+    1.  **Intro (Audio)**: "大家请听..." (提示)
+    2.  **Action (Visual)**: `> [ACT: Play_Video]` (执行)
+    3.  **Analysis (Audio)**: "听到了吗..." (分析)
+
 ### ✅ 标准格式 (Standard Syntax)
 
 每个段落 (Segment) 必须包含：
@@ -61,7 +68,18 @@ globs: 03_Scripts/*.md
 2.  **语速**: 是否超速 (Over-speed) 或 拖沓 (Under-speed)。
 3.  **素材完整性**: [VISUAL] 块中是否遗漏了 Asset 引用。
 
-## 5. 质量保证：朗读测试 (QA: The "Read Aloud" Protocol)
+## 5. 演示流规范 (Demonstration Flow Protocol)
+
+对于所有视听素材 (Audio/Video Demos)，必须严格遵守 **IAA 序列 (Intro-Action-Analysis)**：
+
+1.  **I - Intro (Audio)**: 预设听感目标。"请听这段录音……"
+2.  **A - Action (Visual)**: 触发素材。`> [ACT: Play_Video]`
+3.  **A - Analysis (Audio)**: 验证听感结果。"听到了吗？声音变闷了……"
+
+❌ **禁止**：Action 出现在 Intro 之前 (还没提示就播了)。
+❌ **禁止**：Analysis 出现在 Action 之前 (还没播就分析完了)。
+
+## 6. 质量保证：朗读测试 (QA: The "Read Aloud" Protocol)
 
 为了消除“机器味”和“枯燥感”，在提交脚本前必须执行 **心理模拟 (Mental Simulation)**：
 

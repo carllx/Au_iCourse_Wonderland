@@ -45,6 +45,42 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 ---
 
+## S01_Intro
+*   **Type**: [Module Card]
+*   **Text**: 模块一：导入
+*   **Visual**: Title Card for Module 1.
+
+## S02_Phase1_Purify
+*   **Type**: [Module Card]
+*   **Text**: 模块二：净化
+*   **Visual**: Title Card for Module 2.
+
+## S03_Phase2_Sculpt
+*   **Type**: [Module Card]
+*   **Text**: 模块三：塑形
+*   **Visual**: Title Card for Module 3.
+
+## S04_Phase3_Space
+*   **Type**: [Module Card]
+*   **Text**: 模块四：置景
+*   **Visual**: Title Card for Module 4.
+
+## S05_Phase4_Position
+*   **Type**: [Module Card]
+*   **Text**: 模块五：定位
+*   **Visual**: Title Card for Module 5.
+
+## S06_Summary
+*   **Type**: [Module Card]
+*   **Text**: 模块六：总结
+*   **Visual**: Title Card for Module 6.
+
+## S05_Ext_Consciousness_EQ_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 意识EQ
+*   **Visual**: EQ curve showing consciousness filter.
+*   **Ref**: ![S05_Ext_Consciousness_EQ_cap](./assets/S05_Phase4_Position/Extension/S05_Ext_Consciousness_EQ_cap.png)
+
 ## S01_Title
 *   **Type**: [UI Graphic]
 *   **Text**: 声音的魔术师：Audition 混响与特效实战
@@ -147,21 +183,17 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Type**: [Concept Art]
 *   **Concept**: 空间置景 (Space)
 *   **Ref Image**: Alice falling down the deep rabbit hole.
+*   **AI_Prompt**: `Surreal vertical perspective of Alice falling down an infinite dark rabbit hole, warped space time, floating furniture and clocks, dark fantasy, magical realism, cinematic lighting, depth of field, 8k`
 *   **Caption**: "混响定义了‘无底深渊’的深度。"
+*   **Ref**: ![S04_Visual_RabbitHole](./assets/S04_Phase3_Space/S04_Visual_RabbitHole.png)
 
-## S04_Tail_Timer (Visual Aid)
+## S04_Tail_Timer
 *   **Type**: [Motion Graphic]
 *   **Concept**: 捕捉尾音 (Catching the Tail)
 *   **Visual**: A high-contrast "Stopwatch" or Digital Counter.
-*   **Action**: Counts up from 0s to 5s... then fades out as the sound disappears.
+*   **Action**: Counts up from 0s to 5s... then fades out as the sound disappear.
 *   **Goal**: Visualize the decay time for the audience.
-
-## S04_Concept_Dry_Wet
-*   **Type**: [Diagram/Comparison]
-*   **Concept**: 空间的迷思
-*   **Visual**: Split Screen.
-    *   Left: "Dry: Proximity" (Alice stuck on screen surface).
-    *   Right: "Wet: Infinity" (Alice falling into screen depth).
+*   **Ref**: ![S04_Tail_Timer](./assets/S04_Phase3_Space/S04_Tail_Timer.png)
 
 ## S04_Balloon_Cave
 *   **Type**: [Diagram]
@@ -169,11 +201,12 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Hand-drawn diagram of a balloon exploding in a cave, showing reflection paths.
 *   **Text**: "Impulse Response: The DNA of Space".
 
-## S04_Damping_Curve
+## S04_Air_Absorption_Chart
 *   **Type**: [Chart]
-*   **Concept**: 高频阻尼 (Physics)
-*   **Visual**: Frequency Response Curve collapsing at high frequencies (Low Pass).
-*   **Metaphor**: Diver diving deep, red light disappearing.
+*   **Concept**: 空气吸收 (Physics)
+*   **Visual**: Chart showing air absorption coefficient vs frequency.
+*   **Caption**: "Air Absorption: High frequencies die first."
+*   **Ref**: ![S04_Air_Absorption_Chart](./assets/S04_Phase3_Space/S04_Air_Absorption_Chart_web.png)
 
 ## S04_Automation_Dissolution
 *   **Type**: [UI/Screenshot]
@@ -230,23 +263,62 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Graphic**: Correlation graph from Voss & Clarke (1975).
 
 ## S04_Inchindown_Tanks
-*   **Type**: [Photo/Historical]
-*   **Concept**: 混响极限
-*   **Visual**: Photo of the Inchindown Oil Tanks interior (Endless Tunnel).
-*   **Caption**: "World Record: 112 Seconds of Reverb."
-*   **Text**: "The Inchindown Limit".
+*   **Type**: [Concept Art/Homage]
+*   **Concept**: 工业深渊 (The Abyss)
+*   **Visual**: Cinematic fusion of Inchindown Oil Tank and Cameron's "The Abyss" (1989). Dark, rusty, infinite industrial tunnel with eerie bioluminescent underwater lighting.
+*   **Text**: "The Abyss 1989"
+*   **AI_Prompt**: `cinematic shot inside the endless Inchindown oil tank, rusty metal walls, deep dark water reflection, james cameron's the abyss 1989 style, eerie blue underwater bioluminescent lighting, atmospheric fog, 8k, text "The Abyss 1989" clearly visible in retro sci-fi font glowing on the wall`
+*   **Ref**: ![S04_Inchindown_Tanks](./assets/S04_Phase3_Space/S04_Inchindown_Tanks.jpg)
 
 ## S04_Alvin_Lucier
 *   **Type**: [Photo/Historical]
 *   **Concept**: 空间作为乐器
 *   **Visual**: Photo of Alvin Lucier sitting in a room with a microphone.
 *   **Text**: "I am sitting in a room..."
+*   **Search**: `Alvin Lucier I am sitting in a room performance photo`
 
 ## S04_Neubauten
 *   **Type**: [Photo/Band]
 *   **Concept**: 工业深渊
 *   **Visual**: Einstürzende Neubauten banging on metal pipes in a highway underpass.
 *   **Caption**: "Finding tone in the industrial noise."
+*   **Search**: `Einstürzende Neubauten industrial percussion performance photo`
+
+
+## S04_IR_Recording
+*   **Type**: [Photo/Historical]
+*   **Concept**: 声学摄影 (Audio Ease)
+*   **Visual**: A photo of an acoustician (or Audio Ease team) recording an IR in a large hall or church, holding a pistol or slate.
+*   **Caption**: "Capturing the acoustic fingerprint."
+*   **Search**: `Audio Ease Altiverb recording IR impulse response pistol church hall photo`
+
+## S04_Visual_Sound_Hunter
+*   **Type**: [Concept Art]
+*   **Concept**: 声音猎人 (The Visual Metaphor)
+*   **Visual**: A surreal 'Sound Hunter' firing a pistol in a dark void. The 'muzzle flash' is a glowing blue wireframe shockwave that instantly maps the invisible architecture.
+*   **AI_Prompt**: `cinematic concept art, a silhouette of a sound engineer standing in a vast dark void, firing a starter pistol upwards, the muzzle flash is a glowing cyan digital wireframe shockwave expanding outwards and revealing the invisible 3d geometry of a cathedral, visualizing impulse response, sci-fi surrealism, tyndall effect, 8k, dramatic lighting`
+*   **Ref**: ![S04_Visual_Sound_Hunter](./assets/S04_Phase3_Space/S04_Visual_Sound_Hunter.jpg)
+
+## S04_Impulse_Specs
+*   **Type**: [Infographic]
+*   **Concept**: 脉冲文件规范 (The Recipe)
+*   **Visual**: A minimalist Bauhaus-style technical specification card. Geometric icons representing "WAV/AIFF" (Uncompressed), "32-bit" (Depth), and a "Stopwatch" stopped at 30s (Duration).
+*   **AI_Prompt**: `bauhaus style infographic, minimalist technical icons for audio file wav 32-bit and stopwatch set to 30 seconds, geometric composition, orange and dark grey color palette, clean vector aesthetics, 8k, text "30s LIMIT" and "32-BIT"`
+*   **Ref**: ![S04_Impulse_Specs](./assets/S04_Phase3_Space/S04_Impulse_Specs.jpg)
+
+## S04_BladeRunner_City
+*   **Type**: [Key Visual]
+*   **Concept**: 人造孤独 (Blade Runner)
+*   **Visual**: Iconic shot from Blade Runner (1982) showing the rainy, neon-lit futuristic city (Cyberpunk Aesthetic).
+*   **Caption**: "Synthetic Loneliness: Making it rain psychologically."
+*   **Search**: `Blade Runner 1982 city rain neon cinematography wide shot`
+
+## S04_Anechoic_Chamber
+*   **Type**: [Photo/Science]
+*   **Concept**: 不存在的无 (John Cage)
+*   **Visual**: John Cage or a person sitting in a modern Anechoic Chamber (with foam wedges).
+*   **Caption**: "The impossible silence: Hearing your own nervous system."
+*   **Search**: `Anechoic chamber interior foam wedges John Cage photo`
 
 ## S04_UI_HardLimiter
 *   **Type**: [UI/Screenshot]
@@ -254,20 +326,154 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Hard Limiter Panel.
 *   **Settings**: Max Amplitude = -0.1dB.
 *   **Overlay**: Green text "SAFE".
+*   **Ref**: ![S04_UI_HardLimiter](./assets/S04_Phase3_Space/S04_UI_HardLimiter.png)
 
 ## S04_Conclusion_Abyss
 *   **Type**: [Concept Art]
 *   **Concept**: 听见深渊
 *   **Visual**: Alice floating in a vast, dark, cylindrical tank (The Oil Tank).
+*   **AI_Prompt**: `A tiny Alice floating in the center of a massive dark industrial oil tank interior, rusty metal curved walls, deep water reflection, eerie, solitary, wide angle, cinematic lighting, volumetric fog, blue and black tones, 8k`
 *   **Caption**: "All knobs serve the 80ms of terror."
 
+
+## S04_UI_PreDelay_80ms
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 惊恐的空白
+*   **Visual**: Close-up of Pre-Delay knob set specifically to 80ms.
+*   **Caption**: "80ms: The calculated terror."
+*   **Ref**: ![S04_UI_PreDelay_80ms_cap](./assets/S04_Phase3_Space/S04_UI_PreDelay_80ms_cap.png)
+
+## S04_Deep_Listening
+*   **Type**: [Text/Minimalist]
+*   **Concept**: 深渊的底色
+*   **Visual**: Pure Black Screen.
+*   **Text**: Deep Listening.
+*   **Ref**: ![S04_Deep_Listening_ai](./assets/S04_Phase3_Space/S04_Deep_Listening_ai.png)
+
+## S04_UI_Width_150
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 空间爆破
+*   **Visual**: Width parameter pulled to 150% (or Stereo Expander).
+*   **Caption**: "Exploding the point into a sphere."
+*   **Ref**: ![S04_UI_Width_150_cap](./assets/S04_Phase3_Space/S04_UI_Width_150_cap.png)
+
+## S04_UI_IR_Types
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 空间类型对比
+*   **Visual**: Split screen or Composite showing 3 IR types selected: "Small Closet", "Large Hall", "The Void".
+*   **Caption**: "Closet vs Hall vs Void."
+*   **Ref**: ![S04_UI_IR_Types_cap](./assets/S04_Phase3_Space/S04_UI_IR_Types_cap.png)
+
+## S04_UI_Conv_EQ
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 卷积EQ设置
+*   **Visual**: The EQ tab in Convolution Reverb plugin.
+*   **Settings**: Low Cut active (200Hz), Damping HF active.
+*   **Caption**: "Cleaning the mud, dimming the light."
+*   **Ref**: ![S04_UI_Conv_EQ_cap](./assets/S04_Phase3_Space/S04_UI_Conv_EQ_cap.png)
+
+## S04_UI_Conv_Damping
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 阻尼设置
+*   **Visual**: Convolution Reverb panel focusing on Damping LF and Damping HF sliders.
+*   **Settings**: Damping LF attenuated, Damping HF attenuated.
+*   **Caption**: "Physics of the Abyss: Damping."
+*   **Ref**: ![S04_UI_Conv_Damping_cap](./assets/S04_Phase3_Space/S04_UI_Conv_Damping_cap.png)
+
+## S04_UI_OutputGain_Headroom
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 动态余量
+*   **Visual**: Output Gain or Track Volume set to -6dB.
+*   **Caption**: "Headroom: Space for the abyss to breathe."
+*   **Ref**: ![S04_UI_OutputGain_Headroom_cap](./assets/S04_Phase3_Space/S04_UI_OutputGain_Headroom_cap.png)
+
+## S04_Cover_Seg0_Shape
+*   **Type**: [Title Card]
+*   **Concept**: 空间的迷思
+*   **Visual**: Kandinsky style abstract composition. A flat grey square representing dry sound versus a deep spiraling infinite tunnel loop representing wet sound, high contrast, bauhaus aesthetic.
+*   **AI_Prompt**: `Kandinsky style abstract composition, a flat grey square representing dry sound versus a deep spiraling infinite tunnel loop representing wet sound, high contrast, bauhaus aesthetic, black background, 8k`
+*   **Text**: "Segment 0: The Myth"
+
+## S04_Cover_Seg1_Use
+*   **Type**: [Title Card]
+*   **Concept**: 幽灵的DNA
+*   **Visual**: Kandinsky style abstract composition. A balloon explosion turning into sound waves.
+*   **AI_Prompt**: `Kandinsky style abstract composition, a geometric balloon explosion scattering into rhythmic sound waves, impulse response visualization, constructivism, black background, 8k`
+*   **Text**: "Segment 1: The DNA"
+
+## S04_Cover_Seg2_Void
+*   **Type**: [Title Card]
+*   **Concept**: 寻找虚无
+*   **Visual**: Kandinsky style abstract composition. A large empty circle in the void.
+*   **AI_Prompt**: `Kandinsky style abstract composition, a perfect large void circle in the center of chaotic noise, minimalism, zen, bauhaus, black background, 8k`
+*   **Text**: "Segment 2: The Void"
+
+## S04_Cover_Seg3_Physics
+*   **Type**: [Title Card]
+*   **Concept**: 深渊物理学
+*   **Visual**: Kandinsky style abstract composition. Long stretched lines representing time and damping.
+*   **AI_Prompt**: `Kandinsky style abstract composition, long vertical lines stretching into infinity, frequency damping curves, physics of sound, constructivism, black background, 8k`
+*   **Text**: "Segment 3: The Physics"
+
+## S04_Cover_Seg4_Body
+*   **Type**: [Title Card]
+*   **Concept**: 灵魂出窍
+*   **Visual**: Kandinsky style abstract composition. Two shapes separating, one solid, one ghost-like.
+*   **AI_Prompt**: `Kandinsky style abstract composition, a solid geometric shape separating from its translucent shadow, dissociation, echo effect, bauhaus, black background, 8k`
+*   **Text**: "Segment 4: The Out-of-Body"
+
+## S04_Cover_Seg5_End
+*   **Type**: [Title Card]
+*   **Concept**: 听见深渊
+*   **Visual**: Kandinsky style abstract composition. Deep blue complex geometry.
+*   **AI_Prompt**: `Kandinsky style abstract composition, deep dark blue geometric structures, complex acoustics, depth, mystery, bauhaus, black background, 8k`
+*   **Text**: "Segment 5: Hearing the Abyss"
+
+## S04_Myth_Echo_Narcissus
+*   **Type**: [Concept Art]
+*   **Concept**: 回声神话 (Echo)
+*   **Visual**: A classical oil painting style of the nymph Echo fading into transparency in a forest, watching Narcissus.
+*   **AI_Prompt**: `classical oil painting, waterhouse style, the nymph Echo fading into transparency and mist in a dark ancient forest, watching Narcissus from the shadows, sad and ethereal, romanticism, emotional, high detail, 8k`
+*   **Caption**: "She lost her body, and became only a voice."
+
+## S04_UI_Perf_Buffer
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 性能预优化
+*   **Visual**: Preferences > Audio Hardware > I/O Buffer Size set to 512 samples.
+*   **Ref**: ![S04_UI_Perf_Buffer_cap](./assets/S04_Phase3_Space/S04_UI_Perf_Buffer_cap.png)
+
+## S04_Haas_Effect_Diagram
+*   **Type**: [Diagram/Screenshot]
+*   **Concept**: 哈斯效应
+*   **Visual**: Diagram showing the 40ms boundary for echo fusion vs dissociation.
+*   **Ref**: ![S04_Haas_Effect_Diagram_cap](./assets/S04_Phase3_Space/S04_Haas_Effect_Diagram_cap.png)
+
+## S04_Envelope_Show_Mix
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 显示包络
+*   **Visual**: Dropdown menu showing how to enable "Mix" envelope.
+*   **Ref**: ![S04_Envelope_Show_Mix_cap](./assets/S04_Phase3_Space/S04_Envelope_Show_Mix_cap.png)
+
+## S04_Envelope_Mix_Keyframes
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 绘制关键帧
+*   **Visual**: Curve showing start (0%) and end (75%) keyframes.
+*   **Ref**: ![S04_Envelope_Mix_Keyframes_cap](./assets/S04_Phase3_Space/S04_Envelope_Mix_Keyframes_cap.png)
+
+## S04_UI_Three_IRs
+*   **Type**: [UI/Screenshot]
+*   **Concept**: IR素材导入
+*   **Visual**: Project Panel showing alice_dry, closet, hall, and void files.
+*   **Ref**: ![S04_UI_Three_IRs_cap](./assets/S04_Phase3_Space/S04_UI_Three_IRs_cap.png)
+
 ## S05_Blumlein_Walking
+
 *   **Type**: [Photo/Historical]
 *   **Concept**: 立体声行走
 *   **Visual**: Alan Blumlein walking in front of a microphone pair at Abbey Road (1933).
 *   **Text**: "Testing Presence, not just Wire."
 *   **Caption**: "On this day in 1931, EMI engineer Alan Dower Blumlein filed a patent for a two-channel audio system, or what we now know as ‘Stereo’."
-*   **Ref**: ![S05_Blumlein_Walking](./assets/S05_Phase4_Position/S05_Blumlein_Walking_web.webm)
+*   **Ref**: ![S05_Blumlein_Walking](./assets/S05_Phase4_Position/S05_Blumlein_Walking_web.mp4)
 
 ## S05_Diff_Material_Preview
 *   **Type**: [Video]
@@ -383,6 +589,12 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Parametric EQ at 2000Hz / -40dB (Muffled, distant).
 *   **Ref**: ![S05_Wall_EQ_Start](./assets/S05_Phase4_Position/S05_Wall_EQ_Start_cap.png)
 
+## S05_Wall_EQ_HighFreq_Return_demo
+*   **Type**: [Video]
+*   **Concept**: 高频回归演示
+*   **Visual**: Screen recording showing the effect of bringing back high frequencies.
+*   **Ref**: ![S05_Wall_EQ_HighFreq_Return_demo](./assets/S05_Phase4_Position/S05_Wall_EQ_HighFreq_Return_demo.mp4)
+
 ## S05_Automation_Curve
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 蝌蚪的后裔
@@ -444,9 +656,21 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Show Envelopes menu with "Band 5 Freq" and "Band 5 Gain" selected.
 *   **Ref**: ![S05_EQ_Automation_Setup_cap](./assets/S05_Phase4_Position/S05_EQ_Automation_Setup_cap.png)
 
+## S05_EQ_Automation_Freq_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 频率自动化 (Step 1)
+*   **Visual**: Automation lane for Parametric EQ Band 5 Freq, showing curve from 2000Hz to 20000Hz.
+*   **Ref**: ![S05_EQ_Automation_Freq_cap](./assets/S05_Phase4_Position/S05_EQ_Automation_Freq_cap.png)
+
+## S05_EQ_Automation_Gain_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 增益自动化 (Step 2)
+*   **Visual**: Automation lane for Parametric EQ Band 5 Gain, showing curve from -40dB to +12dB.
+*   **Ref**: ![S05_EQ_Automation_Gain_cap](./assets/S05_Phase4_Position/S05_EQ_Automation_Gain_cap.png)
+
 ## S05_EQ_Automation_Curve_cap
 *   **Type**: [UI/Screenshot]
-*   **Concept**: 绘制滤波器曲线
+*   **Concept**: 绘制滤波器曲线 (Combined)
 *   **Visual**: Two automation lines: Freq rising from 2k to 20k, Gain rising from -40 to +12dB.
 *   **Ref**: ![S05_EQ_Automation_Curve_cap](./assets/S05_Phase4_Position/S05_EQ_Automation_Curve_cap.png)
 
@@ -483,25 +707,32 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 ## S05_Geometry_Loneliness
 *   **Type**: [Concept Art]
-*   **Concept**: 孤独的几何学
-*   **Visual**: Abstract geometry connecting the Wall, the Needle, and the Void.
-*   **Text**: "The Geometry of Loneliness."
+*   **Concept**: 孤独的几何学 (Geometric Collapse)
+*   **Visual**: 几何崩塌。巨大的灰色平面（墙）与白色螺旋（针）在深蓝色虚空中粉碎，碎片向四周迸射，唯有一个微小的红点（心脏）静止在圆心。
+*   **AI_Prompt**: `Kandinsky style abstract composition of geometric collapse, massive grey rectangular planes and sharp white spiral lines shattering into fragments in a deep blue glowing void, a single tiny static red dot at the absolute center, debris flying outwards, constructivism, bauhaus aesthetic, dynamic explosion but with sense of absolute isolation at center, high contrast, black background, 8k, vector surrealism`
+*   **Text**: "The Geometry of Loneliness"
 *   **Ref**: ![S05_Geometry_Loneliness](./assets/S05_Phase4_Position/S05_Geometry_Loneliness.png)
 
 
 ## S05_Act_Draw_Filter
 *   **Type**: [Live Demo]
 *   **Target**: Track 2 Automation Lane (Parametric EQ)
-*   **Action**: 绘制 Low Pass Filter 曲线 (Approaching Wedge)。频率从 50Hz (潜意识) 平滑上升至 5000Hz (现实逼近)。
+*   **Action**: 绘制 Low Pass Filter 曲线 (Approaching Wedge)。频率从 2000Hz (闷) 平滑上升至 20,000Hz (刺破)。
 *   **Duration**: ~10s
 *   **Caption**: "The Wall is opening."
 
 ## S05_Act_Perform_Pan
-*   **Type**: [Live Demo]
+*   **Type**: [Diagram]
+*   **Concept**: 螺旋轨迹 (The Spiral Formula)
+*   **Visual**: 一个极简的几何示意图。在黑色背景上，一条白色的螺旋线从外圈线性地向内圈收缩，展示了 Radius (100 -> 50) 和 Angle (-180 -> 180) 的线性关系。
 *   **Target**: Track 3 Pan Automation Lane (Angle & Radius)
-*   **Action**: (Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间随机跳跃，Radius 逐渐减小。
+*   **Action**: (Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间线性变化，Radius 线性减小。
+*   **AI_Prompt**: `Minimalist geometric diagram, a single clean sharp white spiral line on a pitch black background. The spiral starts from the outer edge and smoothy winds inwards to the center, representing a linear decrease in radius while rotating 360 degrees. Bauhaus style, high contrast, pure geometry, vector aesthetic, no text, 8k.`
 *   **Duration**: ~15s
-*   **Caption**: "Drawing the Anxiety with Splines."
+*   **Caption**: "Linear Scale: Angle vs Radius."
+
+
+
 
 
 *   **Type**: [Live Demo]
@@ -586,8 +817,8 @@ glitch art style, 8K, cinematic lighting, centered composition"
 ## S05_Icon_Anxiety
 *   **Type**: [Concept Art]
 *   **Concept**: 焦虑螺旋 (The Needle)
-*   **Visual**: A 1:1 square diagram. A chaotic, jagged white scratchy spiral line spinning frantically around the center.
-*   **AI_Prompt**: `minimalist abstract graphic design, a chaotic jagged white scribble line spiraling frantically in a black square, nervous energy, messy, scratchy texture, bauhaus style, geometric, 8k`
+*   **Visual**: A 1:1 square diagram. A chaotic, jagged white scratchy spiral line winding and spinning frantically around the central point.
+*   **AI_Prompt**: `minimalist abstract graphic design, a chaotic jagged white scribble line winding in a tight concentric spiral around the center of a black square, nervous energy, messy, scratchy texture, bauhaus style, geometric, 8k`
 *   **Caption**: "The Needle: The Chaotic Threat."
 
 ## S05_ILD_Diagram
@@ -595,6 +826,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 双耳声级差 (ILD)
 *   **Visual**: A 1:1 square diagram. Top-down view of a human head (minimalist circle). Long, wavy low-frequency waves wrapping around the head (cyan). Short, straight high-frequency waves being blocked by one side of the head (white).
 *   **AI_Prompt**: `minimalist scientific diagram, top-down view of a simple circle representing a head, long curved cyan waves flowing around it, short sharp white lines hitting one side and stopping, pitch black background, bauhaus geometry, 8k, ultra-clean`
+*   **Ref**: ![S05_ILD_Diagram](./assets/S05_Phase4_Position/S05_ILD_Diagram_ai.png)
 *   **Caption**: "ILD: Why high frequencies define position."
 
 ## S05_Setup_Sends_Editor
@@ -605,6 +837,107 @@ glitch art style, 8K, cinematic lighting, centered composition"
 ## S05_Visual_Guests
 *   **Type**: [Diagram]
 *   **Concept**: 客人与主人 (Spatial Logic)
-*   **Visual**: A 1:1 square diagram. Central red dot (Heart/Dry) isolated from a surrounding blue hazy sphere (The Void/Wet). Inside the sphere are the Wall (grey block) and Needle (white spiral).
+*   **Visual**: A 1:1 square diagram of spatial hierarchy. Center: a solid red dot (The Self). A sharp white circular outline encloses the red dot creating a clear 'Inside' zone. A dark gap separates this from an outer translucent blue glowing hazy ring (The Void). Within the blue ring, a heavy grey curved block (The Wall) is oriented to face and curve around the center dot. A white jagged sharp line (The Needle) is drawn as a tight chaotic spiral, starting in the outer blue ring and coiling tightly around the center white circle.
+*   **AI_Prompt**: `Minimalist scientific diagram of spatial hierarchy, 1:1 square. Center: a solid red dot (The Self). A sharp white circular outline encloses the red dot creating a clear 'Inside' zone. A dark gap separates this from an outer translucent blue glowing hazy ring (The Void). Within the blue ring, a heavy grey curved block (The Wall) is oriented to face and curve around the center dot. A white jagged sharp line (The Needle) is drawn as a tight chaotic spiral, starting in the outer blue ring and coiling tightly around the center white circle. Bauhaus geometry, high contrast, pitch black background, 8k, ultra-clean vector aesthetic.`
 *   **Ref**: ![S05_Visual_Guests](./assets/S05_Phase4_Position/S05_Visual_Guests_ai.png)
 *   **Caption**: "谁是客人，谁在门外？"
+
+## S05_Duplex_Theory_Visual
+*   **Type**: [Diagram]
+*   **Concept**: 水与光 (Diffraction vs Shadow)
+*   **Visual**: A minimalist comparison diagram. Left: Long, cyan wavy lines (low freq) flowing around a central circle (head). Right: Short, sharp white straight lines (high freq) hitting the side of the circle and stopping, casting a black shadow area behind it. 
+*   **AI_Prompt**: `Minimalist scientific comparison diagram, 1:1 square. Left: long flowing cyan wavy lines wrapping around a central circle. Right: short sharp vertical white lines hitting the side of the circle and stopping. Bauhaus style, high contrast, black background, ultra-clean vector aesthetic, 8k.`
+*   **Caption**: "低频如水绕行，高频如光受阻。"
+*   **Ref**: ![S05_Duplex_Theory_Visual](./assets/S05_Phase4_Position/S05_Duplex_Theory_Visual_ai.png)
+
+
+## S05_Cover_Seg0_Shape
+*   **Type**: [Title Card]
+*   **Concept**: 声音的形状
+*   **Visual**: Abstract Kandinsky-style composition with Point, Line, and Plane elements intersecting. High contrast, sharp geometric shapes on black.
+*   **AI_Prompt**: `Kandinsky style abstract composition, geometric shapes, a single red dot, a sharp white line, a large grey plane, intersecting in a black void, bauhaus aesthetic, constructivism, high contrast, 8k, vector style`
+*   **Text**: "Segment 0: The Shape"
+
+## S05_Cover_Seg1_Canvas
+*   **Type**: [Title Card]
+*   **Concept**: 构建画布
+*   **Visual**: Kandinsky style abstract composition representing a container. Cyan geometric lines forming a structured box shape amidst abstract elements. High contrast.
+*   **AI_Prompt**: `Kandinsky style abstract composition, cyan geometric lines forming a 3D box structure, constructivism, bauhaus aesthetic, high contrast black background, 8k, vector style`
+*   **Text**: "Segment 1: The Setup"
+
+## S05_Cover_Seg2_Point
+*   **Type**: [Title Card]
+*   **Concept**: 绝对圆心
+*   **Visual**: Kandinsky style abstract composition focusing on a single point. A vibrant red circle at the center, surrounded by minimal geometric floating fragments.
+*   **AI_Prompt**: `Kandinsky style abstract composition, a single vibrant red circle in the center, minimal geometric shapes floating in distance, constructivism, bauhaus aesthetic, high contrast black background, 8k, vector style`
+*   **Text**: "Segment 2: The Point"
+
+## S05_Cover_Seg3_Plane
+*   **Type**: [Title Card]
+*   **Concept**: 压迫之墙
+*   **Visual**: Kandinsky style abstract composition representing a plane. Massive grey geometric block shapes pressing down from the top.
+*   **AI_Prompt**: `Kandinsky style abstract composition, massive grey geometric rectangular planes pressing down from top, heavy weight, constructivism, bauhaus aesthetic, high contrast black background, 8k, vector style`
+*   **Text**: "Segment 3: The Plane"
+
+## S05_Cover_Seg4_Line
+*   **Type**: [Title Card]
+*   **Concept**: 混沌之线
+*   **Visual**: Kandinsky style abstract composition representing a line. Chaotic, jagged white lines scribbling and spiraling across the geometry.
+*   **AI_Prompt**: `Kandinsky style abstract composition, chaotic jagged white lines traversing the canvas, spiral patterns, sharp angles, constructivism, bauhaus aesthetic, high contrast black background, 8k, vector style`
+*   **Text**: "Segment 4: The Line"
+
+## S05_Cover_Seg5_Geometry
+*   **Type**: [Title Card]
+*   **Concept**: 孤独的几何学
+*   **Visual**: Kandinsky style abstract composition representing collapse. Geometric shapes shattering outwards, leaving a small red dot isolated in the void.
+*   **AI_Prompt**: `Kandinsky style abstract composition, geometric fragments shattering outwards, a small isolated red dot in the vast void, constructivism, bauhaus aesthetic, high contrast black background, 8k, vector style`
+*   **Text**: "Segment 5: Loneliness"
+
+
+## S04_Demo_IR_Closet_Raw
+*   **Type**: [Video]
+*   **Concept**: 试听：衣柜脉冲
+*   **Visual**: Screen recording of playing the Closet IR raw audio.
+*   **Ref**: ![S04_Demo_IR_Closet](./assets/S04_Phase3_Space/S04_Demo_IR_Closet_Raw_rec.mp4)
+
+## S04_Demo_IR_Closet_Result
+*   **Type**: [Video]
+*   **Concept**: 试听：衣柜效果
+*   **Visual**: Screen recording of Alice with Closet Reverb applied.
+*   **Ref**: ![S04_Demo_IR_Closet_Result](./assets/S04_Phase3_Space/S04_Demo_IR_Closet_Result_rec.mp4)
+
+## S04_Demo_IR_Hall_Raw
+*   **Type**: [Video]
+*   **Concept**: 试听：大厅脉冲
+*   **Visual**: Screen recording of playing the Hall IR raw audio.
+*   **Ref**: ![S04_Demo_IR_Hall](./assets/S04_Phase3_Space/S04_Demo_IR_Hall_Raw_rec.mp4)
+
+## S04_Demo_IR_Hall_Result
+*   **Type**: [Video]
+*   **Concept**: 试听：大厅效果
+*   **Visual**: Screen recording of Alice with Hall Reverb applied.
+*   **Ref**: ![S04_Demo_IR_Hall_Result](./assets/S04_Phase3_Space/S04_Demo_IR_Hall_Result_rec.mp4)
+
+## S04_Demo_IR_Void_Raw
+*   **Type**: [Video]
+*   **Concept**: 试听：虚无脉冲
+*   **Visual**: Screen recording of playing the Void IR raw audio.
+*   **Ref**: ![S04_Demo_IR_Void](./assets/S04_Phase3_Space/S04_Demo_IR_Void_Raw_rec.mp4)
+
+## S04_Demo_IR_Void_Result
+*   **Type**: [Video]
+*   **Concept**: 试听：虚无效果
+*   **Visual**: Screen recording of Alice with Void Reverb applied.
+*   **Ref**: ![S04_Demo_IR_Void_Result](./assets/S04_Phase3_Space/S04_Demo_IR_Void_Result_rec.mp4)
+
+## S04_Demo_Final_Static
+*   **Type**: [Video]
+*   **Concept**: 演示：静态深渊
+*   **Visual**: Playback of the static reverb showing "The Static Abyss".
+*   **Ref**: ![S04_Demo_Final_Static](./assets/S04_Phase3_Space/S04_Demo_Final_Static_rec.mp4)
+
+## S04_Demo_Final_Dynamic
+*   **Type**: [Video]
+*   **Concept**: 演示：动态坠落
+*   **Visual**: Drawing splatter curves and automation, showing "The Descent".
+*   **Ref**: ![S04_Demo_Final_Dynamic](./assets/S04_Phase3_Space/S04_Demo_Final_Dynamic_rec.mp4)

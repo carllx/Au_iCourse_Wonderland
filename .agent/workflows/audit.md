@@ -57,12 +57,21 @@ description: 启动 Auditor Agent 审查脚本质量 (逻辑完整性 + 教学�
     *   **EXCEPTION**: `> [TEACHING MOMENT]` / `> [STORY TIME]` 等 Class A 引用块**也是 Audio**，必须接受同样的检查。
     *   **基于 Rubric**: 评估是否符合 "Director's Voice" 和 "Deep Listening"。
     *   **视觉时序检查 (Visual Sync Check)**: 
-        *   [CRITICAL] 检查所有 `> [VISUAL]` / `> [Ref]` 是否在所对应的正文**之前**出现。如果有 "先讲后图" 的情况，记为 **FAIL**。
+        *   [CRITICAL] 检查所有 `> [VISUAL]` / `> [Ref]` 是否在所对应的正文**之前**出现。这是默认原则（先环境后旁白）。
+        *   **EXCEPTION**: 对于 **交互式动作 (Interactive Actions)** (e.g. "大家请听...", "请点击..."), 允许 Audio Prompt 出现在 Visual Action 之前，以符合 "先提示后执行" 的自然逻辑。
+        *   **原理**: 静态Slide需预加载 (Visual First)；动态操作需语音引导 (Audio First)。
     *   **指示代词扫描 (Deictic Scan)**:
         *   检查所有 "这/这里/那/那个" (This/That/Here)。
         *   如果该代词之前没有明确的**声音描述** (e.g. "找到频率旋钮...这个旋钮...")，记为 **FAIL (Invisible Mechanics)**。
     *   **颗粒化复述 (Granular Retelling)**: 简述操作链路，检查是否有逻辑断层。
     *   **费曼审查 (Feynman Check)**: 核心隐喻是否通俗易懂？(e.g. 堵车 vs 频率遮蔽)。
     *   **脆弱性提问**: "如果用户**只听不做**，他能获得什么核心启示？"
+
+    **Part C: Sanity Check (安全自检)**
+    *   **Leakage Check**: 检查生成的 TTS 文本是否存在元数据泄漏。
+    *   运行: `grep "\[.*\]" 03_Scripts/tts/*.txt` (检查未清洗的标签)。
+    *   **Implicit Parameter Scan**: 扫描 `[AUDIO]` 中是否存在 `(Parameter Name)` 结构。这是**FAIL**，因为学生听不到。
+    *   **Robotic Speech Check**: 检查是否存在“说明书式”的列表头。
+    *   运行: `grep -E "(Action|Reason|Warning|Step [0-9]):" 03_Scripts/tts/*.txt` (如果有输出，记为 **FAIL**，必须重写为自然口语)。
 
     **Conclusion**: Pass / Fail / Needs Revision。

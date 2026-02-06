@@ -72,7 +72,14 @@ class WonderlandScriptParser:
                 last_slide_id = slide_id
                 
                 # Slide marker resets block states
-                in_semantic_block = False 
+                # FIXED: If we are inside a Semantic Block (blockquote) and the slide line itself 
+                # starts with '>', it means the slide is embedded in the block.
+                # We should NOT reset the semantic block state in this case.
+                if in_semantic_block and line.strip().startswith(">"):
+                    pass # Stay in semantic block
+                else:
+                    in_semantic_block = False 
+                
                 in_visual_block = False
                 
                 blocks.append(ScriptBlock(BlockType.SLIDE, slide_id, line_num, slide_id))
@@ -98,7 +105,7 @@ class WonderlandScriptParser:
                     # Still in blockquote
                     content = re.sub(r"^\s*>\s*", "", clean_line)
                     content = re.sub(r"[\*\_]", "", content).strip()
-                    content = re.sub(r"\([^\)]+\)", "", content).strip() # Remove parens inside block
+                    content = re.sub(r"[\(\（][^\)\）]+[\)\）]", "", content).strip() # Remove parens inside block
                     
                     if content:
                         blocks.append(ScriptBlock(BlockType.AUDIO, content, line_num, pending_slide or last_slide_id))
@@ -155,7 +162,7 @@ class WonderlandScriptParser:
                 continue
 
             # If we survived all filters, it's Audio!
-            clean_content = re.sub(r"\([^\)]+\)", "", clean_line).strip() # Remove inline stage directions
+            clean_content = re.sub(r"[\(\（][^\)\）]+[\)\）]", "", clean_line).strip() # Remove inline stage directions
             clean_content = re.sub(r"[:：]$", "", clean_content).strip() # Remove trailing colons
             
             if clean_content:

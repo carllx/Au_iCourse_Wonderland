@@ -1,55 +1,49 @@
 ---
-description: Workflow for adding new visual assets under Scientific Management
+description: Workflow for adding new visual assets using the unified Visual Director pipeline
 ---
 
 # adding_visual_assets (如何添加新视觉素材)
 
-当您在脚本 (`03_Scripts`) 中有了使用新图片的灵感时，**请不要直接去网上找图**。
-遵循以下“科学管理”流程，确保自动化管线畅通。
+当您在脚本 (`03_Scripts`) 中有了使用新图片的灵感时，请遵循以下 **CINE-BAUHAUS 统一工作流**。
 
 ## 1. 意图阶段 (Intent)
-首先，在脚本 (`S0x_Transcript.md`) 或大纲 (`Structure_Map.md`) 中写下您的引用 ID。
+首先，在脚本 (`S0x_Transcript.md`) 中写下您的引用 ID。
+
 > "这里我需要一张图，展示多普勒效应..."
 > **Draft**: `[SLIDE: S08_Doppler_Effect]`
 
-## 2. 定义阶段 (Spec)
-打开 `02_Visuals/Slide_Database.md`，追加定义。没有定义，就没有资产。
+## 2. 定义阶段 (Define)
+打开 `02_Visuals/Slide_Database.md`，追加定义。
 
 ```markdown
 ## S08_Doppler_Effect
 *   **Type**: [Diagram]
 *   **Concept**: 频率的挤压与拉伸
-*   **Visual**: 一辆救护车驶过观察者，声波波前在前方密集，后方稀疏。
+*   **Visual**: Top-down view of an ambulance passing an observer. Wavefronts compressed in front, stretched behind.
+*   **AI_Prompt**: `minimalist scientific diagram, doppler effect visualization, bauhaus geometry`
 ```
-*(注意：必须指定 `Type`，这也是为了让生成的占位图有正确的颜色)*
+*(注意：`AI_Prompt` 是可选的，可以在生成时自动注入风格词，但建议提供主体描述)*
 
-## 3. 灰盒阶段 (Greybox)
-运行自动化脚本，生成占位符。
+## 3. 生产阶段 (Produce)
+使用 **Visual Director** 技能生成素材。它会自动读取 YAML 宪法注入 "Bauhaus" 风格。
 
 ```bash
-python .agent/skills/validation-suite/scripts/scaffold_visual_assets.py
+python .agent/skills/visual-director/scripts/gen_visual_asset.py S08_Doppler_Effect
 ```
 
-*   **Result**: 脚本会自动识别您的新定义 `S08`，并根据结构图将其放入正确的文件夹（如 `02_Visuals/assets/S03_Phase2_Sculpt/S08_Doppler_Effect.png`）。
-*   **Color**: 因为 Type 是 `[Diagram]`，生出的图会是 **土黄色** 背景。
+*   **Result**: 
+    *   脚本会自动读取 `Slide_Database.md` 获取定义。
+    *   自动注入 `visual_system.yaml` 中的风格词。
+    *   生成的图片保存在 `02_Visuals/assets/Sxx_Module/` 下。
 
-## 3.5 时间轴同步 (Timeline Sync)
-有了灰盒图片后，立即运行对齐引擎，生成视频占位符。
+## 4. 预览阶段 (Preview)
+一键启动 H5 预览，验证素材与音频的配合。
 
 ```bash
-# S08 属于 S03 章节 (假设)
-python 04_Delivery/h5_preview/scripts/build_timeline.py S03
-python 04_Delivery/h5_preview/scripts/gen_placeholders.py S03
+./start_preview.command
 ```
-*   **Result**: 你的 H5 预览中，S08 变成了一个倒计时视频，你可以感觉它的时长了(Pacing)。
-
-
-## 4. 生产阶段 (Production)
-现在整个项目已经“编译通过”了。您可以把这张黄色的 PNG 拖进 Premiere。
-当您（或美术）最终画好了这张图，只需：
-1.  导出为 `S08_Doppler_Effect.png`
-2.  **直接覆盖** 那个黄色的灰盒文件。
+*(或 `npm run dev`)*
 
 ## 5. 总结
-**Spec -> Code -> Asset**
-不要跳过 Spec 直接做 Asset，那是灾难的开始。
+**Spec (Database) -> Style (YAML) -> Asset (AI)**
+不要直接下载网图，那会破坏视觉一致性。

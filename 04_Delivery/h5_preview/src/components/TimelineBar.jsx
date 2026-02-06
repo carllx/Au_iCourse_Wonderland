@@ -29,6 +29,9 @@ export default function TimelineBar({ currentTime, duration, slides, onSeek }) {
         return `${minutes}:${seconds.toString().padStart(2, '0')}`;
     };
 
+    // ...existing imports...
+
+    // ...existing code...
     const getMarkerClass = (slide) => {
         const classes = ['timeline-marker'];
 
@@ -57,6 +60,7 @@ export default function TimelineBar({ currentTime, duration, slides, onSeek }) {
                 onMouseMove={(e) => {
                     // Optional: Hover preview logic could go here
                 }}
+                style={{ background: 'var(--color-border)' }}
             >
                 {/* Progress Fill */}
                 <div className="timeline-fill" style={{ width: `${progress}%` }}></div>
@@ -72,11 +76,13 @@ export default function TimelineBar({ currentTime, duration, slides, onSeek }) {
                         <div
                             key={slide.id}
                             className={getMarkerClass(slide)}
-                            style={{ left: `${leftPct}%` }}
+                            style={{
+                                left: `${leftPct}%`,
+                            }}
                             onClick={(e) => handleMarkerClick(e, slide.startTime)}
                             title={`${slide.id}: ${slide.text || slide.type} (${formatTime(slide.startTime)})`}
                         >
-                            <div className="marker-tooltip">
+                            <div className="marker-tooltip" style={{ background: 'var(--color-bg-surface)', border: '1px solid var(--color-border)' }}>
                                 <span className="tooltip-time">{formatTime(slide.startTime)}</span>
                                 <span className="tooltip-title">{slide.id}</span>
                                 {!slide.image && <span className="tooltip-warning">⚠️ No Asset</span>}

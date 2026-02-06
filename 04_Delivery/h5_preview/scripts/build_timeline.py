@@ -158,13 +158,14 @@ def build_timeline(section_id):
                      full_text += char
                      char_time_map.append(segment.start + (i * char_duration))
                  
-    # 5. 匹配锚点
-    print("🔗 Matching anchors...")
+    # 6. 匹配锚点 (Sequential Walking Match)
+    print("🔗 Matching anchors (Sequential Mode)...")
     
     match_results = {} # slide_id -> start_time
     
     # 在 Full Text 中搜索 Anchor Text (Normalize 后)
     normalized_full_text = normalize_text(full_text)
+    search_start_idx = 0  # 指针：只向后看，不回头
     
     for anchor in anchors:
         anchor_raw = anchor['anchor_text']
@@ -174,17 +175,33 @@ def build_timeline(section_id):
         if not anchor_norm: continue
         
         # 使用 sequence matcher 找最佳匹配位置
+        # 关键优化: a=normalized_full_text, b=anchor_norm
+        # 我们限制 a 的搜索范围从 search_start_idx 开始
         matcher = difflib.SequenceMatcher(None, normalized_full_text, anchor_norm)
-        match = matcher.find_longest_match(0, len(normalized_full_text), 0, len(anchor_norm))
+        
+        # find_longest_match(alo, ahi, blo, bhi)
+        # alo = search_start_idx (我们只看当前指针之后的内容)
+        match = matcher.find_longest_match(search_start_idx, len(normalized_full_text), 0, len(anchor_norm))
         
         # 简单阈值：匹配长度要足够大
         if match.size > len(anchor_norm) * 0.6: # 匹配度 > 60%
             start_idx = match.a
             timestamp = char_time_map[start_idx] if start_idx < len(char_time_map) else 0
-            match_results[slide_id] = round(timestamp, 2)
-            print(f"   ✅ {slide_id}: {timestamp:.2f}s (Match: {normalized_full_text[match.a:match.a+match.size]})")
+            timestamp = round(timestamp, 2)
+            
+            if slide_id not in match_results:
+                match_results[slide_id] = timestamp
+                matched_snippet = normalized_full_text[match.a:match.a+match.size]
+                print(f"   ✅ {slide_id}: {timestamp:.2f}s (seq={start_idx})")
+                
+                # [CRITICAL UPDATE]
+                # 找到匹配后，将搜索指针向前推进。
+                # 这样下一次搜索 "Look at screen" 时，就会从这次匹配的 *后面* 开始找。
+                search_start_idx = match.a + 1 
+            else:
+                print(f"   ℹ️ {slide_id}: Skipped update (Duplicate ID)")
         else:
-            print(f"   ❌ {slide_id}: Match failed (Anchor: {anchor_norm[:10]}...)")
+            print(f"   ❌ {slide_id}: Match failed (searched from char {search_start_idx})")
             
     # 6. 更新 timeline.json (Persistent Storage)
     print("💾 Updating timeline.json...")

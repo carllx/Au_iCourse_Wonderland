@@ -89,7 +89,6 @@ export default function Layout_Demo({ slide, subtitles, currentTime, onGlobalCon
                                     playsInline
                                     onTimeUpdate={handleTimeUpdate}
                                     onLoadedMetadata={handleLoadedMetadata}
-                                    style={{ width: '100%', height: '100%', objectFit: 'contain', zIndex: 60, position: 'relative' }}
                                 />
                             </div>
                         ) : (

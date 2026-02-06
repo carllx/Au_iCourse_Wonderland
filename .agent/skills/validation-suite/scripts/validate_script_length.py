@@ -71,6 +71,17 @@ def analyze_file(file_path, extract_text=False, blind_mode=False):
             if extract_text and clean_text.strip():
                 pure_text = strip_markdown(clean_text)
                 
+                # Filter out [Attention/Audio] metadata that slipped through parser
+                if pure_text.strip().startswith("[") and pure_text.strip().endswith("]"):
+                     continue
+                if "[AUDIO" in pure_text or "AUDIO]" in pure_text:
+                     continue
+
+                # Filter out HTML comments (e.g. <!-- Step 1... -->)
+                if pure_text.strip().startswith("<!--"):
+                     continue
+
+                
                 if blind_mode:
                     if "Ref:" in pure_text or "[VISUAL]" in pure_text:
                         continue

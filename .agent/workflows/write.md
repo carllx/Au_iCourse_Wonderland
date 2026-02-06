@@ -21,6 +21,10 @@ description: 启动 Writer Agent 为指定章节撰写逐字稿 (使用 INI 框�
     *   **思考**: 这里的关键约束是 **"No Invisible Mechanics"** (双重记账)。
     *   **生成**: 创建或覆盖 `03_Scripts/$1_Transcript.md` (或根据上下文判断合适的文件名)。
     *   **Localization**: 确保严格遵守 `rule_localization.md` (叙事纯中文，术语留锚点)。
+    *   **Natural Language Protocol**: 严禁在 `[AUDIO]` 部分使用元数据列表头（如 `Action:`, `Reason:`, `Warning:`, `Step 1:`）。所有操作步骤必须融化为自然的口语叙述。
+    *   **Parenthesis Protocol**: 严禁将关键教学术语仅放在括号内，例如 `调整大小 (Room Size)`。TTS 解析器会自动丢弃括号内容。必须改写为显性口语：`调整 **Room Size** 大小`。
+        *   ❌ **Fail**: "Action: 打开混响。 Reason: 为了增加空间感。"
+        *   ✅ **Pass**: "接下来，我们需要打开混响，这是为了给声音一点空间感。"
 
     **Step 2.5: The Blindfold Simulation (由 Agent 自主执行)**
     *   **负空间法则 (Negative Space Rule)**: 忽略所有 `[AUDIO]` 标签的存在与否。任何**不是**引用块 (`>`) 且**不是**标题 (`#`) 的正文，全部视为**旁白**。
@@ -34,6 +38,8 @@ description: 启动 Writer Agent 为指定章节撰写逐字稿 (使用 INI 框�
     *   **时序法则**: 任何 `> [VISUAL]` 或 `> [Ref]` 块，必须出现在描述它的正文**之前** (Pre-load)，严禁出现在之后 (Lag)。
         *   ❌ **Fail**: "这是一只猫。 > [Slide: Cat]" (听众先听到猫，才看到图)
         *   ✅ **Pass**: "> [Slide: Cat] ... 请看屏幕，这是一只猫。" (画面先就绪)
+    *   **EXCEPTION (交互例外)**: 对于 **动态演示 (Interactive Actions)** (e.g. 播放视频、点击按钮)，允许 Audio Prompt (提示语) 出现在 Visual Action 之前。
+        *   ✅ **Pass**: "大家请听... (Audio) -> [ACT: Play_Video] (Visual)"。这符合 "先提示后执行" 的自然逻辑。
 
     *   **检查**: 在输出最后，附上一个简单的 "Self-Verification Checklist"，确认所有 Visual Action 都已在 Audio 中体现。
 

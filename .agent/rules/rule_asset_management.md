@@ -31,6 +31,13 @@ description: GLOBAL ASSET PROTOCOL: Defines the "Scientific Management" lifecycl
 | **`Sxx_`** | **Slide (Asset)** | **[核心]** 任何以 Sxx 开头的文件（无论后缀）都会被 H5 自动识别关联。 | `S07_Demonstration.png` <br> `S05_UI_The_Wall_src.png` | 放入 Timeline / H5 显示 |
 | **`ref_`** | **Reference** | **[参考]** 灵感图、网图（仅参考）。 | `ref_S11_Balloon_DIY.png` | 仅供美术参考 |
 | **`doc_`** | **Document** | **[文档]** 相关的研发笔记、技术说明。 | `doc_S11_Balloon_DIY_Note.md` | 知识库 |
+
+**核心原则：原子化 ID (Atomic ID Principle)**
+*   **唯一性**: 每一个 `[SLIDE: ID]` 标记必须对应数据库中唯一的一个 `## ID` 条目。
+*   **禁止包含冲突**: 严禁一个 ID 是另一个 ID 的起始前缀（例如：禁止同时存在 `S04_A` 和 `S04_A_Result`）。
+*   **强制后缀**: 对于对比类素材，必须使用明确的后缀区分，禁止使用“裸 ID”。
+    *   ❌ 错误：`S04_Demo_IR_Closet` (作为 Raw 使用)
+    *   ✅ 正确：`S04_Demo_IR_Closet_Raw` 和 `S04_Demo_IR_Closet_Result`
 *   **注意**: 必须严格使用 `Sxx_` 前缀，废弃任何 `src_` 前缀。文件名包含 Slide ID 且以 `Sxx_` 开头即可。
 
 ### 3.2 来源后缀系统 (Source Suffix)

@@ -38,12 +38,17 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
 *   **Audio Ledger**: `[AUDIO]` "将阈值下拉到 -20dB..." (给耳朵/盲人听)
 
 ### B. 盲视测试 (Blindfold Test)
-*   ❌ **隐形 (Metadata Black Hole)**:
-    *   `> [VISUAL] Click Multitrack Button`
-    *   `[AUDIO]` "现在我们可以开始混音了..." (听众：怎么开始？)
-*   ✅ **显性 (Explicit)**:
     *   `> [VISUAL] Click Multitrack Button`
     *   `[AUDIO]` "点击左上角的 **Multitrack** 按钮，进入多轨模式..."
+
+## 1.3 拒绝机器人语感 (No Robotic Speech)
+
+**"No Metadata Headers" (禁止元数据头)**。
+在 `[AUDIO]` 或需要朗读的 Blockquote 中，严禁出现“键值对”式的列表头。
+
+*   ❌ **机器人**: "Action: 将混响设为 50%。 Reason: 创造空间感。" (听起来像 debug log)
+*   ✅ **讲师**: "我们将混响设为 50%，这是为了给它创造一种空间感。" (自然对白)
+*   **黑名单关键词**: `Action:`, `Reason:`, `Warning:`, `Step 1:`, `Note:`.
 
 ## 2. 结构化范式 (The Triad Structure)
 

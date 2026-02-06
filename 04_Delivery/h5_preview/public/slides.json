@@ -1,6 +1,6 @@
 {
   "version": "1.4",
-  "generated": "2026-02-04T01:21:37.350851",
+  "generated": "2026-02-06T18:31:30.071528",
   "sections": [
     {
       "id": "S01_Intro",
@@ -226,6 +226,22 @@
       "title": "置景",
       "slides": [
         {
+          "type": "Title Card",
+          "text": "\"Segment 0: The Myth\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition. A flat grey square representing dry sound versus a deep spiraling infinite tunnel loop representing wet sound, high contrast, bauhaus aesthetic.",
+          "caption": "",
+          "concept": "空间的迷思",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Cover_Seg0_Shape",
+          "template": "Layout_Title",
+          "image": "visuals/S04_Phase3_Space/S04_Cover_Seg0_Shape.png",
+          "startTime": 0.2
+        },
+        {
           "type": "Diagram/Comparison",
           "text": "",
           "sub": "",
@@ -239,7 +255,7 @@
           "id": "S04_Concept_Dry_Wet",
           "template": "Layout_Split",
           "image": "visuals/S04_Phase3_Space/S04_Concept_Dry_Wet.png",
-          "startTime": 0.16
+          "startTime": 4.98
         },
         {
           "type": "Photo/Historical",
@@ -254,8 +270,24 @@
           "duration": "",
           "id": "S04_Inchindown_Tanks",
           "template": "Layout_Content",
-          "image": "visuals/S04_Phase3_Space/S04_Inchindown_Tanks.png",
-          "startTime": 35.82
+          "image": "visuals/S04_Phase3_Space/S04_Inchindown_Tanks.jpg",
+          "startTime": 61.88
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 1: The DNA\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition. A balloon explosion turning into sound waves.",
+          "caption": "",
+          "concept": "幽灵的DNA",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Cover_Seg1_Use",
+          "template": "Layout_Title",
+          "image": "visuals/S04_Phase3_Space/S04_Cover_Seg1_Use.png",
+          "startTime": 101.88
         },
         {
           "type": "Diagram",
@@ -271,7 +303,39 @@
           "id": "S04_Balloon_Cave",
           "template": "Layout_Content",
           "image": "visuals/S04_Phase3_Space/S04_Balloon_Cave.png",
-          "startTime": 45.76
+          "startTime": 103.76
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Preferences > Audio Hardware > I/O Buffer Size set to 512 samples.",
+          "caption": "",
+          "concept": "性能预优化",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_Perf_Buffer",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_Perf_Buffer_cap.png",
+          "startTime": 126.28
+        },
+        {
+          "type": "Photo/Historical",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A photo of an acoustician (or Audio Ease team) recording an IR in a large hall or church, holding a pistol or slate.",
+          "caption": "Capturing the acoustic fingerprint.",
+          "concept": "声学摄影 (Audio Ease)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_IR_Recording",
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_IR_Recording.jpg",
+          "startTime": 185.16
         },
         {
           "type": "Photo/Historical",
@@ -286,8 +350,136 @@
           "duration": "",
           "id": "S04_Alvin_Lucier",
           "template": "Layout_Content",
-          "image": "visuals/S04_Phase3_Space/S04_Alvin_Lucier.png",
-          "startTime": 145.24
+          "image": "visuals/S04_Phase3_Space/S04_Alvin_Lucier.jpg",
+          "startTime": 311.86
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 2: The Void\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition. A large empty circle in the void.",
+          "caption": "",
+          "concept": "寻找虚无",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Cover_Seg2_Void",
+          "template": "Layout_Title",
+          "image": "visuals/S04_Phase3_Space/S04_Cover_Seg2_Void.png",
+          "startTime": 338.27
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Project Panel showing alice_dry, closet, hall, and void files.",
+          "caption": "",
+          "concept": "IR素材导入",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_Three_IRs",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_Three_IRs_cap.png",
+          "startTime": 342.64
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Split screen or Composite showing 3 IR types selected: \"Small Closet\", \"Large Hall\", \"The Void\".",
+          "caption": "Closet vs Hall vs Void.",
+          "concept": "空间类型对比",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_IR_Types",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_IR_Types_cap.png",
+          "startTime": 350.98
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of playing the Closet IR raw audio.",
+          "caption": "",
+          "concept": "试听：衣柜脉冲",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_IR_Closet_Raw",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_IR_Closet_Raw_rec.mp4",
+          "startTime": 369.08
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of Alice with Closet Reverb applied.",
+          "caption": "",
+          "concept": "试听：衣柜效果",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_IR_Closet_Result",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_IR_Closet_Result_rec.mp4",
+          "startTime": 385.34
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of playing the Hall IR raw audio.",
+          "caption": "",
+          "concept": "试听：大厅脉冲",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_IR_Hall_Raw",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_IR_Hall_Raw_rec.mp4",
+          "startTime": 394.74
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of Alice with Hall Reverb applied.",
+          "caption": "",
+          "concept": "试听：大厅效果",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_IR_Hall_Result",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_IR_Hall_Result_rec.mp4",
+          "startTime": 409.56
+        },
+        {
+          "type": "Key Visual",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Iconic shot from Blade Runner (1982) showing the rainy, neon-lit futuristic city (Cyberpunk Aesthetic).",
+          "caption": "Synthetic Loneliness: Making it rain psychologically.",
+          "concept": "人造孤独 (Blade Runner)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_BladeRunner_City",
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_BladeRunner_City.jpg",
+          "startTime": 419.75
         },
         {
           "type": "Photo/Band",
@@ -302,7 +494,120 @@
           "duration": "",
           "id": "S04_Neubauten",
           "template": "Layout_FullBleed",
-          "image": "visuals/S04_Phase3_Space/S04_Neubauten.png"
+          "image": "visuals/S04_Phase3_Space/S04_Neubauten.png",
+          "startTime": 477.8
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of playing the Void IR raw audio.",
+          "caption": "",
+          "concept": "试听：虚无脉冲",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_IR_Void_Raw",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_IR_Void_Raw_rec.mp4",
+          "startTime": 495.72
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording of Alice with Void Reverb applied.",
+          "caption": "",
+          "concept": "试听：虚无效果",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_IR_Void_Result",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_IR_Void_Result_rec.mp4",
+          "startTime": 506.36
+        },
+        {
+          "type": "Photo/Science",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "John Cage or a person sitting in a modern Anechoic Chamber (with foam wedges).",
+          "caption": "The impossible silence: Hearing your own nervous system.",
+          "concept": "不存在的无 (John Cage)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Anechoic_Chamber",
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_Anechoic_Chamber.png",
+          "startTime": 508.12
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 3: The Physics\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition. Long stretched lines representing time and damping.",
+          "caption": "",
+          "concept": "深渊物理学",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Cover_Seg3_Physics",
+          "template": "Layout_Title",
+          "image": "visuals/S04_Phase3_Space/S04_Cover_Seg3_Physics.png",
+          "startTime": 560.34
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Output Gain or Track Volume set to -6dB.",
+          "caption": "Headroom: Space for the abyss to breathe.",
+          "concept": "动态余量",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_OutputGain_Headroom",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_OutputGain_Headroom_cap.png",
+          "startTime": 572.45
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Convolution Reverb panel focusing on Damping LF and Damping HF sliders.",
+          "caption": "Physics of the Abyss: Damping.",
+          "concept": "阻尼设置",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_Conv_Damping",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_Conv_Damping_cap.png",
+          "startTime": 625.04
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "The EQ tab in Convolution Reverb plugin.",
+          "caption": "Cleaning the mud, dimming the light.",
+          "concept": "卷积EQ设置",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_Conv_EQ",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_Conv_EQ_cap.png",
+          "startTime": 682.1
         },
         {
           "type": "Chart",
@@ -318,7 +623,87 @@
           "id": "S04_Damping_Curve",
           "template": "Layout_Content",
           "image": "visuals/S04_Phase3_Space/S04_Damping_Curve.png",
-          "startTime": 378.18
+          "startTime": 713.62
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Width parameter pulled to 150% (or Stereo Expander).",
+          "caption": "Exploding the point into a sphere.",
+          "concept": "空间爆破",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_Width_150",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_Width_150_cap.png",
+          "startTime": 739.98
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 4: The Out-of-Body\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition. Two shapes separating, one solid, one ghost-like.",
+          "caption": "",
+          "concept": "灵魂出窍",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Cover_Seg4_Body",
+          "template": "Layout_Title",
+          "image": "visuals/S04_Phase3_Space/S04_Cover_Seg4_Body.png",
+          "startTime": 770.22
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Close-up of Pre-Delay knob set specifically to 80ms.",
+          "caption": "80ms: The calculated terror.",
+          "concept": "惊恐的空白",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_UI_PreDelay_80ms",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_UI_PreDelay_80ms_cap.png",
+          "startTime": 782.22
+        },
+        {
+          "type": "Concept Art",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A classical oil painting style of the nymph Echo fading into transparency in a forest, watching Narcissus.",
+          "caption": "She lost her body, and became only a voice.",
+          "concept": "回声神话 (Echo)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Myth_Echo_Narcissus",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_Myth_Echo_Narcissus.png",
+          "startTime": 820.72
+        },
+        {
+          "type": "Diagram/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Diagram showing the 40ms boundary for echo fusion vs dissociation.",
+          "caption": "",
+          "concept": "哈斯效应",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Haas_Effect_Diagram",
+          "template": "Layout_Content",
+          "image": "visuals/S04_Phase3_Space/S04_Haas_Effect_Diagram_cap.png",
+          "startTime": 842.7
         },
         {
           "type": "UI/Screenshot",
@@ -334,7 +719,39 @@
           "id": "S04_Automation_Dissolution",
           "template": "Layout_FullBleed",
           "image": "visuals/S04_Phase3_Space/S04_Automation_Dissolution.png",
-          "startTime": 494.96
+          "startTime": 887.1
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Dropdown menu showing how to enable \"Mix\" envelope.",
+          "caption": "",
+          "concept": "显示包络",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Envelope_Show_Mix",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_Envelope_Show_Mix_cap.png",
+          "startTime": 915.9
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Curve showing start (0%) and end (75%) keyframes.",
+          "caption": "",
+          "concept": "绘制关键帧",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Envelope_Mix_Keyframes",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S04_Phase3_Space/S04_Envelope_Mix_Keyframes_cap.png",
+          "startTime": 930.32
         },
         {
           "type": "UI/Screenshot",
@@ -350,7 +767,39 @@
           "id": "S04_UI_HardLimiter",
           "template": "Layout_FullBleed",
           "image": "visuals/S04_Phase3_Space/S04_UI_HardLimiter.png",
-          "startTime": 547.3
+          "startTime": 978.94
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Playback of the static reverb showing \"The Static Abyss\".",
+          "caption": "",
+          "concept": "演示：静态深渊",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_Final_Static",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_Final_Static_rec.mp4",
+          "startTime": 1009.44
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Drawing splatter curves and automation, showing \"The Descent\".",
+          "caption": "",
+          "concept": "演示：动态坠落",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S04_Demo_Final_Dynamic",
+          "template": "Layout_Cinema",
+          "image": "visuals/S04_Phase3_Space/S04_Demo_Final_Dynamic_rec.mp4",
+          "startTime": 1032.6
         },
         {
           "type": "Concept Art",
@@ -365,7 +814,8 @@
           "duration": "",
           "id": "S04_Conclusion_Abyss",
           "template": "Layout_FullBleed",
-          "image": "visuals/S04_Phase3_Space/S04_Conclusion_Abyss.png"
+          "image": "visuals/S04_Phase3_Space/S04_Conclusion_Abyss.png",
+          "startTime": 1061.96
         }
       ],
       "audio": "tts/S04_Phase3_Space.aac",
@@ -375,6 +825,22 @@
       "id": "S05_Phase4_Position",
       "title": "定位",
       "slides": [
+        {
+          "type": "Title Card",
+          "text": "\"Segment 0: The Shape\"",
+          "sub": "",
+          "list": [],
+          "visual": "Abstract Kandinsky-style composition with Point, Line, and Plane elements intersecting. High contrast, sharp geometric shapes on black.",
+          "caption": "",
+          "concept": "声音的形状",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Cover_Seg0_Shape",
+          "template": "Layout_Title",
+          "image": "visuals/S05_Phase4_Position/S05_Cover_Seg0_Shape.png",
+          "startTime": 0.18
+        },
         {
           "type": "Photo/Historical",
           "text": "\"Testing Presence, not just Wire.\"",
@@ -388,8 +854,24 @@
           "duration": "",
           "id": "S05_Blumlein_Walking",
           "template": "Layout_Content",
-          "image": "visuals/S05_Phase4_Position/S05_Blumlein_Walking_web.webm",
-          "startTime": 10.18
+          "image": "visuals/S05_Phase4_Position/S05_Blumlein_Walking_web.mp4",
+          "startTime": 17.72
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 1: The Setup\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition representing a container. Cyan geometric lines forming a structured box shape amidst abstract elements. High contrast.",
+          "caption": "",
+          "concept": "构建画布",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Cover_Seg1_Canvas",
+          "template": "Layout_Title",
+          "image": "visuals/S05_Phase4_Position/S05_Cover_Seg1_Canvas.png",
+          "startTime": 63.52
         },
         {
           "type": "UI/Screenshot",
@@ -405,7 +887,7 @@
           "id": "S05_Setup_Surround_NewSession",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_Surround_NewSession_cap.png",
-          "startTime": 63.58
+          "startTime": 70.82
         },
         {
           "type": "UI/Screenshot",
@@ -421,7 +903,7 @@
           "id": "S05_Setup_HardLimiter_Path",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_HardLimiter_Path_cap.png",
-          "startTime": 100.96
+          "startTime": 122.78
         },
         {
           "type": "UI/Screenshot",
@@ -437,7 +919,7 @@
           "id": "S05_Setup_HardLimiter",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_HardLimiter_cap.png",
-          "startTime": 112.78
+          "startTime": 133.3
         },
         {
           "type": "Diagram",
@@ -453,7 +935,7 @@
           "id": "S05_Fantasound_Layout",
           "template": "Layout_Content",
           "image": "visuals/S05_Phase4_Position/S05_Fantasound_Layout_ai.png",
-          "startTime": 129.3
+          "startTime": 151.5
         },
         {
           "type": "UI/Screenshot",
@@ -469,7 +951,7 @@
           "id": "S05_Automation_Curve",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Automation_Curve_cap.png",
-          "startTime": 156.98
+          "startTime": 178.92
         },
         {
           "type": "UI/Screenshot",
@@ -485,7 +967,7 @@
           "id": "S05_Setup_Import_Tracks",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_Import_Tracks_cap.png",
-          "startTime": 182.34
+          "startTime": 206.88
         },
         {
           "type": "Video",
@@ -501,7 +983,7 @@
           "id": "S05_Preview_Heart_Raw",
           "template": "Layout_Cinema",
           "image": "visuals/S05_Phase4_Position/S05_Preview_Heart_Raw_rec.mp4",
-          "startTime": 200.64
+          "startTime": 229.38
         },
         {
           "type": "Video",
@@ -517,7 +999,7 @@
           "id": "S05_Preview_Wall_Raw",
           "template": "Layout_Cinema",
           "image": "visuals/S05_Phase4_Position/S05_Preview_Wall_Raw_rec.mp4",
-          "startTime": 205.64
+          "startTime": 235.06
         },
         {
           "type": "Video",
@@ -533,7 +1015,7 @@
           "id": "S05_Preview_Needle_Raw",
           "template": "Layout_Cinema",
           "image": "visuals/S05_Phase4_Position/S05_Preview_Needle_Raw_rec.mp4",
-          "startTime": 211.56
+          "startTime": 241.46
         },
         {
           "type": "UI/Screenshot",
@@ -549,7 +1031,7 @@
           "id": "S05_Add_Bus_RightClick",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Add_Bus_RightClick_cap.png",
-          "startTime": 225.8
+          "startTime": 250.22
         },
         {
           "type": "UI/Screenshot",
@@ -565,7 +1047,7 @@
           "id": "S05_Setup_Bus_Reverb",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_Bus_Reverb_cap.png",
-          "startTime": 236.74
+          "startTime": 262.24
         },
         {
           "type": "UI/Screenshot",
@@ -581,7 +1063,55 @@
           "id": "S05_Setup_IR_Detail",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_IR_Detail_cap.png",
-          "startTime": 249.78
+          "startTime": 283.24
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 2: The Point\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition focusing on a single point. A vibrant red circle at the center, surrounded by minimal geometric floating fragments.",
+          "caption": "",
+          "concept": "绝对圆心",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Cover_Seg2_Point",
+          "template": "Layout_Title",
+          "image": "visuals/S05_Phase4_Position/S05_Cover_Seg2_Point.png",
+          "startTime": 310.26
+        },
+        {
+          "type": "Diagram",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A 1:1 square diagram of spatial hierarchy. Center: a solid red dot (The Self). A sharp white circular outline encloses the red dot creating a clear 'Inside' zone. A dark gap separates this from an outer translucent blue glowing hazy ring (The Void). Within the blue ring, a heavy grey curved block (The Wall) is oriented to face and curve around the center dot. A white jagged sharp line (The Needle) is drawn as a tight chaotic spiral, starting in the outer blue ring and coiling tightly around the center white circle.",
+          "caption": "谁是客人，谁在门外？",
+          "concept": "客人与主人 (Spatial Logic)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Visual_Guests",
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_Visual_Guests_ai.png",
+          "startTime": 312.22
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Editor View showing the circular \"Sends\" toggle button (highlighted) and the Send 1 target set to \"The Void\" for Track 2 and 3.",
+          "caption": "",
+          "concept": "轨道区发送设置",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Setup_Sends_Editor",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_Setup_Sends_Editor_cap.png",
+          "startTime": 345.42
         },
         {
           "type": "UI/Screenshot",
@@ -597,7 +1127,7 @@
           "id": "S05_Setup_Sends_Routing",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Setup_Sends_Routing_cap.png",
-          "startTime": 281.6
+          "startTime": 370.4
         },
         {
           "type": "Concept Art",
@@ -613,7 +1143,7 @@
           "id": "S05_Icon_Heart",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Icon_Heart_ai.png",
-          "startTime": 339.48
+          "startTime": 410.78
         },
         {
           "type": "UI/Screenshot",
@@ -629,7 +1159,7 @@
           "id": "S05_Heart_Panner_Open",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Heart_Panner_Open_cap.png",
-          "startTime": 347.2
+          "startTime": 423.92
         },
         {
           "type": "UI/Screenshot",
@@ -645,7 +1175,7 @@
           "id": "S05_Heart_Panner_Settings",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Heart_Panner_Settings_cap.png",
-          "startTime": 374.54
+          "startTime": 445.68
         },
         {
           "type": "UI/Screenshot",
@@ -661,7 +1191,7 @@
           "id": "S05_Heart_EQ_Add",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Heart_EQ_Add_cap.png",
-          "startTime": 404.8
+          "startTime": 476.24
         },
         {
           "type": "UI/Screenshot",
@@ -677,7 +1207,7 @@
           "id": "S05_Heart_EQ_Settings_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Heart_EQ_Settings_cap.png",
-          "startTime": 413.5
+          "startTime": 485.48
         },
         {
           "type": "Video",
@@ -695,7 +1225,23 @@
           "id": "S05_Diff_Material_Preview",
           "template": "Layout_Cinema",
           "image": "visuals/S05_Phase4_Position/S05_Diff_Material_Preview_rec.mp4",
-          "startTime": 437.72
+          "startTime": 511.56
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 3: The Plane\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition representing a plane. Massive grey geometric block shapes pressing down from the top.",
+          "caption": "",
+          "concept": "压迫之墙",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Cover_Seg3_Plane",
+          "template": "Layout_Title",
+          "image": "visuals/S05_Phase4_Position/S05_Cover_Seg3_Plane.png",
+          "startTime": 525.04
         },
         {
           "type": "Concept Art",
@@ -711,7 +1257,23 @@
           "id": "S05_Icon_Wall",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Icon_Wall_ai.png",
-          "startTime": 451.8
+          "startTime": 527.66
+        },
+        {
+          "type": "Diagram",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A 1:1 square diagram. Top-down view of a human head (minimalist circle). Long, wavy low-frequency waves wrapping around the head (cyan). Short, straight high-frequency waves being blocked by one side of the head (white).",
+          "caption": "ILD: Why high frequencies define position.",
+          "concept": "双耳声级差 (ILD)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_ILD_Diagram",
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_ILD_Diagram_ai.png",
+          "startTime": 547.44
         },
         {
           "type": "UI/Screenshot",
@@ -727,7 +1289,39 @@
           "id": "S05_Wall_EQ_Start",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Wall_EQ_Start_cap.png",
-          "startTime": 464.62
+          "startTime": 570.76
+        },
+        {
+          "type": "Diagram",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "A minimalist comparison diagram. Left: Long, cyan wavy lines (low freq) flowing around a central circle (head). Right: Short, sharp white straight lines (high freq) hitting the side of the circle and stopping, casting a black shadow area behind it.",
+          "caption": "低频如水绕行，高频如光受阻。",
+          "concept": "水与光 (Diffraction vs Shadow)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Duplex_Theory_Visual",
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_Duplex_Theory_Visual_ai.png",
+          "startTime": 594.94
+        },
+        {
+          "type": "Video",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Screen recording showing the effect of bringing back high frequencies.",
+          "caption": "",
+          "concept": "高频回归演示",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Wall_EQ_HighFreq_Return_demo",
+          "template": "Layout_Cinema",
+          "image": "visuals/S05_Phase4_Position/S05_Wall_EQ_HighFreq_Return_demo.mp4",
+          "startTime": 619.0
         },
         {
           "type": "UI/Screenshot",
@@ -743,23 +1337,39 @@
           "id": "S05_EQ_Automation_Setup_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_EQ_Automation_Setup_cap.png",
-          "startTime": 486.8
+          "startTime": 640.3
         },
         {
           "type": "UI/Screenshot",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "Two automation lines: Freq rising from 2k to 20k, Gain rising from -40 to +12dB.",
+          "visual": "Automation lane for Parametric EQ Band 5 Freq, showing curve from 2000Hz to 20000Hz.",
           "caption": "",
-          "concept": "绘制滤波器曲线",
+          "concept": "频率自动化 (Step 1)",
           "action": "",
           "target": "",
           "duration": "",
-          "id": "S05_EQ_Automation_Curve_cap",
+          "id": "S05_EQ_Automation_Freq_cap",
           "template": "Layout_FullBleed",
-          "image": "visuals/S05_Phase4_Position/S05_EQ_Automation_Curve_cap.png",
-          "startTime": 513.44
+          "image": "visuals/S05_Phase4_Position/S05_EQ_Automation_Freq_cap.png",
+          "startTime": 664.22
+        },
+        {
+          "type": "UI/Screenshot",
+          "text": "",
+          "sub": "",
+          "list": [],
+          "visual": "Automation lane for Parametric EQ Band 5 Gain, showing curve from -40dB to +12dB.",
+          "caption": "",
+          "concept": "增益自动化 (Step 2)",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_EQ_Automation_Gain_cap",
+          "template": "Layout_FullBleed",
+          "image": "visuals/S05_Phase4_Position/S05_EQ_Automation_Gain_cap.png",
+          "startTime": 692.3
         },
         {
           "type": "UI/Screenshot",
@@ -775,7 +1385,7 @@
           "id": "S05_Pan_Radius_Toggle_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Pan_Radius_Toggle_cap.png",
-          "startTime": 553.0
+          "startTime": 716.1
         },
         {
           "type": "UI/Screenshot",
@@ -791,7 +1401,7 @@
           "id": "S05_Pan_Radius_Curve_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Pan_Radius_Curve_cap.png",
-          "startTime": 557.7
+          "startTime": 725.12
         },
         {
           "type": "Video",
@@ -807,14 +1417,30 @@
           "id": "S05_Preview_Wall_Final",
           "template": "Layout_Cinema",
           "image": "visuals/S05_Phase4_Position/S05_Preview_Wall_Final_rec.mp4",
-          "startTime": 570.48
+          "startTime": 739.56
+        },
+        {
+          "type": "Title Card",
+          "text": "\"Segment 4: The Line\"",
+          "sub": "",
+          "list": [],
+          "visual": "Kandinsky style abstract composition representing a line. Chaotic, jagged white lines scribbling and spiraling across the geometry.",
+          "caption": "",
+          "concept": "混沌之线",
+          "action": "",
+          "target": "",
+          "duration": "",
+          "id": "S05_Cover_Seg4_Line",
+          "template": "Layout_Title",
+          "image": "visuals/S05_Phase4_Position/S05_Cover_Seg4_Line.png",
+          "startTime": 762.66
         },
         {
           "type": "Concept Art",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "A 1:1 square diagram. A chaotic, jagged white scratchy spiral line spinning frantically around the center.",
+          "visual": "A 1:1 square diagram. A chaotic, jagged white scratchy spiral line winding and spinning frantically around the central point.",
           "caption": "The Needle: The Chaotic Threat.",
           "concept": "焦虑螺旋 (The Needle)",
           "action": "",
@@ -823,7 +1449,7 @@
           "id": "S05_Icon_Anxiety",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Icon_Anxiety_ai.png",
-          "startTime": 587.8
+          "startTime": 764.98
         },
         {
           "type": "UI/Screenshot",
@@ -839,22 +1465,23 @@
           "id": "S05_Needle_Automation_Setup_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Automation_Setup_cap.png",
-          "startTime": 622.46
+          "startTime": 780.84
         },
         {
-          "type": "Live Demo",
+          "type": "Diagram",
           "text": "",
           "sub": "",
           "list": [],
-          "visual": "",
-          "caption": "Drawing the Anxiety with Splines.",
-          "concept": "",
-          "action": "(Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间随机跳跃，Radius 逐渐减小。",
+          "visual": "一个极简的几何示意图。在黑色背景上，一条白色的螺旋线从外圈线性地向内圈收缩，展示了 Radius (100 -> 50) 和 Angle (-180 -> 180) 的线性关系。",
+          "caption": "Linear Scale: Angle vs Radius.",
+          "concept": "螺旋轨迹 (The Spiral Formula)",
+          "action": "(Draw Keyframes) 手动绘制 Spline 曲线，让 Angle 在 -180 到 +180 之间线性变化，Radius 线性减小。",
           "target": "Track 3 Pan Automation Lane (Angle & Radius)",
           "duration": "~15s",
           "id": "S05_Act_Perform_Pan",
-          "template": "Layout_Demo",
-          "startTime": 636.14
+          "template": "Layout_Content",
+          "image": "visuals/S05_Phase4_Position/S05_Act_Perform_Pan.png",
+          "startTime": 795.8
         },
         {
           "type": "UI/Screenshot",
@@ -870,7 +1497,7 @@
           "id": "S05_Needle_Pan_Angle_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Angle_cap.png",
-          "startTime": 641.84
+          "startTime": 808.16
         },
         {
           "type": "UI/Screenshot",
@@ -886,7 +1513,7 @@
           "id": "S05_Needle_Pan_Radius_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Radius_cap.png",
-          "startTime": 650.58
+          "startTime": 821.06
         },
         {
           "type": "UI/Screenshot",
@@ -902,7 +1529,7 @@
           "id": "S05_Needle_Pan_Random_cap",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Needle_Pan_Random_cap.png",
-          "startTime": 665.96
+          "startTime": 840.36
         },
         {
           "type": "Video",
@@ -918,23 +1545,39 @@
           "id": "S05_Preview_Needle_Final",
           "template": "Layout_Cinema",
           "image": "visuals/S05_Phase4_Position/S05_Preview_Needle_Final_rec.mp4",
-          "startTime": 692.48
+          "startTime": 858.4
         },
         {
-          "type": "Concept Art",
-          "text": "\"The Geometry of Loneliness.\"",
+          "type": "Title Card",
+          "text": "\"Segment 5: Loneliness\"",
           "sub": "",
           "list": [],
-          "visual": "Abstract geometry connecting the Wall, the Needle, and the Void.",
+          "visual": "Kandinsky style abstract composition representing collapse. Geometric shapes shattering outwards, leaving a small red dot isolated in the void.",
           "caption": "",
           "concept": "孤独的几何学",
           "action": "",
           "target": "",
           "duration": "",
+          "id": "S05_Cover_Seg5_Geometry",
+          "template": "Layout_Title",
+          "image": "visuals/S05_Phase4_Position/S05_Cover_Seg5_Geometry.png",
+          "startTime": 869.16
+        },
+        {
+          "type": "Concept Art",
+          "text": "\"The Geometry of Loneliness\"",
+          "sub": "",
+          "list": [],
+          "visual": "几何崩塌。巨大的灰色平面（墙）与白色螺旋（针）在深蓝色虚空中粉碎，碎片向四周迸射，唯有一个微小的红点（心脏）静止在圆心。",
+          "caption": "",
+          "concept": "孤独的几何学 (Geometric Collapse)",
+          "action": "",
+          "target": "",
+          "duration": "",
           "id": "S05_Geometry_Loneliness",
           "template": "Layout_FullBleed",
-          "image": "visuals/S05_Phase4_Position/S05_Geometry_Loneliness_ai.png",
-          "startTime": 699.96
+          "image": "visuals/S05_Phase4_Position/S05_Geometry_Loneliness.png",
+          "startTime": 871.7
         },
         {
           "type": "Photo/Historical",
@@ -950,7 +1593,7 @@
           "id": "S05_Azimuth_Coordinator",
           "template": "Layout_Content",
           "image": "visuals/S05_Phase4_Position/S05_Azimuth_Coordinator_web.jpg",
-          "startTime": 746.46
+          "startTime": 919.46
         },
         {
           "type": "UI/Screenshot",
@@ -966,7 +1609,7 @@
           "id": "S05_Void_Expander_Settings",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Void_Expander_Settings_cap.png",
-          "startTime": 752.94
+          "startTime": 926.54
         },
         {
           "type": "Photo/Art",
@@ -982,7 +1625,7 @@
           "id": "S05_Janet_Cardiff",
           "template": "Layout_FullBleed",
           "image": "visuals/S05_Phase4_Position/S05_Janet_Cardiff_web.webp",
-          "startTime": 787.24
+          "startTime": 956.72
         }
       ],
       "audio": "tts/S05_Phase4_Position.aac",

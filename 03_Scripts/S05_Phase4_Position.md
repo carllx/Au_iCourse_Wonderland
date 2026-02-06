@@ -1,21 +1,26 @@
-# S05_Phase4_Position (环节四：定位 - 几何学防御战)
+# S05_Phase4_Position (环节四：定位 - 几何学的荒原)
 
 > **Role**: 林昕 (Lin Xin)
 > **Tone**: 极简、物理、冷酷
 > **Context**: 65:00 - 75:00
-> **Story**: 爱丽丝失去了语言，只剩下心跳。世界（墙与针）正在围剿这个唯一的坐标。
+> **Story**: 声音不仅是波，它是点、线、面的几何运动。爱丽丝被困在绝对圆心（点），面对压迫之墙（面）和焦虑之线（线）。
 > **Asset**: `asset_S05_heartbeat_visceral.wav`, `asset_S05_threat_pressure.wav`, `asset_S05_threat_anxiety.wav`, `asset_S04_void_ir.wav`
 
 ---
 
-### Segment 0: 引入 - 声音的形状
+## Segment 0: 引入 - 声音的形状
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Cover_Seg0_Shape]`
+> *   **Concept**: 声音的形状
+> *   **Note**: 停留 ~5s，感受点线面的构成。
 
 > *   **Note**: 视频播放至 "He is testing Presence" 结束，随即淡入黑场。
 
 **[AUDIO]**
 (精密，带有引导性)
-以前我们谈论声像，总是说“左边”或者“右边”。
-但在电影制作里，声像不是一个点，它是一条**轨迹**。
+在康定斯基的画笔下，世界是由三种元素构成的：**点、线、面**。
+而在电影混音里，我们做的是完全相同的事情。声像（Panning）不是为了让声音变宽，而是为了在黑暗中构建**几何体**。
 
 **(Pause: 3s)**
 (感受 3s 的思考时间)
@@ -26,27 +31,30 @@
 > *   **Ref**: `[SLIDE: S05_Blumlein_Walking]`
 > *   **Note**: 视频播放至 "He is testing Presence" 结束，随即淡入黑场。
 
-**请看屏幕**：早在 **1933 年**，当立体声之父 **Alan Blumlein** 在录音棚拍摄那部著名的测试短片 **"Walking and Talking"** 时，他并没有坐在调音台后。
+**[AUDIO]**
+**请看屏幕**：早在 **1933 年**，立体声之父 **Alan Blumlein** 在 Abbey Road 录音棚拍摄那部著名的测试短片 **"Walking and Talking"** 时，他就在试图绘制第一条“线”。
 (看画面)
-他在麦克风前走来走去，一边数数，一边描述自己的位置。
-他不是在测试线材，他是在测试**存在感**。
-他证明了：声音不应该只是贴在银幕上的墙纸，它应该是一个跟随演员移动的**幽灵实体**。
+他没有坐在调音台后，他在麦克风前走来走去。一边数数，一边描述自己的位置。
+他证明了：声音不应该只是贴在银幕上的墙纸，它应该是一个可以在空间中移动的**幽灵实体**。
 
 (闭上眼)
 让我们闭上眼睛。
-想象一根针，它不是静止在你的右耳边。
-它是从远处飞来，绕着你的头顶盘旋，越来越快，最后——
-
-(拍手声)
-扎进你的眉心。
-
+在这个黑暗的荒原里，我们会遇到什么？
+**一个不动的点**（你的心）。
+**一面逼近的墙**（巨大的压力）。
+**一条疯狂的线**（尖锐的焦虑）。
 
 **[AUDIO]**
-这就是我们今天要做的：**外部的围剿 vs 内部的防御**。
+这就是我们今天要做的：**一场声音几何形态的攻与防**。
 
 ---
 
-### Segment 1: 猎场布局 (The Setup) - 牢笼与地基
+## Segment 1: 构建画布 (The Setup)
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Cover_Seg1_Canvas]`
+> *   **Concept**: 构建画布
+> *   **Note**: 3D 容器的概念展示。
 
 > [!NOTE]
 > **Session Setup (会话设置)**:
@@ -57,10 +65,9 @@
 
 **[AUDIO]**
 (精密，不容置疑)
-首先，请看我们的时间线结构。
-在进入虚空之前，我们先要建造一个物理上的“牢笼”。
+首先，我们需要一张画布。但这张画布不是二维的，它是三维的。
 
-#### Phase 1: The Container (构建牢笼)
+### Phase 1: The Container (构建牢笼)
 
 > **[VISUAL]**
 > *   **Scene**: Audition 新建多轨会话窗口。
@@ -69,12 +76,12 @@
 
 **请看屏幕，点击顶部的 File 菜单，选择 New，然后建立一个新的 Multitrack Session**。
 在新建会话的对话框里，Master 选项请务必不要选默认的 Stereo（立体声），而是选择 **5.1 Surround**。
-为什么？因为立体声只是一面二维的墙，而 5.1 是一个**三维的笼子**。
+为什么？因为立体声只是一张二维的纸，而 5.1 是一个**三维的容器**。
 我们需要这个额外的维度，从前后左右来“囚禁”我们的声音。
 
 > [TECH NOTE: The Headphone Lie]
-> **Headphone Check**: 如果你现在戴着耳机，Audition 会自动把这 6 个声道折叠回立体声 (Downmix)。
-> 所有的“脑后”声音听起来可能会像是在“脑中”，这是物理限制，但逻辑依然成立。
+> 如果你现在戴着耳机，Audition 会自动把这 6 个声道折叠回立体声 (Downmix)。
+> 所有的“脑后”声音听起来可能会像是在“脑中”，这是物理限制，但几何逻辑依然成立。
 
 **[注意：安全第一]**
 由于 5.1 混音汇聚了六个声道的能量，极易产生数字溢出。我们需要先挂载一把“安全锁”。
@@ -105,7 +112,7 @@
 
 **请看屏幕上的这张照片**：这不仅是历史，这是 Fantasound。
 迪士尼的 **《幻想曲》 (Fantasia)** 不仅发明了多声道，请注意看**胶片边缘那条抖动的波浪线**。
-由于早期的面积式录音在记录高频导频信号时，视觉上就像一群游动的、带着长尾巴的圆点，所以工程师们给它起了一个浪漫的绰号：**"蝌蚪"控制轨 (Tadpole Control Track)**。
+由于早期的体积式录音在记录高频导频信号时，视觉上就像一群游动的、带着长尾巴的圆点，所以工程师们给它起了一个浪漫的绰号：**"蝌蚪"控制轨 (Tadpole Control Track)**。
 
 > **[VISUAL]**
 > *   **Scene**: Audition 多轨会话界面。
@@ -116,7 +123,7 @@
 我们在 Audition 里亲手画下的每一条**自动化曲线 (Automation Envelopes)**，其实都是那些 1940 年“光影蝌蚪”的数字化转生。
 当这些“蝌蚪”在你的屏幕上游动时，静止的声音就开始了它在空间里的奔跑。
 
-#### Phase 2: The Inhabitants (角色入场)
+### Phase 2: The Inhabitants (角色入场)
 
 现在，也就是我们的演员入场的时候了。
 
@@ -125,18 +132,14 @@
 > *   **Action**: [ACT: Import_Assets] 将 asset_S05_ 开头的三个素材拖入轨道 T1-T3。
 > *   **Ref**: `[SLIDE: S05_Setup_Import_Tracks]`
 
-**请看屏幕**，我们将三位“演员”依次拖入时间线：
-*   **Track 1 (T1-心跳)**: 那颗清晰的心跳 (`asset_S05_heartbeat_visceral`)。
-*   **Track 2 (T2-墙)**: 沉重的压迫感 (`asset_S05_threat_pressure`)。
-*   **Track 3 (T3-焦虑)**: 尖锐的焦虑 (`asset_S05_threat_anxiety`)。
+**请看屏幕**，我们将三位“几何演员”依次拖入时间线：
+*   **Track 1 (T1-心跳)**: 点, 扮演一颗清晰的心跳 (`asset_S05_heartbeat_visceral`)。
+*   **Track 2 (T2-墙)**: 线, 扮演一堵沉重的压迫感 (`asset_S05_threat_pressure`)。
+*   **Track 3 (T3-焦虑)**: 面, 扮演尖锐的焦虑 (`asset_S05_threat_anxiety`)。
 
 **[AUDIO]**
 (Listen)
 在开始处理之前，让我们逐一听一听它们的本来面目。
-
-
-
-**[AUDIO]**
 首先，请听心跳。
 
 > **[VISUAL]**
@@ -144,24 +147,15 @@
 > *   **Action**: [ACT: Play_Original] 试听原始心跳。
 
 **[AUDIO]**
-**听**，它是脆弱的，清晰的。
+**听**，它是脆弱的，点状的。
+其次，请听压力。
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Preview_Wall_Raw]`
 > *   **Action**: [ACT: Play_Original] 试听原始压力声。
 
 **[AUDIO]**
-其次，请听压力。
-
-
-> **[VISUAL]**
-> *   **Ref**: `[SLIDE: S05_Preview_Needle_Raw]`
-> *   **Action**: [ACT: Play_Original] 试听原始焦虑声。
-
-**[AUDIO]**
 **听**，它是沉闷的，像一堵无法穿透的墙。
-
-**[AUDIO]**
 最后，请听焦虑。
 
 > **[VISUAL]**
@@ -169,11 +163,8 @@
 > *   **Action**: [ACT: Play_Original] 试听原始焦虑声。
 
 **[AUDIO]**
-**听**，它是尖锐的，神经质的。
-记住这些原始的质感，因为马上，我们就要改变它们。
-
-现在，这三个声音还漂浮在真空中。
-为了让那堵代表压力的 **墙 (Wall)** 和那根代表焦虑的 **针 (Needle)** 能够展开围剿我们的耳朵，我们需要提供一个**活动空间**。我们需要建立 **"The Void" (虚空)**。
+**听**，它是尖锐的，线性的。
+记住这些原始的质感，因为马上，我们就要把它们扔进**虚空**。
 
 > **[VISUAL]**
 > *   **Scene**: Audition 编辑器面板，新建 Bus Track 菜单路径。
@@ -190,8 +181,8 @@
 
 **请点击 Bus 轨的效果架**，加载 **Convolution Reverb** (卷积混响)。
 为什么要选择 **Convolution Reverb** (卷积混响) 而不是其他算法的混响？
-因为算法混响是**数学计算**出的, 更像是模拟概念上的, 完美的空间 (Artificial)，而卷积混响是**真实物理空间**的声学拓印 (Imprint)。
-在这个环境里，我们需要那种**真实的荒凉感**，而不是数学上的平滑感。
+因为算法混响是**数学**构建的完美空间，而卷积混响是**物理**世界的真实拓印。
+在这个几何实验里，我们需要那种**真实的荒凉感**。
 
 > **[VISUAL]**
 > *   **Scene**: Convolution Reverb 脉冲响应加载窗口。
@@ -203,6 +194,18 @@
 **点击 Load 按钮**，加载这个采样素材。
 如果没有找到，也可以先用 Audition 自带的 "Hall" 预设代替，但要记得把 Mix 调到 100% Wet。
 把它加载进去。一间等待客人的空房子就构建好了。
+
+---
+
+
+## Segment 2: The Point (点) - 绝对圆心
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Cover_Seg2_Point]`
+> *   **Concept**: 绝对圆心
+> *   **Note**: 绝对静止的红点。
+
+**第二部分：点。**
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Visual_Guests]`
@@ -243,9 +246,10 @@
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Icon_Heart]`
 > *   **Concept**: 绝对圆心 (The Static Center).
-> 
+
 **[AUDIO]**
 (Fixated)
+几何学的第一定律：**确立圆心**。
 请看屏幕中央那个绝对静止的**红点**。
 这就是我们唯一拥有的东西——我们的心跳。
 **Track 1: The Heart (心脏)。**
@@ -254,9 +258,8 @@
 > *   **Action**: [ACT: Open_Track_Panner] 打开 Track 1 的声像设置窗口。
 > *   **Ref**: `[SLIDE: S05_Heart_Panner_Open]`
 
-
-首先，请双击 Track Header 上的圆盘小图标，打开 **Track 1** 的 **Track Panner** (轨道声像) 面板。
-**打开面板后**，在开始之前，让我们先认识一下这张地图：
+**现在，双击 Track 1 头部的小圆盘图标**，打开 **Track Panner** (轨道声像) 面板。
+这就是我们的“几何绘图板”。
 *   **Angle (角度)**: 声音的方位。
 *   **Spread (扩散)**: 声音张开的宽度。
 *   **Radius (半径)**: 声音离圆心的远近。
@@ -265,10 +268,12 @@
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Heart_Panner_Settings]`
-**请看此时声像面板上的参数变化**：
-我们为心脏定位。
-把 **Radius** (半径) **归零**。
-你会发现屏幕中心那个指示点。它不再是弥散的空气，它被死死地“钉”在了**圆心 (Center)**。
+> *   **Action**: [ACT: Zero_Radius] 将 Radius 设为 0%。
+
+**请看此时声像面板上的参数**。
+我们将 **Radius** (半径) 直接拉到 **0%**。
+在几何学上，半径为零的圆，就是一个**点 (Point)**。
+你会发现屏幕中心那个指示点，它被死死地“钉”在了**圆心 (Center)**。
 它是被锚定的，它是静止的。
 
 
@@ -288,40 +293,44 @@
 > *   **Action**: [ACT: Open_Parametric_EQ] 打开 EQ 面板。
 > *   **Ref**: `[SLIDE: S05_Heart_EQ_Settings_cap]`
 
-**打开 EQ 后**，我们使用 **Low Pass** (低通滤波)，将频率极其凶狠地切到 **200Hz** 以下。
+**为了让这个点更纯粹**，请打开 **Parametric EQ**，使用 **Low Pass** (低通滤波)，将频率极其凶狠地切到 **200Hz** 以下。
 斜率设为最陡峭的 **48dB/Oct**。
 同时，为了防止低频共振导致过载，请记得把 **Gain** (增益) 稍微拉低到 **-3dB**。
-我们切掉了所有的高频，甚至中频。只剩下胸腔深处的震动。
 
+现在，请播放它。
 
 (播放预览)
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Diff_Material_Preview]`
 
-现在，请播放它。
-听到了吗？这个声音不是从扬声器里出来的，它是从你的**喉咙里**传出来的。
-它是**内部**的。
-在这个疯狂旋转的世界里，这是你唯一的立足点。
+
+听到了吗？我们切掉了所有高频的质感，只剩下那个**极简的质点**。
+这个声音不再是从扬声器或喉咙的声带里出来的，而是从你胸腔深处传出来的。
+
+
+
+
 
 ---
 
-### Segment 2: 外化 I - 压迫之墙 (The Wall)
+## Segment 3: The Plane (面) - 压迫之墙
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Cover_Seg3_Plane]`
+> *   **Concept**: 压迫之墙
+> *   **Note**: 巨大的灰色面。
+
+**第三部分：面。**
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Icon_Wall]`
 > *   **Concept**: 几何压迫 (The Crushing Weight).
-
-> *   **Concept**: **ILD (Interaural Level Difference)** - 高频才有方向感。
+> *   **Concept**: **ILD (Interaural Level Difference)** - 低频是面，高频是纹理声音才有方向感。
 
 **[AUDIO]**
 (Heavy)
-现在的视线离开中心。看那个从上方压下来的巨大**灰色体块**。
-它是沉重的、缓慢的、没有感情...
+现在，视线离开中心。看那个从上方压下来的巨大**灰色体块**。
 **Track 2: The Wall (压迫之墙)。**
-
-> **[VISUAL]**
-> *   **Action**: [ACT: Select_Track_2] 选中 Track 2 (Wall)。
-> *   **Ref**: `[SLIDE: S05_Wall_EQ_Start]`
 
 **请大家在屏幕上点击并选中 Track 2。**
 在这里，我们有一堵低频的音墙。
@@ -336,130 +345,191 @@
 
 为了制造“逼近”的效果，我们必须手动把高频找回来。
 
+
+> **[VISUAL]**
+> *   **Action**: [ACT: Select_Track_2] 选中 Track 2 (Wall)。
+> *   **Ref**: `[SLIDE: S05_Wall_EQ_Start]`
+
 (操作: 添加 EQ)
-请在 Track 2 的 Effect Rack (效果架) 中，添加一个 **Parametric Equalizer**。
-我们不用常规的方法调节，我们要用 **Automation Envelopes (自动化包络)** 来画出这个过程。
+请在 **Track 2** 的 **Effect Rack** (效果架) 中，点击箭头，依次选择 **Filter and EQ**，然后选择 **Parametric Equalizer**。
+
+**打开面板后**，我们面对的是一张没有任何表情的频响图。
+目前的 **Band 5** (高频节点) 处于左下角，这意味着高频被彻底切除。
+这就是为什么这堵墙听起来像是在“另一个房间”。
+
+> [TECH NOTE: The GPS of Sound (为何高频决定方位？)]
+> *   **Ref**: `[SLIDE: S05_Duplex_Theory_Visual]`
+> *   **Duplex Theory (双工理论)**: 低频波长长，能像水一样绕过头骨 (Diffraction)，双耳几乎没有音量差。高频波长短，像光一样会被头骨挡住 (Shadow)，产生显著的 **ILD (双耳声级差)**。
+> *   **结论**: 没有高频，声音就没有具体的“位置”，只有模糊的“氛围”。
+
+**[AUDIO]**
+(Know-How)
+这在声学上被称为 **“双工理论” (Duplex Theory)**。
+低频像水，能轻易绕过你的头骨；高频像光，会被你的头挡住。
+既然 **Track 2** 失去了高频，你的大脑就无法通过“头部的阴影”来锁定它。它就变成了幽灵。
+我们要做的，就是把这个从左下角的阴影里找回来，赋予它实体。
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Wall_EQ_HighFreq_Return_demo]`
+> *   **Action**: [ACT: Watch_Demo] 观看高频回归的效果演示。
+
+**请看屏幕演示**。
+当我们把切掉的高频找回来时，原本沉闷的嗡嗡声，瞬间拥有了那种似乎能摸到的**粗糙质感**。
+这就是把“远处的背景”变成了“眼前的**实体面**”。
+你相信它能**撞到你**, 它才有**压迫感**。
+
+(操作: 自动化绘制)
+让我们用 **Automation Envelopes (自动化包络)** 来绘制这个“面”逼近的过程。
 
 > **[VISUAL]**
 > *   **Scene**: Track 2 Automation Panel.
 > *   **Ref**: `[SLIDE: S05_EQ_Automation_Setup_cap]`
-> *   **Action**: [ACT: Enable_Automation] 依次勾选 Rack Effect > Parametric EQ > Band 5 > Frequency 和 Gain。
+> *   **Action**: [ACT: Enable_Automation] 依次点选 Parametric EQ > Band 5 > Frequency 和 Gain。
 
-点击轨道头部的 **Show Envelopes** (显示包络) 小三角。
-在下拉菜单中，我们需要勾选两条线：
-首先，在 **Rack Effect** 中找到 **Parametric EQ**，展开 **Band 5**，勾选 **Frequency** (频率)。
-其次，勾选同一位置下的 **Gain** (增益)。
+**请点击 Track 2 轨道头部的 Show Envelopes (显示包络) 小三角**。
+在下拉菜单中，我们需要分别将 **Band 5** 的 **Frequency**(频率：控制明一度) 以及 **Gain** (增益：控制响度) 勾选。
 
-现在的屏幕上会出现一紫一红两条直线。
+**请注意轨道头部 Read 模式下方的参数选择框**，我们可以在这里切换要编辑的曲线。
 
-(操作: 绘制曲线)
-我们用 **Band 5 (High Shelf)** 来模拟墙体的逼近：
+**第一步：绘制频率 (Frequency)。**
+请在下拉框中选择 **Frequency**。
+
 > **[VISUAL]**
-> *   **Ref**: `[SLIDE: S05_EQ_Automation_Curve_cap]`
-> *   **Action**: [ACT: Draw_Curve] 绘制 Frequency 从 2k 到 20k，Gain 从 -40 到 +12 的曲线。
+> *   **Ref**: `[SLIDE: S05_EQ_Automation_Freq_cap]`
+> *   **Action**: [ACT: Draw_Curve] 绘制 Frequency: 2000Hz -> 20,000Hz。
 
-现在，请看屏幕。我们在坐标系上找到 **Band 5** 的那个控制点。
-我们需要把它从**左下角**（低频、低音量）猛地推向**右上角**（高频、高音量）。
-这就像是把高频的声音**拔地而起**，强行将被遮蔽的距离感撕开。
+**请看屏幕**：在音频剪辑的**起始处**点击产生一个关键帧，为了制造“远处的模糊感”，我们将频率凶狠地压到 **2000Hz (Muffled Distance)**。
+然后，在**结束处**再点一个关键帧，为了迎接“逼近的冲击”，我们把它拉满到 **20000Hz (Clear Reality)**。
+这意味着“细节”从模糊逐渐变得清晰。
 
-具体参数上：
-第一步，让 **Frequency (频率)** 横向滑过，从 **2000Hz** (闷) 冲向 **20,000Hz** (亮)。
-第二步，让 **Gain (音量)** 纵向拉升，从 **-40dB** (被挡住) 猛推到 **+12dB** (刺耳)。
-    > [WARNING: Safety Check] 理论上我们需要 +36dB 来制造痛感，但为了保护耳朵，我们限制在 +12dB，配合 Limiter 食用。
+**第二步：绘制增益 (Gain)。**
+接下来，请切换到 **Gain**。
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_EQ_Automation_Gain_cap]`
+> *   **Action**: [ACT: Draw_Curve] 绘制 Gain: -40dB -> +12dB。
+
+**请看**同样的方法：**起始点**我们要压到 **-40dB (潜伏)**，让它如同耳语般微弱；而**结束点**我们要拉到 **12dB (爆发)**，这**代表**了能量从被压抑到无法忽视的彻底释放。
+
+
+这样一来，高频的声音被**拔地而起**，强行撕开被遮蔽的距离感。
 
 (操作: Radius 逼近)
 别忘了物理位置。
-在同一个菜单里，找到 **Pan** (声像) 分类，勾选 **Radius** (半径)。
-> **Ref**: `[SLIDE: S05_Pan_Radius_Toggle_cap]`
 
-让 Radius 从 **100% (最远)** 逐渐缩小到 **50% (压迫)**。
-> **Ref**: `[SLIDE: S05_Pan_Radius_Curve_cap]`
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Pan_Radius_Toggle_cap]`
+> *   **Action**: [ACT: Enable_Radius] 勾选 Radius 包络。
 
-(结合播放)
-感受一下：
-频率打开的同时，墙体也在物理上逼近。
-一个是**频谱 (Spectrum)** 的压迫，一个是**空间 (Space)** 的压迫。
-双重夹击。
+**请注意**在同一个包络菜单里，找到 **Pan** (声像) 分类，勾选 **Radius** (半径)。
+然后，在参数选择框中切换到 **Radius**。
 
-双重夹击。
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Pan_Radius_Curve_cap]`
+> *   **Action**: [ACT: Draw_Radius] 绘制 Radius: 100% -> 50%。
+
+**请看屏幕演示**：
+我们将起始点的 **Radius** 设为 **100% (最远)**，将结束点拉低到 **50% (压迫)**。
+这也是一条下潜的曲线。
+
+
+
+现在，让我们停下来听一听最终的效果。
+(Pause)
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Preview_Wall_Final]`
 > *   **Action**: [ACT: Watch_Preview] 观看压力逼近的效果展示。
 
 **[AUDIO]**
-(Pause)
-现在，让我们停下来听一听最终的效果。
-这不是一面普通的墙。
-感受那个灰色的体块是如何从远处——那个模糊的低频——通过自动化曲线的一点点抬升，逐渐逼近，直到它压迫在你的眉毛上。
+(Interpret)
+听到了吗？
+**频谱 (Spectrum)** 的处理，让我们的大脑在混沌中确定了它的**方向**。
+而 **空间 (Space)** 的处理，则让你清晰地感知到，这个声音正沿着刚才确定的方向，**向你逼近**。
+这不再是模糊的噪音，而是一面巨大的**平面 (Plane)**，正缓慢地、有预谋地向圆心（也就是你）推压过来。
 
 ---
 
-### Segment 3: 外化 II - 焦虑之刺 (The Needle)
+## Segment 4: The Line (线) - 混沌之线
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Cover_Seg4_Line]`
+> *   **Concept**: 混沌之线
+> *   **Note**: 某种神经质的线条。
+
+**第四部分：线。**
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Icon_Anxiety]`
 > *   **Concept**: 混沌螺旋 (The Chaotic Orbit).
 
-
-
 **[AUDIO]**
 (Sharp)
 最后，看这团**白色的乱线**。
-它不是点，也不是面，它是疯狂旋转的**针尖**。它是试图钻进你脑子里的东西。
-**Track 3: The Needle (焦虑之刺)**。
+**Track 3: The Needle (焦虑之线)**。
+它不是点，也不是面，它是疯狂旋转的**线 (Line)**。它是试图钻进你脑子里的轨迹。
 
 它的几何形态是 **Spiral (螺旋)**。
 
-它利用了 **混淆锥 (Cone of Confusion)** 的原理：
-人类的耳朵经常分不清声音是在正脸前，还是在脑后勺。
-怎么打破这个迷局？我们要让声音**动起来**。
-
-(操作: Track 3)
-这一次，我们不再“表演”推子，我们要像外科医生一样**画**出焦虑。
-把 Automation Mode 保持在 **Read**。
-
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Needle_Automation_Setup_cap]`
-> *   **Action**: [ACT: Show_Automation] 展开 Track 3 的 Automation Lanes，找到 Angle 和 Radius。
+> *   **Action**: [ACT: Show_Automation] 找到和展开 Track 3 的 Pan Angle 和 Pan Radius。
 
-**请看轨道头部**，点击 **Show Envelopes** 按钮 (那个折线图标)，或者在菜单中选择 **Show Automation Lanes**。
-展开它，在 **Track Panner** (轨道声像) 中找到 **Angle** (角度) 和 **Radius** (半径) 参数。
+**请看轨道头部**，点击 **Show Envelopes** 按钮 (那个折线图标)， 勾选 **Pan Angle** (角度) 和 **Pan Radius** (半径) 参数。
+同时我们也在 **Track Panner** (轨道声像) 中找到 **Angle** (角度) 和 **Radius** (半径) 参数。 作为调节的参考. 
 
 > **[VISUAL]**
-> *   **Ref**: `[SLIDE: S05_Act_Perform_Pan]` (Refined as Keyframe Drawing)
+> *   **Ref**: `[SLIDE: S05_Act_Perform_Pan]`
+> *   **Action**: [ACT: Perform_Spiral] 绘制螺旋空袭包络。
 
 (动作指引)
-我们来制造这场空袭。这就需要两个步骤：**螺旋逼近**与**随机盘旋**。
-> **Ref**: `[SLIDE: S05_Needle_Pan_Angle_cap]`
-第一，在 **Angle (角度)** 轨道上，画出剧烈的锯齿，让它在 **-180° 到 +180°** 之间快速旋转。
-> **Ref**: `[SLIDE: S05_Needle_Pan_Radius_cap]`
-第二，在 **Radius (半径)** 轨道上，让它从 **96% (远方的威胁)** 逼近到 **20% (贴脸的恐慌)**。
-*Note*: 在 Surround Panner 中，**0% Radius (代表绝对中心)** 就是你的脑海中央。越小越近。
-> **Ref**: `[SLIDE: S05_Needle_Pan_Random_cap]`
-第三，赋予生命。右键点击这些关键帧，选择 **Spline Curves** (样条曲线)，让它像正弦波一样扭曲。
-请记住：**切换 Spline Curve 才是模拟苍蝇盘旋的随机轨迹**。我们要的不是完美的圆，是一只**愤怒的**生物。
+**请看**，我们来制造这场空袭。它的核心不需要复杂的理论，只有唯一的动作：**螺旋逼近 (Spiral Approach)**。
+实现它只需要两步：控制 **Angle (角度)** 和 **Radius (半径)**。
 
-(停止)
-看屏幕上的线条——这不是正弦波，这是你的**焦虑图谱 (Map of Anxiety)**。这才是真实的焦虑。
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Needle_Pan_Angle_cap]`
+> *   **Action**: [ACT: Draw_Angle] 绘制 Angle 锯齿波。
 
-> [TEACHING MOMENT: The Sniper's Eye (如何对齐)]
-> 你可能会问：怎么才能画准？
-> 不需要看网格，画出那种杂乱无章的感觉，**Your ears are faster than your eyes (你的耳朵比眼睛更快)。**
+**请看第一步：画圈 (Angle)。**
+请在 **Angle** 轨道上，画出剧烈的**锯齿波**。
+让它在 **-180°** 到 **+180°** 之间快速跳动，模拟一圈的环绕。
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Needle_Pan_Radius_cap]`
+> *   **Action**: [ACT: Draw_Radius] 绘制 Radius 下降线。
+
+**请看第二步：逼近 (Radius)。**
+请切换到 **Radius** 轨道，画出一条“死亡俯冲线”。
+让它从 **96% (远方天际)** 笔直地坠落到 **20% (眉心眼前)**，请**想象**这就像一颗子弹击中了眉心。
+
+此时，你已经得到了一个标准的机器空袭。
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Needle_Pan_Random_cap]`
+> *   **Action**: [ACT: Enable_Spline] 切换 Spline Curve。
+
+**最后，如果你觉得太死板，你也可以右键点击关键帧，选择 Spline Curves (样条曲线)。**
+通过添加和编辑控制点，你可以让死板的折线变成苍蝇般不可预测的**生物轨迹**。
+(Pause)
+**现在，请看演示**。
 
 > **[VISUAL]**
 > *   **Ref**: `[SLIDE: S05_Preview_Needle_Final]`
 > *   **Action**: [ACT: Watch_Preview] 观看焦虑飞越的效果展示。
 
-**[AUDIO]**
-(Pause)
-再次停下来，观看演示，检查我们的“针”。
-
-你的脖子后面有没有感觉到一阵凉意？
+**看**，这条**线**，正绕着那个静止的**点**，穿透那面逼近的**墙**，直刺而来。
+你的脖子后面，有没有感觉到一阵凉意？
 
 ---
 
-### Segment 4: 几何对决 (The Showdown)
+## Segment 5: The Geometry(几何学)
+
+> **[VISUAL]**
+> *   **Ref**: `[SLIDE: S05_Cover_Seg5_Geometry]`
+> *   **Concept**: 孤独的几何学
+> *   **Note**: 最终的坍塌。
+
+**第五部分：几何学。**
 
 > **[VISUAL]**
 > *   **Scene**: 全局总览。
@@ -486,19 +556,18 @@
 (操作: 演示崩塌)
 > **[VISUAL]**
 > *   **Scene**: Bus Track 效果窗口。
-> *   **Action**: [ACT: Open_Reverb] 打开 Void 轨道的混响插件窗口。
+> *   **Action**: [ACT: Add_StereoExpander] 在 Convolution Reverb 下方添加 Stereo Expander 效果器。
 > *   **Ref**: `[SLIDE: S05_Void_Expander_Settings]`
 
-**请看 Bus 轨**。点击打开那个 **Convolution Reverb** 效果器的窗口。
-找到 **Width** (宽度) 推子。
-我们要做的不是画线，而是**实时手控**。
-**按住鼠标**，将 **Width** 参数瞬间推到 **150%**。
+**请看 Bus 轨**。为了打破物理边界，我们需要在 **Convolution Reverb** 下方，再添加一个 **Stereo Expander** (立体声扩展器)。
+打开它，找到 **Stereo Expand** (立体声扩展) 参数，瞬间推到 **150%**。
 
 150% 意味着声场**超越**了物理可能的边界。
-感受一下：**0% 的心脏** 对比 **150% 的荒野**。
-心脏被压缩成一个点，代表极致的孤独。而荒野则膨胀到无穷大，仿佛空间本身在撕裂。
+我们撕裂了这张画布。
+**0% 的点**（心脏）对比 **150% 的面**（虚空）。
+几何体崩塌了，只剩下那个孤独的点，悬浮在无限的黑暗中。
 
-**(Pause: 10s)**
+(Silence: The Collapse)
 > **[DEEP LISTENING]**
 > (Silence: 10s)
 
@@ -514,7 +583,7 @@
 所有的声像移动，最终都是为了定义——**你在哪里**。
 在这里，你被困在中心，无处可逃。
 
-这就是 Audition 赋予我们的权力：我们不仅是在放置声音，我们是在**构建牢笼**。
+这就是 Audition 赋予我们的权力：我们不仅是在放置声音，我们是在**构建世界**。
 
 我是林昕。
 我们下节课再见。

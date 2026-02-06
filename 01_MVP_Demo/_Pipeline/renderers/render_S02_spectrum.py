@@ -26,30 +26,34 @@ def visualize_audio(filename, render_mode=False):
     if len(data.shape) > 1:
         data = data[:, 0]
 
+    # Import Style Config
+    try:
+        sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "lib"))
+        import style_config
+        style_config.apply_style()
+        print("✅ Applied Visual System Style")
+    except ImportError:
+        print("⚠️ Style Config not found, using default matplotlib style")
+
     print(f"Loaded {filename}, Sample Rate: {fs}, Duration: {len(data)/fs:.2f}s")
 
     # Setup visualization parameters
     window_size = 2048
     hop_size = 512
 
-    # Pre-calculate spectrogram to ensure smooth storage?
-    # Or calculate real-time? Real-time allows "playing" visualization.
-    # Let's use a rolling buffer approach.
-
     # Setup Plot
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
 
-    # Waveform Plot
+    # Waveform Plot (Using Cycle Colors automatically from rcParams)
     x_wave = np.arange(0, window_size)
-    line, = ax1.plot(x_wave, np.zeros(window_size), '-', lw=1)
+    line, = ax1.plot(x_wave, np.zeros(window_size), '-', lw=1.5) 
     ax1.set_title('Real-time Waveform')
     ax1.set_ylim(-1, 1)
     ax1.set_xlim(0, window_size)
-    ax1.grid(True, linestyle='--', alpha=0.5)
+    ax1.grid(True, linestyle='--', alpha=0.3)
 
     # Spectrogram Plot (Rolling)
-    # Spec dimensions: Freq bins x Time bins
-    spec_width = 100 # Number of time frames to show
+    spec_width = 100 
     freq_bins = window_size // 2 + 1
     spec_data = np.zeros((freq_bins, spec_width))
 
@@ -58,16 +62,14 @@ def visualize_audio(filename, render_mode=False):
         spec_data,
         aspect='auto',
         origin='lower',
-        cmap='magma',
-        vmin=-60, vmax=0, # [FIX]: Set vmax to 0dB to prevent "clipping" the fade visual. Now the gradient from -1dB to -20dB will be visible.
+        cmap='magma', 
+        vmin=-60, vmax=0, 
         extent=[0, spec_width, 0, fs/2]
     )
     ax2.set_title('Real-time Spectrogram (Linear Freq - Mist View)')
     ax2.set_xlabel('Time Frame')
     ax2.set_ylabel('Frequency (Hz)')
-    # [VISUAL FIX]: Use Linear Scale to show the "Mist" (High Freq) filling the screen.
-    # ax2.set_yscale('log') <-- REMOVED
-    ax2.set_ylim(0, 16000) # Focus on 0-16kHz where most texture is
+    ax2.set_ylim(0, 16000)
 
     # Audio Callback State
     global current_idx
