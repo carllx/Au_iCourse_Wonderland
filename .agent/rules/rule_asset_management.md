@@ -137,7 +137,7 @@ python 04_Delivery/h5_preview/scripts/build_timeline.py [Module_ID]
     ```
 
 ### 3.6 AI 生成工具 (AI Generation)
-*   **指定工具**: `.agent/skills/validation-suite/scripts/gen_visual_asset.py`
+*   **指定工具**: `.agent/skills/visual-director/scripts/gen_visual_asset.py`
 *   **使用方式**:
     ```bash
     # 生成单个 Slide

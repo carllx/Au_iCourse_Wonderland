@@ -68,16 +68,26 @@ globs: 03_Scripts/*.md
 2.  **语速**: 是否超速 (Over-speed) 或 拖沓 (Under-speed)。
 3.  **素材完整性**: [VISUAL] 块中是否遗漏了 Asset 引用。
 
-## 5. 演示流规范 (Demonstration Flow Protocol)
+## 5. 演示流规范 (Demonstration Flow Protocol: IAA)
 
-对于所有视听素材 (Audio/Video Demos)，必须严格遵守 **IAA 序列 (Intro-Action-Analysis)**：
+所有的视听素材 (Audio/Video Demos) 必须严格遵守 **IAA 三明治结构 (Intro-Action-Analysis)**。这不仅是教学要求，更是**技术锚点 (Anchor Alignment)** 的强制要求。
 
-1.  **I - Intro (Audio)**: 预设听感目标。"请听这段录音……"
-2.  **A - Action (Visual)**: 触发素材。`> [ACT: Play_Video]`
-3.  **A - Analysis (Audio)**: 验证听感结果。"听到了吗？声音变闷了……"
+*   **I - Intro (Audio)**: 预设听感目标 (Prompt)。"请听这段录音……"
+    *   *位置*: 必须在 Visual 之前。
+*   **A - Action (Visual)**: 触发素材。`> [ACT: Play_Video]`
+*   **A - Analysis (Audio)**: 验证听感结果 (Reaction)。"听到了吗？声音变闷了……"
+    *   *位置*: 必须紧跟在 Visual 之后。
+    *   *System Check*: **[CRITICAL]** 这里如果没有文字，`validate_anchors.py` 会报错 "Ghost Anchor"，因为系统找不到该 Video 对应的 "解说词"。
 
-❌ **禁止**：Action 出现在 Intro 之前 (还没提示就播了)。
-❌ **禁止**：Analysis 出现在 Action 之前 (还没播就分析完了)。
+❌ **错误模式 (Ghost Anchor Risk)**:
+1.  Intro: "我们来听听。"
+2.  Action: `[Play Video]`
+3.  (Silence/Next Chapter) -> **FAIL**: 系统认为 Action 后面是空的。
+
+✅ **正确模式 (IAA Sandwich)**:
+1.  Intro: "我们来听听。"
+2.  Action: `[Play Video]`
+3.  Analysis: "就像刚才听到的那样……" -> **PASS**: 系统捕捉到这一句作为 Action 的锚点。
 
 ## 6. 质量保证：朗读测试 (QA: The "Read Aloud" Protocol)
 

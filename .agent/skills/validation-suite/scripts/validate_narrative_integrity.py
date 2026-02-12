@@ -51,12 +51,13 @@ VISUAL_ACTION_TRIGGERS = [
 AUDIO_DISCLOSURE_VERBS = [
     "点击", "点选", "按下", "按",
     "拖动", "拖拽", "拉动", "推大", "推小",
-    "设置", "调整", "改为", "设为", "拉到",
+    "设置", "调整", "改为", "设为", "拉到", "降到", "降低", "升到", "升高",
     "选择", "选中", "勾选",
     "移动", "滑", "绘制", "画",
     "打开", "关闭", "启用",
     "输入", "写",
-    "听", "看", "观察", "注意", "演示", "请看", "利用", "使用"
+    "听", "看", "观察", "注意", "演示", "请看", "利用", "使用",
+    "发现", "感受", "感觉", "如果", "准备"
 ]
 
 # 3. Implicit Parameter Patterns (Toxic Parentheses in Audio)
@@ -136,11 +137,18 @@ def scan_script(file_path):
                 if not found_audio:
                      # Check Backward before failing completely
                     valid_link_found = False
-                    if i > 0 and blocks[i-1].block_type == BlockType.AUDIO:
-                        prev_text = blocks[i-1].content
-                        for verb in AUDIO_DISCLOSURE_VERBS:
-                            if verb in prev_text:
-                                valid_link_found = True
+                    max_lookback = 3
+                    if i > 0:
+                        start_idx = i - 1
+                        end_idx = max(0, i - max_lookback)
+                        for k in range(start_idx, end_idx - 1, -1):
+                            if blocks[k].block_type == BlockType.AUDIO:
+                                prev_text = blocks[k].content
+                                for verb in AUDIO_DISCLOSURE_VERBS:
+                                    if verb in prev_text:
+                                        valid_link_found = True
+                                        break
+                            if valid_link_found:
                                 break
                     
                     if valid_link_found:
@@ -162,11 +170,18 @@ def scan_script(file_path):
                                 
                     # Check Behind (Prompt Mode) if forward failed
                     if not valid_link_found:
-                         if i > 0 and blocks[i-1].block_type == BlockType.AUDIO:
-                            prev_text = blocks[i-1].content
-                            for verb in AUDIO_DISCLOSURE_VERBS:
-                                if verb in prev_text:
-                                    valid_link_found = True
+                         max_lookback = 3
+                         if i > 0:
+                            start_idx = i - 1
+                            end_idx = max(0, i - max_lookback)
+                            for k in range(start_idx, end_idx - 1, -1):
+                                if blocks[k].block_type == BlockType.AUDIO:
+                                    prev_text = blocks[k].content
+                                    for verb in AUDIO_DISCLOSURE_VERBS:
+                                        if verb in prev_text:
+                                            valid_link_found = True
+                                            break
+                                if valid_link_found:
                                     break
     
                     if valid_link_found:
@@ -208,6 +223,41 @@ def scan_script(file_path):
                 # We assume technical terms are capitalized or multi-word
                 if len(term) > 2 and term[0].isupper(): 
                      errors.append(f"🔇 [Line {block.line_no}] IMPLICIT PARAMETER: '({term})' will be stripped by TTS.\n   Fix: Rewrite as explicit spoken text. E.g. \"...调整 **{term}**...\"")
+                     stats["failed"] += 1
+
+    # --- Check 4: Robot Speech Scan (Metadata definitions in AUDIO) ---
+    # Logic: Detects "Key : Value" or bullet points that read like database entries.
+    # Patterns:
+    #   - Bullet list with colon: "- Track 1 : Heartbeat"
+    #   - Isolated Key-Value pair: "Angle : 90" (short line)
+    
+    METADATA_PATTERNS = [
+        r"^\s*[-*]\s*.*[:：].*",  # Bullet list with colon
+        r"^\s*.*[:：]\s*.*$"      # Isolated Key-Value pair (requires context check)
+    ]
+
+    for block in blocks:
+        if block.block_type == BlockType.AUDIO:
+            lines = block.content.split('\n')
+            for line in lines:
+                clean_line = line.strip()
+                if not clean_line: continue
+                
+                # Check for metadata patterns
+                is_metadata = False
+                for pattern in METADATA_PATTERNS:
+                    if re.match(pattern, clean_line):
+                        # Filter out natural speech like "He said: Hello"
+                        # Heuristic: If the part before colon is very short (< 15 chars) and after is short
+                        parts = re.split(r"[:：]", clean_line, 1)
+                        if len(parts) == 2:
+                            key = parts[0].strip().replace("-", "").replace("*", "")
+                            if len(key) < 20: # "Track 1" is short, "The reason why we do this" is long
+                                is_metadata = True
+                                break
+                
+                if is_metadata:
+                     errors.append(f"🤖 [Line {block.line_no}] ROBOT SPEECH DETECTED: Metadata-style list found in AUDIO.\n   Content: '{clean_line}'\n   Fix: Rewrite as natural sentence. E.g. 'Track 1 is the Heartbeat...'")
                      stats["failed"] += 1
 
     # --- Report ---

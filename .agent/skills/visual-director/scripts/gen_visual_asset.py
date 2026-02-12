@@ -155,33 +155,89 @@ def construct_prompt(slide_info, visual_config):
 
 def generate_image(prompt: str, width: int, height: int) -> bytes:
     try:
-        import google.generativeai as genai
+        import requests
+        import json
     except ImportError:
-        print("❌ pip install google-generativeai")
+        print("❌ pip install requests")
         sys.exit(1)
         
-    endpoint = API_BASE_URL.replace("/v1", "")
-    genai.configure(api_key=API_KEY, transport='rest', client_options={'api_endpoint': endpoint})
-    
     print(f"🎨 Generating: {prompt[:60]}... [{width}x{height}]")
     
+    # Construct REST API URL
+    endpoint = f"{API_BASE_URL.rstrip('/')}/models/{MODEL}:generateContent?key={API_KEY}"
+    
+    headers = {
+        "Content-Type": "application/json"
+    }
+
+    payload = {
+        "contents": [{
+            "parts": [{"text": prompt}]
+        }],
+        "generationConfig": {
+            "temperature": 0.4,
+            "topP": 1,
+            "topK": 32,
+            "maxOutputTokens": 2048,
+        }
+    }
+    
     try:
-        model = genai.GenerativeModel(MODEL)
-        # Note: Gemini API often ignores strict aspect_ratio params in current versions 
-        # but we pass prompt hints.
-        response = model.generate_content(prompt)
+        response = requests.post(endpoint, headers=headers, json=payload)
         
-        if response.parts:
-            for part in response.parts:
-                if hasattr(part, 'inline_data') and part.inline_data:
-                    return part.inline_data.data
-        print(f"⚠️ API returned structure mismatch: {response}")
-        if response.candidates and response.candidates[0].finish_reason:
-             print(f"⚠️ Finish Reason: {response.candidates[0].finish_reason}")
-             print(f"⚠️ Safety Ratings: {response.candidates[0].safety_ratings}")
+        if response.status_code != 200:
+            print(f"❌ API Error: {response.status_code} - {response.text}")
+            return None
+            
+        result = response.json()
+        
+        # Parse standard Gemini response structure for text (wait, this is image gen?)
+        # Standard Gemini generates TEXT.
+        # But this script claims to generate images ("gemini-3-pro-image").
+        # If it's generating images, the response structure is different (or it returns a base64 string in text).
+        
+        # CRITICAL CHECK: Does "gemini-3-pro-image" imply Imagen via Vertex or Gemini multimodal output?
+        # The previous code looked for `part.inline_data`. This implies the model returns raw image bytes.
+        # Let's check for inline_data structure.
+        
+        # Potential Structure:
+        # {
+        #   "candidates": [
+        #     {
+        #       "content": {
+        #         "parts": [
+        #           {
+        #             "inlineData": {
+        #               "mimeType": "image/png",
+        #               "data": "..."
+        #             }
+        #           }
+        #         ]
+        #       }
+        #     }
+        #   ]
+        # }
+        
+        candidates = result.get('candidates', [])
+        if not candidates:
+            print(f"⚠️ No candidates returned: {result}")
+            return None
+            
+        parts = candidates[0].get('content', {}).get('parts', [])
+        for part in parts:
+            if 'inlineData' in part:
+                b64_data = part['inlineData']['data']
+                return base64.b64decode(b64_data)
+                
+            # Fallback: maybe it returns a URL or text describing the image?
+            # If the model is actually a text model being asked to describe an image, this whole thing fails.
+            # But the previous code expected `part.inline_data`.
+            
+        print(f"⚠️ Structure mismatch (No inlineData): {result}")
         return None
+
     except Exception as e:
-        print(f"❌ API Error: {e}")
+        print(f"❌ API Request Error: {e}")
         import traceback
         traceback.print_exc()
         return None

@@ -45,35 +45,53 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 ---
 
-## S01_Intro
-*   **Type**: [Module Card]
-*   **Text**: 模块一：导入
-*   **Visual**: Title Card for Module 1.
+## S01_Cover
+*   **Type**: [Title Card]
+*   **Concept**: 觉醒 (Awakening)
+*   **Visual**: Dark mode abstract background. A faint, glowing ripple in the center of a deep black void, like a sound wave just beginning to propagate. No text.
+*   **AI_Prompt**: `abstract cinematic background, a single faint glowing cyan sound wave ripple in the center of deep black void, minimal, breathing light, 8k, dark mode, no text`
 
-## S02_Phase1_Purify
-*   **Type**: [Module Card]
-*   **Text**: 模块二：净化
-*   **Visual**: Title Card for Module 2.
+## S01_Concept_Alice_RabbitHole
+*   **Type**: [Concept Art]
+*   **Concept**: 坠落兔洞 (The Rabbit Hole)
+*   **Visual**: Surreal vertical perspective of Alice falling down an infinite dark rabbit hole.
+*   **AI_Prompt**: `Surreal vertical perspective of Alice falling down an infinite dark rabbit hole, warped space time, floating furniture and clocks, dark fantasy, magical realism, cinematic lighting, depth of field, 8k, minimal, dark mode style`
 
-## S03_Phase2_Sculpt
-*   **Type**: [Module Card]
-*   **Text**: 模块三：塑形
-*   **Visual**: Title Card for Module 3.
+## S01_Map_Four_Phases
+*   **Type**: [Diagram/Map]
+*   **Concept**: 四场战争 (The Four Wars)
+*   **Visual**: A 2x2 grid composite of the four phase covers (S02, S03, S04, S05).
+*   **Caption**: "The Battlefield Map."
 
-## S04_Phase3_Space
-*   **Type**: [Module Card]
-*   **Text**: 模块四：置景
-*   **Visual**: Title Card for Module 4.
+## S02_Cover
+*   **Type**: [Title Card]
+*   **Concept**: 驱逐 (Expulsion)
+*   **Visual**: Dark mode abstract background. A sharp, diagonal beam of light cutting through darkness, illuminating floating dust particles that are fading away. No text.
+*   **AI_Prompt**: `abstract cinematic background, a sharp diagonal beam of light cutting through deep darkness, illuminating fading dust particles, tyndall effect, minimal, high contrast, 8k, dark mode, no text`
 
-## S05_Phase4_Position
-*   **Type**: [Module Card]
-*   **Text**: 模块五：定位
-*   **Visual**: Title Card for Module 5.
+## S03_Cover
+*   **Type**: [Title Card]
+*   **Concept**: 塑形 (Sculpt)
+*   **Visual**: Dark mode abstract background. Liquid metal or dark glass flowing in curves, bottom-heavy composition, smooth and viscous. No text.
+*   **AI_Prompt**: `abstract cinematic background, flowing dark liquid metal or smooth dark glass, organic curves, viscous texture, bottom heavy composition, minimal, 8k, dark mode, no text`
 
-## S06_Summary
-*   **Type**: [Module Card]
-*   **Text**: 模块六：总结
-*   **Visual**: Title Card for Module 6.
+## S04_Cover
+*   **Type**: [Title Card]
+*   **Concept**: 深渊 (Abyss)
+*   **Visual**: Dark mode abstract background. A deep, symmetrical tunnel perspective fading into absolute black. 80ms of silence visualised. No text.
+*   **AI_Prompt**: `abstract cinematic background, deep infinite tunnel perspective, symmetrical, fading into absolute pitch black, atmospheric depth, minimal, 8k, dark mode, no text`
+
+## S05_Cover
+*   **Type**: [Title Card]
+*   **Concept**: 几何 (Geometry)
+*   **Visual**: Dark mode abstract background. Extremely fine, low-opacity vector grid lines forming a 3D space. Precision and order. No text.
+*   **AI_Prompt**: `abstract cinematic background, extremely fine low-opacity cyan vector grid lines forming 3d space, technical precision, blueprint aesthetic, minimal, 8k, dark mode, no text`
+
+## S06_Cover
+*   **Type**: [Title Card]
+*   **Concept**: 闭环 (Loop)
+*   **Visual**: Dark mode abstract background. A perfect, soft-focus ring of light (Bokeh) in the center. Completion. No text.
+*   **AI_Prompt**: `abstract cinematic background, a perfect soft-focus ring of white light in center, bokeh effect, zen circle, completion, minimal, 8k, dark mode, no text`
 
 ## S05_Ext_Consciousness_EQ_cap
 *   **Type**: [UI/Screenshot]
@@ -87,25 +105,13 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Sub**: 智慧课程《数字音频处理》第五章 (Part 2) | 主讲：林昕
 *   **Visual**: Audition Logo + Static Soundwave (No Animation).
 
-## S02_BadCase
-*   **Type**: [UI Graphic]
-*   **Text**: 常见的声音瑕疵
-*   **List**:
-    *   Hum (嗡嗡声) -> 6.6.7
-    *   Click (爆音) -> 6.6.5
-    *   **Hiss (宽频底噪) -> 6.6.2 (Today's Focus)**
-*   **Visual**: A waveform with red circles highlighting the "dirty" parts.
-    *   **Ref**: ![S02_Purify_75pct_NR](./assets/S02_Phase1_Purify/S02_AuditionPanel_70pct.png)
-
-
-## S02b_Toolbox_Flash
-*   **Type**: [UI Graphic]
-*   **Text**: 声音特效武器库 (Know-How)
-*   **List**:
-    *   Doppler Shifter (多普勒) -> 6.8.2: 模拟速度感
-    *   Guitar Suite (吉他包) -> 6.8.4: 模拟失真/过载
-    *   Center Channel Extractor (中置提取) -> 6.9.1: 消除/保留人声
-*   **Visual**: Grid of icons representing these tools.
+## S02_Voss_Clarke
+*   **Type**: [Stock/Reference]
+*   **Concept**: 1/f 噪音
+*   **Visual**: Pink Noise spectrum vs Bach Concerto spectrum.
+*   **Text**: "The 1/f Law: Nature's Heartbeat".
+*   **Graphic**: Correlation graph from Voss & Clarke (1975).
+*   **Search**: `Voss Clarke 1975 pink noise bach spectrum 1/f graph`
 
 ## S03_Concept_Source_Space_Ear (Core Model)
 *   **Type**: [Diagram]
@@ -116,23 +122,125 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 
 
-## S02_Ghost_Math (Metaphor)
-*   **Type**: [Concept Art]
-*   **Concept**: 修复的代价 (Musical Noise)
-*   **Visual**: 一个半透明的、充满噪点的幽灵鸟（Birdies/Artifacts）漂浮在纯黑的背景中。隐喻：过度降噪产生的“数字幽灵”。
-*   **Search**: `glitch ghost bird digital artifacts, transparent, pure black void background`
-*   **AI_Prompt**: `A translucent ghost bird made of digital noise artifacts and glitch patterns, floating in pure black void, the bird is semi-transparent with visible pixel distortions and audio waveform textures, ethereal and haunting atmosphere, glitch art style, 8K, soft glow lighting, centered composition`
-*   **Ref Image**: A semi-transparent "Ghost Bird" (Artifacts) floating in a void.
-*   **Caption**: "过度寻求纯净，会召唤出'数字幽灵' (Musical Noise)。"
-*   **Metaphor**: 那些被误删的声音灵魂。
+## S02_Boll_Spectral_Subtraction
+*   **Type**: [Diagram/Science]
+*   **Concept**: 谱减法原理
+*   **Visual**: Diagram from Steven Boll's "Suppression of Acoustic Noise in Speech Using Spectral Subtraction" (1979).
+*   **Text**: "Suppression of Acoustic Noise in Speech Using Spectral Subtraction"
+*   **Ref**: ![S02_Boll_Spectral_Subtraction](./assets/S02_Phase1_Purify/S02_Boll_Spectral_Subtraction_web.jpg)
 
-## S02_Demonstration (Action)
-*   **Type**: [UI Composite]
-*   **Concept**: 降噪参数组合拳 (The Combo)
-*   **Visual**: Split Screen Design.
-    *   **Left**: Audition Noise Reduction Panel (Highlight: 75% Reduction, 30dB).
-    *   **Right**: Dennis Gabor's Information Diagram (Hand-drawn style).
-*   **Caption**: "在 4096 个频率切片中，寻找信号与噪声的边界。"
+## S02_Ghost_Math (Theoretical)
+*   **Type**: [Diagram/Science]
+*   **Concept**: 加博尔原子 (Gabor Atom)
+*   **Visual**: A comparative grid diagram. Left side "STFT (Gabor)" shows a grid of uniform rectangles (Time-Frequency). Right side shows Wavelet analysis.
+*   **Ref**: ![S02_Ghost_Math_web](./assets/S02_Phase1_Purify/S02_Ghost_Math_web.png)
+*   **Caption**: "Gabor's Atoms: The pixelation of sound."
+*   **Metaphor**: 声音的像素，不能无限小。
+
+
+
+## S02_UI_NoisePrint_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 噪声采样
+*   **Visual**: Waveform view showing the selected noise print area.
+*   **Ref**: ![S02_UI_NoisePrint_cap](./assets/S02_Phase1_Purify/S02_UI_NoisePrint_cap.png)
+
+## S02_UI_NR_Panel_Basic_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 降噪基础设置
+*   **Visual**: Noise Reduction panel showing 75% Reduction and 50dB Reduce By.
+*   **Ref**: ![S02_UI_NR_Panel_Basic_cap](./assets/S02_Phase1_Purify/S02_UI_NR_Panel_Basic_cap.png)
+
+## S02_UI_NR_Panel_Advanced_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 降噪高级设置
+*   **Visual**: Noise Reduction panel showing Spectral Decay rate, Smoothing (4), Precision Factor (32), Transition Width (0dB).
+*   **Ref**: ![S02_UI_NR_Panel_Advanced_cap](./assets/S02_Phase1_Purify/S02_UI_NR_Panel_Advanced_cap.png)
+
+
+
+## S02_Concept_Noise_Fingerprint
+*   **Type**: [UI/Concept]
+*   **Concept**: 噪音指纹 (The Fingerprint)
+*   **Visual**: Close-up of Noise Reduction graph showing the yellow (Max) and red (Min) noise floor particles.
+*   **Ref**: ![S02_Concept_Noise_Fingerprint](./assets/S02_Phase1_Purify/S02_Concept_Noise_Fingerprint_cap.png)
+
+## S02_UI_Smoothing_Concept
+*   **Type**: [UI/Concept]
+*   **Concept**: 平滑度概念
+*   **Visual**: UI screenshot showing the Smoothing parameter.
+*   **Ref**: ![S02_UI_Smoothing_Concept](./assets/S02_Phase1_Purify/S02_UI_Smoothing_Concept_cap.png)
+
+## S02_UI_Smoothing_Set_4
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 设置平滑度为4
+*   **Visual**: UI screenshot showing "Smoothing" set to 4.
+*   **Ref**: ![S02_UI_Smoothing_Set_4](./assets/S02_Phase1_Purify/S02_UI_Smoothing_Set_4_cap.png)
+
+## S02_UI_Curve_Shape_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 降噪曲线形态
+*   **Visual**: Noise Reduction Curve showing the "Low Frequency Protection" slope (0Hz/-43dB, 3.3k/-9dB, 24k/0dB).
+*   **Ref**: ![S02_UI_Curve_Shape_cap](./assets/S02_Phase1_Purify/S02_UI_Curve_Shape_cap.png)
+
+## S02_Visual_Apply_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 验证与应用
+*   **Visual**: Verification step before applying noise reduction.
+*   **Ref**: ![S02_Visual_Apply_cap](./assets/S02_Phase1_Purify/S02_Visual_Apply_cap.png)
+
+## S02_UI_SelectAll_EnterNR_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 全选进入降噪
+*   **Visual**: Waveform selected (Ctrl+A) and menu path to Noise Reduction.
+*   **Ref**: ![S02_UI_SelectAll_EnterNR_cap](./assets/S02_Phase1_Purify/S02_UI_SelectAll_EnterNR_cap.png)
+
+## S02_UI_Dust_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 现实的尘埃
+*   **Visual**: Zoomed in waveform showing the dirty noise floor.
+*   **Ref**: ![S02_UI_Dust_cap](./assets/S02_Phase1_Purify/S02_UI_Dust_cap.png)
+
+
+## S02_Preview_NoiseOnly
+*   **Type**: [Video]
+*   **Concept**: 原始带噪心跳预览
+*   **Visual**: Screen recording of playing the dirty heartbeat audio.
+*   **MediaStart**: 0
+*   **Ref**: ![S02_Preview_NoiseOnly](./assets/S02_Phase1_Purify/S02_Preview_NoiseOnly_rec.mp4)
+
+## S02_Demo_OutputNoiseOnly
+*   **Type**: [Video]
+*   **Concept**: 仅输出噪音功能演示
+*   **Visual**: Screen recording of "Output Noise Only" check.
+*   **MediaStart**: 0
+*   **Ref**: ![S02_Demo_OutputNoiseOnly](./assets/S02_Phase1_Purify/S02_Demo_OutputNoiseOnly_rec.mp4)
+
+## S02_Demo_OutputNoiseOnlyUncheck_cap
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 取消勾选仅输出噪音
+*   **Visual**: 降噪面板特写，取消勾选 "Output Noise Only" (仅输出噪音)。
+*   **Ref**: ![S02_Demo_OutputNoiseOnlyUncheck_cap](./assets/S02_Phase1_Purify/S02_Demo_OutputNoiseOnlyUncheck_cap.png)
+
+## S02_Preview_Final
+*   **Type**: [Video]
+*   **Concept**: 最终效果预览
+*   **Visual**: Screen recording of final noise reduction result.
+*   **MediaStart**: 0
+*   **Ref**: ![S02_Preview_Final](./assets/S02_Phase1_Purify/S02_Preview_Final_rec.mp4)
+
+
+
+
+
+
+## S02_Anechoic_Chamber
+*   **Type**: [Photo/Science]
+*   **Concept**: 不存在的无 (John Cage)
+*   **Visual**: John Cage or a person sitting in a modern Anechoic Chamber (with foam wedges).
+*   **Caption**: "The impossible silence: Hearing your own nervous system."
+*   **Search**: `Anechoic chamber interior foam wedges John Cage photo`
+*   **Ref**: ![S02_Anechoic_Chamber](./assets/S02_Phase1_Purify/S02_Anechoic_Chamber_web.png)
 
 ## S03_Visual_Alice_Drink (Metaphor)
 *   **Type**: [Concept Art]
@@ -143,11 +251,13 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Ref Image**: *Alice in Wonderland* (1951 or 2010), Alice drinking the potion / Giant Alice.
 *   **Caption**: "通过变调 (Pitch)，我们改变的不是声音，是角色的物理形态。"
 
-## S02_Ugly_Duckling
-*   **Type**: [Metaphor]
-*   **Concept**: 声音的尸体
-*   **Visual**: Tiny waveform in a vast black void.
-*   **Caption**: "The Ugly Duckling: High-pitched, No Body, Nervous."
+## S03_Preview_Ugly_Duckling
+*   **Type**: [Video]
+*   **Concept**: 原声试听
+*   **Visual**: Screen recording of `demo_S03_ugly_duckling.wav` playing in Audition.
+*   **MediaStart**: 0
+*   **MediaEnd**: 3.7
+*   **Ref**: ![S03_Preview_Ugly_Duckling](./assets/S03_Phase2_Sculpt/S03_Preview_Ugly_Duckling_rec.mp4)
 
 ## S03_Tape_Machine
 *   **Type**: [Animation]
@@ -163,21 +273,75 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 ## S03_Chipmunk
 *   **Type**: [Photo/Historical]
-*   **Concept**: 花栗鼠效应
+*   **Concept**: 廉价的笑话 (The Cheap Joke)
 *   **Visual**: Photo of Ross Bagdasarian (1958) with Alvin and the Chipmunks.
-*   **Caption**: "Warning: The Chipmunk Trap."
+*   **Caption**: "High Pitch = Low Dignity."
 
-## S03_Cello_Body
+## S03_Spring_Restoration
 *   **Type**: [Diagram]
-*   **Concept**: 共振峰 (Formant)
-*   **Visual**: Split image. Left: Vocal Folds (Strings). Right: Cello Body (Vocal Tract).
-*   **Highlight**: The "Body" remains constant while "Strings" stretch.
+*   **Concept**: 物理还原 (The Spring)
+*   **Visual**: A compressed metal spring (labeled "High Pitch") being pulled by invisible hands to its full, relaxed length (labeled "Restored").
+*   **AI_Prompt**: `minimalist geometric diagram, a compressed metal spring on left labeled High Pitch, the same spring stretched to relaxation on right labeled Restored, invisible hands pulling it, physics schematic, bauhaus style, white lines on black background, 8k`
+*   **Caption**: "Unchecking 'Preserve' = Restoring the Spring."
+*   **Metaphor**: 并不是把她变大，而是让被压缩的她，弹回原状。
 
-## S03_Deep_Listening
-*   **Type**: [Text/Minimalist]
-*   **Concept**: 深听时刻
-*   **Visual**: Pure Black Screen.
-*   **Text**: Body vs Soul.
+## S03_Visual_Cake
+*   **Type**: [Concept Art]
+*   **Concept**: 吃下蛋糕 (The Antidote)
+*   **Visual**: A macro shot of a beautiful, glowing cake with the words "EAT ME" written in icing. The cake texture looks dense and heavy (physical weight). Dark fantasy style.
+*   **AI_Prompt**: `macro shot of a glowing magical cake with EAT ME icing, dark fantasy style, alice in wonderland, dense heavy texture, cinematic lighting, 8k`
+*   **Caption**: "A recipe for restoring gravity."
+
+## S03_Viscosity
+*   **Type**: [Concept Art]
+*   **Concept**: 时间的粘稠度
+*   **Visual**: Honey or golden syrup dripping slowly in a void. A clock melting into liquid gold.
+*   **AI_Prompt**: `surreal melting clock dripping like golden honey, viscosity of time, dali style, dark void background, high contrast, 8k`
+*   **Caption**: "145%: Breathing in the syrup."
+
+## S03_UI_Trap_Pitch
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 陷阱 (Wrong Pitch)
+*   **Visual**: Audition `Time and Pitch` panel. Pitch Shift set to +3 semitones.
+*   **Caption**: "The Chipmunk Trap."
+*   **Ref**: ![S03_UI_Trap_Pitch](./assets/S03_Phase2_Sculpt/S03_UI_Trap_Pitch_cap.png)
+
+## S03_UI_Unlock_Stretch
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 解锁比例
+*   **Visual**: `Time and Pitch` panel. Mouse hovering over/unchecking the "Lock" icon.
+*   **Caption**: "Unlocking Time from Space."
+*   **Ref**: ![S03_UI_Unlock_Stretch](./assets/S03_Phase2_Sculpt/S03_UI_Unlock_Stretch_cap.png)
+
+## S03_UI_Time_Stretch
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 粘稠度设定
+*   **Visual**: `Time and Pitch` panel. Stretch % input set to 145%.
+*   **Caption**: "145% Viscosity."
+*   **Ref**: ![S03_UI_Time_Stretch](./assets/S03_Phase2_Sculpt/S03_UI_Time_Stretch_cap.png)
+
+## S03_UI_Pitch_Restoration
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 物理还原
+*   **Visual**: `Time and Pitch` panel. Pitch Shift set to -5.29 semitones.
+*   **Caption**: "Gravity: -5.29 Semitones."
+*   **Ref**: ![S03_UI_Pitch_Restoration](./assets/S03_Phase2_Sculpt/S03_UI_Pitch_Restoration_cap.png)
+
+## S03_UI_Uncheck_Preserve
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 放弃伪装
+*   **Visual**: `Time and Pitch` panel. "Preserve Speech Characteristics" UNCHECKED.
+*   **Caption**: "Letting the Formants Drop."
+*   **Ref**: ![S03_UI_Uncheck_Preserve](./assets/S03_Phase2_Sculpt/S03_UI_Uncheck_Preserve_cap.png)
+
+
+## S03_Preview_Final_Sculpt
+*   **Type**: [Video]
+*   **Concept**: 最终试听
+*   **Visual**: Screen recording of `asset_S03_alice_sculpted.wav` playing. The waveform is longer and denser.
+*   **MediaStart**: 0
+*   **MediaEnd**: 5.4
+*   **Ref**: ![S03_Preview_Final_Sculpt](./assets/S03_Phase2_Sculpt/S03_Preview_Final_Sculpt_rec.mp4)
 
 ## S04_Visual_RabbitHole (Metaphor)
 *   **Type**: [Concept Art]
@@ -246,6 +410,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
     5.  **2D Plane (5%)**
     6.  **3D Space (4%)**
 *   **Highlight**: "Emotion" is the biggest block.
+*   **Ref**: ![S06_Murch_Rule_of_Six_ai](./assets/S06_Summary/S06_Murch_Rule_of_Six_ai.png)
 
 ## S06_Homework
 *   **Type**: [Task Card]
@@ -255,7 +420,7 @@ glitch art style, 8K, cinematic lighting, centered composition"
 
 ---
 
-## S02_Voss_Clarke
+
 *   **Type**: [Diagram/Historical]
 *   **Concept**: 1/f 噪音
 *   **Visual**: Pink Noise spectrum vs Bach Concerto spectrum.
@@ -313,9 +478,11 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Caption**: "Synthetic Loneliness: Making it rain psychologically."
 *   **Search**: `Blade Runner 1982 city rain neon cinematography wide shot`
 
+
 ## S04_Anechoic_Chamber
 *   **Type**: [Photo/Science]
 *   **Concept**: 不存在的无 (John Cage)
+*   **Title**: 约翰·凯奇的消声室
 *   **Visual**: John Cage or a person sitting in a modern Anechoic Chamber (with foam wedges).
 *   **Caption**: "The impossible silence: Hearing your own nervous system."
 *   **Search**: `Anechoic chamber interior foam wedges John Cage photo`
@@ -335,6 +502,12 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **AI_Prompt**: `A tiny Alice floating in the center of a massive dark industrial oil tank interior, rusty metal curved walls, deep water reflection, eerie, solitary, wide angle, cinematic lighting, volumetric fog, blue and black tones, 8k`
 *   **Caption**: "All knobs serve the 80ms of terror."
 
+
+## S04_UI_RoomSize
+*   **Type**: [UI/Screenshot]
+*   **Concept**: 房间尺寸
+*   **Visual**: Convolution Reverb Room Size parameter set to 100%.
+*   **Ref**: ![S04_UI_RoomSize_cap](./assets/S04_Phase3_Space/S04_UI_RoomSize_cap.png)
 
 ## S04_UI_PreDelay_80ms
 *   **Type**: [UI/Screenshot]
@@ -465,6 +638,25 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: IR素材导入
 *   **Visual**: Project Panel showing alice_dry, closet, hall, and void files.
 *   **Ref**: ![S04_UI_Three_IRs_cap](./assets/S04_Phase3_Space/S04_UI_Three_IRs_cap.png)
+## S04_Concept_Dry_Wet
+*   **Type**: [Concept Art]
+*   **Concept**: 干湿对比
+*   **Visual**: Split comparison. Dry is a hard, sharp stone. Wet is the same stone dissolving into ink in water.
+*   **AI_Prompt**: `split screen comparison, left side is a sharp geometric stone object in void, right side is the same stone dissolving into black ink in water, physics of sound, dry vs wet signal, artistic metaphor, high contrast, 8k`
+*   **Caption**: "Dry is the Object. Wet is the Shadow."
+
+## S04_Damping_Curve
+*   **Type**: [Diagram]
+*   **Concept**: 阻尼曲线
+*   **Visual**: A graph showing high frequencies decaying faster than low frequencies over time.
+*   **Caption**: "High frequencies die first."
+
+## S04_Phase_Warning
+*   **Type**: [Warning Card]
+*   **Concept**: 相位抵消
+*   **Visual**: A red warning sign with a "Mono" icon crossed out, or two waves cancelling each other out (flat line).
+*   **Caption**: "Warning: Phase Cancellation in Mono."
+
 
 ## S05_Blumlein_Walking
 
@@ -634,21 +826,10 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Ref**: ![S05_Needle_Pan_Random_cap](./assets/S05_Phase4_Position/S05_Needle_Pan_Random_cap.png)
 
 
-## S05_Jungian_Shadow
-*   **Type**: [Extension]
-*   **Concept**: 荣格阴影
-*   **Visual**: A silhouette of a person casting a shadow that is a different monster/shape.
-*   **Text**: "The Shadow: The rejected self."
-*   **Ref**: ![S05_Jungian_Shadow](./assets/S05_Phase4_Position/Extension/S05_Jungian_Shadow_ai.png)
 
 
 
 
-## S05_Ext_Shadow_Panner_cap
-*   **Type**: [UI/Screenshot]
-*   **Concept**: 阴影的位置 (Behind Head)
-*   **Visual**: Pan Angle -179, Radius 17.
-*   **Ref**: ![S05_Ext_Shadow_Panner_cap](./assets/S05_Phase4_Position/Extension/S05_Ext_Shadow_Panner_cap.png)
 
 ## S05_EQ_Automation_Setup_cap
 *   **Type**: [UI/Screenshot]
@@ -747,11 +928,6 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Parametric EQ settings for The Void bus.
 *   **Ref**: ![S05_Void_EQ_Settings](./assets/S05_Phase4_Position/S05_Void_EQ_Settings_cap.png)
 
-## S05_Void_Expander_Location
-*   **Type**: [Extension]
-*   **Concept**: Expander 效果器位置
-*   **Visual**: Rack menu showing Stereo Imaging > Stereo Expander.
-*   **Ref**: ![S05_Void_Expander_Location](./assets/S05_Phase4_Position/S05_Void_Expander_Location_cap.png)
 
 ## S05_Void_Expander_Settings
 *   **Type**: [UI/Screenshot]
@@ -784,11 +960,6 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Visual**: Track Panner: Radius 0, Stereo Spread 30 degrees.
 *   **Ref**: ![S05_Heart_Panner_Settings_cap](./assets/S05_Phase4_Position/S05_Heart_Panner_Settings_cap.png)
 
-## S05_Ext_Shadow_Panner_cap
-*   **Type**: [Extension/Screenshot]
-*   **Concept**: 脑后低语 (Behind Head)
-*   **Visual**: Track Panner: Angle -179, Radius 17 (Very Close).
-*   **Ref**: ![S05_Ext_Shadow_Panner_cap](./assets/S05_Phase4_Position/S05_Ext_Shadow_Panner_cap.png)
 ## S05_Setup_HardLimiter
 *   **Type**: [UI/Screenshot]
 *   **Concept**: 物理保险 (Hard Limiter)
@@ -941,3 +1112,9 @@ glitch art style, 8K, cinematic lighting, centered composition"
 *   **Concept**: 演示：动态坠落
 *   **Visual**: Drawing splatter curves and automation, showing "The Descent".
 *   **Ref**: ![S04_Demo_Final_Dynamic](./assets/S04_Phase3_Space/S04_Demo_Final_Dynamic_rec.mp4)
+
+## S05_Preview_Geometry_Final
+*   **Type**: [Video]
+*   **Concept**: 几何坍塌最终试听
+*   **Visual**: Screen recording of the final mix playing, showing the "Void" bus meters and the "Stereo Expander" effect.
+*   **Ref**: ![S05_Preview_Geometry_Final](./assets/S05_Phase4_Position/S05_Preview_Geometry_Final.mp4)

@@ -24,6 +24,23 @@ description: 启动 Auditor Agent 审查脚本质量 (逻辑完整性 + 教学�
     python .agent/skills/validation-suite/scripts/validate_anchors.py [Target_File_Path]
     ```
 
+2.5 **Visual Repair Gate (可选)**
+    如果 `validate_links.py` 报告 **Orphan References** (脚本引用了数据库中不存在的 Slide ID)，且类型为 `[Concept Art]` 或 `[Diagram]`：
+    *   **≤ 3 个缺失**: Agent 可直接修复。
+        1.  在 `Slide_Database.md` 中补全定义 (含 `AI_Prompt`)。
+        2.  运行 `python .agent/skills/visual-director/scripts/gen_visual_asset.py [Slide_ID]` 生成资产。
+    *   **> 3 个缺失**: 使用 `notify_user` 通知用户确认后再执行批量生成。
+    *   **黑名单**: 类型为 `[UI/Screenshot]`, `[Live Demo]`, `[Photo/*]` 的 Slide **严禁自动生成**。
+
+
+2.8 **PPT Specification Check**
+    // turbo
+    运行以下命令，确保所有 Slide 引用符合 PPT 生产规范 (Source of Truth Check)：
+    ```bash
+    python .agent/skills/validation-suite/scripts/validate_ppt_spec.py [Target_File_Path]
+    ```
+
+
 3.  **运行 INI 逻辑校验器 (The Linter)**
     // turbo
     运行以下命令，检查所有的 Visual/Audio 动作是否对齐：
@@ -58,7 +75,8 @@ description: 启动 Auditor Agent 审查脚本质量 (逻辑完整性 + 教学�
     *   **基于 Rubric**: 评估是否符合 "Director's Voice" 和 "Deep Listening"。
     *   **视觉时序检查 (Visual Sync Check)**: 
         *   [CRITICAL] 检查所有 `> [VISUAL]` / `> [Ref]` 是否在所对应的正文**之前**出现。这是默认原则（先环境后旁白）。
-        *   **EXCEPTION**: 对于 **交互式动作 (Interactive Actions)** (e.g. "大家请听...", "请点击..."), 允许 Audio Prompt 出现在 Visual Action 之前，以符合 "先提示后执行" 的自然逻辑。
+        *   **EXCEPTION**: 对于 **交互式动作 (Interactive Actions)** (e.g. "大家请听...", "请点击..."), 允许 Audio Prompt 出现在 Visual Action 之前。
+        *   **[CRITICAL] IAA 完整性检查**: 如果是 Interactive Action，必须检查 Action 之后是否有 **Analysis (Audio)**。严禁 Action 结尾 (Ghost Anchor)。
         *   **原理**: 静态Slide需预加载 (Visual First)；动态操作需语音引导 (Audio First)。
     *   **指示代词扫描 (Deictic Scan)**:
         *   检查所有 "这/这里/那/那个" (This/That/Here)。

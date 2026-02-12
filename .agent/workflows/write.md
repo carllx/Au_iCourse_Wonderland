@@ -41,6 +41,21 @@ description: 启动 Writer Agent 为指定章节撰写逐字稿 (使用 INI 框�
     *   **EXCEPTION (交互例外)**: 对于 **动态演示 (Interactive Actions)** (e.g. 播放视频、点击按钮)，允许 Audio Prompt (提示语) 出现在 Visual Action 之前。
         *   ✅ **Pass**: "大家请听... (Audio) -> [ACT: Play_Video] (Visual)"。这符合 "先提示后执行" 的自然逻辑。
 
+    **Step 2.7: The IAA Protocol (演示三明治)**
+    *   **强制执行**: 所有 Interactive Action 必须遵守 **Intro -> Action -> Analysis** 结构。
+    *   **Ghost Anchor**: 严禁 Action 后面不跟任何文字。Action 之后必须紧跟一句 "Analysis" (e.g. "听到了吗？")，否则 `validate_anchors.py` 会报错。❗❗❗
+
+    **Step 2.8: Spec-First Hook (自动定义)**
+    *   **触发**: 如果写作过程中新增了 `[SLIDE: SXX_NewID]` 引用。
+    *   **行为**: 检查 `Slide_Database.md` 中是否存在 `SXX_NewID`。如果不存在，立即创建一个 **最小化 Stub**：
+        ```markdown
+        ## SXX_NewID
+        *   **Type**: [Concept Art] <!-- 根据上下文推断 -->
+        *   **Concept**: [关键词]
+        *   **Visual**: [从脚本上下文提炼的简述]
+        ```
+    *   **禁止**: 在 Writer 模式下调用 `gen_visual_asset.py`。仅定义，不生产（留给 Greybox 或后续 `/audit` 时自动生成）。
+
     *   **检查**: 在输出最后，附上一个简单的 "Self-Verification Checklist"，确认所有 Visual Action 都已在 Audio 中体现。
 
 3.  **Automated Verification Gate (自动化校验门禁)**

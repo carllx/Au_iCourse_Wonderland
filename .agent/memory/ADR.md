@@ -226,3 +226,25 @@
     *   (+) **确定性渲染**: 彻底消除 H5 预览中的资产覆盖歧义。
     *   (+) **一致性校验**: `validate_links.py` 现在可以根据精确匹配进行语法检查。
     *   (-) 需要对旧有的“模糊命名”进行回溯性更名。
+
+---
+
+## ADR-014: 演示流交互协议 (IAA Protocol - The Sandwich)
+*   **状态**: Accepted (2026-02-06)
+*   **来源**: S04 脚本校验冲突 (Ghost Anchor vs Intro-First)
+*   **背景**: 
+    *   `validate_anchors.py` (系统层) 要求 Visual Action 后必须紧跟文本，否则视为 Phantom/Ghost Anchor。
+    *   `rule_script_standards.md` (教学层) 要求必须先“提示”再“播放”视频 (Intro-First)，否则学生反应不过来。
+    *   这两个要求导致了频繁的“修东墙补西墙”式的反复修改。
+*   **决策**: 
+    1.  **采用 IAA 三明治结构**:
+        *   **I (Intro)**: 音频提示 (Audio Before Visual) —— 解决教学体验。
+        *   **A (Action)**: 视觉动作 (Visual/Video) —— 解决操作演示。
+        *   **A (Analysis)**: 听后反馈 (Audio After Visual) —— 解决系统锚点校验。
+    2.  **强制性 Analysis**: 任何视听演示 (Video Demo)，**必须**以一句“听到了吗？”或“注意到了吗？”作为收尾。这句反馈既是教学闭环，也是系统的技术锚点。
+    *   **Ghost Anchor 的真正定义**: Action 后面没有 Analysis。
+*   **后果**: 
+    *   (+) **双赢**: 既满足了 Intro-First 的自然体验，也满足了 Anchor-Last 的校验逻辑。
+    *   (+) **结构化**: 强迫 Writer 思考演示后的反馈，避免播放完视频就冷场。
+    *   (-) 脚本长度略微增加，Writer 必须多写一句反馈。
+

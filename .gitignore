@@ -24,6 +24,25 @@ dist/
 # Adobe Backups
 Backup/
 
+# Node.js & Modules (Recursive)
+node_modules/
+**/node_modules/
+dist/
+.npm/
+
+# Generated Delivery Assets & Reports
+04_Delivery/ppt_output/
+04_Delivery/docx_exports/
+03_Scripts/tts/docx_exports/
+03_Scripts/reports/
+01_MVP_Demo/_Media/proxies/
+validation_output.txt
+test_video.pptx
+
+# Compressed Packages & Sheets
+*.zip
+*.xlsx
+
 # Private Configuration (API Keys)
 .env
 .env.local

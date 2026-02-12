@@ -106,3 +106,29 @@ description: Enforces narrative consistency and "Director's Intent" in all gener
     *   `> [PACING]`: 节奏控制 (Silence, Pause, Faster)。
     *   `> [REF]`: 资源索引 (Slide ID)。
 
+## 7. 语言与韵律标准 (Linguistic & Prosodic Standards)
+
+### 7.1 拒绝翻译腔 (Anti-Translationese) - [The Bamboo Check]
+*   **竹节结构 (Bamboo Structure)**: 严禁使用嵌套长句。超过 20 字的句子必须按时间/逻辑顺序切断。
+*   **话题优先 (Topic-Comment)**: 优先使用“话题+评论”结构，而非“主谓宾”结构。
+    *   ✅ `要想做好这一点 (Topic)，全靠 Audition (Comment)。`
+*   **禁忌词**: 
+    *   ❌ `作为...`, `对于...`, `关于...` (虚词堆砌)。
+    *   ❌ `...的...的...` (超过2层的定语堆叠)。
+    *   ❌ `进行+动词` (名词化中毒)。
+    *   ❌ `是...之一` (英文 One of 遗毒)。
+
+### 7.2 韵律句法 (Prosodic Grammar) - [The Rhythm Check]
+*   **标准音步 (Standard Foot)**: 旁白应遵循冯胜利教授的“韵律语法”，构建 `[2+1]` 或 `[2+2]` 的稳定音步。
+    *   ❌ 忌: `1+1+1` (e.g., `切-掉-它`) -> ✅ 宜: `2+1` (e.g., `切除-它`)。
+*   **四字格 (Quadra-syllabic Phrases)**: 在强调技术概念或情感色彩时，优先使用四字短语。
+    *   e.g., `痛下狠手`, `浑浊不清`, `深不见底`。
+*   **呼吸测试 (Gasp Test)**: 任何意群必须能在 4-5 秒内读完，否则必须加标点。
+
+### 7.3 语义物理锚定 (Physics Anchor) - [The Semantics Check]
+*   **范畴一致性 (Category Consistency)**: 抽象形容词/名词**不得**直接修饰物理单位。
+    *   ❌ `下了50dB的重手` (Manner + Quantity = Mismatch)
+    *   ✅ `痛下狠手，切掉了50dB` (Manner // Action + Quantity)
+*   **名词动化 (Verbalization)**:
+    *   ❌ `对噪音进行消除` -> ✅ `消除噪音`。
+
